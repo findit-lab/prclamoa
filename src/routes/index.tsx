@@ -237,9 +237,9 @@ function Index() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-20 reveal-group">
                 {[
-                  ["METHOD", "Curated chaos. We build influence through showroom access, stylist coordination, and strategic seeding."],
-                  ["VISION", "Fashion PR should feel cultural, not mechanical. Every placement must carry intent."],
-                  ["RESULT", "High-fashion visibility with measurable brand exposure, creator content, and commercial impact."],
+                  ["METHOD", "큐레이션된 카오스. 쇼룸 액세스, 스타일리스트 코디네이션, 전략적 시딩으로 영향력을 만들어냅니다."],
+                  ["VISION", "패션 PR은 기계적이지 않고 문화적이어야 합니다. 모든 플레이스먼트에는 의도가 담겨야 합니다."],
+                  ["RESULT", "측정 가능한 브랜드 노출, 크리에이터 콘텐츠, 그리고 상업적 임팩트를 갖춘 하이패션 가시성."],
                 ].map(([h, b]) => (
                   <div key={h} className="border-l border-white/30 pl-6 hover:border-neon-signal transition-colors duration-300">
                     <span className="text-neon-signal text-label-caps block mb-4">{h}</span>
