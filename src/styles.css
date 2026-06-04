@@ -1,157 +1,96 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Bodoni+Moda:ital,wght@0,400;0,700;0,900;1,400&family=Archivo:wght@400;500;700;800;900&family=Noto+Sans+KR:wght@300;400;500;700&family=Material+Symbols+Outlined&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Material+Symbols+Outlined&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-ink: #0a0a0a;
-  --color-ink-soft: #1c1c1c;
-  --color-paper: #f6f3ee;
-  --color-paper-warm: #efeae0;
-  --color-beige: #d9cfbf;
-  --color-beige-deep: #b8a98f;
-  --color-warm-gray: #8a847a;
-  --color-line: #e6e0d4;
-  --color-accent: #c2410c;
+  --color-deep-ink: #1a1c1c;
+  --color-surface: #fbfaed;
+  --color-surface-low: #f5f4e8;
+  --color-neon-signal: #d9ff00;
+  --color-secondary: #5f5e5e;
+  --color-inverse-on-surface: #f2f1e5;
 
-  --font-display: "Bodoni Moda", serif;
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Inter", "Noto Sans KR", sans-serif;
-  --font-mono: "Archivo", sans-serif;
+  --font-serif: "Noto Serif", serif;
+  --font-sans: "Inter", sans-serif;
 }
 
 :root {
-  --background: #f6f3ee;
-  --foreground: #0a0a0a;
-  --border: #0a0a0a;
+  --background: #f9f9f9;
+  --foreground: #1a1c1c;
+  --border: #1a1c1c;
 }
 
 @layer base {
+  * { border-color: #1a1c1c; }
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: "Inter", "Noto Sans KR", sans-serif;
-    font-weight: 400;
+    font-family: "Inter", sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  ::selection { background: #0a0a0a; color: #f6f3ee; }
+  ::selection { background: #d9ff00; color: #1a1c1c; }
   .material-symbols-outlined {
     font-family: "Material Symbols Outlined";
     font-weight: normal;
     font-style: normal;
+    font-size: 24px;
     line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
     display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
     -webkit-font-feature-settings: "liga";
     -webkit-font-smoothing: antialiased;
   }
 }
 
 @layer utilities {
-  .font-display { font-family: "Bodoni Moda", serif; }
-  .font-serif { font-family: "Playfair Display", serif; }
-  .font-sans { font-family: "Inter", "Noto Sans KR", sans-serif; }
-  .font-mono-display { font-family: "Archivo", sans-serif; }
-  .font-kr { font-family: "Noto Sans KR", "Inter", sans-serif; }
-
-  .text-display-xxl {
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(64px, 12vw, 200px);
-    line-height: 0.92;
-    letter-spacing: -0.04em;
-    font-weight: 400;
-  }
+  .font-serif { font-family: "Noto Serif", serif; }
+  .font-sans { font-family: "Inter", sans-serif; }
   .text-display-xl {
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(48px, 8vw, 120px);
-    line-height: 0.95;
-    letter-spacing: -0.035em;
-    font-weight: 400;
-  }
-  .text-display-lg {
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(40px, 6vw, 84px);
+    font-family: "Noto Serif", serif;
+    font-size: clamp(56px, 9vw, 120px);
     line-height: 1;
-    letter-spacing: -0.03em;
-    font-weight: 400;
+    letter-spacing: -0.04em;
+    font-weight: 700;
   }
   .text-headline-lg {
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(32px, 4.5vw, 56px);
-    line-height: 1.05;
+    font-family: "Noto Serif", serif;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.1;
     letter-spacing: -0.02em;
     font-weight: 400;
   }
   .text-headline-md {
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(24px, 3vw, 36px);
-    line-height: 1.15;
-    letter-spacing: -0.015em;
+    font-family: "Noto Serif", serif;
+    font-size: 32px;
+    line-height: 1.25;
     font-weight: 400;
   }
-  .text-eyebrow {
-    font-family: "Archivo", sans-serif;
-    font-size: 11px;
-    line-height: 1;
-    letter-spacing: 0.25em;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-  .text-mono-sm {
-    font-family: "Archivo", sans-serif;
+  .text-body-lg { font-size: 18px; line-height: 28px; }
+  .text-body-md { font-size: 16px; line-height: 24px; }
+  .text-label-caps {
     font-size: 12px;
+    line-height: 16px;
     letter-spacing: 0.15em;
-    font-weight: 500;
+    font-weight: 700;
     text-transform: uppercase;
   }
-  .text-body-lg {
-    font-family: "Inter", "Noto Sans KR", sans-serif;
-    font-size: 17px;
-    line-height: 1.7;
-    font-weight: 400;
-  }
-  .text-body-md {
-    font-family: "Inter", "Noto Sans KR", sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    font-weight: 400;
-  }
-  .text-body-sm {
-    font-family: "Inter", "Noto Sans KR", sans-serif;
-    font-size: 13px;
-    line-height: 1.6;
-    font-weight: 400;
-  }
 }
 
-.reveal { opacity: 0; transform: translateY(40px); transition: opacity 1.2s cubic-bezier(0.215,0.61,0.355,1), transform 1.2s cubic-bezier(0.215,0.61,0.355,1); }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 1.2s cubic-bezier(0.215,0.61,0.355,1), transform 1.2s cubic-bezier(0.215,0.61,0.355,1); }
 .reveal.active { opacity: 1; transform: translateY(0); }
-.reveal-group > * { opacity: 0; transform: translateY(24px); transition: opacity .9s cubic-bezier(0.215,0.61,0.355,1), transform .9s cubic-bezier(0.215,0.61,0.355,1); }
-.reveal-group.active > *:nth-child(1) { transition-delay: 80ms; opacity: 1; transform: translateY(0); }
-.reveal-group.active > *:nth-child(2) { transition-delay: 200ms; opacity: 1; transform: translateY(0); }
-.reveal-group.active > *:nth-child(3) { transition-delay: 320ms; opacity: 1; transform: translateY(0); }
-.reveal-group.active > *:nth-child(4) { transition-delay: 440ms; opacity: 1; transform: translateY(0); }
-.reveal-group.active > *:nth-child(5) { transition-delay: 560ms; opacity: 1; transform: translateY(0); }
-.reveal-group.active > *:nth-child(6) { transition-delay: 680ms; opacity: 1; transform: translateY(0); }
-
-.hover-img img { transition: transform 1.6s cubic-bezier(0.215,0.61,0.355,1), filter 1.2s ease; }
-.hover-img:hover img { transform: scale(1.06); }
-
-.marquee-track { animation: marquee 40s linear infinite; }
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.link-underline {
-  background-image: linear-gradient(currentColor, currentColor);
-  background-size: 0% 1px;
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  transition: background-size .5s cubic-bezier(0.215,0.61,0.355,1);
-}
-.link-underline:hover { background-size: 100% 1px; }
+.reveal-group > * { opacity: 0; transform: translateY(20px); transition: opacity .8s cubic-bezier(0.215,0.61,0.355,1), transform .8s cubic-bezier(0.215,0.61,0.355,1); }
+.reveal-group.active > *:nth-child(1) { transition-delay: 100ms; opacity: 1; transform: translateY(0); }
+.reveal-group.active > *:nth-child(2) { transition-delay: 250ms; opacity: 1; transform: translateY(0); }
+.reveal-group.active > *:nth-child(3) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
+.hover-lift { transition: transform .4s cubic-bezier(0.165,0.84,0.44,1); }
+.hover-lift:hover { transform: translateY(-8px); }
