@@ -174,10 +174,10 @@ function Index() {
               </h1>
               <div className="max-w-xl space-y-6">
                 <p className="text-body-lg border-l-4 border-neon-signal pl-6 italic font-serif">
-                  Where strategic disruption meets high-fashion precision.
+                  전략적 디스럽션과 하이패션의 정밀함이 만나는 곳.
                 </p>
                 <p className="text-body-md pl-6 max-w-lg">
-                  CLAMOA builds cultural visibility for fashion and lifestyle brands through showroom strategy, celebrity seeding, stylist relations, creator campaigns, and data-driven PR execution.
+                  CLAMOA는 쇼룸 전략, 셀러브리티 시딩, 스타일리스트 관계, 크리에이터 캠페인, 데이터 기반 PR 실행을 통해 패션·라이프스타일 브랜드의 문화적 가시성을 만들어냅니다.
                 </p>
               </div>
             </div>
