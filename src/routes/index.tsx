@@ -453,7 +453,7 @@ function Index() {
         <div className="col-span-12 md:col-span-4 flex flex-col gap-6 reveal">
           <div className="text-2xl font-serif font-bold tracking-tighter">CLAMOA</div>
           <p className="text-body-md max-w-xs">
-            A fashion PR agency dedicated to building cultural visibility for fashion and lifestyle brands.
+            패션·라이프스타일 브랜드의 문화적 가시성을 구축하는 패션 PR 에이전시.
           </p>
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
