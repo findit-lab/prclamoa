@@ -81,35 +81,35 @@ function Index() {
   ];
 
   const services = [
-    ["Celebrity & Stylist Seeding", "Connect collections with celebrities, stylists, wardrobe teams, and cultural tastemakers."],
-    ["Showroom PR Operation", "Operate a curated showroom where stylists, editors, influencers, and celebrities discover brand items."],
-    ["Fashion Campaign Strategy", "Plan and execute launch campaigns, seasonal collection PR, collaborations, and brand moments."],
-    ["Influencer & Creator Marketing", "Build creator-led campaigns that generate social proof, visual assets, and audience engagement."],
-    ["Editorial Content Production", "Produce lookbooks, AI model visuals, campaign images, short-form videos, and digital assets."],
-    ["AI & Data-Driven PR", "Track product movement, stylist requests, exposure, content performance, and campaign outcomes."],
+    ["Celebrity & Stylist Seeding", "셀러브리티, 스타일리스트, 의상팀 그리고 컬처 테이스트메이커와 컬렉션을 연결합니다."],
+    ["Showroom PR Operation", "스타일리스트, 에디터, 인플루언서, 셀러브리티가 브랜드 아이템을 직접 만나는 큐레이션 쇼룸을 운영합니다."],
+    ["Fashion Campaign Strategy", "런칭 캠페인, 시즌 컬렉션 PR, 콜라보레이션, 브랜드 모먼트를 기획하고 실행합니다."],
+    ["Influencer & Creator Marketing", "소셜 임팩트와 비주얼 자산, 오디언스 인게이지먼트를 만들어내는 크리에이터 기반 캠페인을 설계합니다."],
+    ["Editorial Content Production", "룩북, AI 모델 비주얼, 캠페인 이미지, 숏폼 영상 등 디지털 콘텐츠 자산을 제작합니다."],
+    ["AI & Data-Driven PR", "제품 무브먼트, 스타일리스트 요청, 노출, 콘텐츠 성과, 캠페인 결과를 데이터로 추적합니다."],
   ];
 
   const process = [
-    ["01", "BRAND DIAGNOSIS", "Analyze brand identity, target audience, collection story, product line, and campaign objectives."],
-    ["02", "PR STRATEGY DESIGN", "Define the best PR mix across showroom exposure, celebrity seeding, stylist outreach, creator campaigns, and media relations."],
-    ["03", "NETWORK ACTIVATION", "Activate stylists, influencers, celebrities, editors, creators, and showroom visitors."],
-    ["04", "CAMPAIGN EXECUTION", "Manage logistics, communication, product lending, pickup, return, content production, and publishing."],
-    ["05", "MONITORING & REPORTING", "Track placements, content performance, campaign exposure, audience response, and measurable outcomes."],
+    ["01", "BRAND DIAGNOSIS", "브랜드 아이덴티티, 타겟 오디언스, 컬렉션 스토리, 제품 라인, 캠페인 목표를 진단합니다."],
+    ["02", "PR STRATEGY DESIGN", "쇼룸 노출, 셀러브리티 시딩, 스타일리스트 아웃리치, 크리에이터 캠페인, 미디어 관계를 아우르는 최적의 PR 믹스를 설계합니다."],
+    ["03", "NETWORK ACTIVATION", "스타일리스트, 인플루언서, 셀러브리티, 에디터, 크리에이터, 쇼룸 방문자 네트워크를 가동합니다."],
+    ["04", "CAMPAIGN EXECUTION", "물류, 커뮤니케이션, 제품 대여 및 회수, 콘텐츠 제작과 퍼블리싱까지 캠페인 전 과정을 운영합니다."],
+    ["05", "MONITORING & REPORTING", "노출, 콘텐츠 성과, 캠페인 반응, 오디언스 피드백 등 측정 가능한 결과를 리포팅합니다."],
   ];
 
   const cases = [
-    [IMG_CASE_1, "01", "New Collection Launch PR", "Showroom activation, stylist seeding, creator content, and digital exposure for seasonal fashion collections."],
-    [IMG_CASE_2, "02", "Celebrity Placement Campaign", "Strategic product seeding and wardrobe coordination for celebrity-driven brand visibility."],
-    [IMG_CASE_3, "03", "AI Fashion Content Production", "AI-assisted lookbook visuals, model content, and short-form campaign assets for digital channels."],
+    [IMG_CASE_1, "01", "New Collection Launch PR", "시즌 패션 컬렉션을 위한 쇼룸 활성화, 스타일리스트 시딩, 크리에이터 콘텐츠 및 디지털 노출 캠페인."],
+    [IMG_CASE_2, "02", "Celebrity Placement Campaign", "셀러브리티 중심의 브랜드 가시성을 위한 전략적 제품 시딩과 의상 코디네이션."],
+    [IMG_CASE_3, "03", "AI Fashion Content Production", "디지털 채널을 위한 AI 기반 룩북 비주얼, 모델 콘텐츠, 숏폼 캠페인 자산 제작."],
   ];
 
   const differentiators = [
-    "Direct stylist and celebrity network",
-    "Premium showroom-based brand exposure",
-    "Campaign execution from strategy to delivery",
-    "AI-assisted content production",
-    "PR monitoring and reporting",
-    "Korea-to-global fashion expansion support",
+    "스타일리스트 및 셀러브리티 다이렉트 네트워크",
+    "프리미엄 쇼룸 기반 브랜드 노출",
+    "전략부터 실행까지 원스톱 캠페인 운영",
+    "AI 기반 콘텐츠 프로덕션",
+    "PR 모니터링 및 성과 리포팅",
+    "한국에서 글로벌로 이어지는 패션 확장 지원",
   ];
 
   return (
