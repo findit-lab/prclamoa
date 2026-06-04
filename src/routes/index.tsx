@@ -259,7 +259,7 @@ function Index() {
                 <span className="text-label-caps text-secondary mb-4 block">02 / SERVICES</span>
                 <h3 className="text-headline-lg mb-6 uppercase">SPATIAL<br />RHYTHM</h3>
                 <p className="text-body-md mb-8">
-                  From showroom curation to celebrity placement, we design the physical and digital moments that make brands visible.
+                  쇼룸 큐레이션부터 셀러브리티 플레이스먼트까지, 브랜드를 가시화하는 오프라인과 디지털 모먼트를 디자인합니다.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {["SHOWROOM", "CELEBRITY SEEDING", "STYLIST RELATIONS", "CREATOR CAMPAIGN", "AI CONTENT", "PR MONITORING"].map((t) => (
