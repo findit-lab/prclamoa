@@ -368,7 +368,7 @@ function Index() {
           <div className="bg-neon-signal border-2 border-deep-ink p-12 md:p-24 flex flex-col md:flex-row justify-between items-center gap-12 group">
             <div className="max-w-md">
               <h2 className="text-headline-lg uppercase mb-4">JOIN THE<br />INNER CIRCLE.</h2>
-              <p className="text-body-md">Receive curated signals from fashion, celebrity culture, showroom PR, and brand visibility.</p>
+              <p className="text-body-md">패션, 셀러브리티 컬처, 쇼룸 PR, 브랜드 가시성에 관한 큐레이션된 시그널을 받아보세요.</p>
             </div>
             <div className="w-full max-w-md">
               <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
