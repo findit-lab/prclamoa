@@ -201,7 +201,7 @@ function Index() {
               />
               <div className="absolute -bottom-6 -right-6 bg-deep-ink text-surface p-10 max-w-xs hidden md:block transition-transform duration-500 group-hover:-translate-x-4 group-hover:-translate-y-4">
                 <p className="text-body-md italic font-serif">
-                  "Visibility is not bought. It is staged, seeded, and remembered."
+                  "가시성은 사는 것이 아니라, 연출되고 시딩되며 기억되는 것이다."
                 </p>
               </div>
             </div>
@@ -210,7 +210,7 @@ function Index() {
                 <span className="text-label-caps text-secondary mb-4 block">01 / BRAND VISIBILITY</span>
                 <h3 className="text-headline-lg mb-6 uppercase">RAW<br />INFLUENCE</h3>
                 <p className="text-body-md mb-8">
-                  We turn product placement, showroom access, and cultural relationships into measurable brand momentum.
+                  제품 플레이스먼트, 쇼룸 액세스, 컬처럴 관계를 측정 가능한 브랜드 모멘텀으로 전환합니다.
                 </p>
                 <a href="#work" className="inline-flex items-center gap-4 text-label-caps group border-b border-transparent hover:border-deep-ink pb-1 transition-all duration-300">
                   VIEW CASE STUDY
