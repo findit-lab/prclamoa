@@ -119,7 +119,7 @@ function Index() {
         ref={navRef}
         className="fixed top-0 w-full z-50 bg-surface/95 border-b border-deep-ink flex justify-between items-center px-6 md:px-16 py-6 transition-all duration-500"
       >
-        <a href="#top" className="text-2xl font-serif font-bold tracking-tighter">CLAMOA</a>
+        <a href="#top" className="text-3xl tracking-[0.05em] text-black" style={{ fontFamily: "'Cormorant', serif", fontWeight: 300 }}>CLAMOA</a>
         <div className="hidden md:flex gap-10">
           {navLinks.map(([l, h]) => (
             <a key={l} href={h} className="text-label-caps hover:text-neon-signal transition-colors duration-200">
