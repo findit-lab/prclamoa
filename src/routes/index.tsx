@@ -395,7 +395,7 @@ function Index() {
               <span className="text-label-caps text-secondary mb-6 block">CONTACT</span>
               <h2 className="text-display-xl uppercase mb-8">LET'S BUILD<br />YOUR BRAND<br />PRESENCE.</h2>
               <p className="text-body-md max-w-md">
-                Whether you are launching a new collection, entering Korea, expanding globally, or building stronger cultural visibility, CLAMOA designs the PR strategy and execution system to move your brand forward.
+                새로운 컬렉션 런칭, 한국 진출, 글로벌 확장, 또는 더 강력한 문화적 가시성 구축까지 — CLAMOA는 브랜드를 다음 단계로 이끌 PR 전략과 실행 시스템을 설계합니다.
               </p>
             </div>
             <form
