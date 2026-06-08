@@ -505,8 +505,48 @@ function Index() {
           </div>
         </section>
 
+        {/* Partners - Marquee Logo Wall */}
+        <section id="partners" className="border-y-2 border-deep-ink bg-surface py-16 md:py-20 mb-32 md:mb-40 overflow-hidden">
+          <div className="px-6 md:px-16 flex justify-between items-end mb-10 md:mb-12">
+            <div>
+              <span className="text-label-caps text-secondary block mb-2">PARTNERS — TRUSTED BY</span>
+              <h2 className="text-headline-md md:text-headline-lg uppercase">OUR CLIENTS</h2>
+            </div>
+            <span className="text-label-caps text-secondary hidden md:block">[ AUTO-SCROLL ]</span>
+          </div>
+
+          {(() => {
+            const ROW_A = ["KIRSH", "Millo Archive", "mahagrid°", "odor", "NODE LABS", "ee6s", "2000 Archives", "NOMANUAL", "MILLO WOMEN", "PARTIMENTO WOMEN", "mainbooth", "aetoa"];
+            const ROW_B = ["Cavish Design Seller", "Culminant", "SPORT CHAMBER", "WMC", "Kims", "BADPIXEL", "MIM", "DOUBLE LOVERS", "oafish creation.", "SAPPUN", "ĒPURĒ", "QY", "Ames Worldwide", "THE VINYL HOUSE", "LOVEMBER", "KIMAURA"];
+            const renderItem = (name: string, i: number) => (
+              <div
+                key={i}
+                className="flex-shrink-0 px-10 md:px-14 flex items-center justify-center h-20 md:h-24 text-deep-ink"
+                style={{ fontFamily: "'Noto Serif', 'Inter', serif", fontSize: "clamp(20px, 2.2vw, 32px)", fontWeight: 700, letterSpacing: "-0.01em", whiteSpace: "nowrap" }}
+              >
+                {name}
+              </div>
+            );
+            return (
+              <div className="flex flex-col gap-6 marquee-mask">
+                <div className="overflow-hidden">
+                  <div className="flex w-max marquee-track-fast">
+                    {[...ROW_A, ...ROW_A].map(renderItem)}
+                  </div>
+                </div>
+                <div className="overflow-hidden">
+                  <div className="flex w-max marquee-track-reverse">
+                    {[...ROW_B, ...ROW_B].map(renderItem)}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+        </section>
+
         {/* Newsletter */}
         <section className="px-6 md:px-16 mb-32 reveal">
+
           <div className="bg-neon-signal border-2 border-deep-ink p-12 md:p-24 flex flex-col md:flex-row justify-between items-center gap-12 group">
             <div className="max-w-md">
               <h2 className="text-headline-lg uppercase mb-4">JOIN THE<br />INNER CIRCLE.</h2>
