@@ -111,3 +111,21 @@
   -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.marquee-track-reverse {
+  animation: marquee-reverse 50s linear infinite;
+  will-change: transform;
+}
+.marquee-track-reverse:hover { animation-play-state: paused; }
+.marquee-track-fast {
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+.marquee-track-fast:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track-reverse, .marquee-track-fast { animation: none; }
+}
