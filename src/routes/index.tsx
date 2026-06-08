@@ -403,6 +403,108 @@ function Index() {
           </div>
         </section>
 
+        {/* Portfolio Categories */}
+        <section id="portfolio" className="px-6 md:px-16 mb-32 md:mb-40 reveal">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
+            <span className="text-label-caps text-secondary">PORTFOLIO — CAPABILITIES</span>
+            <h2 className="text-headline-lg uppercase max-w-2xl">SCOPE OF<br />PR EXECUTION</h2>
+          </div>
+
+          <div className="grid grid-cols-12 gap-0 border-2 border-deep-ink">
+            {[
+              {
+                no: "01",
+                title: "STAR",
+                kr: "셀러브리티 시딩",
+                desc: "배우, 아티스트, K-POP 아이돌을 대상으로 한 셀러브리티 시딩 및 협찬으로 브랜드의 상징적 가시성을 구축합니다.",
+                img: "https://images.unsplash.com/photo-1492447166138-50c3889fccb1?w=900&q=80",
+                span: "md:col-span-7",
+                tall: true,
+              },
+              {
+                no: "02",
+                title: "VIRAL",
+                kr: "디지털 콘텐츠",
+                desc: "인스타그램, 블로그, 유튜브 채널을 아우르는 통합 바이럴 캠페인으로 브랜드의 대화량을 증폭합니다.",
+                tags: ["INSTAGRAM", "BLOG", "YOUTUBE"],
+                img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=900&q=80",
+                span: "md:col-span-5",
+              },
+              {
+                no: "03",
+                title: "MAGAZINE",
+                kr: "에디토리얼 피칭",
+                desc: "주요 패션·라이프스타일 매거진 에디터 네트워크를 통한 피칭 및 화보 협업을 진행합니다.",
+                img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80",
+                span: "md:col-span-5",
+              },
+              {
+                no: "04",
+                title: "INFLUENCER",
+                kr: "크리에이터 매칭",
+                desc: "브랜드 톤에 정합하는 패션·뷰티·라이프스타일 크리에이터를 매칭하고 캠페인을 운영합니다.",
+                img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900&q=80",
+                span: "md:col-span-7",
+              },
+              {
+                no: "05",
+                title: "EVENT",
+                kr: "프레스 & 런칭",
+                desc: "런칭 파티, 쇼룸 오프닝, 프레스 프리뷰 등 오프라인 이벤트 기획부터 운영까지 전 과정을 설계합니다.",
+                img: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=900&q=80",
+                span: "md:col-span-7",
+              },
+              {
+                no: "06",
+                title: "BRAND AMBASSADOR CASTING",
+                kr: "앰버서더 캐스팅",
+                desc: "브랜드의 장기 자산이 될 앰버서더를 전략적으로 캐스팅하고 계약·운영을 매니징합니다.",
+                img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=900&q=80",
+                span: "md:col-span-5",
+                accent: true,
+              },
+            ].map((c, i) => (
+              <article
+                key={c.title}
+                className={`col-span-12 ${c.span} border-deep-ink ${i % 2 === 0 ? "md:border-r-2" : ""} ${i < 4 ? "border-b-2" : ""} group relative overflow-hidden ${c.accent ? "bg-neon-signal" : "bg-surface"}`}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-5 h-full">
+                  <div className="md:col-span-2 overflow-hidden border-b-2 md:border-b-0 md:border-r-2 border-deep-ink">
+                    <img
+                      src={c.img}
+                      alt={c.title}
+                      className="w-full h-full min-h-[260px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    />
+                  </div>
+                  <div className="md:col-span-3 p-8 md:p-10 flex flex-col gap-4">
+                    <div className="flex items-baseline justify-between">
+                      <span className="text-label-caps text-secondary">CAT / {c.no}</span>
+                      <span className="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
+                    </div>
+                    <h3 className="font-serif font-bold uppercase leading-[0.95] tracking-[-0.02em] text-[clamp(28px,2.6vw,44px)]">
+                      {c.title}
+                    </h3>
+                    <span className="text-label-caps text-deep-ink/70">{c.kr}</span>
+                    <p className="text-body-md font-serif leading-relaxed">{c.desc}</p>
+                    {c.tags && (
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {c.tags.map((t) => (
+                          <span
+                            key={t}
+                            className="border border-deep-ink px-3 py-1 font-bold tracking-widest text-[10px] uppercase hover:bg-deep-ink hover:text-surface transition-colors"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         {/* Newsletter */}
         <section className="px-6 md:px-16 mb-32 reveal">
           <div className="bg-neon-signal border-2 border-deep-ink p-12 md:p-24 flex flex-col md:flex-row justify-between items-center gap-12 group">
