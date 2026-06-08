@@ -190,7 +190,34 @@ function Index() {
           </div>
         </section>
 
+        {/* Auto-scrolling Looks Marquee */}
+        <section className="bg-deep-ink text-surface border-y-2 border-deep-ink py-10 md:py-14 mb-32 md:mb-40 overflow-hidden">
+          <div className="flex justify-between items-center px-6 md:px-16 mb-8">
+            <span className="text-label-caps text-surface/70">LATEST LOOKS — SS25</span>
+            <span className="text-label-caps text-neon-signal">[ AUTO-SCROLL ]</span>
+          </div>
+          <div className="relative overflow-hidden marquee-mask">
+            <div className="marquee-track flex w-max gap-6">
+              {[...MARQUEE_IMAGES, ...MARQUEE_IMAGES].map((src, i) => (
+                <div
+                  key={i}
+                  className="relative shrink-0 overflow-hidden"
+                  style={{ width: "clamp(240px, 28vw, 380px)", height: "clamp(320px, 38vw, 520px)" }}
+                >
+                  <img
+                    src={src}
+                    alt={`CLAMOA look ${(i % MARQUEE_IMAGES.length) + 1}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Featured Work Preview */}
+
         <section id="work" className="px-6 md:px-16 mb-32 md:mb-40 reveal">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-7 relative group overflow-hidden border-2 border-deep-ink">
