@@ -340,7 +340,7 @@ function Index() {
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-5">
               <span className="text-neon-signal text-label-caps block mb-6">THE CLAMOA DIFFERENCE</span>
-              <h2 className="text-display-xl uppercase mb-8">BEYOND<br />TRADITIONAL<br />PR</h2>
+              <h2 className="font-serif font-bold uppercase mb-8 leading-[0.95] tracking-[-0.03em] text-[clamp(44px,6vw,88px)]">BEYOND<br />TRADITIONAL<br />PR</h2>
               <p className="text-body-lg max-w-md text-surface/80">
                 CLAMOA는 단순한 패션 PR 에이전시가 아닙니다. 오프라인 쇼룸 활동, 스타일리스트 관계, 셀러브리티 노출, 크리에이터 콘텐츠, 디지털 캠페인 데이터를 하나의 실행 엔진으로 연결하는 패션 인플루언스의 운영체계를 구축합니다.
               </p>

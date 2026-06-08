@@ -1,7 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Cormorant:wght@300;400&family=Material+Symbols+Outlined&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Serif:wght@400;700&family=Cormorant:wght@300;400&family=Noto+Serif+KR:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Material+Symbols+Outlined&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -15,8 +15,8 @@
   --color-secondary: #5f5e5e;
   --color-inverse-on-surface: #f2f1e5;
 
-  --font-serif: "Noto Serif", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-serif: "Noto Serif", "Noto Serif KR", serif;
+  --font-sans: "Inter", "Noto Sans KR", sans-serif;
 }
 
 :root {
@@ -30,7 +30,7 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", "Noto Sans KR", sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -53,24 +53,24 @@
 }
 
 @layer utilities {
-  .font-serif { font-family: "Noto Serif", serif; }
-  .font-sans { font-family: "Inter", sans-serif; }
+  .font-serif { font-family: "Noto Serif", "Noto Serif KR", serif; }
+  .font-sans { font-family: "Inter", "Noto Sans KR", sans-serif; }
   .text-display-xl {
-    font-family: "Noto Serif", serif;
+    font-family: "Noto Serif", "Noto Serif KR", serif;
     font-size: clamp(56px, 9vw, 120px);
     line-height: 1;
     letter-spacing: -0.04em;
     font-weight: 700;
   }
   .text-headline-lg {
-    font-family: "Noto Serif", serif;
+    font-family: "Noto Serif", "Noto Serif KR", serif;
     font-size: clamp(40px, 5vw, 64px);
     line-height: 1.1;
     letter-spacing: -0.02em;
     font-weight: 400;
   }
   .text-headline-md {
-    font-family: "Noto Serif", serif;
+    font-family: "Noto Serif", "Noto Serif KR", serif;
     font-size: 32px;
     line-height: 1.25;
     font-weight: 400;
