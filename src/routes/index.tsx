@@ -20,6 +20,19 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const MARQUEE_IMAGES = [
+  "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=900&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=900&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=900&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=900&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1485231183945-fffde7cc051e?w=900&q=80&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900&q=80&auto=format&fit=crop",
+];
+
 const IMG_SHOWROOM =
   "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80&auto=format&fit=crop";
 const IMG_RACK =
@@ -190,7 +203,34 @@ function Index() {
           </div>
         </section>
 
+        {/* Auto-scrolling Looks Marquee */}
+        <section className="bg-deep-ink text-surface border-y-2 border-deep-ink py-10 md:py-14 mb-32 md:mb-40 overflow-hidden">
+          <div className="flex justify-between items-center px-6 md:px-16 mb-8">
+            <span className="text-label-caps text-surface/70">LATEST LOOKS — SS25</span>
+            <span className="text-label-caps text-neon-signal">[ AUTO-SCROLL ]</span>
+          </div>
+          <div className="relative overflow-hidden marquee-mask">
+            <div className="marquee-track flex w-max gap-6">
+              {[...MARQUEE_IMAGES, ...MARQUEE_IMAGES].map((src, i) => (
+                <div
+                  key={i}
+                  className="relative shrink-0 overflow-hidden"
+                  style={{ width: "clamp(240px, 28vw, 380px)", height: "clamp(320px, 38vw, 520px)" }}
+                >
+                  <img
+                    src={src}
+                    alt={`CLAMOA look ${(i % MARQUEE_IMAGES.length) + 1}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Featured Work Preview */}
+
         <section id="work" className="px-6 md:px-16 mb-32 md:mb-40 reveal">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-7 relative group overflow-hidden border-2 border-deep-ink">
