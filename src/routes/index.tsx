@@ -505,6 +505,64 @@ function Index() {
           </div>
         </section>
 
+        {/* Global Expansion */}
+        <section id="global" className="bg-deep-ink text-surface py-32 md:py-40 px-6 md:px-16 mb-32 md:mb-40 reveal">
+          <div className="grid grid-cols-12 gap-6">
+            <div className="col-span-12 md:col-span-5">
+              <span className="text-neon-signal text-label-caps block mb-6">CROSS-BORDER B2B</span>
+              <h2 className="font-serif font-bold uppercase mb-8 leading-[0.95] tracking-[-0.03em] text-[clamp(44px,6vw,88px)]">
+                GLOBAL<br />EXPANSION
+              </h2>
+              <p className="text-body-lg max-w-md text-surface/80">
+                클라모아는 패션홍보대행사에서 수집된 협찬 데이터를 토대로 각 국가별 바이어 B2B 매칭을 통해 수출 발생하도록 지원합니다.
+              </p>
+            </div>
+            <div className="col-span-12 md:col-span-6 md:col-start-7 mt-12 md:mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  {
+                    country: "JAPAN",
+                    kr: "일본",
+                    desc: "도쿄·오사카 바이어 네트워크와의 직접 매칭으로 일본 시장 진출을 가속화합니다.",
+                  },
+                  {
+                    country: "TAIWAN",
+                    kr: "대만",
+                    desc: "타이베이 및 중부 지역 주요 바이어 채널과의 데이터 기반 매칭을 제공합니다.",
+                  },
+                  {
+                    country: "CHINA",
+                    kr: "중국",
+                    desc: "상하이·항저우 중심의 유통 바이어 네트워크를 활용한 B2B 매칭을 실행합니다.",
+                  },
+                ].map((m, i) => (
+                  <div
+                    key={m.country}
+                    className="border border-white/20 p-8 hover:border-neon-signal hover:bg-white/5 transition-all duration-300 group"
+                  >
+                    <span className="text-neon-signal text-label-caps block mb-4">0{i + 1}</span>
+                    <h3 className="font-serif text-headline-md uppercase mb-2">{m.country}</h3>
+                    <span className="text-label-caps text-surface/60 block mb-4">{m.kr}</span>
+                    <p className="text-body-md text-surface/80">{m.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-10 border-t border-white/20 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <p className="text-body-md text-surface/70 max-w-lg">
+                  쇼룸 협찬, 셀러브리티 시딩, 스타일리스트 플레이스먼트 데이터를 통합하여 최적의 바이어 매칭을 도출합니다.
+                </p>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-4 text-label-caps text-neon-signal border border-neon-signal px-6 py-3 hover:bg-neon-signal hover:text-deep-ink transition-all duration-300 shrink-0"
+                >
+                  START EXPORT MATCHING
+                  <span className="material-symbols-outlined">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Partners - Marquee Logo Wall */}
         <section id="partners" className="border-y-2 border-deep-ink bg-surface py-16 md:py-20 mb-32 md:mb-40 overflow-hidden">
           <div className="px-6 md:px-16 flex justify-between items-end mb-10 md:mb-12">
