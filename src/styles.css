@@ -15,8 +15,8 @@
   --color-secondary: #5f5e5e;
   --color-inverse-on-surface: #f2f1e5;
 
-  --font-serif: "Noto Serif", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-serif: "Noto Serif", "Noto Serif KR", serif;
+  --font-sans: "Inter", "Noto Sans KR", sans-serif;
 }
 
 :root {
