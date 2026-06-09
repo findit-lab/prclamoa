@@ -366,9 +366,9 @@ function Index() {
           </div>
           <div className="divide-y divide-deep-ink border-t border-b border-deep-ink">
             {process.map(([n, t, d]) => (
-              <div key={n} className="grid grid-cols-12 gap-6 py-10 group hover:bg-neon-signal transition-colors duration-300">
+              <div key={n} className="grid grid-cols-12 gap-3 md:gap-6 py-6 md:py-10 group hover:bg-neon-signal transition-colors duration-300">
                 <div className="col-span-12 md:col-span-2">
-                  <span className="font-serif text-5xl">{n}</span>
+                  <span className="font-serif text-3xl md:text-5xl">{n}</span>
                 </div>
                 <div className="col-span-12 md:col-span-4">
                   <h3 className="text-headline-md uppercase">{t}</h3>
