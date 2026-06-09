@@ -619,9 +619,9 @@ function Index() {
                 />
                 <button
                   type="submit"
-                  className="bg-deep-ink text-neon-signal py-6 px-12 text-label-caps hover:bg-surface hover:text-deep-ink transition-all duration-300 active:scale-95 hover:shadow-[8px_8px_0px_0px_rgba(26,28,28,1)]"
+                  className="bg-deep-ink text-neon-signal py-5 md:py-6 px-6 md:px-12 text-label-caps hover:bg-surface hover:text-deep-ink transition-all duration-300 active:scale-95 hover:shadow-[8px_8px_0px_0px_rgba(26,28,28,1)]"
                 >
-                  SUBSCRIBE TO DISPATCH
+                  SUBSCRIBE
                 </button>
               </form>
             </div>
