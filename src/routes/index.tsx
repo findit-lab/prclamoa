@@ -130,9 +130,9 @@ function Index() {
       {/* Nav */}
       <nav
         ref={navRef}
-        className="fixed top-0 w-full z-50 bg-surface/95 border-b border-deep-ink flex justify-between items-center px-6 md:px-16 py-6 transition-all duration-500"
+        className="fixed top-0 w-full z-50 bg-surface/95 border-b border-deep-ink flex justify-between items-center px-5 md:px-16 py-5 md:py-6 transition-all duration-500"
       >
-        <a href="#top" className="text-3xl tracking-[0.05em] text-black" style={{ fontFamily: "'Cormorant', serif", fontWeight: 300 }}>CLAMOA</a>
+        <a href="#top" className="text-2xl md:text-3xl tracking-[0.05em] text-black" style={{ fontFamily: "'Cormorant', serif", fontWeight: 300 }}>CLAMOA</a>
         <div className="hidden md:flex gap-10">
           {navLinks.map(([l, h]) => (
             <a key={l} href={h} className="text-label-caps hover:text-neon-signal transition-colors duration-200">
@@ -176,9 +176,9 @@ function Index() {
         )}
       </nav>
 
-      <main id="top" className="pt-32">
+      <main id="top" className="pt-24 md:pt-32">
         {/* Hero */}
-        <section className="px-6 md:px-16 mb-32 md:mb-40 reveal">
+        <section className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="grid grid-cols-12 gap-6 items-end">
             <div className="col-span-12 md:col-span-8">
               <span className="text-label-caps text-secondary block mb-8">SEOUL — FASHION PR AGENCY</span>
@@ -204,8 +204,8 @@ function Index() {
         </section>
 
         {/* Auto-scrolling Looks Marquee */}
-        <section className="bg-deep-ink text-surface border-y-2 border-deep-ink py-10 md:py-14 mb-32 md:mb-40 overflow-hidden">
-          <div className="flex justify-between items-center px-6 md:px-16 mb-8">
+        <section className="bg-deep-ink text-surface border-y-2 border-deep-ink py-10 md:py-14 mb-20 md:mb-40 overflow-hidden">
+          <div className="flex justify-between items-center px-5 md:px-16 mb-8">
             <span className="text-label-caps text-surface/70">LATEST LOOKS — SS25</span>
             <span className="text-label-caps text-neon-signal">[ AUTO-SCROLL ]</span>
           </div>
@@ -231,7 +231,7 @@ function Index() {
 
         {/* Featured Work Preview */}
 
-        <section id="work" className="px-6 md:px-16 mb-32 md:mb-40 reveal">
+        <section id="work" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-7 relative group overflow-hidden border-2 border-deep-ink">
               <img
@@ -262,9 +262,9 @@ function Index() {
         </section>
 
         {/* Dark Statement */}
-        <section className="bg-deep-ink text-surface py-32 md:py-40 px-6 md:px-16 mb-32 md:mb-40 overflow-hidden relative">
+        <section className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 overflow-hidden relative">
           <div ref={parallaxContainer} className="absolute inset-0 opacity-10 pointer-events-none select-none overflow-hidden">
-            <div ref={parallaxText} className="whitespace-nowrap font-serif font-bold leading-none transform rotate-[-5deg]" style={{ fontSize: "300px" }}>
+            <div ref={parallaxText} className="whitespace-nowrap font-serif font-bold leading-none transform rotate-[-5deg]" style={{ fontSize: "clamp(120px, 30vw, 300px)" }}>
               INFLUENCE INFLUENCE INFLUENCE
             </div>
           </div>
@@ -292,7 +292,7 @@ function Index() {
         </section>
 
         {/* Services intro */}
-        <section id="services" className="px-6 md:px-16 mb-32 md:mb-40 reveal">
+        <section id="services" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="grid grid-cols-12 gap-6 items-start">
             <div className="col-span-12 md:col-span-4 order-2 md:order-1">
               <div className="border-t-2 border-deep-ink pt-8">
@@ -317,7 +317,7 @@ function Index() {
         </section>
 
         {/* Core Services Grid */}
-        <section className="px-6 md:px-16 mb-32 md:mb-40">
+        <section className="px-5 md:px-16 mb-20 md:mb-40">
           <div className="border-t-2 border-deep-ink pt-12 reveal">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
               <span className="text-label-caps text-secondary">CORE CAPABILITIES</span>
@@ -336,7 +336,7 @@ function Index() {
         </section>
 
         {/* Agency Difference */}
-        <section id="agency" className="bg-deep-ink text-surface py-32 md:py-40 px-6 md:px-16 mb-32 md:mb-40 reveal">
+        <section id="agency" className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-5">
               <span className="text-neon-signal text-label-caps block mb-6">THE CLAMOA DIFFERENCE</span>
@@ -359,16 +359,16 @@ function Index() {
         </section>
 
         {/* Process */}
-        <section className="px-6 md:px-16 mb-32 md:mb-40 reveal">
+        <section className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">PROCESS</span>
             <h2 className="text-headline-lg uppercase max-w-2xl">HOW WE CREATE VISIBILITY</h2>
           </div>
           <div className="divide-y divide-deep-ink border-t border-b border-deep-ink">
             {process.map(([n, t, d]) => (
-              <div key={n} className="grid grid-cols-12 gap-6 py-10 group hover:bg-neon-signal transition-colors duration-300">
+              <div key={n} className="grid grid-cols-12 gap-3 md:gap-6 py-6 md:py-10 group hover:bg-neon-signal transition-colors duration-300">
                 <div className="col-span-12 md:col-span-2">
-                  <span className="font-serif text-5xl">{n}</span>
+                  <span className="font-serif text-3xl md:text-5xl">{n}</span>
                 </div>
                 <div className="col-span-12 md:col-span-4">
                   <h3 className="text-headline-md uppercase">{t}</h3>
@@ -382,7 +382,7 @@ function Index() {
         </section>
 
         {/* Case studies */}
-        <section id="insights" className="px-6 md:px-16 mb-32 md:mb-40 reveal">
+        <section id="insights" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">SELECTED WORK</span>
             <h2 className="text-headline-lg uppercase max-w-2xl">RECENT CAMPAIGNS</h2>
@@ -404,7 +404,7 @@ function Index() {
         </section>
 
         {/* Portfolio Categories */}
-        <section id="portfolio" className="px-6 md:px-16 mb-32 md:mb-40 reveal">
+        <section id="portfolio" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">PORTFOLIO — CAPABILITIES</span>
             <h2 className="text-headline-lg uppercase max-w-2xl">SCOPE OF<br />PR EXECUTION</h2>
@@ -506,7 +506,7 @@ function Index() {
         </section>
 
         {/* Global Expansion */}
-        <section id="global" className="bg-deep-ink text-surface py-32 md:py-40 px-6 md:px-16 mb-32 md:mb-40 reveal">
+        <section id="global" className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-5">
               <span className="text-neon-signal text-label-caps block mb-6">CROSS-BORDER B2B</span>
@@ -564,8 +564,8 @@ function Index() {
         </section>
 
         {/* Partners - Marquee Logo Wall */}
-        <section id="partners" className="border-y-2 border-deep-ink bg-surface py-16 md:py-20 mb-32 md:mb-40 overflow-hidden">
-          <div className="px-6 md:px-16 flex justify-between items-end mb-10 md:mb-12">
+        <section id="partners" className="border-y-2 border-deep-ink bg-surface py-16 md:py-20 mb-20 md:mb-40 overflow-hidden">
+          <div className="px-5 md:px-16 flex justify-between items-end mb-10 md:mb-12">
             <div>
               <span className="text-label-caps text-secondary block mb-2">PARTNERS — TRUSTED BY</span>
               <h2 className="text-headline-md md:text-headline-lg uppercase">OUR CLIENTS</h2>
@@ -579,8 +579,8 @@ function Index() {
             const renderItem = (name: string, i: number) => (
               <div
                 key={i}
-                className="flex-shrink-0 px-10 md:px-14 flex items-center justify-center h-20 md:h-24 text-deep-ink"
-                style={{ fontFamily: "'Noto Serif', 'Inter', serif", fontSize: "clamp(20px, 2.2vw, 32px)", fontWeight: 700, letterSpacing: "-0.01em", whiteSpace: "nowrap" }}
+                className="flex-shrink-0 px-6 md:px-14 flex items-center justify-center h-16 md:h-24 text-deep-ink"
+                style={{ fontFamily: "'Noto Serif', 'Inter', serif", fontSize: "clamp(18px, 2.2vw, 32px)", fontWeight: 700, letterSpacing: "-0.01em", whiteSpace: "nowrap" }}
               >
                 {name}
               </div>
@@ -603,9 +603,9 @@ function Index() {
         </section>
 
         {/* Newsletter */}
-        <section className="px-6 md:px-16 mb-32 reveal">
+        <section className="px-5 md:px-16 mb-32 reveal">
 
-          <div className="bg-neon-signal border-2 border-deep-ink p-12 md:p-24 flex flex-col md:flex-row justify-between items-center gap-12 group">
+          <div className="bg-neon-signal border-2 border-deep-ink p-8 md:p-24 flex flex-col md:flex-row justify-between items-center gap-12 group">
             <div className="max-w-md">
               <h2 className="text-headline-lg uppercase mb-4">JOIN THE<br />INNER CIRCLE.</h2>
               <p className="text-body-md">패션, 셀러브리티 컬처, 쇼룸 PR, 브랜드 가시성에 관한 큐레이션된 시그널을 받아보세요.</p>
@@ -619,9 +619,9 @@ function Index() {
                 />
                 <button
                   type="submit"
-                  className="bg-deep-ink text-neon-signal py-6 px-12 text-label-caps hover:bg-surface hover:text-deep-ink transition-all duration-300 active:scale-95 hover:shadow-[8px_8px_0px_0px_rgba(26,28,28,1)]"
+                  className="bg-deep-ink text-neon-signal py-5 md:py-6 px-6 md:px-12 text-label-caps hover:bg-surface hover:text-deep-ink transition-all duration-300 active:scale-95 hover:shadow-[8px_8px_0px_0px_rgba(26,28,28,1)]"
                 >
-                  SUBSCRIBE TO DISPATCH
+                  SUBSCRIBE
                 </button>
               </form>
             </div>
@@ -629,7 +629,7 @@ function Index() {
         </section>
 
         {/* Contact */}
-        <section id="contact" className="px-6 md:px-16 mb-32 reveal">
+        <section id="contact" className="px-5 md:px-16 mb-32 reveal">
           <div className="grid grid-cols-12 gap-6 border-t-2 border-deep-ink pt-12">
             <div className="col-span-12 md:col-span-5">
               <span className="text-label-caps text-secondary mb-6 block">CONTACT</span>
@@ -686,7 +686,7 @@ function Index() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full mt-32 bg-surface border-t-2 border-deep-ink grid grid-cols-12 gap-6 px-6 md:px-16 py-20">
+      <footer className="w-full mt-20 md:mt-32 bg-surface border-t-2 border-deep-ink grid grid-cols-12 gap-6 px-5 md:px-16 py-20">
         <div className="col-span-12 mb-20 reveal">
           <div className="text-display-xl opacity-10 uppercase select-none pointer-events-none whitespace-nowrap overflow-hidden">CLAMOA AGENCY</div>
         </div>
