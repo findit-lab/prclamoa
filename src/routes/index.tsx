@@ -579,8 +579,8 @@ function Index() {
             const renderItem = (name: string, i: number) => (
               <div
                 key={i}
-                className="flex-shrink-0 px-10 md:px-14 flex items-center justify-center h-20 md:h-24 text-deep-ink"
-                style={{ fontFamily: "'Noto Serif', 'Inter', serif", fontSize: "clamp(20px, 2.2vw, 32px)", fontWeight: 700, letterSpacing: "-0.01em", whiteSpace: "nowrap" }}
+                className="flex-shrink-0 px-6 md:px-14 flex items-center justify-center h-16 md:h-24 text-deep-ink"
+                style={{ fontFamily: "'Noto Serif', 'Inter', serif", fontSize: "clamp(18px, 2.2vw, 32px)", fontWeight: 700, letterSpacing: "-0.01em", whiteSpace: "nowrap" }}
               >
                 {name}
               </div>
