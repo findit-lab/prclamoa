@@ -264,7 +264,7 @@ function Index() {
         {/* Dark Statement */}
         <section className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 overflow-hidden relative">
           <div ref={parallaxContainer} className="absolute inset-0 opacity-10 pointer-events-none select-none overflow-hidden">
-            <div ref={parallaxText} className="whitespace-nowrap font-serif font-bold leading-none transform rotate-[-5deg]" style={{ fontSize: "300px" }}>
+            <div ref={parallaxText} className="whitespace-nowrap font-serif font-bold leading-none transform rotate-[-5deg]" style={{ fontSize: "clamp(120px, 30vw, 300px)" }}>
               INFLUENCE INFLUENCE INFLUENCE
             </div>
           </div>
