@@ -176,7 +176,7 @@ function Index() {
         )}
       </nav>
 
-      <main id="top" className="pt-32">
+      <main id="top" className="pt-24 md:pt-32">
         {/* Hero */}
         <section className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="grid grid-cols-12 gap-6 items-end">
@@ -686,7 +686,7 @@ function Index() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full mt-32 bg-surface border-t-2 border-deep-ink grid grid-cols-12 gap-6 px-5 md:px-16 py-20">
+      <footer className="w-full mt-20 md:mt-32 bg-surface border-t-2 border-deep-ink grid grid-cols-12 gap-6 px-5 md:px-16 py-20">
         <div className="col-span-12 mb-20 reveal">
           <div className="text-display-xl opacity-10 uppercase select-none pointer-events-none whitespace-nowrap overflow-hidden">CLAMOA AGENCY</div>
         </div>
