@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as StarRouteImport } from './routes/star'
 import { Route as MagazineRouteImport } from './routes/magazine'
 import { Route as InfluencerRouteImport } from './routes/influencer'
+import { Route as EventRouteImport } from './routes/event'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
 import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
@@ -31,6 +32,11 @@ const MagazineRoute = MagazineRouteImport.update({
 const InfluencerRoute = InfluencerRouteImport.update({
   id: '/influencer',
   path: '/influencer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventRoute = EventRouteImport.update({
+  id: '/event',
+  path: '/event',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -61,6 +67,7 @@ const ApiEventImageIdRoute = ApiEventImageIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/event': typeof EventRoute
   '/influencer': typeof InfluencerRoute
   '/magazine': typeof MagazineRoute
   '/star': typeof StarRoute
@@ -71,6 +78,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/event': typeof EventRoute
   '/influencer': typeof InfluencerRoute
   '/magazine': typeof MagazineRoute
   '/star': typeof StarRoute
@@ -82,6 +90,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/event': typeof EventRoute
   '/influencer': typeof InfluencerRoute
   '/magazine': typeof MagazineRoute
   '/star': typeof StarRoute
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/event'
     | '/influencer'
     | '/magazine'
     | '/star'
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/event'
     | '/influencer'
     | '/magazine'
     | '/star'
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/event'
     | '/influencer'
     | '/magazine'
     | '/star'
@@ -125,6 +137,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EventRoute: typeof EventRoute
   InfluencerRoute: typeof InfluencerRoute
   MagazineRoute: typeof MagazineRoute
   StarRoute: typeof StarRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/influencer'
       fullPath: '/influencer'
       preLoaderRoute: typeof InfluencerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/event': {
+      id: '/event'
+      path: '/event'
+      fullPath: '/event'
+      preLoaderRoute: typeof EventRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -197,6 +217,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EventRoute: EventRoute,
   InfluencerRoute: InfluencerRoute,
   MagazineRoute: MagazineRoute,
   StarRoute: StarRoute,
