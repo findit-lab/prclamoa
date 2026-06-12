@@ -109,16 +109,15 @@ function BrandAmbassadorPage() {
         </div>
       </section>
 
-      {/* Vertical editorial — one image per row, luxury tone */}
-      <section className="px-5 md:px-12 py-16 md:py-24">
-        <div className="max-w-3xl mx-auto flex flex-col gap-24 md:gap-32">
-          {images.map((img, i) => {
-            const isEven = i % 2 === 0;
-            return (
+      {/* Horizontal editorial — three images side by side, luxury tone */}
+      <section className="px-5 md:px-12 py-16 md:py-24 min-h-[85vh] flex items-center">
+        <div className="max-w-[1600px] mx-auto w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start">
+            {images.map((img, i) => (
               <figure
                 key={img.id}
-                className={`ba-reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out active:opacity-100 active:translate-y-0 ${isEven ? "md:ml-0 md:mr-auto" : "md:mr-0 md:ml-auto"}`}
-                style={{ transitionDelay: `${i * 120}ms` }}
+                className="ba-reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out active:opacity-100 active:translate-y-0"
+                style={{ transitionDelay: `${i * 150}ms` }}
               >
                 <button
                   onClick={() => setLightboxIndex(i)}
@@ -134,16 +133,16 @@ function BrandAmbassadorPage() {
                       className="w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
                       style={{
                         aspectRatio: `${img.w} / ${img.h}`,
-                        maxHeight: "85vh",
+                        maxHeight: "72vh",
                       }}
                     />
                   </div>
-                  <figcaption className="mt-6 md:mt-8 flex items-baseline justify-between gap-4">
+                  <figcaption className="mt-5 flex items-baseline justify-between gap-4">
                     <div>
-                      <span className="text-[10px] tracking-[0.25em] uppercase text-neon-signal font-bold block mb-2">
+                      <span className="text-[10px] tracking-[0.25em] uppercase text-neon-signal font-bold block mb-1.5">
                         {String(i + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
                       </span>
-                      <h2 className="font-serif text-headline-md uppercase tracking-tight">
+                      <h2 className="font-serif text-headline-sm uppercase tracking-tight">
                         {handleName(img.name)}
                       </h2>
                     </div>
@@ -151,11 +150,11 @@ function BrandAmbassadorPage() {
                       zoom_in
                     </span>
                   </figcaption>
-                  <div className="mt-3 h-px bg-white/10 group-hover:bg-neon-signal/40 transition-colors duration-500" />
+                  <div className="mt-2.5 h-px bg-white/10 group-hover:bg-neon-signal/40 transition-colors duration-500" />
                 </button>
               </figure>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </section>
 
