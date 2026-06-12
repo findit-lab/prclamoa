@@ -512,6 +512,13 @@ function Index() {
                   </Link>
                 );
               }
+              if (c.title === "MAGAZINE") {
+                return (
+                  <Link key={c.title} to="/magazine" className={className}>
+                    {inner}
+                  </Link>
+                );
+              }
               return (
                 <article key={c.title} className={className}>
                   {inner}
