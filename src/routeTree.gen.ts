@@ -13,11 +13,13 @@ import { Route as StarRouteImport } from './routes/star'
 import { Route as MagazineRouteImport } from './routes/magazine'
 import { Route as InfluencerRouteImport } from './routes/influencer'
 import { Route as EventRouteImport } from './routes/event'
+import { Route as BrandAmbassadorRouteImport } from './routes/brand-ambassador'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
 import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
 import { Route as ApiInfluencerImageIdRouteImport } from './routes/api/influencer.image.$id'
 import { Route as ApiEventImageIdRouteImport } from './routes/api/event.image.$id'
+import { Route as ApiBrandAmbassadorImageIdRouteImport } from './routes/api/brand-ambassador.image.$id'
 
 const StarRoute = StarRouteImport.update({
   id: '/star',
@@ -37,6 +39,11 @@ const InfluencerRoute = InfluencerRouteImport.update({
 const EventRoute = EventRouteImport.update({
   id: '/event',
   path: '/event',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandAmbassadorRoute = BrandAmbassadorRouteImport.update({
+  id: '/brand-ambassador',
+  path: '/brand-ambassador',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -64,13 +71,21 @@ const ApiEventImageIdRoute = ApiEventImageIdRouteImport.update({
   path: '/api/event/image/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiBrandAmbassadorImageIdRoute =
+  ApiBrandAmbassadorImageIdRouteImport.update({
+    id: '/api/brand-ambassador/image/$id',
+    path: '/api/brand-ambassador/image/$id',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/brand-ambassador': typeof BrandAmbassadorRoute
   '/event': typeof EventRoute
   '/influencer': typeof InfluencerRoute
   '/magazine': typeof MagazineRoute
   '/star': typeof StarRoute
+  '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
   '/api/magazine/image/$id': typeof ApiMagazineImageIdRoute
@@ -78,10 +93,12 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/brand-ambassador': typeof BrandAmbassadorRoute
   '/event': typeof EventRoute
   '/influencer': typeof InfluencerRoute
   '/magazine': typeof MagazineRoute
   '/star': typeof StarRoute
+  '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
   '/api/magazine/image/$id': typeof ApiMagazineImageIdRoute
@@ -90,10 +107,12 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/brand-ambassador': typeof BrandAmbassadorRoute
   '/event': typeof EventRoute
   '/influencer': typeof InfluencerRoute
   '/magazine': typeof MagazineRoute
   '/star': typeof StarRoute
+  '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
   '/api/magazine/image/$id': typeof ApiMagazineImageIdRoute
@@ -103,10 +122,12 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/brand-ambassador'
     | '/event'
     | '/influencer'
     | '/magazine'
     | '/star'
+    | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
     | '/api/magazine/image/$id'
@@ -114,10 +135,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/brand-ambassador'
     | '/event'
     | '/influencer'
     | '/magazine'
     | '/star'
+    | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
     | '/api/magazine/image/$id'
@@ -125,10 +148,12 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/brand-ambassador'
     | '/event'
     | '/influencer'
     | '/magazine'
     | '/star'
+    | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
     | '/api/magazine/image/$id'
@@ -137,10 +162,12 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BrandAmbassadorRoute: typeof BrandAmbassadorRoute
   EventRoute: typeof EventRoute
   InfluencerRoute: typeof InfluencerRoute
   MagazineRoute: typeof MagazineRoute
   StarRoute: typeof StarRoute
+  ApiBrandAmbassadorImageIdRoute: typeof ApiBrandAmbassadorImageIdRoute
   ApiEventImageIdRoute: typeof ApiEventImageIdRoute
   ApiInfluencerImageIdRoute: typeof ApiInfluencerImageIdRoute
   ApiMagazineImageIdRoute: typeof ApiMagazineImageIdRoute
@@ -175,6 +202,13 @@ declare module '@tanstack/react-router' {
       path: '/event'
       fullPath: '/event'
       preLoaderRoute: typeof EventRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brand-ambassador': {
+      id: '/brand-ambassador'
+      path: '/brand-ambassador'
+      fullPath: '/brand-ambassador'
+      preLoaderRoute: typeof BrandAmbassadorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -212,15 +246,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiEventImageIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/brand-ambassador/image/$id': {
+      id: '/api/brand-ambassador/image/$id'
+      path: '/api/brand-ambassador/image/$id'
+      fullPath: '/api/brand-ambassador/image/$id'
+      preLoaderRoute: typeof ApiBrandAmbassadorImageIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BrandAmbassadorRoute: BrandAmbassadorRoute,
   EventRoute: EventRoute,
   InfluencerRoute: InfluencerRoute,
   MagazineRoute: MagazineRoute,
   StarRoute: StarRoute,
+  ApiBrandAmbassadorImageIdRoute: ApiBrandAmbassadorImageIdRoute,
   ApiEventImageIdRoute: ApiEventImageIdRoute,
   ApiInfluencerImageIdRoute: ApiInfluencerImageIdRoute,
   ApiMagazineImageIdRoute: ApiMagazineImageIdRoute,
@@ -229,3 +272,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

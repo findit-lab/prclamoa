@@ -495,7 +495,7 @@ function Index() {
                         ))}
                       </div>
                     )}
-                    {(c.title === "STAR" || c.title === "MAGAZINE" || c.title === "INFLUENCER" || c.title === "EVENT") && (
+                    {(c.title === "STAR" || c.title === "MAGAZINE" || c.title === "INFLUENCER" || c.title === "EVENT" || c.title === "BRAND AMBASSADOR CASTING") && (
                       <span className="text-label-caps text-deep-ink mt-2 inline-flex items-center gap-2">
                         {c.title === "MAGAZINE"
                           ? "VIEW ISSUE"
@@ -503,6 +503,8 @@ function Index() {
                           ? "VIEW FEED"
                           : c.title === "EVENT"
                           ? "VIEW SKETCH"
+                          : c.title === "BRAND AMBASSADOR CASTING"
+                          ? "VIEW CASTING"
                           : "VIEW ARCHIVE"}
                         <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                       </span>
@@ -535,6 +537,13 @@ function Index() {
               if (c.title === "EVENT") {
                 return (
                   <Link key={c.title} to="/event" className={className}>
+                    {inner}
+                  </Link>
+                );
+              }
+              if (c.title === "BRAND AMBASSADOR CASTING") {
+                return (
+                  <Link key={c.title} to="/brand-ambassador" className={className}>
                     {inner}
                   </Link>
                 );
