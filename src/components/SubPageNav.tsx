@@ -42,17 +42,17 @@ export function SubPageNav({ variant = "light", rightSlot }: Props) {
 
   return (
     <header className={`sticky top-0 z-40 backdrop-blur border-b ${wrapBg} ${textColor}`}>
-      <div className="flex items-center justify-between gap-4 px-4 md:px-8 py-3">
+      <div className="flex items-center justify-between gap-3 md:gap-4 px-3 md:px-8 py-3">
         <button
           type="button"
           onClick={goBack}
-          className="flex items-center gap-2 group shrink-0"
+          className="flex items-center gap-1.5 md:gap-2 group shrink-0"
           aria-label="Back"
         >
-          <span className="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">
+          <span className="material-symbols-outlined text-[18px] md:text-[20px] group-hover:-translate-x-1 transition-transform">
             arrow_back
           </span>
-          <span className="text-label-caps">BACK</span>
+          <span className="text-label-caps hidden sm:inline">BACK</span>
         </button>
 
         <nav
@@ -60,7 +60,7 @@ export function SubPageNav({ variant = "light", rightSlot }: Props) {
           style={{ scrollbarWidth: "none" }}
           aria-label="Section navigation"
         >
-          <ul className="flex items-center justify-center gap-4 md:gap-7 whitespace-nowrap px-2">
+          <ul className="flex items-center justify-start md:justify-center gap-3 md:gap-7 whitespace-nowrap px-2">
             {TABS.map((t) => {
               const active = pathname === t.to;
               return (
