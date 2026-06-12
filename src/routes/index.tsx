@@ -541,6 +541,13 @@ function Index() {
                   </Link>
                 );
               }
+              if (c.title === "BRAND AMBASSADOR CASTING") {
+                return (
+                  <Link key={c.title} to="/brand-ambassador" className={className}>
+                    {inner}
+                  </Link>
+                );
+              }
               return (
                 <article key={c.title} className={className}>
                   {inner}
