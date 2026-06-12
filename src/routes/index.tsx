@@ -744,7 +744,7 @@ function Index() {
           <div className="text-display-xl opacity-10 uppercase select-none pointer-events-none whitespace-nowrap overflow-hidden">CLAMOA AGENCY</div>
         </div>
         <div className="col-span-12 md:col-span-4 flex flex-col gap-6 reveal">
-          <div className="text-2xl font-serif font-bold tracking-tighter">CLAMOA</div>
+          <img src={clamoaLogo.url} alt="CLAMOA" className="h-8 w-auto object-contain" />
           <p className="text-body-md max-w-xs">
             패션·라이프스타일 브랜드의 문화적 가시성을 구축하는 패션 PR 에이전시.
           </p>
