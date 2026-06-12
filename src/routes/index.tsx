@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 
 export const Route = createFileRoute("/")({
@@ -463,11 +463,8 @@ function Index() {
                 span: "md:col-span-5",
                 accent: true,
               },
-            ].map((c, i) => (
-              <article
-                key={c.title}
-                className={`col-span-12 ${c.span} border-deep-ink ${i % 2 === 0 ? "md:border-r-2" : ""} ${i < 4 ? "border-b-2" : ""} group relative overflow-hidden ${c.accent ? "bg-neon-signal" : "bg-surface"}`}
-              >
+            ].map((c, i) => {
+              const inner = (
                 <div className="grid grid-cols-1 md:grid-cols-5 h-full">
                   <div className="md:col-span-2 overflow-hidden border-b-2 md:border-b-0 md:border-r-2 border-deep-ink">
                     <img
@@ -498,10 +495,29 @@ function Index() {
                         ))}
                       </div>
                     )}
+                    {c.title === "STAR" && (
+                      <span className="text-label-caps text-deep-ink mt-2 inline-flex items-center gap-2">
+                        VIEW ARCHIVE
+                        <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                      </span>
+                    )}
                   </div>
                 </div>
-              </article>
-            ))}
+              );
+              const className = `col-span-12 ${c.span} border-deep-ink ${i % 2 === 0 ? "md:border-r-2" : ""} ${i < 4 ? "border-b-2" : ""} group relative overflow-hidden ${c.accent ? "bg-neon-signal" : "bg-surface"}`;
+              if (c.title === "STAR") {
+                return (
+                  <Link key={c.title} to="/star" className={className}>
+                    {inner}
+                  </Link>
+                );
+              }
+              return (
+                <article key={c.title} className={className}>
+                  {inner}
+                </article>
+              );
+            })}
           </div>
         </section>
 
