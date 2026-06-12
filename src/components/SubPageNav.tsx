@@ -56,7 +56,8 @@ export function SubPageNav({ variant = "light", rightSlot }: Props) {
         </button>
 
         <nav
-          className="flex-1 min-w-0 overflow-x-auto no-scrollbar"
+          className="flex-1 min-w-0 overflow-x-auto [&::-webkit-scrollbar]:hidden"
+          style={{ scrollbarWidth: "none" }}
           aria-label="Section navigation"
         >
           <ul className="flex items-center justify-center gap-4 md:gap-7 whitespace-nowrap px-2">
