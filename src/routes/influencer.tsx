@@ -36,26 +36,7 @@ function InfluencerPage() {
 
   return (
     <main className="min-h-screen bg-white text-deep-ink">
-      {/* Top bar — instagram-like */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-deep-ink/10">
-        <div className="flex items-center justify-between px-4 md:px-8 py-3">
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">
-              arrow_back
-            </span>
-            <span className="text-label-caps">BACK</span>
-          </Link>
-          <span
-            className="text-xl md:text-2xl tracking-[0.02em] italic"
-            style={{ fontFamily: "'Cormorant', serif", fontWeight: 400 }}
-          >
-            clamoa
-          </span>
-          <span className="text-label-caps text-secondary w-[60px] text-right">
-            {images.length}
-          </span>
-        </div>
-      </header>
+      <SubPageNav variant="light" rightSlot={<>{images.length}</>} />
 
       {/* Profile header — instagram-style */}
       <section className="px-4 md:px-8 pt-10 md:pt-16 pb-10 max-w-5xl mx-auto">
