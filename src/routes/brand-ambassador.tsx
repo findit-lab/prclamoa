@@ -116,7 +116,7 @@ function BrandAmbassadorPage() {
             {images.map((img, i) => (
               <figure
                 key={img.id}
-                className="ba-reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out active:opacity-100 active:translate-y-0"
+                className="ba-reveal transition-all duration-1000 ease-out"
                 style={{ transitionDelay: `${i * 150}ms` }}
               >
                 <button
