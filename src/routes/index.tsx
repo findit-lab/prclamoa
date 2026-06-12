@@ -81,6 +81,7 @@ function Index() {
   const parallaxContainer = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const MARQUEE_IMAGES = useMemo(() => shuffleArray(STAR_IMAGES), []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
