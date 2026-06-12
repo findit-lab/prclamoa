@@ -60,7 +60,7 @@ export function SubPageNav({ variant = "light", rightSlot }: Props) {
           style={{ scrollbarWidth: "none" }}
           aria-label="Section navigation"
         >
-          <ul className="flex items-center justify-center gap-4 md:gap-7 whitespace-nowrap px-2">
+          <ul className="flex items-center justify-start md:justify-center gap-3 md:gap-7 whitespace-nowrap px-2">
             {TABS.map((t) => {
               const active = pathname === t.to;
               return (
