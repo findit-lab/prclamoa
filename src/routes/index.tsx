@@ -574,8 +574,8 @@ function Index() {
           </div>
 
           {(() => {
-            const ROW_A = ["KIRSH", "Millo Archive", "mahagrid°", "odor", "NODE LABS", "ee6s", "2000 Archives", "NOMANUAL", "MILLO WOMEN", "PARTIMENTO WOMEN", "mainbooth", "aetoa"];
-            const ROW_B = ["Cavish Design Seller", "Culminant", "SPORT CHAMBER", "WMC", "Kims", "BADPIXEL", "MIM", "DOUBLE LOVERS", "oafish creation.", "SAPPUN", "ĒPURĒ", "QY", "Ames Worldwide", "THE VINYL HOUSE", "LOVEMBER", "KIMAURA"];
+            const ROW_A = ["EMPORIO ARMANI", "MICHAEL KORS", "LOSESLEEPOVER", "BOB", "OWNSER", "This is Fine", "DIESEL", "fusalp", "Kleesier", "DYSFUNCT®", "NICK NICOLE", "SALT&CHOCOLATE", "ANIA HAIE", "ARICONNECTION", "PRIMATE", "TICKET TO THE MOON", "Zeroplanet", "CLROTTE", "JBLIN"];
+            const ROW_B = ["PELOTE", "Cadeau", "ALIENAR", "FUNFLEX", "JYDIM", "ADEVA", "BLACKUSH", "KOMMUNTHEWEAR", "Whisfairy", "MSGRN", "the J.Soo", "CNN APPAREL", "DOROCY", "SELIVER®", "MERRYON", "SHOEHI", "BBIBBONG UNNI", "Rosé Frantz", "DeLine", "WAR DOG NYC", "MON PLISSÉ", "FRANK CUSTOM", "NOIR DESIR", "ALKI ALKA"];
             const renderItem = (name: string, i: number) => (
               <div
                 key={i}
