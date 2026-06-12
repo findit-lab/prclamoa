@@ -9,38 +9,65 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StarRouteImport } from './routes/star'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
 
+const StarRoute = StarRouteImport.update({
+  id: '/star',
+  path: '/star',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiStarImageIdRoute = ApiStarImageIdRouteImport.update({
+  id: '/api/star/image/$id',
+  path: '/api/star/image/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/star': typeof StarRoute
+  '/api/star/image/$id': typeof ApiStarImageIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/star': typeof StarRoute
+  '/api/star/image/$id': typeof ApiStarImageIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/star': typeof StarRoute
+  '/api/star/image/$id': typeof ApiStarImageIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/star' | '/api/star/image/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/star' | '/api/star/image/$id'
+  id: '__root__' | '/' | '/star' | '/api/star/image/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  StarRoute: typeof StarRoute
+  ApiStarImageIdRoute: typeof ApiStarImageIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/star': {
+      id: '/star'
+      path: '/star'
+      fullPath: '/star'
+      preLoaderRoute: typeof StarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +75,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/star/image/$id': {
+      id: '/api/star/image/$id'
+      path: '/api/star/image/$id'
+      fullPath: '/api/star/image/$id'
+      preLoaderRoute: typeof ApiStarImageIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  StarRoute: StarRoute,
+  ApiStarImageIdRoute: ApiStarImageIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
