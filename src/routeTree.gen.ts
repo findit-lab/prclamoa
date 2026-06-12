@@ -14,6 +14,7 @@ import { Route as MagazineRouteImport } from './routes/magazine'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
 import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
+import { Route as ApiInfluencerImageIdRouteImport } from './routes/api/influencer.image.$id'
 
 const StarRoute = StarRouteImport.update({
   id: '/star',
@@ -40,11 +41,17 @@ const ApiMagazineImageIdRoute = ApiMagazineImageIdRouteImport.update({
   path: '/api/magazine/image/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiInfluencerImageIdRoute = ApiInfluencerImageIdRouteImport.update({
+  id: '/api/influencer/image/$id',
+  path: '/api/influencer/image/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/magazine': typeof MagazineRoute
   '/star': typeof StarRoute
+  '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
   '/api/magazine/image/$id': typeof ApiMagazineImageIdRoute
   '/api/star/image/$id': typeof ApiStarImageIdRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/magazine': typeof MagazineRoute
   '/star': typeof StarRoute
+  '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
   '/api/magazine/image/$id': typeof ApiMagazineImageIdRoute
   '/api/star/image/$id': typeof ApiStarImageIdRoute
 }
@@ -60,6 +68,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/magazine': typeof MagazineRoute
   '/star': typeof StarRoute
+  '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
   '/api/magazine/image/$id': typeof ApiMagazineImageIdRoute
   '/api/star/image/$id': typeof ApiStarImageIdRoute
 }
@@ -69,6 +78,7 @@ export interface FileRouteTypes {
     | '/'
     | '/magazine'
     | '/star'
+    | '/api/influencer/image/$id'
     | '/api/magazine/image/$id'
     | '/api/star/image/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -76,6 +86,7 @@ export interface FileRouteTypes {
     | '/'
     | '/magazine'
     | '/star'
+    | '/api/influencer/image/$id'
     | '/api/magazine/image/$id'
     | '/api/star/image/$id'
   id:
@@ -83,6 +94,7 @@ export interface FileRouteTypes {
     | '/'
     | '/magazine'
     | '/star'
+    | '/api/influencer/image/$id'
     | '/api/magazine/image/$id'
     | '/api/star/image/$id'
   fileRoutesById: FileRoutesById
@@ -91,6 +103,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   MagazineRoute: typeof MagazineRoute
   StarRoute: typeof StarRoute
+  ApiInfluencerImageIdRoute: typeof ApiInfluencerImageIdRoute
   ApiMagazineImageIdRoute: typeof ApiMagazineImageIdRoute
   ApiStarImageIdRoute: typeof ApiStarImageIdRoute
 }
@@ -132,6 +145,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiMagazineImageIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/influencer/image/$id': {
+      id: '/api/influencer/image/$id'
+      path: '/api/influencer/image/$id'
+      fullPath: '/api/influencer/image/$id'
+      preLoaderRoute: typeof ApiInfluencerImageIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -139,9 +159,20 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   MagazineRoute: MagazineRoute,
   StarRoute: StarRoute,
+  ApiInfluencerImageIdRoute: ApiInfluencerImageIdRoute,
   ApiMagazineImageIdRoute: ApiMagazineImageIdRoute,
   ApiStarImageIdRoute: ApiStarImageIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
