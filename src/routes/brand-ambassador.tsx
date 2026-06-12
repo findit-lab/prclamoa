@@ -66,6 +66,7 @@ function BrandAmbassadorPage() {
 
   return (
     <main className="min-h-screen bg-deep-ink text-inverse-on-surface">
+      <style>{`.ba-reveal{opacity:0;transform:translateY(2rem)}.ba-reveal.active{opacity:1;transform:translateY(0)}`}</style>
       {/* Top bar */}
       <header className="sticky top-0 z-40 bg-deep-ink/90 backdrop-blur border-b border-white/15">
         <div className="flex items-center justify-between px-5 md:px-12 py-4">
@@ -116,7 +117,7 @@ function BrandAmbassadorPage() {
             {images.map((img, i) => (
               <figure
                 key={img.id}
-                className="ba-reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out active:opacity-100 active:translate-y-0"
+                className="ba-reveal transition-all duration-1000 ease-out"
                 style={{ transitionDelay: `${i * 150}ms` }}
               >
                 <button
