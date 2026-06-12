@@ -66,6 +66,7 @@ function BrandAmbassadorPage() {
 
   return (
     <main className="min-h-screen bg-deep-ink text-inverse-on-surface">
+      <style>{`.ba-reveal{opacity:0;transform:translateY(2rem)}.ba-reveal.active{opacity:1;transform:translateY(0)}`}</style>
       {/* Top bar */}
       <header className="sticky top-0 z-40 bg-deep-ink/90 backdrop-blur border-b border-white/15">
         <div className="flex items-center justify-between px-5 md:px-12 py-4">
