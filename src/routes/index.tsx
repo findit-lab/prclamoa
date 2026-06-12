@@ -1,6 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import clamoaLogo from "@/assets/clamoa-logo.png.asset.json";
+import starAnyujin from "@/assets/star-anyujin.jpg.asset.json";
+import starByunwooseok from "@/assets/star-byunwooseok.jpg.asset.json";
+import starChaeunwoo from "@/assets/star-chaeunwoo.jpg.asset.json";
+import starFelix from "@/assets/star-felix.jpg.asset.json";
+import starHansohee from "@/assets/star-hansohee.jpg.asset.json";
+import starIu from "@/assets/star-iu.jpg.asset.json";
+import starJangwonyoung from "@/assets/star-jangwonyoung.jpg.asset.json";
+import starJennie from "@/assets/star-jennie.jpg.asset.json";
+import starJisoo from "@/assets/star-jisoo.jpg.asset.json";
+import starKarina from "@/assets/star-karina.jpg.asset.json";
+import starLisa from "@/assets/star-lisa.jpg.asset.json";
+import starRose from "@/assets/star-rose.jpg.asset.json";
+import starTaeyeon from "@/assets/star-taeyeon.jpg.asset.json";
+import starUdohwan from "@/assets/star-udohwan.jpg.asset.json";
+import starWinter from "@/assets/star-winter.jpg.asset.json";
+import starYoona from "@/assets/star-yoona.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,18 +37,33 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const MARQUEE_IMAGES = [
-  "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1485231183945-fffde7cc051e?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900&q=80&auto=format&fit=crop",
+const STAR_IMAGES = [
+  starAnyujin.url,
+  starByunwooseok.url,
+  starChaeunwoo.url,
+  starFelix.url,
+  starHansohee.url,
+  starIu.url,
+  starJangwonyoung.url,
+  starJennie.url,
+  starJisoo.url,
+  starKarina.url,
+  starLisa.url,
+  starRose.url,
+  starTaeyeon.url,
+  starUdohwan.url,
+  starWinter.url,
+  starYoona.url,
 ];
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 const IMG_SHOWROOM =
   "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80&auto=format&fit=crop";
@@ -50,6 +81,7 @@ function Index() {
   const parallaxContainer = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const MARQUEE_IMAGES = useMemo(() => shuffleArray(STAR_IMAGES), []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
