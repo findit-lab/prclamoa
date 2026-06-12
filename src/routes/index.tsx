@@ -495,12 +495,14 @@ function Index() {
                         ))}
                       </div>
                     )}
-                    {(c.title === "STAR" || c.title === "MAGAZINE" || c.title === "INFLUENCER") && (
+                    {(c.title === "STAR" || c.title === "MAGAZINE" || c.title === "INFLUENCER" || c.title === "EVENT") && (
                       <span className="text-label-caps text-deep-ink mt-2 inline-flex items-center gap-2">
                         {c.title === "MAGAZINE"
                           ? "VIEW ISSUE"
                           : c.title === "INFLUENCER"
                           ? "VIEW FEED"
+                          : c.title === "EVENT"
+                          ? "VIEW SKETCH"
                           : "VIEW ARCHIVE"}
                         <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                       </span>
@@ -526,6 +528,13 @@ function Index() {
               if (c.title === "INFLUENCER") {
                 return (
                   <Link key={c.title} to="/influencer" className={className}>
+                    {inner}
+                  </Link>
+                );
+              }
+              if (c.title === "EVENT") {
+                return (
+                  <Link key={c.title} to="/event" className={className}>
                     {inner}
                   </Link>
                 );
