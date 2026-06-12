@@ -1,6 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import clamoaLogo from "@/assets/clamoa-logo.png.asset.json";
+import starAnyujin from "@/assets/star-anyujin.jpg.asset.json";
+import starByunwooseok from "@/assets/star-byunwooseok.jpg.asset.json";
+import starChaeunwoo from "@/assets/star-chaeunwoo.jpg.asset.json";
+import starFelix from "@/assets/star-felix.jpg.asset.json";
+import starHansohee from "@/assets/star-hansohee.jpg.asset.json";
+import starIu from "@/assets/star-iu.jpg.asset.json";
+import starJangwonyoung from "@/assets/star-jangwonyoung.jpg.asset.json";
+import starJennie from "@/assets/star-jennie.jpg.asset.json";
+import starJisoo from "@/assets/star-jisoo.jpg.asset.json";
+import starKarina from "@/assets/star-karina.jpg.asset.json";
+import starLisa from "@/assets/star-lisa.jpg.asset.json";
+import starRose from "@/assets/star-rose.jpg.asset.json";
+import starTaeyeon from "@/assets/star-taeyeon.jpg.asset.json";
+import starUdohwan from "@/assets/star-udohwan.jpg.asset.json";
+import starWinter from "@/assets/star-winter.jpg.asset.json";
+import starYoona from "@/assets/star-yoona.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
