@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { SubPageNav } from "@/components/SubPageNav";
 import starImages from "@/data/star-images.json";
 
 type StarImage = { id: string; name: string; w: number; h: number };
@@ -27,20 +28,7 @@ function StarPage() {
 
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
-      {/* Top bar */}
-      <header className="sticky top-0 z-40 bg-surface/90 backdrop-blur border-b-2 border-deep-ink">
-        <div className="flex items-center justify-between px-5 md:px-12 py-4">
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">
-              arrow_back
-            </span>
-            <span className="text-label-caps">BACK TO CLAMOA</span>
-          </Link>
-          <span className="text-label-caps text-secondary hidden md:block">
-            ARCHIVE · {images.length} ENTRIES
-          </span>
-        </div>
-      </header>
+      <SubPageNav variant="light" rightSlot={<>{`ARCHIVE · ${images.length} ENTRIES`}</>} />
 
       {/* Editorial hero */}
       <section className="px-5 md:px-12 pt-16 md:pt-24 pb-12 md:pb-20 border-b-2 border-deep-ink">

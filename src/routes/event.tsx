@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import eventImages from "@/data/event-images.json";
+import { SubPageNav } from "@/components/SubPageNav";
 
 type EventImage = { id: string; name: string; w: number; h: number };
 
@@ -40,23 +41,7 @@ function EventPage() {
         }}
       />
 
-      {/* Top bar */}
-      <header className="sticky top-0 z-40 bg-[#f4f1ea]/95 backdrop-blur border-b border-deep-ink/30">
-        <div className="flex items-center justify-between px-4 md:px-8 py-3 font-mono text-[11px] tracking-[0.18em] uppercase">
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="material-symbols-outlined text-[18px] group-hover:-translate-x-1 transition-transform">
-              arrow_back
-            </span>
-            <span>Back</span>
-          </Link>
-          <span className="hidden md:flex gap-6">
-            <span>ROLL · 001</span>
-            <span>· ASA 400 ·</span>
-            <span>{stamp}</span>
-          </span>
-          <span>{images.length} frames</span>
-        </div>
-      </header>
+      <SubPageNav variant="light" rightSlot={<>{`${images.length} FRAMES`}</>} />
 
       {/* Editorial header — contact sheet style */}
       <section className="relative z-10 px-5 md:px-12 pt-12 md:pt-20 pb-10 md:pb-16">

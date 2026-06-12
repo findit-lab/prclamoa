@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { SubPageNav } from "@/components/SubPageNav";
 import magazineImages from "@/data/magazine-images.json";
 
 type MagImage = { id: string; name: string; w: number; h: number };
@@ -27,20 +28,7 @@ function MagazinePage() {
 
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
-      {/* Top bar */}
-      <header className="sticky top-0 z-40 bg-surface/90 backdrop-blur border-b-2 border-deep-ink">
-        <div className="flex items-center justify-between px-5 md:px-12 py-4">
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">
-              arrow_back
-            </span>
-            <span className="text-label-caps">BACK TO CLAMOA</span>
-          </Link>
-          <span className="text-label-caps text-secondary hidden md:block">
-            ISSUE Nº 02 · EDITORIAL
-          </span>
-        </div>
-      </header>
+      <SubPageNav variant="light" rightSlot={<>ISSUE Nº 02 · EDITORIAL</>} />
 
       {/* Magazine cover / masthead */}
       <section className="border-b-2 border-deep-ink">

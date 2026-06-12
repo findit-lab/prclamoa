@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect, useCallback } from "react";
 import brandAmbassadorImages from "@/data/brand-ambassador-images.json";
+import { SubPageNav } from "@/components/SubPageNav";
 
 export const Route = createFileRoute("/brand-ambassador")({
   head: () => ({
@@ -67,20 +68,7 @@ function BrandAmbassadorPage() {
   return (
     <main className="min-h-screen bg-deep-ink text-inverse-on-surface">
       <style>{`.ba-reveal{opacity:0;transform:translateY(2rem)}.ba-reveal.active{opacity:1;transform:translateY(0)}`}</style>
-      {/* Top bar */}
-      <header className="sticky top-0 z-40 bg-deep-ink/90 backdrop-blur border-b border-white/15">
-        <div className="flex items-center justify-between px-5 md:px-12 py-4">
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">
-              arrow_back
-            </span>
-            <span className="text-label-caps">BACK TO CLAMOA</span>
-          </Link>
-          <span className="text-label-caps text-white/50 hidden md:block">
-            AMBASSADOR ARCHIVE · {images.length} FACES
-          </span>
-        </div>
-      </header>
+      <SubPageNav variant="dark" rightSlot={<>{`AMBASSADOR · ${images.length} FACES`}</>} />
 
       {/* Editorial hero */}
       <section className="px-5 md:px-12 pt-20 md:pt-32 pb-12 md:pb-20 border-b border-white/15">
