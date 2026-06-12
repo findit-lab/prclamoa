@@ -37,18 +37,33 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const MARQUEE_IMAGES = [
-  "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1485231183945-fffde7cc051e?w=900&q=80&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900&q=80&auto=format&fit=crop",
+const STAR_IMAGES = [
+  starAnyujin.url,
+  starByunwooseok.url,
+  starChaeunwoo.url,
+  starFelix.url,
+  starHansohee.url,
+  starIu.url,
+  starJangwonyoung.url,
+  starJennie.url,
+  starJisoo.url,
+  starKarina.url,
+  starLisa.url,
+  starRose.url,
+  starTaeyeon.url,
+  starUdohwan.url,
+  starWinter.url,
+  starYoona.url,
 ];
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 const IMG_SHOWROOM =
   "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80&auto=format&fit=crop";
