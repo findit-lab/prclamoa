@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import influencerImages from "@/data/influencer-images.json";
+import { SubPageNav } from "@/components/SubPageNav";
 
 type InfImage = { id: string; name: string; w: number; h: number };
 
