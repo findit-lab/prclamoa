@@ -343,31 +343,6 @@ function Index() {
           </div>
         </section>
 
-        {/* Services intro */}
-        <section id="services" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
-          <div className="grid grid-cols-12 gap-6 items-start">
-            <div className="col-span-12 md:col-span-4 order-2 md:order-1">
-              <div className="border-t-2 border-deep-ink pt-8">
-                <span className="text-label-caps text-secondary mb-4 block">02 / SERVICES</span>
-                <h3 className="text-headline-lg mb-6 uppercase">SPATIAL<br />RHYTHM</h3>
-                <p className="text-body-md mb-8">
-                  쇼룸 큐레이션부터 셀러브리티 플레이스먼트까지, 브랜드를 가시화하는 오프라인과 디지털 모먼트를 디자인합니다.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  {["SHOWROOM", "CELEBRITY SEEDING", "STYLIST RELATIONS", "CREATOR CAMPAIGN", "AI CONTENT", "PR MONITORING"].map((t) => (
-                    <span key={t} className="border border-deep-ink px-4 py-1 font-bold tracking-widest text-[10px] uppercase hover:bg-deep-ink hover:text-surface transition-colors">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="col-span-12 md:col-span-8 order-1 md:order-2 overflow-hidden border-4 border-deep-ink">
-              <img src={IMG_RACK} alt="Showroom rack" className="w-full aspect-[1.5] object-cover grayscale hover:scale-105 transition-transform duration-[2000ms] ease-out" />
-            </div>
-          </div>
-        </section>
-
         {/* Core Services Grid */}
         <section className="px-5 md:px-16 mb-20 md:mb-40">
           <div className="border-t-2 border-deep-ink pt-12 reveal">
