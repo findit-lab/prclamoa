@@ -342,7 +342,7 @@ function Index() {
         </section>
 
         {/* Core Services Grid */}
-        <section className="px-5 md:px-16 mb-20 md:mb-40">
+        <section id="services" className="px-5 md:px-16 mb-20 md:mb-40">
           <div className="border-t-2 border-deep-ink pt-12 reveal">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
               <span className="text-label-caps text-secondary">CORE CAPABILITIES</span>
