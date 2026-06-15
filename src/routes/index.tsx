@@ -68,8 +68,6 @@ function shuffleArray<T>(arr: T[]): T[] {
 
 const IMG_SHOWROOM =
   "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80&auto=format&fit=crop";
-const IMG_RACK =
-  "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1600&q=80&auto=format&fit=crop";
 const IMG_CASE_1 =
   "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=1200&q=80&auto=format&fit=crop";
 const IMG_CASE_2 =
