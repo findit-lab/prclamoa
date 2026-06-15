@@ -303,7 +303,7 @@ function Index() {
                 <p className="text-body-md mb-8">
                   제품 플레이스먼트, 쇼룸 액세스, 컬처럴 관계를 측정 가능한 브랜드 모멘텀으로 전환합니다.
                 </p>
-                <a href="#work" className="inline-flex items-center gap-4 text-label-caps group border-b border-transparent hover:border-deep-ink pb-1 transition-all duration-300">
+                <a href="#portfolio" className="inline-flex items-center gap-4 text-label-caps group border-b border-transparent hover:border-deep-ink pb-1 transition-all duration-300">
                   VIEW CASE STUDY
                   <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
                 </a>
