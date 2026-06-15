@@ -411,7 +411,7 @@ function Index() {
         </section>
 
         {/* Case studies */}
-        <section id="insights" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
+        <section id="portfolio" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">SELECTED WORK</span>
             <h2 className="text-headline-lg uppercase max-w-2xl">RECENT CAMPAIGNS</h2>
