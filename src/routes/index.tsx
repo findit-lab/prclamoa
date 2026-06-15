@@ -442,17 +442,15 @@ function Index() {
             <span className="text-label-caps text-secondary">SELECTED WORK</span>
             <h2 className="text-headline-lg uppercase max-w-2xl">RECENT CAMPAIGNS</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min">
             {cases.map(([img, n, t, d]) => (
-              <article key={t} className="border-2 border-deep-ink group flex flex-col">
+              <article key={t} className="border-2 border-deep-ink group grid grid-rows-subgrid row-span-4">
                 <div className="overflow-hidden border-b-2 border-deep-ink">
                   <img src={img} alt={t} className="w-full aspect-[4/5] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                 </div>
-                <div className="p-8 flex flex-col gap-4 flex-1">
-                  <span className="text-label-caps text-secondary">CASE {n}</span>
-                  <h3 className="text-headline-md uppercase">{t}</h3>
-                  <p className="text-body-md flex-1">{d}</p>
-                </div>
+                <span className="text-label-caps text-secondary px-8 pt-8">CASE {n}</span>
+                <h3 className="text-headline-md uppercase px-8 pt-4">{t}</h3>
+                <p className="text-body-md px-8 pt-4 pb-8">{d}</p>
               </article>
             ))}
           </div>
