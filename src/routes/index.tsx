@@ -362,7 +362,7 @@ function Index() {
         </section>
 
         {/* Agency Difference */}
-        <section id="agency" className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 reveal">
+        <section id="about" className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-5">
               <span className="text-neon-signal text-label-caps block mb-6">THE CLAMOA DIFFERENCE</span>
