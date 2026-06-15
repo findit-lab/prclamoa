@@ -120,10 +120,8 @@ function Index() {
   const navLinks = [
     ["ABOUT", "#about"],
     ["SERVICES", "#services"],
-    ["PROCESS", "#process"],
     ["PORTFOLIO", "#portfolio"],
-    ["GLOBAL", "#global"],
-    ["CONTACT", "#contact"],
+    ["GET IN TOUCH", "#contact"],
   ];
 
   const services = [
