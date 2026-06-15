@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import showroomEditorial from "@/assets/showroom-editorial.jpg.asset.json";
 import { useEffect, useMemo, useRef, useState } from "react";
 import clamoaLogo from "@/assets/clamoa-logo.png.asset.json";
 import starAnyujin from "@/assets/star-anyujin.jpg.asset.json";
@@ -66,8 +67,7 @@ function shuffleArray<T>(arr: T[]): T[] {
   return a;
 }
 
-const IMG_SHOWROOM =
-  "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80&auto=format&fit=crop";
+const IMG_SHOWROOM = showroomEditorial.url;
 const IMG_CASE_1 =
   "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=1200&q=80&auto=format&fit=crop";
 const IMG_CASE_2 =
