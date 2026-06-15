@@ -21,16 +21,17 @@ import starYoona from "@/assets/star-yoona.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CLAMOA — Art of Fashion PR" },
+      { title: "CLAMOA — Fashion PR, Styled for Visibility" },
       {
         name: "description",
         content:
-          "CLAMOA is a Seoul-based fashion PR agency building cultural visibility through showroom strategy, celebrity seeding, stylist relations, and data-driven campaigns.",
+          "셀럽 협찬부터 PPL, 인플루언서, 바이럴, 언론 홍보까지 — 패션 브랜드의 노출과 확산을 설계하는 종합 패션 PR 에이전시 CLAMOA.",
       },
-      { property: "og:title", content: "CLAMOA — Art of Fashion PR" },
+      { property: "og:title", content: "CLAMOA — Fashion PR, Styled for Visibility" },
       {
         property: "og:description",
-        content: "Where strategic disruption meets high-fashion precision.",
+        content:
+          "패션 브랜드의 첫 노출부터 셀럽 협찬, PPL, 바이럴 콘텐츠, 언론 홍보, 브랜드 캠페인까지 설계하는 종합 패션 PR 파트너.",
       },
     ],
   }),
@@ -127,20 +128,22 @@ function Index() {
   ];
 
   const services = [
-    ["Celebrity & Stylist Seeding", "셀러브리티, 스타일리스트, 의상팀 그리고 컬처 테이스트메이커와 컬렉션을 연결합니다."],
-    ["Showroom PR Operation", "스타일리스트, 에디터, 인플루언서, 셀러브리티가 브랜드 아이템을 직접 만나는 큐레이션 쇼룸을 운영합니다."],
-    ["Fashion Campaign Strategy", "런칭 캠페인, 시즌 컬렉션 PR, 콜라보레이션, 브랜드 모먼트를 기획하고 실행합니다."],
-    ["Influencer & Creator Marketing", "소셜 임팩트와 비주얼 자산, 오디언스 인게이지먼트를 만들어내는 크리에이터 기반 캠페인을 설계합니다."],
-    ["Editorial Content Production", "룩북, AI 모델 비주얼, 캠페인 이미지, 숏폼 영상 등 디지털 콘텐츠 자산을 제작합니다."],
-    ["AI & Data-Driven PR", "제품 무브먼트, 스타일리스트 요청, 노출, 콘텐츠 성과, 캠페인 결과를 데이터로 추적합니다."],
+    ["STAR MARKETING", "셀럽 협찬 · 스타일리스트 픽업 · 매거진 노출. 브랜드 무드와 타깃에 맞는 셀럽 매칭으로 자연스러운 착용 콘텐츠를 만듭니다."],
+    ["PPL", "드라마 · 예능 · 유튜브 · OTT · 공항패션. 콘텐츠 맥락에 어울리는 노출 기회를 발굴하고 협찬 진행 전 과정을 관리합니다."],
+    ["PROMOTION", "팝업 · 런칭 행사 · 브랜드 캠페인. 브랜드 경험을 오프라인 접점으로 확장하고, 현장 콘텐츠와 온라인 확산까지 연결합니다."],
+    ["ONLINE PR", "인플루언서 · 블로그 · SNS · 언론 기사. 검색, SNS, 리뷰, 기사 노출을 통해 소비자가 브랜드를 발견하는 접점을 넓힙니다."],
+    ["SHOWROOM PR", "명품 편집샵 콘셉트의 협찬 쇼룸을 운영하며, 연예인·스타일리스트·인플루언서가 직접 제품을 경험하고 콘텐츠로 연결될 수 있는 환경을 제공합니다."],
+    ["AI & DATA-DRIVEN PR", "제품 무브먼트, 스타일리스트 요청, 노출, 콘텐츠 성과, 캠페인 결과를 데이터로 추적하고 다음 PR 전략에 반영합니다."],
   ];
 
   const process = [
-    ["01", "BRAND DIAGNOSIS", "브랜드 아이덴티티, 타겟 오디언스, 컬렉션 스토리, 제품 라인, 캠페인 목표를 진단합니다."],
-    ["02", "PR STRATEGY DESIGN", "쇼룸 노출, 셀러브리티 시딩, 스타일리스트 아웃리치, 크리에이터 캠페인, 미디어 관계를 아우르는 최적의 PR 믹스를 설계합니다."],
-    ["03", "NETWORK ACTIVATION", "스타일리스트, 인플루언서, 셀러브리티, 에디터, 크리에이터, 쇼룸 방문자 네트워크를 가동합니다."],
-    ["04", "CAMPAIGN EXECUTION", "물류, 커뮤니케이션, 제품 대여 및 회수, 콘텐츠 제작과 퍼블리싱까지 캠페인 전 과정을 운영합니다."],
-    ["05", "MONITORING & REPORTING", "노출, 콘텐츠 성과, 캠페인 반응, 오디언스 피드백 등 측정 가능한 결과를 리포팅합니다."],
+    ["01", "상담 접수", "브랜드 상황과 캠페인 목표를 남겨주시면 담당자가 빠르게 연락드립니다."],
+    ["02", "브랜드 및 제품 검토", "브랜드 아이덴티티, 제품 카테고리, 타깃 소비자, 시즌 전략을 함께 검토합니다."],
+    ["03", "PR 플랜 제안", "예산과 목표에 맞춰 셀럽 협찬, PPL, 인플루언서, 언론 홍보를 결합한 PR 플랜을 제안합니다."],
+    ["04", "계약 및 쇼룸 입점", "계약 체결 후 협찬 쇼룸에 제품을 입점하고 운영 준비를 시작합니다."],
+    ["05", "셀럽·스타일리스트·인플루언서 매칭", "브랜드 무드에 맞는 셀럽, 스타일리스트, 인플루언서 접점을 가동합니다."],
+    ["06", "협찬·PPL·온라인 PR 진행", "착용 노출, 콘텐츠 제작, 언론 기사화, SNS 확산까지 캠페인 전 과정을 운영합니다."],
+    ["07", "결과 콘텐츠 전달 및 2차 확산", "노출 결과 리포트와 함께 블로그·SNS·기사로 이어지는 2차 확산을 진행합니다."],
   ];
 
   const cases = [
@@ -216,21 +219,37 @@ function Index() {
             <div className="col-span-12 md:col-span-8">
               <span className="text-label-caps text-secondary block mb-8">SEOUL — FASHION PR AGENCY</span>
               <h1 className="text-display-xl uppercase mb-12">
-                CLAMOA:<br />ART OF<br />FASHION PR
+                FASHION PR,<br />STYLED FOR<br />VISIBILITY
               </h1>
               <div className="max-w-xl space-y-6">
                 <p className="text-body-lg border-l-4 border-neon-signal pl-6 italic font-serif">
-                  전략적 디스럽션과 하이패션의 정밀함이 만나는 곳.
+                  셀럽 협찬부터 PPL, 인플루언서, 바이럴, 언론 홍보까지 — 패션 브랜드의 노출과 확산을 설계합니다.
                 </p>
                 <p className="text-body-md pl-6 max-w-lg">
-                  CLAMOA는 쇼룸 전략, 셀러브리티 시딩, 스타일리스트 관계, 크리에이터 캠페인, 데이터 기반 PR 실행을 통해 패션·라이프스타일 브랜드의 문화적 가시성을 만들어냅니다.
+                  CLAMOA는 패션 브랜드의 첫 노출부터 셀럽 협찬, PPL, 바이럴 콘텐츠, 언론 홍보, 브랜드 캠페인까지 설계하는 종합 패션 PR 파트너입니다.
                 </p>
+                <div className="pl-6 flex flex-wrap gap-3 pt-2">
+                  <a
+                    href="#portfolio"
+                    className="inline-flex items-center gap-2 bg-deep-ink text-neon-signal px-5 py-3 text-label-caps border-2 border-deep-ink hover:bg-neon-signal hover:text-deep-ink transition-all duration-300"
+                  >
+                    포트폴리오 보기
+                    <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </a>
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 bg-transparent text-deep-ink px-5 py-3 text-label-caps border-2 border-deep-ink hover:bg-deep-ink hover:text-neon-signal transition-all duration-300"
+                  >
+                    상담 문의하기
+                    <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </a>
+                </div>
               </div>
             </div>
             <div className="col-span-12 md:col-span-4">
               <div className="border-2 border-deep-ink p-8 bg-neon-signal hover-lift shadow-[8px_8px_0px_0px_rgba(26,28,28,1)]">
-                <span className="text-label-caps block mb-4">ESTABLISHED 2024</span>
-                <h2 className="text-headline-md uppercase">CHAMPIONING<br />THE UNDONE<br />AESTHETIC.</h2>
+                <span className="text-label-caps block mb-4">APGUJEONG RODEO · SEOUL</span>
+                <h2 className="text-headline-md uppercase">셀럽과<br />스타일리스트가<br />찾는 패션 PR 쇼룸</h2>
               </div>
             </div>
           </div>
@@ -354,7 +373,7 @@ function Index() {
           <div className="border-t-2 border-deep-ink pt-12 reveal">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
               <span className="text-label-caps text-secondary">CORE CAPABILITIES</span>
-              <h2 className="text-headline-lg uppercase max-w-2xl">패션 브랜드를 위한 풀스택 PR 엔진.</h2>
+              <h2 className="text-headline-lg uppercase max-w-2xl">패션 브랜드를 위한 통합 PR 솔루션.</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-l border-t border-deep-ink">
               {services.map(([t, d], i) => (
@@ -375,7 +394,7 @@ function Index() {
               <span className="text-neon-signal text-label-caps block mb-6">THE CLAMOA DIFFERENCE</span>
               <h2 className="font-serif font-bold uppercase mb-8 leading-[0.95] tracking-[-0.03em] text-[clamp(44px,6vw,88px)]">BEYOND<br />TRADITIONAL<br />PR</h2>
               <p className="text-body-lg max-w-md text-surface/80">
-                CLAMOA는 단순한 패션 PR 에이전시가 아닙니다. 오프라인 쇼룸 활동, 스타일리스트 관계, 셀러브리티 노출, 크리에이터 콘텐츠, 디지털 캠페인 데이터를 하나의 실행 엔진으로 연결하는 패션 인플루언스의 운영체계를 구축합니다.
+                CLAMOA는 압구정 로데오를 기반으로 패션 브랜드의 스타마케팅, 쇼룸 협찬, PPL, 바이럴, 언론 홍보를 통합 기획합니다. 브랜드의 무드와 시즌 전략에 맞춰 셀럽, 스타일리스트, 인플루언서, 매체 접점을 설계하고 노출 이후의 2차 콘텐츠 확산까지 함께 운영합니다.
               </p>
             </div>
             <div className="col-span-12 md:col-span-6 md:col-start-7 mt-12 md:mt-8">
@@ -395,8 +414,11 @@ function Index() {
         <section className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">PROCESS</span>
-            <h2 className="text-headline-lg uppercase max-w-2xl">HOW WE CREATE VISIBILITY</h2>
+            <h2 className="text-headline-lg uppercase max-w-2xl">상담 접수부터 2차 확산까지</h2>
           </div>
+          <p className="text-body-md max-w-2xl mb-10 -mt-8 text-secondary">
+            브랜드 목표와 예산에 맞춰 가장 적합한 노출 채널을 설계하고, 협찬 진행부터 콘텐츠 확산까지 단계별로 관리합니다.
+          </p>
           <div className="divide-y divide-deep-ink border-t border-b border-deep-ink">
             {process.map(([n, t, d]) => (
               <div key={n} className="grid grid-cols-12 gap-3 md:gap-6 py-6 md:py-10 group hover:bg-neon-signal transition-colors duration-300">
@@ -720,7 +742,7 @@ function Index() {
               <span className="text-label-caps text-secondary mb-6 block">CONTACT</span>
               <h2 className="text-display-xl uppercase mb-8">LET'S BUILD<br />YOUR BRAND<br />PRESENCE.</h2>
               <p className="text-body-md max-w-md">
-                새로운 컬렉션 런칭, 한국 진출, 글로벌 확장, 또는 더 강력한 문화적 가시성 구축까지 — CLAMOA는 브랜드를 다음 단계로 이끌 PR 전략과 실행 시스템을 설계합니다.
+                브랜드 상황을 남겨주시면 담당자가 제품 카테고리와 캠페인 목표에 맞는 PR 방향을 제안드립니다. 스타마케팅, PPL, 인플루언서, 언론 홍보, 통합 PR까지 — 가장 적합한 채널과 예산 구성을 함께 설계합니다.
               </p>
             </div>
             <form
