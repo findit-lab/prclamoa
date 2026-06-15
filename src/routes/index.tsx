@@ -120,10 +120,8 @@ function Index() {
   const navLinks = [
     ["ABOUT", "#about"],
     ["SERVICES", "#services"],
-    ["PROCESS", "#process"],
     ["PORTFOLIO", "#portfolio"],
-    ["GLOBAL", "#global"],
-    ["CONTACT", "#contact"],
+    ["GET IN TOUCH", "#contact"],
   ];
 
   const services = [
@@ -175,12 +173,6 @@ function Index() {
             </a>
           ))}
         </div>
-        <a
-          href="#contact"
-          className="hidden md:inline-block bg-neon-signal text-deep-ink px-6 py-3 text-label-caps hover:bg-deep-ink hover:text-neon-signal transition-all duration-300 border border-deep-ink active:scale-95"
-        >
-          GET IN TOUCH
-        </a>
         <button
           aria-label="Toggle menu"
           className="md:hidden text-label-caps border border-deep-ink px-4 py-2"
@@ -200,13 +192,6 @@ function Index() {
                 {l}
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
-              className="text-label-caps px-6 py-5 bg-neon-signal border-t border-deep-ink"
-            >
-              GET IN TOUCH →
-            </a>
           </div>
         )}
       </nav>
