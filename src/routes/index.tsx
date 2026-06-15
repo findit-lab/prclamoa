@@ -118,10 +118,11 @@ function Index() {
   }, []);
 
   const navLinks = [
-    ["WORK", "#work"],
+    ["ABOUT", "#about"],
     ["SERVICES", "#services"],
-    ["AGENCY", "#agency"],
-    ["INSIGHTS", "#insights"],
+    ["PROCESS", "#process"],
+    ["PORTFOLIO", "#portfolio"],
+    ["GLOBAL", "#global"],
     ["CONTACT", "#contact"],
   ];
 
