@@ -118,10 +118,11 @@ function Index() {
   }, []);
 
   const navLinks = [
-    ["WORK", "#work"],
+    ["ABOUT", "#about"],
     ["SERVICES", "#services"],
-    ["AGENCY", "#agency"],
-    ["INSIGHTS", "#insights"],
+    ["PROCESS", "#process"],
+    ["PORTFOLIO", "#portfolio"],
+    ["GLOBAL", "#global"],
     ["CONTACT", "#contact"],
   ];
 
@@ -302,7 +303,7 @@ function Index() {
                 <p className="text-body-md mb-8">
                   제품 플레이스먼트, 쇼룸 액세스, 컬처럴 관계를 측정 가능한 브랜드 모멘텀으로 전환합니다.
                 </p>
-                <a href="#work" className="inline-flex items-center gap-4 text-label-caps group border-b border-transparent hover:border-deep-ink pb-1 transition-all duration-300">
+                <a href="#portfolio" className="inline-flex items-center gap-4 text-label-caps group border-b border-transparent hover:border-deep-ink pb-1 transition-all duration-300">
                   VIEW CASE STUDY
                   <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
                 </a>
@@ -361,7 +362,7 @@ function Index() {
         </section>
 
         {/* Agency Difference */}
-        <section id="agency" className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 reveal">
+        <section id="about" className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-5">
               <span className="text-neon-signal text-label-caps block mb-6">THE CLAMOA DIFFERENCE</span>
@@ -384,7 +385,7 @@ function Index() {
         </section>
 
         {/* Process */}
-        <section className="px-5 md:px-16 mb-20 md:mb-40 reveal">
+        <section id="process" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">PROCESS</span>
             <h2 className="text-headline-lg uppercase max-w-2xl">상담 접수부터 2차 확산까지</h2>
@@ -410,7 +411,7 @@ function Index() {
         </section>
 
         {/* Case studies */}
-        <section id="insights" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
+        <section id="portfolio" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">SELECTED WORK</span>
             <h2 className="text-headline-lg uppercase max-w-2xl">RECENT CAMPAIGNS</h2>
@@ -430,7 +431,7 @@ function Index() {
         </section>
 
         {/* Portfolio Categories */}
-        <section id="portfolio" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
+        <section id="capabilities" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">PORTFOLIO — CAPABILITIES</span>
             <h2 className="text-headline-lg uppercase max-w-2xl">SCOPE OF<br />PR EXECUTION</h2>
