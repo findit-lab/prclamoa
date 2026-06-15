@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import showroomEditorial from "@/assets/showroom-editorial.jpg.asset.json";
 import { useEffect, useMemo, useRef, useState } from "react";
 import clamoaLogo from "@/assets/clamoa-logo.png.asset.json";
 import starAnyujin from "@/assets/star-anyujin.jpg.asset.json";
