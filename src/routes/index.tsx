@@ -447,7 +447,7 @@ function Index() {
                 title: "INFLUENCER",
                 kr: "크리에이터 매칭",
                 desc: "브랜드 톤에 정합하는 패션·뷰티·라이프스타일 크리에이터를 매칭하고 캠페인을 운영합니다.",
-                img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900&q=80",
+                img: scopeInfluencer.url,
                 span: "md:col-span-7",
               },
               {
