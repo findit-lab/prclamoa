@@ -455,7 +455,7 @@ function Index() {
                 title: "EVENT",
                 kr: "프레스 & 런칭",
                 desc: "런칭 파티, 쇼룸 오프닝, 프레스 프리뷰 등 오프라인 이벤트 기획부터 운영까지 전 과정을 설계합니다.",
-                img: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=900&q=80",
+                img: scopeEvent.url,
                 span: "md:col-span-7",
               },
               {
