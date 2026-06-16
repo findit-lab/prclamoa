@@ -400,25 +400,6 @@ function Index() {
           </div>
         </section>
 
-        {/* Case studies */}
-        <section id="portfolio" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
-            <span className="text-label-caps text-secondary">SELECTED WORK</span>
-            <h2 className="text-headline-lg uppercase max-w-2xl">RECENT CAMPAIGNS</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-min">
-            {cases.map(([img, n, t, d]) => (
-              <article key={t} className="border-2 border-deep-ink group grid grid-rows-subgrid row-span-4">
-                <div className="overflow-hidden border-b-2 border-deep-ink">
-                  <img src={img} alt={t} className="w-full aspect-[4/5] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
-                </div>
-                <span className="text-label-caps text-secondary px-8 pt-8">CASE {n}</span>
-                <h3 className="text-headline-md uppercase px-8 pt-4">{t}</h3>
-                <p className="text-body-md px-8 pt-4 pb-8">{d}</p>
-              </article>
-            ))}
-          </div>
-        </section>
 
         {/* Portfolio Categories */}
         <section id="capabilities" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
