@@ -421,7 +421,7 @@ function Index() {
                 title: "STAR",
                 kr: "셀러브리티 시딩",
                 desc: "배우, 아티스트, K-POP 아이돌을 대상으로 한 셀러브리티 시딩 및 협찬으로 브랜드의 상징적 가시성을 구축합니다.",
-                img: "https://images.unsplash.com/photo-1492447166138-50c3889fccb1?w=900&q=80",
+                img: scopeStar.url,
                 span: "md:col-span-7",
                 tall: true,
               },
