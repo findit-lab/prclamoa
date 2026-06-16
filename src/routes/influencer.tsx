@@ -32,7 +32,7 @@ function handleFromName(name: string) {
 }
 
 function InfluencerPage() {
-  const images = (influencerImages as InfImage[]).slice(0, 50);
+  const images = influencerImages as InfImage[];
   const [active, setActive] = useState<InfImage | null>(null);
 
   return (
@@ -74,7 +74,7 @@ function InfluencerPage() {
             <div className="hidden md:flex gap-10 mb-4 text-[14px]">
               <span><strong>{images.length}</strong> posts</span>
               <span><strong>1.2M</strong> followers</span>
-              <span><strong>50</strong> creators</span>
+              <span><strong>{images.length}</strong> creators</span>
             </div>
             <div className="text-[14px] leading-relaxed">
               <div className="font-semibold">CLAMOA · Creator Network</div>
@@ -92,7 +92,7 @@ function InfluencerPage() {
         <div className="md:hidden flex justify-around border-y border-deep-ink/10 mt-8 py-3 text-[13px] text-center">
           <div><div className="font-semibold">{images.length}</div><div className="text-deep-ink/60">posts</div></div>
           <div><div className="font-semibold">1.2M</div><div className="text-deep-ink/60">followers</div></div>
-          <div><div className="font-semibold">50</div><div className="text-deep-ink/60">creators</div></div>
+          <div><div className="font-semibold">{images.length}</div><div className="text-deep-ink/60">creators</div></div>
         </div>
 
         {/* Story rail */}
