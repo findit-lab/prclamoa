@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import showroomEditorial from "@/assets/showroom-editorial.jpg.asset.json";
+import brandVisibilityVideo from "@/assets/brand-visibility.mp4.asset.json";
 import { useEffect, useMemo, useRef, useState } from "react";
 import clamoaLogo from "@/assets/clamoa-logo.png.asset.json";
 import starAnyujin from "@/assets/star-anyujin.jpg.asset.json";
@@ -67,7 +67,7 @@ function shuffleArray<T>(arr: T[]): T[] {
   return a;
 }
 
-const IMG_SHOWROOM = showroomEditorial.url;
+const VIDEO_BRAND_VISIBILITY = brandVisibilityVideo.url;
 const IMG_CASE_1 =
   "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=1200&q=80&auto=format&fit=crop";
 const IMG_CASE_2 =
@@ -270,10 +270,13 @@ function Index() {
         <section id="work" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-7 relative group overflow-hidden border-2 border-deep-ink">
-              <img
-                src={IMG_SHOWROOM}
-                alt="Showroom"
-                className="w-full aspect-[1.5] object-cover grayscale hover:grayscale-0 transition-all duration-1000 hover:scale-110"
+              <video
+                src={VIDEO_BRAND_VISIBILITY}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full aspect-[1.5] object-cover grayscale transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute -bottom-6 -right-6 bg-deep-ink text-surface p-10 max-w-xs hidden md:block transition-transform duration-500 group-hover:-translate-x-4 group-hover:-translate-y-4">
                 <p className="text-body-md italic font-serif">
