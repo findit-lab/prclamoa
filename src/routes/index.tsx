@@ -118,7 +118,7 @@ function Index() {
   }, []);
 
   const navLinks = [
-    ["ABOUT", "#about"],
+    ["ABOUT", "#top"],
     ["SERVICES", "#services"],
     ["PORTFOLIO", "#portfolio"],
     ["GET IN TOUCH", "#contact"],
