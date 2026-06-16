@@ -431,7 +431,7 @@ function Index() {
                 kr: "디지털 콘텐츠",
                 desc: "인스타그램, 블로그, 유튜브 채널을 아우르는 통합 바이럴 캠페인으로 브랜드의 대화량을 증폭합니다.",
                 tags: ["INSTAGRAM", "BLOG", "YOUTUBE"],
-                img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=900&q=80",
+                img: scopeViral.url,
                 span: "md:col-span-5",
               },
               {
