@@ -439,7 +439,7 @@ function Index() {
                 title: "MAGAZINE",
                 kr: "에디토리얼 피칭",
                 desc: "주요 패션·라이프스타일 매거진 에디터 네트워크를 통한 피칭 및 화보 협업을 진행합니다.",
-                img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80",
+                img: scopeMagazine.url,
                 span: "md:col-span-5",
               },
               {
