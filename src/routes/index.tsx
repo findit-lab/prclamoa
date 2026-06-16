@@ -18,6 +18,12 @@ import starTaeyeon from "@/assets/star-taeyeon.jpg.asset.json";
 import starUdohwan from "@/assets/star-udohwan.jpg.asset.json";
 import starWinter from "@/assets/star-winter.jpg.asset.json";
 import starYoona from "@/assets/star-yoona.jpg.asset.json";
+import scopeStar from "@/assets/scope-star.jpg.asset.json";
+import scopeViral from "@/assets/scope-viral.jpg.asset.json";
+import scopeMagazine from "@/assets/scope-magazine.jpg.asset.json";
+import scopeInfluencer from "@/assets/scope-influencer.jpg.asset.json";
+import scopeEvent from "@/assets/scope-event.jpg.asset.json";
+import scopeAmbassador from "@/assets/scope-ambassador.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
