@@ -74,7 +74,7 @@ function InfluencerPage() {
             <div className="hidden md:flex gap-10 mb-4 text-[14px]">
               <span><strong>{images.length}</strong> posts</span>
               <span><strong>1.2M</strong> followers</span>
-              <span><strong>50</strong> creators</span>
+              <span><strong>{images.length}</strong> creators</span>
             </div>
             <div className="text-[14px] leading-relaxed">
               <div className="font-semibold">CLAMOA · Creator Network</div>
