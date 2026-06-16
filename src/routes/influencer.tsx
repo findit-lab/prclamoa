@@ -32,7 +32,7 @@ function handleFromName(name: string) {
 }
 
 function InfluencerPage() {
-  const images = (influencerImages as InfImage[]).slice(0, 50);
+  const images = influencerImages as InfImage[];
   const [active, setActive] = useState<InfImage | null>(null);
 
   return (
