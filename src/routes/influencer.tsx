@@ -92,7 +92,7 @@ function InfluencerPage() {
         <div className="md:hidden flex justify-around border-y border-deep-ink/10 mt-8 py-3 text-[13px] text-center">
           <div><div className="font-semibold">{images.length}</div><div className="text-deep-ink/60">posts</div></div>
           <div><div className="font-semibold">1.2M</div><div className="text-deep-ink/60">followers</div></div>
-          <div><div className="font-semibold">50</div><div className="text-deep-ink/60">creators</div></div>
+          <div><div className="font-semibold">{images.length}</div><div className="text-deep-ink/60">creators</div></div>
         </div>
 
         {/* Story rail */}
