@@ -18,6 +18,12 @@ import starTaeyeon from "@/assets/star-taeyeon.jpg.asset.json";
 import starUdohwan from "@/assets/star-udohwan.jpg.asset.json";
 import starWinter from "@/assets/star-winter.jpg.asset.json";
 import starYoona from "@/assets/star-yoona.jpg.asset.json";
+import scopeStar from "@/assets/scope-star.jpg.asset.json";
+import scopeViral from "@/assets/scope-viral.jpg.asset.json";
+import scopeMagazine from "@/assets/scope-magazine.jpg.asset.json";
+import scopeInfluencer from "@/assets/scope-influencer.jpg.asset.json";
+import scopeEvent from "@/assets/scope-event.jpg.asset.json";
+import scopeAmbassador from "@/assets/scope-ambassador.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -415,7 +421,7 @@ function Index() {
                 title: "STAR",
                 kr: "셀러브리티 시딩",
                 desc: "배우, 아티스트, K-POP 아이돌을 대상으로 한 셀러브리티 시딩 및 협찬으로 브랜드의 상징적 가시성을 구축합니다.",
-                img: "https://images.unsplash.com/photo-1492447166138-50c3889fccb1?w=900&q=80",
+                img: scopeStar.url,
                 span: "md:col-span-7",
                 tall: true,
               },
@@ -425,7 +431,7 @@ function Index() {
                 kr: "디지털 콘텐츠",
                 desc: "인스타그램, 블로그, 유튜브 채널을 아우르는 통합 바이럴 캠페인으로 브랜드의 대화량을 증폭합니다.",
                 tags: ["INSTAGRAM", "BLOG", "YOUTUBE"],
-                img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=900&q=80",
+                img: scopeViral.url,
                 span: "md:col-span-5",
               },
               {
@@ -433,7 +439,7 @@ function Index() {
                 title: "MAGAZINE",
                 kr: "에디토리얼 피칭",
                 desc: "주요 패션·라이프스타일 매거진 에디터 네트워크를 통한 피칭 및 화보 협업을 진행합니다.",
-                img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80",
+                img: scopeMagazine.url,
                 span: "md:col-span-5",
               },
               {
@@ -441,7 +447,7 @@ function Index() {
                 title: "INFLUENCER",
                 kr: "크리에이터 매칭",
                 desc: "브랜드 톤에 정합하는 패션·뷰티·라이프스타일 크리에이터를 매칭하고 캠페인을 운영합니다.",
-                img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900&q=80",
+                img: scopeInfluencer.url,
                 span: "md:col-span-7",
               },
               {
@@ -449,7 +455,7 @@ function Index() {
                 title: "EVENT",
                 kr: "프레스 & 런칭",
                 desc: "런칭 파티, 쇼룸 오프닝, 프레스 프리뷰 등 오프라인 이벤트 기획부터 운영까지 전 과정을 설계합니다.",
-                img: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=900&q=80",
+                img: scopeEvent.url,
                 span: "md:col-span-7",
               },
               {
@@ -457,7 +463,7 @@ function Index() {
                 title: "BRAND AMBASSADOR CASTING",
                 kr: "앰버서더 캐스팅",
                 desc: "브랜드의 장기 자산이 될 앰버서더를 전략적으로 캐스팅하고 계약·운영을 매니징합니다.",
-                img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=900&q=80",
+                img: scopeAmbassador.url,
                 span: "md:col-span-5",
                 accent: true,
               },
