@@ -336,9 +336,11 @@ function Index() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-l border-t border-deep-ink">
               {services.map(([t, d], i) => (
-                <div key={t} className="border-r border-b border-deep-ink p-10 hover:bg-deep-ink hover:text-surface transition-colors duration-300 group">
-                  <span className="text-label-caps text-secondary group-hover:text-neon-signal block mb-6">0{i + 1}</span>
-                  <h3 className="text-headline-md mb-4 uppercase">{t}</h3>
+                <div key={t} className="grid grid-rows-subgrid row-span-2 border-r border-b border-deep-ink p-10 hover:bg-deep-ink hover:text-surface transition-colors duration-300 group">
+                  <div>
+                    <span className="text-label-caps text-secondary group-hover:text-neon-signal block mb-6">0{i + 1}</span>
+                    <h3 className="text-headline-md uppercase">{t}</h3>
+                  </div>
                   <p className="text-body-md opacity-90">{d}</p>
                 </div>
               ))}
