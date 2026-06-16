@@ -463,7 +463,7 @@ function Index() {
                 title: "BRAND AMBASSADOR CASTING",
                 kr: "앰버서더 캐스팅",
                 desc: "브랜드의 장기 자산이 될 앰버서더를 전략적으로 캐스팅하고 계약·운영을 매니징합니다.",
-                img: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=900&q=80",
+                img: scopeAmbassador.url,
                 span: "md:col-span-5",
                 accent: true,
               },
