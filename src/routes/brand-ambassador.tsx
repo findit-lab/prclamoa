@@ -74,7 +74,7 @@ function BrandAmbassadorPage() {
       <section className="px-5 md:px-12 pt-20 md:pt-32 pb-12 md:pb-20 border-b border-white/15">
         <div className="max-w-5xl mx-auto text-center">
           <span className="text-label-caps text-neon-signal block mb-8 tracking-[0.25em]">
-            GLOBAL BRAND PARTNERSHIP
+            MODEL CASTING
           </span>
           <h1
             className="uppercase font-serif font-bold leading-[0.88] tracking-[-0.04em] mb-8"
@@ -85,14 +85,14 @@ function BrandAmbassadorPage() {
           </h1>
           <div className="max-w-2xl mx-auto">
             <p className="text-body-lg font-serif leading-relaxed text-white/70">
-              브랜드의 장기 자산이 될 앰버서더를 전략적으로 캐스팅합니다. 
-              <em className="text-white not-italic"> 글로벌 럭셔리 감성과 상징적 페이스 메이킹</em>을 통해
-              브랜드의 정체성을 대변하는 파트너십을 설계합니다.
+              브랜드 이미지에 부합하는 앰버서더를 섭외하고,
+              <em className="text-white not-italic"> 룩북 촬영, 브랜드 행사</em>까지
+              전반적으로 관리합니다.
             </p>
             <div className="mt-10 flex items-center justify-center gap-6 text-label-caps text-white/40">
               <span>— SCROLL</span>
               <span className="h-px w-24 bg-white/30" />
-              <span>SEOUL · TOKYO · PARIS</span>
+              <span>셀럽 단기 초상권 계약 및 섭외도 함께 진행하고 있습니다</span>
             </div>
           </div>
         </div>
