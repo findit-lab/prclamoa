@@ -345,7 +345,7 @@ function Index() {
           <div className="border-t-2 border-deep-ink pt-12 reveal">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
               <span className="text-label-caps text-secondary">CORE CAPABILITIES</span>
-              <h2 className="text-headline-lg uppercase max-w-2xl">패션 브랜드를 위한 통합 PR 솔루션.</h2>
+              <h2 className="text-headline-lg uppercase max-w-2xl text-right">패션 브랜드를 위한 통합 PR 솔루션.</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-[repeat(18,auto)] md:grid-rows-[repeat(9,auto)] lg:grid-rows-[repeat(6,auto)] border-l border-t border-deep-ink">
               {services.map(([t, d], i) => (
