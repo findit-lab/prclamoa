@@ -41,25 +41,17 @@ function EventPage() {
         }}
       />
 
-      <SubPageNav variant="light" rightSlot={<>{`${images.length} FRAMES`}</>} />
+      <SubPageNav variant="light" />
 
       {/* Editorial header — contact sheet style */}
       <section className="relative z-10 px-5 md:px-12 pt-12 md:pt-20 pb-10 md:pb-16">
         <div className="grid grid-cols-12 gap-6 items-end">
           <div className="col-span-12 md:col-span-8">
-            <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-deep-ink/60 mb-6 flex flex-wrap gap-4">
-              <span>FILE — EVENT.SKETCH</span>
-              <span className="hidden md:inline">/</span>
-              <span>PRESS · LAUNCH · SHOWROOM</span>
-              <span className="hidden md:inline">/</span>
-              <span>CLAMOA STUDIO</span>
-            </div>
             <h1
               className="uppercase font-serif font-bold leading-[0.86] tracking-[-0.04em]"
               style={{ fontSize: "clamp(56px, 12vw, 200px)" }}
             >
-              ON-SITE<br />
-              <span className="italic font-normal">sketch.</span>
+              <span className="italic font-normal">event</span>
             </h1>
           </div>
           <div className="col-span-12 md:col-span-4 md:pb-4">
@@ -76,11 +68,10 @@ function EventPage() {
 
         {/* Metadata strip */}
         <div className="mt-12 md:mt-16 border-y border-deep-ink/30 py-3 flex flex-wrap gap-x-10 gap-y-2 font-mono text-[10px] tracking-[0.22em] uppercase">
-          <span>● REC</span>
-          <span>FORMAT · 35MM SCAN</span>
-          <span>EXP · NATURAL + MIXED</span>
-          <span>LOC · SEOUL / PRESS DAY</span>
-          <span className="ml-auto">SEQ {String(images.length).padStart(3, "0")}</span>
+          <span>● POP-UP STORE</span>
+          <span>FLAGSHIP OPENING PARTY</span>
+          <span>FLEA MARKET</span>
+          <span>PRESS &amp; RSVP</span>
         </div>
       </section>
 

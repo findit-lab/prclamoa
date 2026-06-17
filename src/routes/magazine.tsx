@@ -28,16 +28,11 @@ function MagazinePage() {
 
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
-      <SubPageNav variant="light" rightSlot={<>ISSUE Nº 02 · EDITORIAL</>} />
+      <SubPageNav variant="light" />
 
       {/* Magazine cover / masthead */}
       <section className="border-b-2 border-deep-ink">
         <div className="px-5 md:px-12 pt-10 md:pt-14 pb-6 md:pb-10">
-          <div className="flex items-center justify-between text-label-caps text-secondary border-b border-deep-ink/30 pb-4 mb-10">
-            <span>VOL. MMXXVI</span>
-            <span className="hidden sm:block">EDITORIAL · PITCHING · FASHION</span>
-            <span>₩ 0,000</span>
-          </div>
           <div className="grid grid-cols-12 gap-6 items-end">
             <div className="col-span-12 md:col-span-8">
               <span className="text-label-caps text-secondary block mb-4">
@@ -52,14 +47,10 @@ function MagazinePage() {
             </div>
             <div className="col-span-12 md:col-span-4 md:pb-4">
               <p className="text-body-lg font-serif leading-relaxed max-w-sm">
-                주요 패션·라이프스타일 매거진 에디터 네트워크를 통한
-                <em> 피칭 및 화보 협업</em>. 한 컷, 한 페이지, 한 호의 무드.
+                유가화보를 기반으로 매거진 노출부터
+                <em> 셀럽 SNS 포스팅, 공항패션 및 언론 보도</em>까지
+                원스톱으로 진행합니다.
               </p>
-              <div className="mt-6 flex items-center gap-4 text-label-caps text-secondary">
-                <span>FEATURES — {images.length}</span>
-                <span className="h-px flex-1 bg-deep-ink/40" />
-                <span>↓</span>
-              </div>
             </div>
           </div>
         </div>
@@ -69,20 +60,8 @@ function MagazinePage() {
       <section className="px-5 md:px-12 py-12 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-14 gap-y-16 md:gap-y-24">
           {images.map((img, i) => {
-            const pageNo = String((i + 1) * 14 + 8).padStart(3, "0");
-            const isLeft = i % 2 === 0;
             return (
               <article key={img.id} className="group">
-                {/* Page header line */}
-                <div className="flex items-baseline justify-between border-b border-deep-ink/30 pb-3 mb-5">
-                  <span className="text-label-caps text-secondary">
-                    PG. {pageNo} — FEATURE {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-[10px] tracking-[0.2em] font-mono text-secondary uppercase">
-                    {isLeft ? "RECTO" : "VERSO"}
-                  </span>
-                </div>
-
                 {/* Cover image */}
                 <div
                   className="relative w-full overflow-hidden bg-surface-low border border-deep-ink/10"
@@ -107,23 +86,13 @@ function MagazinePage() {
                 </div>
 
                 {/* Caption block */}
-                <div className="mt-5 grid grid-cols-12 gap-4 items-start">
-                  <div className="col-span-12 md:col-span-9">
-                    <h2
-                      className="font-serif uppercase leading-[1] tracking-[-0.02em] mb-3"
-                      style={{ fontSize: "clamp(22px, 2.2vw, 34px)" }}
-                    >
-                      {img.name.replace(/\.[^.]+$/, "")}
-                    </h2>
-                    <p className="text-body-md font-serif leading-relaxed text-deep-ink/80 max-w-md">
-                      에디토리얼 컷 — 매거진 화보 협업으로 구성된 비주얼.
-                      클라모아의 에디터 네트워크가 제안한 톤의 한 페이지.
-                    </p>
-                  </div>
-                  <div className="col-span-12 md:col-span-3 md:text-right">
-                    <span className="text-label-caps text-secondary block">PHOTOGRAPHY</span>
-                    <span className="text-[12px] font-serif italic">Editorial Archive</span>
-                  </div>
+                <div className="mt-5">
+                  <h2
+                    className="font-serif uppercase leading-[1] tracking-[-0.02em]"
+                    style={{ fontSize: "clamp(22px, 2.2vw, 34px)" }}
+                  >
+                    {img.name.replace(/\.[^.]+$/, "")}
+                  </h2>
                 </div>
               </article>
             );
