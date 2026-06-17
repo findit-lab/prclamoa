@@ -131,37 +131,31 @@ function Index() {
   ];
 
   const services = [
-    ["STAR MARKETING", "셀럽 협찬 · 스타일리스트 픽업 · 매거진 노출. 브랜드 무드와 타깃에 맞는 셀럽 매칭으로 자연스러운 착용 콘텐츠를 만듭니다."],
-    ["PPL", "드라마 · 예능 · 유튜브 · OTT · 공항패션. 콘텐츠 맥락에 어울리는 노출 기회를 발굴하고 협찬 진행 전 과정을 관리합니다."],
-    ["PROMOTION", "팝업 · 런칭 행사 · 브랜드 캠페인. 브랜드 경험을 오프라인 접점으로 확장하고, 현장 콘텐츠와 온라인 확산까지 연결합니다."],
-    ["ONLINE PR", "인플루언서 · 블로그 · SNS · 언론 기사. 검색, SNS, 리뷰, 기사 노출을 통해 소비자가 브랜드를 발견하는 접점을 넓힙니다."],
-    ["SHOWROOM PR", "명품 편집샵 콘셉트의 협찬 쇼룸을 운영하며, 연예인·스타일리스트·인플루언서가 직접 제품을 경험하고 콘텐츠로 연결될 수 있는 환경을 제공합니다."],
-    ["AI & DATA-DRIVEN PR", "제품 무브먼트, 스타일리스트 요청, 노출, 콘텐츠 성과, 캠페인 결과를 데이터로 추적하고 다음 PR 전략에 반영합니다."],
+    ["STAR MARKETING", "배우, 아이돌, 연애 프로그램 출연자 등 브랜드 이미지와 어울리는 셀럽 착용을 통해 신뢰도 높은 노출을 만듭니다."],
+    ["INFLUENCER PR", "브랜드 타깃에 맞는 인플루언서와 크리에이터를 연결해 SNS 콘텐츠와 바이럴 확산을 유도합니다."],
+    ["PPL & CONTENTS", "영상 콘텐츠, 방송, 유튜브, OTT, 공항패션 등 브랜드가 주목받을 수 있는 노출 장면을 연결합니다."],
+    ["OFFLINE EXPERIENCE", "팝업, 플리마켓, 런칭 행사 등 오프라인 접점을 통해 브랜드 경험과 콘텐츠 기회를 확장합니다."],
+    ["AMBASSADOR CAMPAIGN", "브랜드와 어울리는 앰버서더·셀럽 단기 계약을 통해 확보된 콘텐츠의 2차 활용까지 설계합니다."],
+    ["BRAND EXPANSION", "국내외 유통, 팝업, 왕홍 라이브커머스 등 브랜드 성장에 필요한 다양한 기회를 함께 모색합니다."],
   ];
 
   const process = [
     ["01", "상담 접수", "브랜드 상황과 캠페인 목표를 남겨주시면 담당자가 빠르게 연락드립니다."],
-    ["02", "브랜드 및 제품 검토", "브랜드 아이덴티티, 제품 카테고리, 타깃 소비자, 시즌 전략을 함께 검토합니다."],
-    ["03", "PR 플랜 제안", "예산과 목표에 맞춰 셀럽 협찬, PPL, 인플루언서, 언론 홍보를 결합한 PR 플랜을 제안합니다."],
-    ["04", "계약 및 쇼룸 입점", "계약 체결 후 협찬 쇼룸에 제품을 입점하고 운영 준비를 시작합니다."],
-    ["05", "셀럽·스타일리스트·인플루언서 매칭", "브랜드 무드에 맞는 셀럽, 스타일리스트, 인플루언서 접점을 가동합니다."],
-    ["06", "협찬·PPL·온라인 PR 진행", "착용 노출, 콘텐츠 제작, 언론 기사화, SNS 확산까지 캠페인 전 과정을 운영합니다."],
-    ["07", "결과 콘텐츠 전달 및 2차 확산", "노출 결과 리포트와 함께 블로그·SNS·기사로 이어지는 2차 확산을 진행합니다."],
-  ];
-
-  const cases = [
-    [IMG_CASE_1, "01", "New Collection Launch PR", "시즌 패션 컬렉션을 위한 쇼룸 활성화, 스타일리스트 시딩, 크리에이터 콘텐츠 및 디지털 노출 캠페인."],
-    [IMG_CASE_2, "02", "Celebrity Placement Campaign", "셀러브리티 중심의 브랜드 가시성을 위한 전략적 제품 시딩과 의상 코디네이션."],
-    [IMG_CASE_3, "03", "AI Fashion Content Production", "디지털 채널을 위한 AI 기반 룩북 비주얼, 모델 콘텐츠, 숏폼 캠페인 자산 제작."],
+    ["02", "브랜드 및 제품 검토", "브랜드 카테고리, 셀럽 타겟, 구매 연령층, 스큐 및 시즌 전략을 함께 검토합니다."],
+    ["03", "PR 플랜 제안", "예산과 목표에 맞춰 셀럽 협찬, PPL, 인플루언서, 셀럽 초상권 단기 계약 등 PR 플랜을 제안합니다."],
+    ["04", "계약 및 쇼룸 입점", "계약 완료 후 담당팀이 배정되며, 쇼룸 입점과 협찬 운영 세팅을 시작합니다."],
+    ["05", "스타일리스트 피칭 및 셀럽 협찬", "브랜드 타겟과 무드에 맞는 셀럽 및 스타일리스트 팀을 대상으로 룩북을 전달하고, 쇼룸 방문 시 제품 소개와 피칭을 진행합니다."],
+    ["06", "주간 보고 및 착용 자료 클립핑", "노출 콘텐츠를 클리핑하여 자사 SNS에 게시하고, 셀럽 픽업 및 착용 현황을 주간 보고합니다."],
+    ["07", "별도 콘텐츠 2차 확산", "이슈 가능한 소재를 기반으로 블로그, 매거진, 인플루언서 시딩 등 바이럴 확산을 진행합니다. (OPTION)"],
   ];
 
   const differentiators = [
-    "스타일리스트 및 셀러브리티 다이렉트 네트워크",
-    "프리미엄 쇼룸 기반 브랜드 노출",
-    "전략부터 실행까지 원스톱 캠페인 운영",
-    "AI 기반 콘텐츠 프로덕션",
-    "PR 모니터링 및 성과 리포팅",
-    "한국에서 글로벌로 이어지는 패션 확장 지원",
+    "브랜드 단계에 맞춘 PR 방향성 설계",
+    "무작위가 아닌 타겟 셀럽 협찬",
+    "RINK 기반 운영 데이터 관리",
+    "기획사 네트워크 기반 캠페인 연결",
+    "팝업·플리마켓 등 오프라인 연계",
+    "국내외 브랜드 글로벌 확장 지원",
   ];
 
   return (
@@ -213,7 +207,7 @@ function Index() {
               </h1>
               <div className="max-w-xl space-y-6">
                 <p className="text-body-lg border-l-4 border-neon-signal pl-6 italic font-serif">
-                  셀럽 협찬부터 PPL, 인플루언서, 바이럴, 언론 홍보까지 — 패션 브랜드의 노출과 확산을 설계합니다.
+                  셀럽 협찬부터 PPL, 인플루언서, 바이럴, 글로벌 확장 연계까지 — 패션 브랜드의 인지도와 새로운 기회를 함께 만들어갑니다.
                 </p>
                 <p className="text-body-md pl-6 max-w-lg">
                   CLAMOA는 패션 브랜드의 첫 노출부터 셀럽 협찬, PPL, 바이럴 콘텐츠, 언론 홍보, 브랜드 캠페인까지 설계하는 종합 패션 PR 파트너입니다.
@@ -248,8 +242,7 @@ function Index() {
         {/* Auto-scrolling Looks Marquee */}
         <section className="bg-deep-ink text-surface border-y-2 border-deep-ink py-10 md:py-14 mb-20 md:mb-40 overflow-hidden">
           <div className="flex justify-between items-center px-5 md:px-16 mb-8">
-            <span className="text-label-caps text-surface/70">LATEST LOOKS — SS25</span>
-            <span className="text-label-caps text-neon-signal">[ AUTO-SCROLL ]</span>
+            <span className="text-label-caps text-neon-signal">STAR PORTFOLIO</span>
           </div>
           <div className="relative overflow-hidden marquee-mask">
             <div className="marquee-track flex w-max gap-6">
@@ -316,15 +309,15 @@ function Index() {
           <div className="relative z-10 grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-10 md:col-start-2">
               <h2 className="text-headline-lg mb-12 reveal uppercase">
-                WE OPERATE AT THE INTERSECTION OF{" "}
-                <span className="text-neon-signal">CULTURAL RELEVANCE</span> AND{" "}
-                <span className="italic underline decoration-neon-signal underline-offset-8">COMMERCIAL NECESSITY.</span>
+                WE MAKE BRANDS{" "}
+                <span className="text-neon-signal">SEEN, REMEMBERED,</span> AND{" "}
+                <span className="italic underline decoration-neon-signal underline-offset-8">DESIRED.</span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-20 reveal-group">
                 {[
-                  ["METHOD", "큐레이션된 카오스. 쇼룸 액세스, 스타일리스트 코디네이션, 전략적 시딩으로 영향력을 만들어냅니다."],
-                  ["VISION", "패션 PR은 기계적이지 않고 문화적이어야 합니다. 모든 플레이스먼트에는 의도가 담겨야 합니다."],
-                  ["RESULT", "측정 가능한 브랜드 노출, 크리에이터 콘텐츠, 그리고 상업적 임팩트를 갖춘 하이패션 가시성."],
+                  ["METHOD", "브랜드 이미지에 맞는 셀럽과 채널을 매칭하고, 노출 이후의 2차 활용까지 함께 설계합니다."],
+                  ["VISION", "중요한 것은 많이 보이는 것이 아니라, 브랜드답게 보이는 것입니다."],
+                  ["RESULT", "브랜드의 무드가 소비자에게 자연스럽게 전달되고, 더 오래 기억되는 노출을 만듭니다."],
                 ].map(([h, b]) => (
                   <div key={h} className="border-l border-white/30 pl-6 hover:border-neon-signal transition-colors duration-300">
                     <span className="text-neon-signal text-label-caps block mb-4">{h}</span>
@@ -364,7 +357,7 @@ function Index() {
               <span className="text-neon-signal text-label-caps block mb-6">THE CLAMOA DIFFERENCE</span>
               <h2 className="font-serif font-bold uppercase mb-8 leading-[0.95] tracking-[-0.03em] text-[clamp(44px,6vw,88px)]">BEYOND<br />TRADITIONAL<br />PR</h2>
               <p className="text-body-lg max-w-md text-surface/80">
-                CLAMOA는 압구정 로데오를 기반으로 패션 브랜드의 스타마케팅, 쇼룸 협찬, PPL, 바이럴, 언론 홍보를 통합 기획합니다. 브랜드의 무드와 시즌 전략에 맞춰 셀럽, 스타일리스트, 인플루언서, 매체 접점을 설계하고 노출 이후의 2차 콘텐츠 확산까지 함께 운영합니다.
+                CLAMOA는 브랜드의 무드와 목표에 맞춰 PR 방향성을 컨설팅하고, 무작위 노출이 아닌 타겟 중심의 셀럽 협찬을 진행합니다. RINK 플랫폼을 통한 운영 관리와 PPL·앰버서더 캠페인, 오프라인 및 글로벌 확장 기회를 함께 만들어 갑니다.
               </p>
             </div>
             <div className="col-span-12 md:col-span-6 md:col-start-7 mt-12 md:mt-8">
@@ -572,6 +565,9 @@ function Index() {
               <p className="text-body-lg max-w-md text-surface/80">
                 클라모아는 패션홍보대행사에서 수집된 협찬 데이터를 토대로 각 국가별 바이어 B2B 매칭을 통해 수출 발생하도록 지원합니다.
               </p>
+              <p className="text-body-md max-w-md text-surface/70 mt-6">
+                클라모아는 국내외 유통 네트워크와 글로벌 마케팅 채널을 활용해 브랜드가 새로운 시장에서 성장할 수 있는 기회를 만들어갑니다.
+              </p>
             </div>
             <div className="col-span-12 md:col-span-6 md:col-start-7 mt-12 md:mt-8">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -579,17 +575,17 @@ function Index() {
                   {
                     country: "JAPAN",
                     kr: "일본",
-                    desc: "도쿄·오사카 바이어 네트워크와의 직접 매칭으로 일본 시장 진출을 가속화합니다.",
+                    desc: "일본 주요 셀렉트샵 입점 연계를 비롯해 브랜드의 일본 시장 진출을 전략적으로 연결합니다.",
                   },
                   {
                     country: "TAIWAN",
                     kr: "대만",
-                    desc: "타이베이 및 중부 지역 주요 바이어 채널과의 데이터 기반 매칭을 제공합니다.",
+                    desc: "대만 주요 편집샵 입점 연계와 대만 왕홍 라이브 커머스 판매 연계를 지원합니다.",
                   },
                   {
                     country: "CHINA",
                     kr: "중국",
-                    desc: "상하이·항저우 중심의 유통 바이어 네트워크를 활용한 B2B 매칭을 실행합니다.",
+                    desc: "셀럽 착용 자료를 기반으로 샤오홍수 바이럴, 중화권 유통 채널 확대, 왕홍 라이브커머스 판매 연계를 진행합니다.",
                   },
                 ].map((m, i) => (
                   <div
