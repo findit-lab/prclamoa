@@ -560,9 +560,6 @@ function Index() {
                 GLOBAL<br />EXPANSION
               </h2>
               <p className="text-body-lg max-w-md text-surface/80">
-                클라모아는 패션홍보대행사에서 수집된 협찬 데이터를 토대로 각 국가별 바이어 B2B 매칭을 통해 수출 발생하도록 지원합니다.
-              </p>
-              <p className="text-body-md max-w-md text-surface/70 mt-6">
                 클라모아는 국내외 유통 네트워크와 글로벌 마케팅 채널을 활용해 브랜드가 새로운 시장에서 성장할 수 있는 기회를 만들어갑니다.
               </p>
             </div>
