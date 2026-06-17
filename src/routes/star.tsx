@@ -28,7 +28,7 @@ function StarPage() {
 
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
-      <SubPageNav variant="light" rightSlot={<>{`ARCHIVE · ${images.length} ENTRIES`}</>} />
+      <SubPageNav variant="light" />
 
       {/* Editorial hero */}
       <section className="px-5 md:px-12 pt-16 md:pt-24 pb-12 md:pb-20 border-b-2 border-deep-ink">
