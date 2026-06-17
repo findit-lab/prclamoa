@@ -24,6 +24,7 @@ import scopeMagazine from "@/assets/scope-magazine.jpg.asset.json";
 import scopeInfluencer from "@/assets/scope-influencer.jpg.asset.json";
 import scopeEvent from "@/assets/scope-event.jpg.asset.json";
 import scopeAmbassador from "@/assets/scope-ambassador.jpg.asset.json";
+import { DraggableMarquee } from "@/components/DraggableMarquee";
 
 export const Route = createFileRoute("/")({
   head: () => ({
