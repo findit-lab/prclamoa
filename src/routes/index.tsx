@@ -202,7 +202,7 @@ function Index() {
         <section className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="grid grid-cols-12 gap-6 items-end">
             <div className="col-span-12 md:col-span-8">
-              <span className="text-label-caps text-secondary block mb-8">SEOUL — FASHION PR AGENCY</span>
+              <span className="text-label-caps text-secondary block mb-8">FASHION PR AGENCY</span>
               <h1 className="text-display-xl uppercase mb-12 whitespace-pre-line">
                 FASHION PR,{"\n"}WE MAKE{"\n"}BRANDS VISIBLE
               </h1>
