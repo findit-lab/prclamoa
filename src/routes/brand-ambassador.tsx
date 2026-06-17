@@ -89,8 +89,8 @@ function BrandAmbassadorPage() {
               <em className="text-white not-italic">{"\n"}룩북 촬영, 브랜드 행사</em>까지
               전반적으로 관리합니다.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-6 text-label-caps text-white/40">
-              <span>— SCROLL</span>
+            <div className="mt-10 flex items-center justify-center gap-6 text-label-caps text-white/40 whitespace-pre-line">
+              <span>{"\n"}</span>
               <span className="h-px w-24 bg-white/30" />
               <span>셀럽 단기 초상권 계약 및 섭외도 함께 진행하고 있습니다</span>
             </div>
