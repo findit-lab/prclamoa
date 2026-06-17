@@ -78,6 +78,21 @@ const STAR_IMAGES = [
   starUdohwan.url,
   starWinter.url,
   starYoona.url,
+  starNmixxSullyoon.url,
+  starRiizeWonbin.url,
+  starNoyoonseo.url,
+  starBigbangDaesung.url,
+  starTwiceNayeon.url,
+  starJeonjihyun.url,
+  starTwiceDahyun.url,
+  starGidleSoyeon.url,
+  starNctdreamJaemin.url,
+  starKwoneunbi.url,
+  starSeventeenMingyu.url,
+  starChungha.url,
+  starAespaNingning.url,
+  starTwiceTzuyu.url,
+  starZb1Parkgunwook.url,
 ];
 
 function shuffleArray<T>(arr: T[]): T[] {
