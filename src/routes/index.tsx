@@ -702,8 +702,8 @@ function Index() {
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
           <span className="text-label-caps text-secondary">SOCIAL</span>
-          {["INSTAGRAM", "LINKEDIN", "YOUTUBE"].map((l) => (
-            <a key={l} href="#" className="text-body-md hover:text-neon-signal transition-colors">{l}</a>
+          {["INSTAGRAM", "\n", "\n"].map((l, idx) => (
+            <a key={idx} href="#" className="text-body-md hover:text-neon-signal transition-colors whitespace-pre-line">{l}</a>
           ))}
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
