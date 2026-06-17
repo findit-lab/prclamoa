@@ -713,7 +713,7 @@ function Index() {
           ))}
         </div>
         <div className="col-span-12 md:col-span-4 flex flex-col justify-end items-start md:items-end gap-4 mt-12 md:mt-0 reveal">
-          <span className="text-label-caps text-secondary">SEOUL</span>
+          <span className="text-label-caps text-secondary whitespace-pre-line">{"\n"}</span>
           <div className="text-body-md text-right">© 2026 CLAMOA AGENCY. ALL RIGHTS RESERVED.</div>
         </div>
       </footer>
