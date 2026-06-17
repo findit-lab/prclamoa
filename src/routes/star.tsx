@@ -47,9 +47,9 @@ function StarPage() {
           </div>
           <div className="col-span-12 md:col-span-4 md:pb-6">
             <p className="text-body-lg font-serif leading-relaxed max-w-sm">
-              배우, 아티스트, K-POP 아이돌. 클라모아가 큐레이션한
-              <em> 셀러브리티 시딩 </em>
-              레퍼런스 108컷. 무드 그대로, 큐레이션 그대로.
+              배우, 아티스트, K-POP 아이돌까지. 클라모아가 쌓아온
+              <em> 셀럽 착용 노출 </em>
+              순간들을 아카이브합니다.
             </p>
             <div className="mt-8 flex items-center gap-4 text-label-caps text-secondary">
               <span>— SCROLL</span>
