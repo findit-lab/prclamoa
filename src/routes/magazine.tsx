@@ -28,7 +28,7 @@ function MagazinePage() {
 
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
-      <SubPageNav variant="light" rightSlot={<>ISSUE Nº 02 · EDITORIAL</>} />
+      <SubPageNav variant="light" />
 
       {/* Magazine cover / masthead */}
       <section className="border-b-2 border-deep-ink">
