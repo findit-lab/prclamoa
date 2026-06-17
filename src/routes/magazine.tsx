@@ -64,16 +64,6 @@ function MagazinePage() {
             const isLeft = i % 2 === 0;
             return (
               <article key={img.id} className="group">
-                {/* Page header line */}
-                <div className="flex items-baseline justify-between border-b border-deep-ink/30 pb-3 mb-5">
-                  <span className="text-label-caps text-secondary">
-                    PG. {pageNo} — FEATURE {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-[10px] tracking-[0.2em] font-mono text-secondary uppercase">
-                    {isLeft ? "RECTO" : "VERSO"}
-                  </span>
-                </div>
-
                 {/* Cover image */}
                 <div
                   className="relative w-full overflow-hidden bg-surface-low border border-deep-ink/10"
@@ -98,23 +88,13 @@ function MagazinePage() {
                 </div>
 
                 {/* Caption block */}
-                <div className="mt-5 grid grid-cols-12 gap-4 items-start">
-                  <div className="col-span-12 md:col-span-9">
-                    <h2
-                      className="font-serif uppercase leading-[1] tracking-[-0.02em] mb-3"
-                      style={{ fontSize: "clamp(22px, 2.2vw, 34px)" }}
-                    >
-                      {img.name.replace(/\.[^.]+$/, "")}
-                    </h2>
-                    <p className="text-body-md font-serif leading-relaxed text-deep-ink/80 max-w-md">
-                      에디토리얼 컷 — 매거진 화보 협업으로 구성된 비주얼.
-                      클라모아의 에디터 네트워크가 제안한 톤의 한 페이지.
-                    </p>
-                  </div>
-                  <div className="col-span-12 md:col-span-3 md:text-right">
-                    <span className="text-label-caps text-secondary block">PHOTOGRAPHY</span>
-                    <span className="text-[12px] font-serif italic">Editorial Archive</span>
-                  </div>
+                <div className="mt-5">
+                  <h2
+                    className="font-serif uppercase leading-[1] tracking-[-0.02em]"
+                    style={{ fontSize: "clamp(22px, 2.2vw, 34px)" }}
+                  >
+                    {img.name.replace(/\.[^.]+$/, "")}
+                  </h2>
                 </div>
               </article>
             );
