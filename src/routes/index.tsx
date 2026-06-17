@@ -203,7 +203,7 @@ function Index() {
             <div className="col-span-12 md:col-span-8">
               <span className="text-label-caps text-secondary block mb-8">SEOUL — FASHION PR AGENCY</span>
               <h1 className="text-display-xl uppercase mb-12">
-                FASHION PR,<br />STYLED FOR<br />VISIBILITY
+                FASHION PR,<br />AGENCY WE MAKE<br />BRANDS VISIBLE
               </h1>
               <div className="max-w-xl space-y-6">
                 <p className="text-body-lg border-l-4 border-neon-signal pl-6 italic font-serif">
