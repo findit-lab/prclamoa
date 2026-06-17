@@ -648,31 +648,6 @@ function Index() {
           })()}
         </section>
 
-        {/* Newsletter */}
-        <section className="px-5 md:px-16 mb-32 reveal">
-
-          <div className="bg-neon-signal border-2 border-deep-ink p-8 md:p-24 flex flex-col md:flex-row justify-between items-center gap-12 group">
-            <div className="max-w-md">
-              <h2 className="text-headline-lg uppercase mb-4">JOIN THE<br />INNER CIRCLE.</h2>
-              <p className="text-body-md">패션, 셀러브리티 컬처, 쇼룸 PR, 브랜드 가시성에 관한 큐레이션된 시그널을 받아보세요.</p>
-            </div>
-            <div className="w-full max-w-md">
-              <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
-                <input
-                  type="email"
-                  placeholder="YOUR EMAIL"
-                  className="bg-transparent border-b-2 border-deep-ink focus:outline-none p-4 text-label-caps placeholder:text-deep-ink/50 w-full"
-                />
-                <button
-                  type="submit"
-                  className="bg-deep-ink text-neon-signal py-5 md:py-6 px-6 md:px-12 text-label-caps hover:bg-surface hover:text-deep-ink transition-all duration-300 active:scale-95 hover:shadow-[8px_8px_0px_0px_rgba(26,28,28,1)]"
-                >
-                  SUBSCRIBE
-                </button>
-              </form>
-            </div>
-          </div>
-        </section>
 
         {/* Contact */}
         <section id="contact" className="px-5 md:px-16 mb-32 reveal">
