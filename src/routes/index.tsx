@@ -128,7 +128,7 @@ function Index() {
     ["ABOUT", "#top"],
     ["SERVICES", "#services"],
     ["PORTFOLIO", "#portfolio"],
-    ["GET IN TOUCH", "#contact"],
+    ["CONTACT", "#contact"],
   ];
 
   const services = [
