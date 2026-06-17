@@ -279,21 +279,18 @@ function Index() {
               />
               <div className="absolute -bottom-6 -right-6 bg-deep-ink text-surface p-10 max-w-xs hidden md:block transition-transform duration-500 group-hover:-translate-x-4 group-hover:-translate-y-4">
                 <p className="text-body-md italic font-serif">
-                  "가시성은 사는 것이 아니라, 연출되고 시딩되며 기억되는 것이다."
+                  "중요한 것은 많이 보이는 것이 아니라, 제대로 보이는 것입니다."
                 </p>
               </div>
             </div>
             <div className="col-span-12 md:col-span-5 flex flex-col justify-center">
               <div className="border-t-2 border-deep-ink pt-8 mt-16 md:mt-0">
                 <span className="text-label-caps text-secondary mb-4 block">01 / BRAND VISIBILITY</span>
-                <h3 className="text-headline-lg mb-6 uppercase">RAW<br />INFLUENCE</h3>
+                <h3 className="text-headline-lg mb-6 uppercase">PR STRATEGY<br />RIGHT EXPOSURE</h3>
                 <p className="text-body-md mb-8">
-                  제품 플레이스먼트, 쇼룸 액세스, 컬처럴 관계를 측정 가능한 브랜드 모멘텀으로 전환합니다.
+                  브랜드와 잘 맞는 셀럽, 콘텐츠, 채널을 연결해 가장 자연스럽고 효과적인 노출 전략을 설계합니다.
                 </p>
-                <a href="#portfolio" className="inline-flex items-center gap-4 text-label-caps group border-b border-transparent hover:border-deep-ink pb-1 transition-all duration-300">
-                  VIEW CASE STUDY
-                  <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
-                </a>
+              </div>
               </div>
             </div>
           </div>
