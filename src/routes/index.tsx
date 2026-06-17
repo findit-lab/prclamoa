@@ -386,7 +386,7 @@ function Index() {
         <section id="process" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">PROCESS</span>
-            <h2 className="text-headline-lg uppercase max-w-2xl">상담 접수부터 2차 확산까지</h2>
+            <h2 className="text-headline-lg uppercase max-w-2xl text-right">상담 접수부터 2차 확산까지</h2>
           </div>
           <p className="text-body-md max-w-2xl mb-10 -mt-8 text-secondary">
             브랜드 목표와 예산에 맞춰 가장 적합한 노출 채널을 설계하고, 협찬 진행부터 콘텐츠 확산까지 단계별로 관리합니다.
