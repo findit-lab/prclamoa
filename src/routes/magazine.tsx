@@ -60,8 +60,6 @@ function MagazinePage() {
       <section className="px-5 md:px-12 py-12 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-14 gap-y-16 md:gap-y-24">
           {images.map((img, i) => {
-            const pageNo = String((i + 1) * 14 + 8).padStart(3, "0");
-            const isLeft = i % 2 === 0;
             return (
               <article key={img.id} className="group">
                 {/* Cover image */}
