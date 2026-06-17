@@ -173,7 +173,7 @@ export function DraggableMarquee({
           {doubled.map((src, i) => (
             <div
               key={i}
-              className="relative shrink-0 overflow-hidden"
+              className="group relative shrink-0 overflow-hidden"
               style={{
                 width: "clamp(240px, 28vw, 380px)",
                 height: "clamp(320px, 38vw, 520px)",
@@ -184,7 +184,7 @@ export function DraggableMarquee({
                 alt={`${altPrefix} ${(i % images.length) + 1}`}
                 loading="lazy"
                 draggable={false}
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 pointer-events-none"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 pointer-events-none"
               />
             </div>
           ))}
