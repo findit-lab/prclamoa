@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "CLAMOA — Fashion PR Agency Seoul" },
       { name: "description", content: "클리모아는 쇼룸 전략, 셀러브리티 시딩, 스타일리스트 관계, 크리에이터 캠페인, 데이터 기반 PR로 패션·라이프스타일 브랜드의 문화적 가시성을 만들어내는 서울 기반 패션 PR 에이전시입니다." },
-      { name: "naver-site-verification", content: "6efdafd7672da350b872a7834bf6cc918d7ea45c" },
+      { name: "naver-site-verification", content: "25428b3d021a64d091f6dac6dc04e7f463dc037c" },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "CLAMOA — Fashion PR Agency Seoul" },
       { property: "og:description", content: "클리모아는 쇼룸 전략, 셀러브리티 시딩, 스타일리스트 관계, 크리에이터 캠페인, 데이터 기반 PR로 패션·라이프스타일 브랜드의 문화적 가시성을 만들어내는 서울 기반 패션 PR 에이전시입니다." },
