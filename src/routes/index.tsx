@@ -18,6 +18,21 @@ import starTaeyeon from "@/assets/star-taeyeon.jpg.asset.json";
 import starUdohwan from "@/assets/star-udohwan.jpg.asset.json";
 import starWinter from "@/assets/star-winter.jpg.asset.json";
 import starYoona from "@/assets/star-yoona.jpg.asset.json";
+import starNmixxSullyoon from "@/assets/star-nmixx-sullyoon.jpg.asset.json";
+import starRiizeWonbin from "@/assets/star-riize-wonbin.jpg.asset.json";
+import starNoyoonseo from "@/assets/star-noyoonseo.jpg.asset.json";
+import starBigbangDaesung from "@/assets/star-bigbang-daesung.jpg.asset.json";
+import starTwiceNayeon from "@/assets/star-twice-nayeon.jpg.asset.json";
+import starJeonjihyun from "@/assets/star-jeonjihyun.jpg.asset.json";
+import starTwiceDahyun from "@/assets/star-twice-dahyun.jpg.asset.json";
+import starGidleSoyeon from "@/assets/star-gidle-soyeon.jpg.asset.json";
+import starNctdreamJaemin from "@/assets/star-nctdream-jaemin.jpg.asset.json";
+import starKwoneunbi from "@/assets/star-kwoneunbi.jpg.asset.json";
+import starSeventeenMingyu from "@/assets/star-seventeen-mingyu.jpg.asset.json";
+import starChungha from "@/assets/star-chungha.jpg.asset.json";
+import starAespaNingning from "@/assets/star-aespa-ningning.jpg.asset.json";
+import starTwiceTzuyu from "@/assets/star-twice-tzuyu.jpg.asset.json";
+import starZb1Parkgunwook from "@/assets/star-zb1-parkgunwook.jpg.asset.json";
 import scopeStar from "@/assets/scope-star.jpg.asset.json";
 import scopeViral from "@/assets/scope-viral.jpg.asset.json";
 import scopeMagazine from "@/assets/scope-magazine.jpg.asset.json";
@@ -63,6 +78,21 @@ const STAR_IMAGES = [
   starUdohwan.url,
   starWinter.url,
   starYoona.url,
+  starNmixxSullyoon.url,
+  starRiizeWonbin.url,
+  starNoyoonseo.url,
+  starBigbangDaesung.url,
+  starTwiceNayeon.url,
+  starJeonjihyun.url,
+  starTwiceDahyun.url,
+  starGidleSoyeon.url,
+  starNctdreamJaemin.url,
+  starKwoneunbi.url,
+  starSeventeenMingyu.url,
+  starChungha.url,
+  starAespaNingning.url,
+  starTwiceTzuyu.url,
+  starZb1Parkgunwook.url,
 ];
 
 function shuffleArray<T>(arr: T[]): T[] {
