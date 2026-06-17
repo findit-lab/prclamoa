@@ -33,11 +33,6 @@ function MagazinePage() {
       {/* Magazine cover / masthead */}
       <section className="border-b-2 border-deep-ink">
         <div className="px-5 md:px-12 pt-10 md:pt-14 pb-6 md:pb-10">
-          <div className="flex items-center justify-between text-label-caps text-secondary border-b border-deep-ink/30 pb-4 mb-10">
-            <span>VOL. MMXXVI</span>
-            <span className="hidden sm:block">EDITORIAL · PITCHING · FASHION</span>
-            <span>₩ 0,000</span>
-          </div>
           <div className="grid grid-cols-12 gap-6 items-end">
             <div className="col-span-12 md:col-span-8">
               <span className="text-label-caps text-secondary block mb-4">
@@ -52,14 +47,10 @@ function MagazinePage() {
             </div>
             <div className="col-span-12 md:col-span-4 md:pb-4">
               <p className="text-body-lg font-serif leading-relaxed max-w-sm">
-                주요 패션·라이프스타일 매거진 에디터 네트워크를 통한
-                <em> 피칭 및 화보 협업</em>. 한 컷, 한 페이지, 한 호의 무드.
+                유가화보를 기반으로 매거진 노출부터
+                <em> 셀럽 SNS 포스팅, 공항패션 및 언론 보도</em>까지
+                원스톱으로 진행합니다.
               </p>
-              <div className="mt-6 flex items-center gap-4 text-label-caps text-secondary">
-                <span>FEATURES — {images.length}</span>
-                <span className="h-px flex-1 bg-deep-ink/40" />
-                <span>↓</span>
-              </div>
             </div>
           </div>
         </div>
