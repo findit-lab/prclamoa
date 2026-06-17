@@ -68,7 +68,7 @@ function BrandAmbassadorPage() {
   return (
     <main className="min-h-screen bg-deep-ink text-inverse-on-surface">
       <style>{`.ba-reveal{opacity:0;transform:translateY(2rem)}.ba-reveal.active{opacity:1;transform:translateY(0)}`}</style>
-      <SubPageNav variant="dark" rightSlot={<>{`AMBASSADOR · ${images.length} FACES`}</>} />
+      <SubPageNav variant="dark" />
 
       {/* Editorial hero */}
       <section className="px-5 md:px-12 pt-20 md:pt-32 pb-12 md:pb-20 border-b border-white/15">
