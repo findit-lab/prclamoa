@@ -302,8 +302,8 @@ function Index() {
               <div className="border-t-2 border-deep-ink pt-8 mt-16 md:mt-0">
                 <span className="text-label-caps text-secondary mb-4 block">01 / BRAND VISIBILITY</span>
                 <h3 className="text-headline-lg mb-6 uppercase">PR STRATEGY<br />RIGHT EXPOSURE</h3>
-                <p className="text-body-md mb-8">
-                  브랜드와 잘 맞는 셀럽, 콘텐츠, 채널을 연결해 가장 자연스럽고 효과적인 노출 전략을 설계합니다.
+                <p className="text-body-md mb-8 whitespace-pre-line">
+                  브랜드와 잘 맞는 셀럽, 콘텐츠, 채널을 연결해 가장 자연스럽고{"\n"}효과적인 노출 전략을 설계합니다.
                 </p>
               </div>
             </div>
