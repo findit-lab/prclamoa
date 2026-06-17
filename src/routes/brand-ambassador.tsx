@@ -84,9 +84,9 @@ function BrandAmbassadorPage() {
             <span className="italic font-normal">Ambassador</span>
           </h1>
           <div className="max-w-2xl mx-auto">
-            <p className="text-body-lg font-serif leading-relaxed text-white/70">
+            <p className="text-body-lg font-serif leading-relaxed text-white/70 whitespace-pre-line">
               브랜드 이미지에 부합하는 앰버서더를 섭외하고,
-              <em className="text-white not-italic"> 룩북 촬영, 브랜드 행사</em>까지
+              <em className="text-white not-italic">{"\n"}룩북 촬영, 브랜드 행사</em>까지
               전반적으로 관리합니다.
             </p>
             <div className="mt-10 flex items-center justify-center gap-6 text-label-caps text-white/40">
