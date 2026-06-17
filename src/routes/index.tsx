@@ -24,6 +24,7 @@ import scopeMagazine from "@/assets/scope-magazine.jpg.asset.json";
 import scopeInfluencer from "@/assets/scope-influencer.jpg.asset.json";
 import scopeEvent from "@/assets/scope-event.jpg.asset.json";
 import scopeAmbassador from "@/assets/scope-ambassador.jpg.asset.json";
+import { DraggableMarquee } from "@/components/DraggableMarquee";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -244,24 +245,8 @@ function Index() {
           <div className="flex justify-between items-center px-5 md:px-16 mb-8">
             <span className="text-label-caps text-neon-signal">STAR PORTFOLIO</span>
           </div>
-          <div className="relative overflow-hidden marquee-mask">
-            <div className="marquee-track flex w-max gap-6">
-              {[...MARQUEE_IMAGES, ...MARQUEE_IMAGES].map((src, i) => (
-                <div
-                  key={i}
-                  className="relative shrink-0 overflow-hidden"
-                  style={{ width: "clamp(240px, 28vw, 380px)", height: "clamp(320px, 38vw, 520px)" }}
-                >
-                  <img
-                    src={src}
-                    alt={`CLAMOA look ${(i % MARQUEE_IMAGES.length) + 1}`}
-                    loading="lazy"
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <DraggableMarquee images={MARQUEE_IMAGES} />
+
         </section>
 
         {/* Featured Work Preview */}
