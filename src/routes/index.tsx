@@ -326,13 +326,13 @@ function Index() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-20 reveal-group">
                 {[
-                  ["METHOD", "브랜드 이미지에 맞는 셀럽과 채널을 매칭하고, 노출 이후의 2차 활용까지 함께 설계합니다."],
-                  ["VISION", "중요한 것은 많이 보이는 것이 아니라, 브랜드답게 보이는 것입니다."],
+                  ["METHOD", "브랜드 이미지에 맞는 셀럽과 채널을 매칭하고,\n노출 이후의 2차 활용까지 함께 설계합니다."],
+                  ["VISION", "중요한 것은 많이 보이는 것이 아니라,\n브랜드답게 보이는 것입니다."],
                   ["RESULT", "브랜드의 무드가 소비자에게 자연스럽게 전달되고, 더 오래 기억되는 노출을 만듭니다."],
                 ].map(([h, b]) => (
                   <div key={h} className="border-l border-white/30 pl-6 hover:border-neon-signal transition-colors duration-300">
                     <span className="text-neon-signal text-label-caps block mb-4">{h}</span>
-                    <p className="text-body-md">{b}</p>
+                    <p className="text-body-md whitespace-pre-line">{b}</p>
                   </div>
                 ))}
               </div>
