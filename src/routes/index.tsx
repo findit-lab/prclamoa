@@ -298,7 +298,7 @@ function Index() {
                 </p>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-5 flex flex-col justify-center">
+            <div className="col-span-12 md:col-span-5 flex flex-col justify-start">
               <div className="border-t-2 border-deep-ink pt-8 mt-16 md:mt-0">
                 <span className="text-label-caps text-secondary mb-4 block">01 / BRAND VISIBILITY</span>
                 <h3 className="text-headline-lg mb-6 uppercase">PR STRATEGY<br />RIGHT EXPOSURE</h3>
