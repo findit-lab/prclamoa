@@ -143,9 +143,8 @@ function InsightDetail() {
               {post.serviceSlug && post.serviceLabel && (
                 <div>
                   <span className="text-label-caps text-secondary block mb-4">RELATED SERVICE</span>
-                  <Link
-                    to="/services/$"
-                    params={{ _splat: post.serviceSlug }}
+                  <a
+                    href={`/services/${post.serviceSlug}`}
                     className="block border-2 border-deep-ink p-6 hover:bg-deep-ink hover:text-neon-signal transition-colors group"
                   >
                     <span className="text-headline-sm block mb-2">{post.serviceLabel}</span>
@@ -155,7 +154,7 @@ function InsightDetail() {
                         arrow_forward
                       </span>
                     </span>
-                  </Link>
+                  </a>
                 </div>
               )}
               {related.length > 0 && (

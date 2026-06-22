@@ -35,6 +35,7 @@ import { Route as ServicesGlobalExpansionRouteImport } from './routes/services.g
 import { Route as ServicesEditorialViralPrRouteImport } from './routes/services.editorial-viral-pr'
 import { Route as ServicesCelebritySeedingRouteImport } from './routes/services.celebrity-seeding'
 import { Route as ServicesBrandAmbassadorRouteImport } from './routes/services.brand-ambassador'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
 import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
 import { Route as ApiInfluencerImageIdRouteImport } from './routes/api/influencer.image.$id'
@@ -175,6 +176,11 @@ const ServicesBrandAmbassadorRoute = ServicesBrandAmbassadorRouteImport.update({
   path: '/brand-ambassador',
   getParentRoute: () => ServicesRoute,
 } as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => InsightsRoute,
+} as any)
 const ApiStarImageIdRoute = ApiStarImageIdRouteImport.update({
   id: '/api/star/image/$id',
   path: '/api/star/image/$id',
@@ -211,7 +217,7 @@ export interface FileRoutesByFullPath {
   '/event': typeof EventRoute
   '/faq': typeof FaqRoute
   '/influencer': typeof InfluencerRoute
-  '/insights': typeof InsightsRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/magazine': typeof MagazineRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -220,6 +226,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
   '/terms': typeof TermsRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
   '/services/celebrity-seeding': typeof ServicesCelebritySeedingRoute
   '/services/editorial-viral-pr': typeof ServicesEditorialViralPrRoute
@@ -244,7 +251,7 @@ export interface FileRoutesByTo {
   '/event': typeof EventRoute
   '/faq': typeof FaqRoute
   '/influencer': typeof InfluencerRoute
-  '/insights': typeof InsightsRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/magazine': typeof MagazineRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -252,6 +259,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
   '/terms': typeof TermsRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
   '/services/celebrity-seeding': typeof ServicesCelebritySeedingRoute
   '/services/editorial-viral-pr': typeof ServicesEditorialViralPrRoute
@@ -277,7 +285,7 @@ export interface FileRoutesById {
   '/event': typeof EventRoute
   '/faq': typeof FaqRoute
   '/influencer': typeof InfluencerRoute
-  '/insights': typeof InsightsRoute
+  '/insights': typeof InsightsRouteWithChildren
   '/magazine': typeof MagazineRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -286,6 +294,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
   '/terms': typeof TermsRoute
+  '/insights/$slug': typeof InsightsSlugRoute
   '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
   '/services/celebrity-seeding': typeof ServicesCelebritySeedingRoute
   '/services/editorial-viral-pr': typeof ServicesEditorialViralPrRoute
@@ -321,6 +330,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/star'
     | '/terms'
+    | '/insights/$slug'
     | '/services/brand-ambassador'
     | '/services/celebrity-seeding'
     | '/services/editorial-viral-pr'
@@ -353,6 +363,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/star'
     | '/terms'
+    | '/insights/$slug'
     | '/services/brand-ambassador'
     | '/services/celebrity-seeding'
     | '/services/editorial-viral-pr'
@@ -386,6 +397,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/star'
     | '/terms'
+    | '/insights/$slug'
     | '/services/brand-ambassador'
     | '/services/celebrity-seeding'
     | '/services/editorial-viral-pr'
@@ -411,7 +423,7 @@ export interface RootRouteChildren {
   EventRoute: typeof EventRoute
   FaqRoute: typeof FaqRoute
   InfluencerRoute: typeof InfluencerRoute
-  InsightsRoute: typeof InsightsRoute
+  InsightsRoute: typeof InsightsRouteWithChildren
   MagazineRoute: typeof MagazineRoute
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
@@ -611,6 +623,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesBrandAmbassadorRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof InsightsRoute
+    }
     '/api/star/image/$id': {
       id: '/api/star/image/$id'
       path: '/api/star/image/$id'
@@ -649,6 +668,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface InsightsRouteChildren {
+  InsightsSlugRoute: typeof InsightsSlugRoute
+}
+
+const InsightsRouteChildren: InsightsRouteChildren = {
+  InsightsSlugRoute: InsightsSlugRoute,
+}
+
+const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
+  InsightsRouteChildren,
+)
+
 interface ServicesRouteChildren {
   ServicesBrandAmbassadorRoute: typeof ServicesBrandAmbassadorRoute
   ServicesCelebritySeedingRoute: typeof ServicesCelebritySeedingRoute
@@ -686,7 +717,7 @@ const rootRouteChildren: RootRouteChildren = {
   EventRoute: EventRoute,
   FaqRoute: FaqRoute,
   InfluencerRoute: InfluencerRoute,
-  InsightsRoute: InsightsRoute,
+  InsightsRoute: InsightsRouteWithChildren,
   MagazineRoute: MagazineRoute,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,
