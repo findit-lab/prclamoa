@@ -241,6 +241,13 @@ export function ServiceDetailPage({
           </Link>
         </div>
       </section>
+      {schemas.map((s, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
+        />
+      ))}
     </main>
   );
 }
