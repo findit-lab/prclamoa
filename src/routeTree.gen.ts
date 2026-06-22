@@ -15,6 +15,7 @@ import { Route as MagazineRouteImport } from './routes/magazine'
 import { Route as InfluencerRouteImport } from './routes/influencer'
 import { Route as EventRouteImport } from './routes/event'
 import { Route as BrandAmbassadorRouteImport } from './routes/brand-ambassador'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesOfflineEventPrRouteImport } from './routes/services.offline-event-pr'
 import { Route as ServicesInfluencerPrRouteImport } from './routes/services.influencer-pr'
@@ -55,6 +56,11 @@ const EventRoute = EventRouteImport.update({
 const BrandAmbassadorRoute = BrandAmbassadorRouteImport.update({
   id: '/brand-ambassador',
   path: '/brand-ambassador',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -118,6 +124,7 @@ const ApiBrandAmbassadorImageIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/brand-ambassador': typeof BrandAmbassadorRoute
   '/event': typeof EventRoute
   '/influencer': typeof InfluencerRoute
@@ -137,6 +144,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/brand-ambassador': typeof BrandAmbassadorRoute
   '/event': typeof EventRoute
   '/influencer': typeof InfluencerRoute
@@ -157,6 +165,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/brand-ambassador': typeof BrandAmbassadorRoute
   '/event': typeof EventRoute
   '/influencer': typeof InfluencerRoute
@@ -178,6 +187,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/brand-ambassador'
     | '/event'
     | '/influencer'
@@ -197,6 +207,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/brand-ambassador'
     | '/event'
     | '/influencer'
@@ -216,6 +227,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/brand-ambassador'
     | '/event'
     | '/influencer'
@@ -236,6 +248,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   BrandAmbassadorRoute: typeof BrandAmbassadorRoute
   EventRoute: typeof EventRoute
   InfluencerRoute: typeof InfluencerRoute
@@ -291,6 +304,13 @@ declare module '@tanstack/react-router' {
       path: '/brand-ambassador'
       fullPath: '/brand-ambassador'
       preLoaderRoute: typeof BrandAmbassadorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -395,6 +415,7 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   BrandAmbassadorRoute: BrandAmbassadorRoute,
   EventRoute: EventRoute,
   InfluencerRoute: InfluencerRoute,
@@ -410,3 +431,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
