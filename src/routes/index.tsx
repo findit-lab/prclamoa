@@ -391,9 +391,13 @@ function Index() {
             <div className="col-span-12 md:col-span-5">
               <span className="text-neon-signal text-label-caps block mb-6">THE CLAMOA DIFFERENCE</span>
               <h2 className="font-serif font-bold uppercase mb-8 leading-[0.95] tracking-[-0.03em] text-[clamp(44px,6vw,88px)]">BEYOND<br />TRADITIONAL<br />PR</h2>
-              <p className="text-body-lg max-w-md text-surface/80">
+              <p className="text-body-lg max-w-md text-surface/80 mb-8">
                 CLAMOA는 브랜드의 무드와 목표에 맞춰 PR 방향성을 컨설팅하고, 무작위 노출이 아닌 타겟 중심의 셀럽 협찬을 진행합니다. RINK 플랫폼을 통한 운영 관리와 PPL·앰버서더 캠페인, 오프라인 및 글로벌 확장 기회를 함께 만들어 갑니다.
               </p>
+              <Link to="/about" className="inline-flex items-center gap-2 text-label-caps text-neon-signal border border-neon-signal px-5 py-3 hover:bg-neon-signal hover:text-deep-ink transition-colors">
+                MORE ABOUT CLAMOA
+                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </Link>
             </div>
             <div className="col-span-12 md:col-span-6 md:col-start-7 mt-12 md:mt-8">
               <ul className="divide-y divide-white/20 border-t border-b border-white/20">
