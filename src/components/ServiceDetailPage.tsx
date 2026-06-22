@@ -1,9 +1,29 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { SubPageNav } from "@/components/SubPageNav";
 import { getInsightsForService } from "@/data/insights";
+import {
+  SITE_URL,
+  breadcrumbSchema,
+  serviceSchema,
+} from "@/lib/schema";
 
 export type ServiceFAQ = { q: string; a: string };
 export type ServiceStep = { title: string; desc: string };
+
+/** Per-slug meta used to build Service + Breadcrumb JSON-LD. */
+const SERVICE_META: Record<
+  string,
+  { serviceType: string; label: string; areaServed: string[] }
+> = {
+  "celebrity-seeding": { serviceType: "Celebrity Seeding", label: "Celebrity Seeding (셀럽 협찬)", areaServed: ["KR"] },
+  "stylist-relations": { serviceType: "Stylist Relations", label: "Stylist Relations (스타일리스트 릴레이션)", areaServed: ["KR"] },
+  "ppl-content-placement": { serviceType: "Product Placement", label: "PPL & Content Placement", areaServed: ["KR"] },
+  "influencer-pr": { serviceType: "Influencer Marketing", label: "Influencer PR", areaServed: ["KR"] },
+  "editorial-viral-pr": { serviceType: "Editorial & Viral PR", label: "Editorial & Viral PR", areaServed: ["KR"] },
+  "offline-event-pr": { serviceType: "Event PR", label: "Offline Event PR", areaServed: ["KR"] },
+  "brand-ambassador": { serviceType: "Brand Ambassador Campaign", label: "Brand Ambassador Campaign", areaServed: ["KR"] },
+  "global-expansion": { serviceType: "Global Distribution & PR", label: "Global Expansion", areaServed: ["KR", "JP", "TW", "CN"] },
+};
 
 type Props = {
   eyebrow: string;
@@ -37,6 +57,29 @@ export function ServiceDetailPage({
     ? pathname.replace("/services/", "").replace(/\/$/, "")
     : undefined;
   const relatedInsights = getInsightsForService(serviceSlug);
+  const meta = serviceSlug ? SERVICE_META[serviceSlug] : undefined;
+  const url = serviceSlug ? `${SITE_URL}/services/${serviceSlug}` : SITE_URL;
+
+  const schemas: unknown[] = [];
+  if (meta) {
+    schemas.push(
+      serviceSchema({
+        serviceType: meta.serviceType,
+        name: meta.label,
+        description: definition,
+        url,
+        areaServed: meta.areaServed,
+      }),
+    );
+    schemas.push(
+      breadcrumbSchema([
+        { name: "Home", url: `${SITE_URL}/` },
+        { name: "Services", url: `${SITE_URL}/services` },
+        { name: meta.label, url },
+      ]),
+    );
+  }
+
 
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
