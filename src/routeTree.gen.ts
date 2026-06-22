@@ -9,21 +9,71 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as StarRouteImport } from './routes/star'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as ProcessRouteImport } from './routes/process'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as MagazineRouteImport } from './routes/magazine'
+import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as InfluencerRouteImport } from './routes/influencer'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EventRouteImport } from './routes/event'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as BrandAmbassadorRouteImport } from './routes/brand-ambassador'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesStylistRelationsRouteImport } from './routes/services.stylist-relations'
+import { Route as ServicesPplContentPlacementRouteImport } from './routes/services.ppl-content-placement'
+import { Route as ServicesOfflineEventPrRouteImport } from './routes/services.offline-event-pr'
+import { Route as ServicesInfluencerPrRouteImport } from './routes/services.influencer-pr'
+import { Route as ServicesGlobalExpansionRouteImport } from './routes/services.global-expansion'
+import { Route as ServicesEditorialViralPrRouteImport } from './routes/services.editorial-viral-pr'
+import { Route as ServicesCelebritySeedingRouteImport } from './routes/services.celebrity-seeding'
+import { Route as ServicesBrandAmbassadorRouteImport } from './routes/services.brand-ambassador'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
 import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
 import { Route as ApiInfluencerImageIdRouteImport } from './routes/api/influencer.image.$id'
 import { Route as ApiEventImageIdRouteImport } from './routes/api/event.image.$id'
 import { Route as ApiBrandAmbassadorImageIdRouteImport } from './routes/api/brand-ambassador.image.$id'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StarRoute = StarRouteImport.update({
   id: '/star',
   path: '/star',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProcessRoute = ProcessRouteImport.update({
+  id: '/process',
+  path: '/process',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MagazineRoute = MagazineRouteImport.update({
@@ -31,9 +81,19 @@ const MagazineRoute = MagazineRouteImport.update({
   path: '/magazine',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InfluencerRoute = InfluencerRouteImport.update({
   id: '/influencer',
   path: '/influencer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventRoute = EventRouteImport.update({
@@ -41,15 +101,79 @@ const EventRoute = EventRouteImport.update({
   path: '/event',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BrandAmbassadorRoute = BrandAmbassadorRouteImport.update({
   id: '/brand-ambassador',
   path: '/brand-ambassador',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesStylistRelationsRoute =
+  ServicesStylistRelationsRouteImport.update({
+    id: '/stylist-relations',
+    path: '/stylist-relations',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesPplContentPlacementRoute =
+  ServicesPplContentPlacementRouteImport.update({
+    id: '/ppl-content-placement',
+    path: '/ppl-content-placement',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesOfflineEventPrRoute = ServicesOfflineEventPrRouteImport.update({
+  id: '/offline-event-pr',
+  path: '/offline-event-pr',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesInfluencerPrRoute = ServicesInfluencerPrRouteImport.update({
+  id: '/influencer-pr',
+  path: '/influencer-pr',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesGlobalExpansionRoute = ServicesGlobalExpansionRouteImport.update({
+  id: '/global-expansion',
+  path: '/global-expansion',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesEditorialViralPrRoute =
+  ServicesEditorialViralPrRouteImport.update({
+    id: '/editorial-viral-pr',
+    path: '/editorial-viral-pr',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesCelebritySeedingRoute =
+  ServicesCelebritySeedingRouteImport.update({
+    id: '/celebrity-seeding',
+    path: '/celebrity-seeding',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesBrandAmbassadorRoute = ServicesBrandAmbassadorRouteImport.update({
+  id: '/brand-ambassador',
+  path: '/brand-ambassador',
+  getParentRoute: () => ServicesRoute,
 } as any)
 const ApiStarImageIdRoute = ApiStarImageIdRouteImport.update({
   id: '/api/star/image/$id',
@@ -80,11 +204,31 @@ const ApiBrandAmbassadorImageIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/brand-ambassador': typeof BrandAmbassadorRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
   '/event': typeof EventRoute
+  '/faq': typeof FaqRoute
   '/influencer': typeof InfluencerRoute
+  '/insights': typeof InsightsRoute
   '/magazine': typeof MagazineRoute
+  '/privacy': typeof PrivacyRoute
+  '/process': typeof ProcessRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
+  '/terms': typeof TermsRoute
+  '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
+  '/services/celebrity-seeding': typeof ServicesCelebritySeedingRoute
+  '/services/editorial-viral-pr': typeof ServicesEditorialViralPrRoute
+  '/services/global-expansion': typeof ServicesGlobalExpansionRoute
+  '/services/influencer-pr': typeof ServicesInfluencerPrRoute
+  '/services/offline-event-pr': typeof ServicesOfflineEventPrRoute
+  '/services/ppl-content-placement': typeof ServicesPplContentPlacementRoute
+  '/services/stylist-relations': typeof ServicesStylistRelationsRoute
+  '/services/': typeof ServicesIndexRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -93,11 +237,30 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/brand-ambassador': typeof BrandAmbassadorRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
   '/event': typeof EventRoute
+  '/faq': typeof FaqRoute
   '/influencer': typeof InfluencerRoute
+  '/insights': typeof InsightsRoute
   '/magazine': typeof MagazineRoute
+  '/privacy': typeof PrivacyRoute
+  '/process': typeof ProcessRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
+  '/terms': typeof TermsRoute
+  '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
+  '/services/celebrity-seeding': typeof ServicesCelebritySeedingRoute
+  '/services/editorial-viral-pr': typeof ServicesEditorialViralPrRoute
+  '/services/global-expansion': typeof ServicesGlobalExpansionRoute
+  '/services/influencer-pr': typeof ServicesInfluencerPrRoute
+  '/services/offline-event-pr': typeof ServicesOfflineEventPrRoute
+  '/services/ppl-content-placement': typeof ServicesPplContentPlacementRoute
+  '/services/stylist-relations': typeof ServicesStylistRelationsRoute
+  '/services': typeof ServicesIndexRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -107,11 +270,31 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/brand-ambassador': typeof BrandAmbassadorRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
   '/event': typeof EventRoute
+  '/faq': typeof FaqRoute
   '/influencer': typeof InfluencerRoute
+  '/insights': typeof InsightsRoute
   '/magazine': typeof MagazineRoute
+  '/privacy': typeof PrivacyRoute
+  '/process': typeof ProcessRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
+  '/terms': typeof TermsRoute
+  '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
+  '/services/celebrity-seeding': typeof ServicesCelebritySeedingRoute
+  '/services/editorial-viral-pr': typeof ServicesEditorialViralPrRoute
+  '/services/global-expansion': typeof ServicesGlobalExpansionRoute
+  '/services/influencer-pr': typeof ServicesInfluencerPrRoute
+  '/services/offline-event-pr': typeof ServicesOfflineEventPrRoute
+  '/services/ppl-content-placement': typeof ServicesPplContentPlacementRoute
+  '/services/stylist-relations': typeof ServicesStylistRelationsRoute
+  '/services/': typeof ServicesIndexRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -122,11 +305,31 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/brand-ambassador'
+    | '/case-studies'
+    | '/contact'
     | '/event'
+    | '/faq'
     | '/influencer'
+    | '/insights'
     | '/magazine'
+    | '/privacy'
+    | '/process'
+    | '/robots.txt'
+    | '/services'
+    | '/sitemap.xml'
     | '/star'
+    | '/terms'
+    | '/services/brand-ambassador'
+    | '/services/celebrity-seeding'
+    | '/services/editorial-viral-pr'
+    | '/services/global-expansion'
+    | '/services/influencer-pr'
+    | '/services/offline-event-pr'
+    | '/services/ppl-content-placement'
+    | '/services/stylist-relations'
+    | '/services/'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -135,11 +338,30 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/brand-ambassador'
+    | '/case-studies'
+    | '/contact'
     | '/event'
+    | '/faq'
     | '/influencer'
+    | '/insights'
     | '/magazine'
+    | '/privacy'
+    | '/process'
+    | '/robots.txt'
+    | '/sitemap.xml'
     | '/star'
+    | '/terms'
+    | '/services/brand-ambassador'
+    | '/services/celebrity-seeding'
+    | '/services/editorial-viral-pr'
+    | '/services/global-expansion'
+    | '/services/influencer-pr'
+    | '/services/offline-event-pr'
+    | '/services/ppl-content-placement'
+    | '/services/stylist-relations'
+    | '/services'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -148,11 +370,31 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/brand-ambassador'
+    | '/case-studies'
+    | '/contact'
     | '/event'
+    | '/faq'
     | '/influencer'
+    | '/insights'
     | '/magazine'
+    | '/privacy'
+    | '/process'
+    | '/robots.txt'
+    | '/services'
+    | '/sitemap.xml'
     | '/star'
+    | '/terms'
+    | '/services/brand-ambassador'
+    | '/services/celebrity-seeding'
+    | '/services/editorial-viral-pr'
+    | '/services/global-expansion'
+    | '/services/influencer-pr'
+    | '/services/offline-event-pr'
+    | '/services/ppl-content-placement'
+    | '/services/stylist-relations'
+    | '/services/'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -162,11 +404,22 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   BrandAmbassadorRoute: typeof BrandAmbassadorRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
+  ContactRoute: typeof ContactRoute
   EventRoute: typeof EventRoute
+  FaqRoute: typeof FaqRoute
   InfluencerRoute: typeof InfluencerRoute
+  InsightsRoute: typeof InsightsRoute
   MagazineRoute: typeof MagazineRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProcessRoute: typeof ProcessRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StarRoute: typeof StarRoute
+  TermsRoute: typeof TermsRoute
   ApiBrandAmbassadorImageIdRoute: typeof ApiBrandAmbassadorImageIdRoute
   ApiEventImageIdRoute: typeof ApiEventImageIdRoute
   ApiInfluencerImageIdRoute: typeof ApiInfluencerImageIdRoute
@@ -176,11 +429,53 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/star': {
       id: '/star'
       path: '/star'
       fullPath: '/star'
       preLoaderRoute: typeof StarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/process': {
+      id: '/process'
+      path: '/process'
+      fullPath: '/process'
+      preLoaderRoute: typeof ProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/magazine': {
@@ -190,11 +485,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MagazineRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/influencer': {
       id: '/influencer'
       path: '/influencer'
       fullPath: '/influencer'
       preLoaderRoute: typeof InfluencerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/event': {
@@ -204,11 +513,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/brand-ambassador': {
       id: '/brand-ambassador'
       path: '/brand-ambassador'
       fullPath: '/brand-ambassador'
       preLoaderRoute: typeof BrandAmbassadorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -217,6 +547,69 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/stylist-relations': {
+      id: '/services/stylist-relations'
+      path: '/stylist-relations'
+      fullPath: '/services/stylist-relations'
+      preLoaderRoute: typeof ServicesStylistRelationsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/ppl-content-placement': {
+      id: '/services/ppl-content-placement'
+      path: '/ppl-content-placement'
+      fullPath: '/services/ppl-content-placement'
+      preLoaderRoute: typeof ServicesPplContentPlacementRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/offline-event-pr': {
+      id: '/services/offline-event-pr'
+      path: '/offline-event-pr'
+      fullPath: '/services/offline-event-pr'
+      preLoaderRoute: typeof ServicesOfflineEventPrRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/influencer-pr': {
+      id: '/services/influencer-pr'
+      path: '/influencer-pr'
+      fullPath: '/services/influencer-pr'
+      preLoaderRoute: typeof ServicesInfluencerPrRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/global-expansion': {
+      id: '/services/global-expansion'
+      path: '/global-expansion'
+      fullPath: '/services/global-expansion'
+      preLoaderRoute: typeof ServicesGlobalExpansionRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/editorial-viral-pr': {
+      id: '/services/editorial-viral-pr'
+      path: '/editorial-viral-pr'
+      fullPath: '/services/editorial-viral-pr'
+      preLoaderRoute: typeof ServicesEditorialViralPrRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/celebrity-seeding': {
+      id: '/services/celebrity-seeding'
+      path: '/celebrity-seeding'
+      fullPath: '/services/celebrity-seeding'
+      preLoaderRoute: typeof ServicesCelebritySeedingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/brand-ambassador': {
+      id: '/services/brand-ambassador'
+      path: '/brand-ambassador'
+      fullPath: '/services/brand-ambassador'
+      preLoaderRoute: typeof ServicesBrandAmbassadorRouteImport
+      parentRoute: typeof ServicesRoute
     }
     '/api/star/image/$id': {
       id: '/api/star/image/$id'
@@ -256,13 +649,52 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface ServicesRouteChildren {
+  ServicesBrandAmbassadorRoute: typeof ServicesBrandAmbassadorRoute
+  ServicesCelebritySeedingRoute: typeof ServicesCelebritySeedingRoute
+  ServicesEditorialViralPrRoute: typeof ServicesEditorialViralPrRoute
+  ServicesGlobalExpansionRoute: typeof ServicesGlobalExpansionRoute
+  ServicesInfluencerPrRoute: typeof ServicesInfluencerPrRoute
+  ServicesOfflineEventPrRoute: typeof ServicesOfflineEventPrRoute
+  ServicesPplContentPlacementRoute: typeof ServicesPplContentPlacementRoute
+  ServicesStylistRelationsRoute: typeof ServicesStylistRelationsRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesBrandAmbassadorRoute: ServicesBrandAmbassadorRoute,
+  ServicesCelebritySeedingRoute: ServicesCelebritySeedingRoute,
+  ServicesEditorialViralPrRoute: ServicesEditorialViralPrRoute,
+  ServicesGlobalExpansionRoute: ServicesGlobalExpansionRoute,
+  ServicesInfluencerPrRoute: ServicesInfluencerPrRoute,
+  ServicesOfflineEventPrRoute: ServicesOfflineEventPrRoute,
+  ServicesPplContentPlacementRoute: ServicesPplContentPlacementRoute,
+  ServicesStylistRelationsRoute: ServicesStylistRelationsRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   BrandAmbassadorRoute: BrandAmbassadorRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
+  ContactRoute: ContactRoute,
   EventRoute: EventRoute,
+  FaqRoute: FaqRoute,
   InfluencerRoute: InfluencerRoute,
+  InsightsRoute: InsightsRoute,
   MagazineRoute: MagazineRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProcessRoute: ProcessRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  ServicesRoute: ServicesRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   StarRoute: StarRoute,
+  TermsRoute: TermsRoute,
   ApiBrandAmbassadorImageIdRoute: ApiBrandAmbassadorImageIdRoute,
   ApiEventImageIdRoute: ApiEventImageIdRoute,
   ApiInfluencerImageIdRoute: ApiInfluencerImageIdRoute,
@@ -272,13 +704,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
