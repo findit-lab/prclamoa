@@ -692,6 +692,32 @@ function Index() {
         </section>
 
 
+        {/* FAQ Preview */}
+        <section id="faq" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 border-t-2 border-deep-ink pt-12">
+            <span className="text-label-caps text-secondary">FAQ — 자주 묻는 질문</span>
+            <h2 className="text-headline-lg uppercase max-w-2xl text-right">패션 PR · 셀럽 협찬 직답</h2>
+          </div>
+          <div className="divide-y divide-deep-ink border-t border-b border-deep-ink">
+            {faqPreview.map((item, i) => (
+              <details key={i} open className="group py-6 md:py-8">
+                <summary className="cursor-pointer list-none flex items-start gap-6">
+                  <span className="text-label-caps text-secondary pt-1 shrink-0">Q.0{i + 1}</span>
+                  <h3 className="text-headline-md font-serif flex-1">{item.q}</h3>
+                  <span className="material-symbols-outlined transition-transform group-open:rotate-45">add</span>
+                </summary>
+                <p className="text-body-md mt-4 md:pl-20 max-w-3xl leading-relaxed">{item.a}</p>
+              </details>
+            ))}
+          </div>
+          <div className="mt-10 flex justify-end">
+            <Link to="/faq" className="inline-flex items-center gap-2 text-label-caps border-2 border-deep-ink px-5 py-3 hover:bg-deep-ink hover:text-neon-signal transition-colors">
+              VIEW ALL FAQ
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </Link>
+          </div>
+        </section>
+
         {/* Contact */}
         <section id="contact" className="px-5 md:px-16 mb-32 reveal">
           <div className="grid grid-cols-12 gap-6 border-t-2 border-deep-ink pt-12">
@@ -706,12 +732,14 @@ function Index() {
               onSubmit={(e) => e.preventDefault()}
               className="col-span-12 md:col-span-6 md:col-start-7 grid grid-cols-2 gap-6"
             >
-              {[
+              {([
                 ["Name", "text", "col-span-2 md:col-span-1"],
-                ["Company / Brand", "text", "col-span-2 md:col-span-1"],
+                ["Brand Name / 브랜드명", "text", "col-span-2 md:col-span-1"],
                 ["Email", "email", "col-span-2 md:col-span-1"],
                 ["Phone", "tel", "col-span-2 md:col-span-1"],
-              ].map(([label, type, span]) => (
+                ["Product Category / 제품 카테고리", "text", "col-span-2 md:col-span-1"],
+                ["Campaign Timing / 진행 시기", "text", "col-span-2 md:col-span-1"],
+              ] as const).map(([label, type, span]) => (
                 <label key={label} className={`flex flex-col gap-2 ${span}`}>
                   <span className="text-label-caps text-secondary">{label}</span>
                   <input
@@ -720,19 +748,50 @@ function Index() {
                   />
                 </label>
               ))}
-              <label className="flex flex-col gap-2 col-span-2">
-                <span className="text-label-caps text-secondary">Service Interest</span>
+              <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
+                <span className="text-label-caps text-secondary">Service Interest / 희망 서비스</span>
                 <select className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
-                  <option>Showroom PR</option>
-                  <option>Celebrity Seeding</option>
+                  <option>Celebrity Seeding (셀럽 협찬)</option>
                   <option>Stylist Relations</option>
-                  <option>Creator Campaign</option>
-                  <option>Editorial Content</option>
+                  <option>PPL & Content Placement</option>
+                  <option>Influencer PR</option>
+                  <option>Editorial & Viral PR</option>
+                  <option>Offline Event PR</option>
+                  <option>Brand Ambassador</option>
+                  <option>Global Expansion</option>
                   <option>Full Brand PR</option>
                 </select>
               </label>
+              <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
+                <span className="text-label-caps text-secondary">Budget Range / 예산 범위</span>
+                <select className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
+                  <option>- 선택 -</option>
+                  <option>~ 500만원</option>
+                  <option>500만원 ~ 1,500만원</option>
+                  <option>1,500만원 ~ 3,000만원</option>
+                  <option>3,000만원 ~ 5,000만원</option>
+                  <option>5,000만원 이상</option>
+                  <option>상담 후 결정</option>
+                </select>
+              </label>
               <label className="flex flex-col gap-2 col-span-2">
-                <span className="text-label-caps text-secondary">Message</span>
+                <span className="text-label-caps text-secondary">Campaign Goal / 캠페인 목표</span>
+                <textarea
+                  rows={3}
+                  placeholder="예) 신상 라인 셀럽 노출 확보, 일본 셀렉트샵 입점, SNS 바이럴 확산 등"
+                  className="bg-transparent border border-deep-ink p-4 text-body-md focus:outline-none focus:border-neon-signal resize-none"
+                />
+              </label>
+              <label className="flex flex-col gap-2 col-span-2">
+                <span className="text-label-caps text-secondary">Brand Materials / 보유 자료 링크</span>
+                <input
+                  type="url"
+                  placeholder="브랜드 홈페이지, 인스타그램, 룩북 URL"
+                  className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                />
+              </label>
+              <label className="flex flex-col gap-2 col-span-2">
+                <span className="text-label-caps text-secondary">Message / 추가 메시지</span>
                 <textarea
                   rows={4}
                   className="bg-transparent border border-deep-ink p-4 text-body-md focus:outline-none focus:border-neon-signal resize-none"
