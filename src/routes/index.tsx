@@ -361,12 +361,19 @@ function Index() {
               <h2 className="text-headline-lg uppercase max-w-2xl text-right">패션 브랜드를 위한 통합 PR 솔루션</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-[repeat(18,auto)] md:grid-rows-[repeat(9,auto)] lg:grid-rows-[repeat(6,auto)] border-l border-t border-deep-ink">
-              {services.map(([t, d], i) => (
-                <div key={t} className="grid grid-rows-subgrid row-span-3 gap-y-6 border-r border-b border-deep-ink p-10 hover:bg-deep-ink hover:text-surface transition-colors duration-300 group">
+              {services.map(([t, d, href], i) => (
+                <Link
+                  key={t}
+                  to={href}
+                  className="grid grid-rows-subgrid row-span-3 gap-y-6 border-r border-b border-deep-ink p-10 hover:bg-deep-ink hover:text-surface transition-colors duration-300 group"
+                >
                   <span className="text-label-caps text-secondary group-hover:text-neon-signal block">0{i + 1}</span>
                   <h3 className="text-headline-md uppercase">{t}</h3>
-                  <p className="text-body-md opacity-90">{d}</p>
-                </div>
+                  <p className="text-body-md opacity-90">
+                    {d}
+                    <span className="block mt-3 text-label-caps opacity-70 group-hover:opacity-100 group-hover:text-neon-signal">자세히 보기 →</span>
+                  </p>
+                </Link>
               ))}
             </div>
           </div>
