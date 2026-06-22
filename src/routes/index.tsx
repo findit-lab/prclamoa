@@ -254,7 +254,7 @@ function Index() {
                   셀럽 협찬부터 PPL, 인플루언서, 바이럴, 글로벌 확장 연계까지 —{"\n"}패션 브랜드의 인지도와 새로운 기회를 함께 만들어갑니다.
                 </p>
                 <p className="text-body-md pl-6 max-w-lg">
-                  CLAMOA는 패션 브랜드의 첫 노출부터 셀럽 협찬, PPL, 바이럴 콘텐츠, 언론 홍보, 브랜드 캠페인까지 설계하는 종합 패션 PR 파트너입니다.
+                  CLAMOA는 서울 압구정 기반의 패션 PR 에이전시로, 셀럽 협찬, 스타일리스트 릴레이션, PPL, 인플루언서 캠페인, 바이럴 콘텐츠, 글로벌 유통 확장을 통합적으로 설계합니다.
                 </p>
                 <div className="pl-6 flex flex-wrap gap-3 pt-2">
                   <a
