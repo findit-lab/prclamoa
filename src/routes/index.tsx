@@ -506,7 +506,7 @@ function Index() {
                   <div className="md:col-span-2 overflow-hidden border-b-2 md:border-b-0 md:border-r-2 border-deep-ink">
                     <img
                       src={c.img}
-                      alt={c.title}
+                      alt={`CLAMOA ${c.title.toLowerCase()} portfolio — ${c.kr} for Korean fashion brand PR`}
                       className="w-full h-full min-h-[260px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
