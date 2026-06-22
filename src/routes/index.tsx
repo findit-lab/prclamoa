@@ -56,7 +56,9 @@ export const Route = createFileRoute("/")({
         content:
           "패션 브랜드의 첫 노출부터 셀럽 협찬, PPL, 바이럴 콘텐츠, 언론 홍보, 브랜드 캠페인까지 설계하는 종합 패션 PR 파트너.",
       },
+      { property: "og:url", content: "https://clamoa.com/" },
     ],
+    links: [{ rel: "canonical", href: "https://clamoa.com/" }],
   }),
   component: Index,
 });
