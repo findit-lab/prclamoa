@@ -1,5 +1,6 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { SubPageNav } from "@/components/SubPageNav";
+import { getInsightsForService } from "@/data/insights";
 
 export type ServiceFAQ = { q: string; a: string };
 export type ServiceStep = { title: string; desc: string };
@@ -31,6 +32,12 @@ export function ServiceDetailPage({
   faqs,
   extra,
 }: Props) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const serviceSlug = pathname.startsWith("/services/")
+    ? pathname.replace("/services/", "").replace(/\/$/, "")
+    : undefined;
+  const relatedInsights = getInsightsForService(serviceSlug);
+
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
       <SubPageNav variant="light" />
@@ -140,6 +147,37 @@ export function ServiceDetailPage({
           </dl>
         </div>
       </section>
+
+      {/* RELATED INSIGHTS */}
+      {relatedInsights.length > 0 && (
+        <section className="px-5 md:px-12 py-16 md:py-24 border-b-2 border-deep-ink">
+          <div className="grid grid-cols-12 gap-6 md:gap-10">
+            <div className="col-span-12 md:col-span-4">
+              <span className="text-label-caps text-secondary block mb-3">05 — INSIGHTS</span>
+              <h2 className="text-headline-md uppercase">관련 인사이트</h2>
+            </div>
+            <ul className="col-span-12 md:col-span-8 divide-y divide-deep-ink/15 border-y border-deep-ink/15">
+              {relatedInsights.map((i) => (
+                <li key={i.slug}>
+                  <Link
+                    to="/insights/$slug"
+                    params={{ slug: i.slug }}
+                    className="flex items-start justify-between gap-6 py-5 hover:text-neon-signal transition-colors group"
+                  >
+                    <div>
+                      <span className="text-label-caps text-secondary block mb-2">{i.category}</span>
+                      <span className="text-body-lg">{i.title}</span>
+                    </div>
+                    <span className="material-symbols-outlined text-[20px] mt-1 group-hover:translate-x-1 transition-transform">
+                      arrow_forward
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="px-5 md:px-12 py-20 md:py-32 bg-deep-ink text-inverse-on-surface">
