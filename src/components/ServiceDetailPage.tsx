@@ -32,6 +32,12 @@ export function ServiceDetailPage({
   faqs,
   extra,
 }: Props) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const serviceSlug = pathname.startsWith("/services/")
+    ? pathname.replace("/services/", "").replace(/\/$/, "")
+    : undefined;
+  const relatedInsights = getInsightsForService(serviceSlug);
+
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
       <SubPageNav variant="light" />
