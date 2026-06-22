@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SubPageNav } from "@/components/SubPageNav";
 import { useEffect } from "react";
+import { localBusinessSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -24,6 +25,12 @@ export const Route = createFileRoute("/about")({
       { name: "keywords", content: "패션 PR, 셀럽 협찬 대행사, 한국 패션 PR 에이전시, 스타일리스트 릴레이션, PPL, 인플루언서 마케팅, 바이럴 콘텐츠, 압구정 쇼룸" },
     ],
     links: [{ rel: "canonical", href: "https://clamoa.com/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(localBusinessSchema),
+      },
+    ],
   }),
   component: AboutPage,
 });

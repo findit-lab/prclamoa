@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SubPageNav } from "@/components/SubPageNav";
 import { useEffect } from "react";
+import { SITE_URL, breadcrumbSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
@@ -20,6 +21,17 @@ export const Route = createFileRoute("/case-studies")({
       { property: "og:url", content: "https://clamoa.com/case-studies" },
     ],
     links: [{ rel: "canonical", href: "https://clamoa.com/case-studies" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          breadcrumbSchema([
+            { name: "Home", url: `${SITE_URL}/` },
+            { name: "Case Studies", url: `${SITE_URL}/case-studies` },
+          ]),
+        ),
+      },
+    ],
   }),
   component: CaseStudiesPage,
 });

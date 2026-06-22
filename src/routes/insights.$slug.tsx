@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SubPageNav } from "@/components/SubPageNav";
 import { useEffect } from "react";
 import { getInsightBySlug, insights } from "@/data/insights";
+import { SITE_URL, breadcrumbSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/insights/$slug")({
   loader: ({ params }) => {
@@ -13,7 +14,7 @@ export const Route = createFileRoute("/insights/$slug")({
     const post = loaderData?.post;
     const title = post ? `${post.title} | CLAMOA INSIGHTS` : "INSIGHT | CLAMOA";
     const desc = post?.excerpt ?? "CLAMOA 패션 PR 인사이트.";
-    const url = `https://clamoa.com/insights/${params.slug}`;
+    const url = `${SITE_URL}/insights/${params.slug}`;
     return {
       meta: [
         { title },
@@ -24,6 +25,18 @@ export const Route = createFileRoute("/insights/$slug")({
         { property: "og:type", content: "article" },
       ],
       links: [{ rel: "canonical", href: url }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", url: `${SITE_URL}/` },
+              { name: "Insights", url: `${SITE_URL}/insights` },
+              { name: post?.title ?? params.slug, url },
+            ]),
+          ),
+        },
+      ],
     };
   },
   component: InsightDetail,

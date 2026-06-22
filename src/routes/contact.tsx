@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PlaceholderPage } from "@/components/PlaceholderPage";
+import { localBusinessSchema } from "@/lib/schema";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -11,6 +12,12 @@ export const Route = createFileRoute("/contact")({
       { property: "og:url", content: "https://clamoa.com/contact" },
     ],
     links: [{ rel: "canonical", href: "https://clamoa.com/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(localBusinessSchema),
+      },
+    ],
   }),
   component: () => (
     <PlaceholderPage eyebrow="" title="CONTACT — Fashion PR Inquiry | CLAMOA" description="패션 브랜드 PR, 셀럽 협찬, PPL 제안 문의. 서울 압구정 로데오." />
