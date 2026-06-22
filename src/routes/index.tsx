@@ -154,11 +154,14 @@ function Index() {
     };
   }, []);
 
-  const navLinks = [
-    ["ABOUT", "#top"],
-    ["SERVICES", "#services"],
-    ["PORTFOLIO", "#portfolio"],
-    ["CONTACT", "#contact"],
+  const navLinks: Array<[string, string]> = [
+    ["ABOUT", "/about"],
+    ["SERVICES", "/services"],
+    ["CASE STUDIES", "/case-studies"],
+    ["PROCESS", "/process"],
+    ["INSIGHTS", "/insights"],
+    ["FAQ", "/faq"],
+    ["CONTACT", "/contact"],
   ];
 
   const services = [
@@ -196,12 +199,12 @@ function Index() {
         ref={navRef}
         className="fixed top-0 w-full z-50 bg-surface/95 border-b border-deep-ink flex justify-between items-center px-5 md:px-16 py-5 md:py-6 transition-all duration-500"
       >
-        <a href="#top" className="block" aria-label="CLAMOA"><img src={clamoaLogo.url} alt="CLAMOA" className="h-6 md:h-8 w-auto object-contain" /></a>
-        <div className="hidden md:flex gap-10">
+        <Link to="/" className="block" aria-label="CLAMOA"><img src={clamoaLogo.url} alt="CLAMOA" className="h-6 md:h-8 w-auto object-contain" /></Link>
+        <div className="hidden md:flex gap-8">
           {navLinks.map(([l, h]) => (
-            <a key={l} href={h} className="text-label-caps hover:text-neon-signal transition-colors duration-200">
+            <Link key={l} to={h} className="text-label-caps hover:text-neon-signal transition-colors duration-200">
               {l}
-            </a>
+            </Link>
           ))}
         </div>
         <button
@@ -214,14 +217,14 @@ function Index() {
         {menuOpen && (
           <div className="absolute top-full left-0 right-0 bg-surface border-b border-deep-ink md:hidden flex flex-col">
             {navLinks.map(([l, h]) => (
-              <a
+              <Link
                 key={l}
-                href={h}
+                to={h}
                 onClick={() => setMenuOpen(false)}
                 className="text-label-caps px-6 py-5 border-t border-deep-ink/20 hover:bg-neon-signal"
               >
                 {l}
-              </a>
+              </Link>
             ))}
           </div>
         )}

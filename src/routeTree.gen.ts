@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as StarRouteImport } from './routes/star'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ProcessRouteImport } from './routes/process'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as MagazineRouteImport } from './routes/magazine'
@@ -49,9 +51,19 @@ const StarRoute = StarRouteImport.update({
   path: '/star',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProcessRoute = ProcessRouteImport.update({
@@ -203,7 +215,9 @@ export interface FileRoutesByFullPath {
   '/magazine': typeof MagazineRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
   '/terms': typeof TermsRoute
   '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
@@ -234,6 +248,8 @@ export interface FileRoutesByTo {
   '/magazine': typeof MagazineRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
   '/terms': typeof TermsRoute
   '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
@@ -265,7 +281,9 @@ export interface FileRoutesById {
   '/magazine': typeof MagazineRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
   '/terms': typeof TermsRoute
   '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
@@ -298,7 +316,9 @@ export interface FileRouteTypes {
     | '/magazine'
     | '/privacy'
     | '/process'
+    | '/robots.txt'
     | '/services'
+    | '/sitemap.xml'
     | '/star'
     | '/terms'
     | '/services/brand-ambassador'
@@ -329,6 +349,8 @@ export interface FileRouteTypes {
     | '/magazine'
     | '/privacy'
     | '/process'
+    | '/robots.txt'
+    | '/sitemap.xml'
     | '/star'
     | '/terms'
     | '/services/brand-ambassador'
@@ -359,7 +381,9 @@ export interface FileRouteTypes {
     | '/magazine'
     | '/privacy'
     | '/process'
+    | '/robots.txt'
     | '/services'
+    | '/sitemap.xml'
     | '/star'
     | '/terms'
     | '/services/brand-ambassador'
@@ -391,7 +415,9 @@ export interface RootRouteChildren {
   MagazineRoute: typeof MagazineRoute
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StarRoute: typeof StarRoute
   TermsRoute: typeof TermsRoute
   ApiBrandAmbassadorImageIdRoute: typeof ApiBrandAmbassadorImageIdRoute
@@ -417,11 +443,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StarRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/process': {
@@ -650,7 +690,9 @@ const rootRouteChildren: RootRouteChildren = {
   MagazineRoute: MagazineRoute,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   StarRoute: StarRoute,
   TermsRoute: TermsRoute,
   ApiBrandAmbassadorImageIdRoute: ApiBrandAmbassadorImageIdRoute,
