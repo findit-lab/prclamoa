@@ -1,5 +1,6 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { SubPageNav } from "@/components/SubPageNav";
+import { getInsightsForService } from "@/data/insights";
 
 export type ServiceFAQ = { q: string; a: string };
 export type ServiceStep = { title: string; desc: string };
