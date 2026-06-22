@@ -15,6 +15,11 @@ import { Route as InfluencerRouteImport } from './routes/influencer'
 import { Route as EventRouteImport } from './routes/event'
 import { Route as BrandAmbassadorRouteImport } from './routes/brand-ambassador'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesOfflineEventPrRouteImport } from './routes/services.offline-event-pr'
+import { Route as ServicesInfluencerPrRouteImport } from './routes/services.influencer-pr'
+import { Route as ServicesEditorialViralPrRouteImport } from './routes/services.editorial-viral-pr'
+import { Route as ServicesCelebritySeedingRouteImport } from './routes/services.celebrity-seeding'
+import { Route as ServicesBrandAmbassadorRouteImport } from './routes/services.brand-ambassador'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
 import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
 import { Route as ApiInfluencerImageIdRouteImport } from './routes/api/influencer.image.$id'
@@ -51,6 +56,33 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesOfflineEventPrRoute = ServicesOfflineEventPrRouteImport.update({
+  id: '/services/offline-event-pr',
+  path: '/services/offline-event-pr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesInfluencerPrRoute = ServicesInfluencerPrRouteImport.update({
+  id: '/services/influencer-pr',
+  path: '/services/influencer-pr',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesEditorialViralPrRoute =
+  ServicesEditorialViralPrRouteImport.update({
+    id: '/services/editorial-viral-pr',
+    path: '/services/editorial-viral-pr',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesCelebritySeedingRoute =
+  ServicesCelebritySeedingRouteImport.update({
+    id: '/services/celebrity-seeding',
+    path: '/services/celebrity-seeding',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesBrandAmbassadorRoute = ServicesBrandAmbassadorRouteImport.update({
+  id: '/services/brand-ambassador',
+  path: '/services/brand-ambassador',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStarImageIdRoute = ApiStarImageIdRouteImport.update({
   id: '/api/star/image/$id',
   path: '/api/star/image/$id',
@@ -85,6 +117,11 @@ export interface FileRoutesByFullPath {
   '/influencer': typeof InfluencerRoute
   '/magazine': typeof MagazineRoute
   '/star': typeof StarRoute
+  '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
+  '/services/celebrity-seeding': typeof ServicesCelebritySeedingRoute
+  '/services/editorial-viral-pr': typeof ServicesEditorialViralPrRoute
+  '/services/influencer-pr': typeof ServicesInfluencerPrRoute
+  '/services/offline-event-pr': typeof ServicesOfflineEventPrRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -98,6 +135,11 @@ export interface FileRoutesByTo {
   '/influencer': typeof InfluencerRoute
   '/magazine': typeof MagazineRoute
   '/star': typeof StarRoute
+  '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
+  '/services/celebrity-seeding': typeof ServicesCelebritySeedingRoute
+  '/services/editorial-viral-pr': typeof ServicesEditorialViralPrRoute
+  '/services/influencer-pr': typeof ServicesInfluencerPrRoute
+  '/services/offline-event-pr': typeof ServicesOfflineEventPrRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -112,6 +154,11 @@ export interface FileRoutesById {
   '/influencer': typeof InfluencerRoute
   '/magazine': typeof MagazineRoute
   '/star': typeof StarRoute
+  '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
+  '/services/celebrity-seeding': typeof ServicesCelebritySeedingRoute
+  '/services/editorial-viral-pr': typeof ServicesEditorialViralPrRoute
+  '/services/influencer-pr': typeof ServicesInfluencerPrRoute
+  '/services/offline-event-pr': typeof ServicesOfflineEventPrRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -127,6 +174,11 @@ export interface FileRouteTypes {
     | '/influencer'
     | '/magazine'
     | '/star'
+    | '/services/brand-ambassador'
+    | '/services/celebrity-seeding'
+    | '/services/editorial-viral-pr'
+    | '/services/influencer-pr'
+    | '/services/offline-event-pr'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -140,6 +192,11 @@ export interface FileRouteTypes {
     | '/influencer'
     | '/magazine'
     | '/star'
+    | '/services/brand-ambassador'
+    | '/services/celebrity-seeding'
+    | '/services/editorial-viral-pr'
+    | '/services/influencer-pr'
+    | '/services/offline-event-pr'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -153,6 +210,11 @@ export interface FileRouteTypes {
     | '/influencer'
     | '/magazine'
     | '/star'
+    | '/services/brand-ambassador'
+    | '/services/celebrity-seeding'
+    | '/services/editorial-viral-pr'
+    | '/services/influencer-pr'
+    | '/services/offline-event-pr'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -167,6 +229,11 @@ export interface RootRouteChildren {
   InfluencerRoute: typeof InfluencerRoute
   MagazineRoute: typeof MagazineRoute
   StarRoute: typeof StarRoute
+  ServicesBrandAmbassadorRoute: typeof ServicesBrandAmbassadorRoute
+  ServicesCelebritySeedingRoute: typeof ServicesCelebritySeedingRoute
+  ServicesEditorialViralPrRoute: typeof ServicesEditorialViralPrRoute
+  ServicesInfluencerPrRoute: typeof ServicesInfluencerPrRoute
+  ServicesOfflineEventPrRoute: typeof ServicesOfflineEventPrRoute
   ApiBrandAmbassadorImageIdRoute: typeof ApiBrandAmbassadorImageIdRoute
   ApiEventImageIdRoute: typeof ApiEventImageIdRoute
   ApiInfluencerImageIdRoute: typeof ApiInfluencerImageIdRoute
@@ -218,6 +285,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/offline-event-pr': {
+      id: '/services/offline-event-pr'
+      path: '/services/offline-event-pr'
+      fullPath: '/services/offline-event-pr'
+      preLoaderRoute: typeof ServicesOfflineEventPrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/influencer-pr': {
+      id: '/services/influencer-pr'
+      path: '/services/influencer-pr'
+      fullPath: '/services/influencer-pr'
+      preLoaderRoute: typeof ServicesInfluencerPrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/editorial-viral-pr': {
+      id: '/services/editorial-viral-pr'
+      path: '/services/editorial-viral-pr'
+      fullPath: '/services/editorial-viral-pr'
+      preLoaderRoute: typeof ServicesEditorialViralPrRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/celebrity-seeding': {
+      id: '/services/celebrity-seeding'
+      path: '/services/celebrity-seeding'
+      fullPath: '/services/celebrity-seeding'
+      preLoaderRoute: typeof ServicesCelebritySeedingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/brand-ambassador': {
+      id: '/services/brand-ambassador'
+      path: '/services/brand-ambassador'
+      fullPath: '/services/brand-ambassador'
+      preLoaderRoute: typeof ServicesBrandAmbassadorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/star/image/$id': {
       id: '/api/star/image/$id'
       path: '/api/star/image/$id'
@@ -263,6 +365,11 @@ const rootRouteChildren: RootRouteChildren = {
   InfluencerRoute: InfluencerRoute,
   MagazineRoute: MagazineRoute,
   StarRoute: StarRoute,
+  ServicesBrandAmbassadorRoute: ServicesBrandAmbassadorRoute,
+  ServicesCelebritySeedingRoute: ServicesCelebritySeedingRoute,
+  ServicesEditorialViralPrRoute: ServicesEditorialViralPrRoute,
+  ServicesInfluencerPrRoute: ServicesInfluencerPrRoute,
+  ServicesOfflineEventPrRoute: ServicesOfflineEventPrRoute,
   ApiBrandAmbassadorImageIdRoute: ApiBrandAmbassadorImageIdRoute,
   ApiEventImageIdRoute: ApiEventImageIdRoute,
   ApiInfluencerImageIdRoute: ApiInfluencerImageIdRoute,
@@ -272,13 +379,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
