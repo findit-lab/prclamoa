@@ -376,6 +376,12 @@ function Index() {
                 </Link>
               ))}
             </div>
+            <div className="mt-10 flex justify-end">
+              <Link to="/services" className="inline-flex items-center gap-2 text-label-caps border-2 border-deep-ink px-5 py-3 hover:bg-deep-ink hover:text-neon-signal transition-colors">
+                VIEW ALL SERVICES
+                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </Link>
+            </div>
           </div>
         </section>
 
