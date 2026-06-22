@@ -166,13 +166,21 @@ function Index() {
     ["CONTACT", "/contact"],
   ];
 
-  const services = [
-    ["STAR MARKETING", "배우, 아이돌, 연애 프로그램 출연자 등 브랜드 이미지와 어울리는 셀럽 착용을 통해 신뢰도 높은 노출을 만듭니다."],
-    ["INFLUENCER PR", "브랜드 타깃에 맞는 인플루언서와 크리에이터를 연결해 SNS 콘텐츠와 바이럴 확산을 유도합니다."],
-    ["PPL & CONTENTS", "영상 콘텐츠, 방송, 유튜브, OTT, 공항패션 등 브랜드가 주목받을 수 있는 노출 장면을 연결합니다."],
-    ["OFFLINE EXPERIENCE", "팝업, 플리마켓, 런칭 행사 등 오프라인 접점을 통해 브랜드 경험과 콘텐츠 기회를 확장합니다."],
-    ["AMBASSADOR CAMPAIGN", "브랜드와 어울리는 앰버서더·셀럽 단기 계약을 통해 확보된 콘텐츠의 2차 활용까지 설계합니다."],
-    ["BRAND EXPANSION", "국내외 유통, 팝업, 왕홍 라이브커머스 등 브랜드 성장에 필요한 다양한 기회를 함께 모색합니다."],
+  const services: Array<[string, string, string]> = [
+    ["STAR MARKETING", "배우, 아이돌, 연애 프로그램 출연자 등 브랜드 이미지와 어울리는 셀럽 착용을 통해 신뢰도 높은 노출을 만듭니다.", "/services/celebrity-seeding"],
+    ["INFLUENCER PR", "브랜드 타깃에 맞는 인플루언서와 크리에이터를 연결해 SNS 콘텐츠와 바이럴 확산을 유도합니다.", "/services/influencer-pr"],
+    ["PPL & CONTENTS", "영상 콘텐츠, 방송, 유튜브, OTT, 공항패션 등 브랜드가 주목받을 수 있는 노출 장면을 연결합니다.", "/services/ppl-content-placement"],
+    ["OFFLINE EXPERIENCE", "팝업, 플리마켓, 런칭 행사 등 오프라인 접점을 통해 브랜드 경험과 콘텐츠 기회를 확장합니다.", "/services/offline-event-pr"],
+    ["AMBASSADOR CAMPAIGN", "브랜드와 어울리는 앰버서더·셀럽 단기 계약을 통해 확보된 콘텐츠의 2차 활용까지 설계합니다.", "/services/brand-ambassador"],
+    ["BRAND EXPANSION", "국내외 유통, 팝업, 왕홍 라이브커머스 등 브랜드 성장에 필요한 다양한 기회를 함께 모색합니다.", "/services/global-expansion"],
+  ];
+
+  const faqPreview = [
+    { q: "패션 브랜드 셀럽 협찬은 어떻게 진행되나요?", a: "셀럽 협찬은 상담·브랜드 검토 → PR 플랜 제안 → 계약 및 쇼룸 입점 → 스타일리스트 피칭 → 셀럽 착용 → 노출 클리핑 순으로 진행됩니다. 클라모아는 브랜드 무드에 맞는 셀럽과 채널을 매칭하고, 착용 이후 콘텐츠 클리핑과 2차 확산까지 단계별로 관리합니다." },
+    { q: "신생 브랜드도 셀럽 협찬이 가능한가요?", a: "신생 브랜드도 가능합니다. 다만 제품 완성도, 브랜드 무드, 타깃 적합성이 성과를 좌우합니다. 클라모아는 브랜드 단계에 맞춰 PR 방향성을 먼저 설계하고, 무작위 노출이 아닌 타깃 중심의 셀럽 협찬으로 신생 브랜드의 인지도 확보를 돕습니다." },
+    { q: "협찬 후 셀럽 착용이 보장되나요?", a: "착용 방식은 보장형과 비보장형으로 구분됩니다. 비보장형은 스타일리스트 피칭을 통한 자연스러운 착용을 지향하고, 보장형은 셀럽 초상권 단기 계약 등으로 노출을 확정합니다. 브랜드 목표와 예산에 맞춰 적합한 구조를 상담 단계에서 함께 정합니다." },
+    { q: "셀럽 협찬 비용은 어떻게 책정되나요?", a: "협찬 비용은 브랜드 목표, 서비스 범위, 진행 기간, 콘텐츠 활용 범위에 따라 달라집니다. 셀럽 초상권 단기 계약처럼 2차 활용이 포함되면 비용 구조가 달라집니다. 정확한 견적은 상담 시 브랜드 상황과 캠페인 목표를 검토한 뒤 제안드립니다." },
+    { q: "상담은 어떻게 신청하나요?", a: "홈페이지 문의 폼에 브랜드명, 제품 카테고리, 희망 서비스, 캠페인 목표, 예산 범위, 진행 시기를 남겨주시면 담당자가 빠르게 연락드립니다. 정보가 구체적일수록 브랜드에 맞는 PR 방향과 채널을 더 정확하게 제안드릴 수 있습니다." },
   ];
 
   const process = [
@@ -246,7 +254,7 @@ function Index() {
                   셀럽 협찬부터 PPL, 인플루언서, 바이럴, 글로벌 확장 연계까지 —{"\n"}패션 브랜드의 인지도와 새로운 기회를 함께 만들어갑니다.
                 </p>
                 <p className="text-body-md pl-6 max-w-lg">
-                  CLAMOA는 패션 브랜드의 첫 노출부터 셀럽 협찬, PPL, 바이럴 콘텐츠, 언론 홍보, 브랜드 캠페인까지 설계하는 종합 패션 PR 파트너입니다.
+                  CLAMOA는 서울 압구정 기반의 패션 PR 에이전시로, 셀럽 협찬, 스타일리스트 릴레이션, PPL, 인플루언서 캠페인, 바이럴 콘텐츠, 글로벌 유통 확장을 통합적으로 설계합니다.
                 </p>
                 <div className="pl-6 flex flex-wrap gap-3 pt-2">
                   <a
@@ -353,13 +361,26 @@ function Index() {
               <h2 className="text-headline-lg uppercase max-w-2xl text-right">패션 브랜드를 위한 통합 PR 솔루션</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-[repeat(18,auto)] md:grid-rows-[repeat(9,auto)] lg:grid-rows-[repeat(6,auto)] border-l border-t border-deep-ink">
-              {services.map(([t, d], i) => (
-                <div key={t} className="grid grid-rows-subgrid row-span-3 gap-y-6 border-r border-b border-deep-ink p-10 hover:bg-deep-ink hover:text-surface transition-colors duration-300 group">
+              {services.map(([t, d, href], i) => (
+                <Link
+                  key={t}
+                  to={href}
+                  className="grid grid-rows-subgrid row-span-3 gap-y-6 border-r border-b border-deep-ink p-10 hover:bg-deep-ink hover:text-surface transition-colors duration-300 group"
+                >
                   <span className="text-label-caps text-secondary group-hover:text-neon-signal block">0{i + 1}</span>
                   <h3 className="text-headline-md uppercase">{t}</h3>
-                  <p className="text-body-md opacity-90">{d}</p>
-                </div>
+                  <p className="text-body-md opacity-90">
+                    {d}
+                    <span className="block mt-3 text-label-caps opacity-70 group-hover:opacity-100 group-hover:text-neon-signal">자세히 보기 →</span>
+                  </p>
+                </Link>
               ))}
+            </div>
+            <div className="mt-10 flex justify-end">
+              <Link to="/services" className="inline-flex items-center gap-2 text-label-caps border-2 border-deep-ink px-5 py-3 hover:bg-deep-ink hover:text-neon-signal transition-colors">
+                VIEW ALL SERVICES
+                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </Link>
             </div>
           </div>
         </section>
@@ -370,9 +391,13 @@ function Index() {
             <div className="col-span-12 md:col-span-5">
               <span className="text-neon-signal text-label-caps block mb-6">THE CLAMOA DIFFERENCE</span>
               <h2 className="font-serif font-bold uppercase mb-8 leading-[0.95] tracking-[-0.03em] text-[clamp(44px,6vw,88px)]">BEYOND<br />TRADITIONAL<br />PR</h2>
-              <p className="text-body-lg max-w-md text-surface/80">
+              <p className="text-body-lg max-w-md text-surface/80 mb-8">
                 CLAMOA는 브랜드의 무드와 목표에 맞춰 PR 방향성을 컨설팅하고, 무작위 노출이 아닌 타겟 중심의 셀럽 협찬을 진행합니다. RINK 플랫폼을 통한 운영 관리와 PPL·앰버서더 캠페인, 오프라인 및 글로벌 확장 기회를 함께 만들어 갑니다.
               </p>
+              <Link to="/about" className="inline-flex items-center gap-2 text-label-caps text-neon-signal border border-neon-signal px-5 py-3 hover:bg-neon-signal hover:text-deep-ink transition-colors">
+                MORE ABOUT CLAMOA
+                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </Link>
             </div>
             <div className="col-span-12 md:col-span-6 md:col-start-7 mt-12 md:mt-8">
               <ul className="divide-y divide-white/20 border-t border-b border-white/20">
@@ -481,7 +506,7 @@ function Index() {
                   <div className="md:col-span-2 overflow-hidden border-b-2 md:border-b-0 md:border-r-2 border-deep-ink">
                     <img
                       src={c.img}
-                      alt={c.title}
+                      alt={`CLAMOA ${c.title.toLowerCase()} portfolio — ${c.kr} for Korean fashion brand PR`}
                       className="w-full h-full min-h-[260px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
@@ -667,6 +692,32 @@ function Index() {
         </section>
 
 
+        {/* FAQ Preview */}
+        <section id="faq" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 border-t-2 border-deep-ink pt-12">
+            <span className="text-label-caps text-secondary">FAQ — 자주 묻는 질문</span>
+            <h2 className="text-headline-lg uppercase max-w-2xl text-right">패션 PR · 셀럽 협찬 직답</h2>
+          </div>
+          <div className="divide-y divide-deep-ink border-t border-b border-deep-ink">
+            {faqPreview.map((item, i) => (
+              <details key={i} open className="group py-6 md:py-8">
+                <summary className="cursor-pointer list-none flex items-start gap-6">
+                  <span className="text-label-caps text-secondary pt-1 shrink-0">Q.0{i + 1}</span>
+                  <h3 className="text-headline-md font-serif flex-1">{item.q}</h3>
+                  <span className="material-symbols-outlined transition-transform group-open:rotate-45">add</span>
+                </summary>
+                <p className="text-body-md mt-4 md:pl-20 max-w-3xl leading-relaxed">{item.a}</p>
+              </details>
+            ))}
+          </div>
+          <div className="mt-10 flex justify-end">
+            <Link to="/faq" className="inline-flex items-center gap-2 text-label-caps border-2 border-deep-ink px-5 py-3 hover:bg-deep-ink hover:text-neon-signal transition-colors">
+              VIEW ALL FAQ
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </Link>
+          </div>
+        </section>
+
         {/* Contact */}
         <section id="contact" className="px-5 md:px-16 mb-32 reveal">
           <div className="grid grid-cols-12 gap-6 border-t-2 border-deep-ink pt-12">
@@ -681,12 +732,14 @@ function Index() {
               onSubmit={(e) => e.preventDefault()}
               className="col-span-12 md:col-span-6 md:col-start-7 grid grid-cols-2 gap-6"
             >
-              {[
+              {([
                 ["Name", "text", "col-span-2 md:col-span-1"],
-                ["Company / Brand", "text", "col-span-2 md:col-span-1"],
+                ["Brand Name / 브랜드명", "text", "col-span-2 md:col-span-1"],
                 ["Email", "email", "col-span-2 md:col-span-1"],
                 ["Phone", "tel", "col-span-2 md:col-span-1"],
-              ].map(([label, type, span]) => (
+                ["Product Category / 제품 카테고리", "text", "col-span-2 md:col-span-1"],
+                ["Campaign Timing / 진행 시기", "text", "col-span-2 md:col-span-1"],
+              ] as const).map(([label, type, span]) => (
                 <label key={label} className={`flex flex-col gap-2 ${span}`}>
                   <span className="text-label-caps text-secondary">{label}</span>
                   <input
@@ -695,19 +748,50 @@ function Index() {
                   />
                 </label>
               ))}
-              <label className="flex flex-col gap-2 col-span-2">
-                <span className="text-label-caps text-secondary">Service Interest</span>
+              <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
+                <span className="text-label-caps text-secondary">Service Interest / 희망 서비스</span>
                 <select className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
-                  <option>Showroom PR</option>
-                  <option>Celebrity Seeding</option>
+                  <option>Celebrity Seeding (셀럽 협찬)</option>
                   <option>Stylist Relations</option>
-                  <option>Creator Campaign</option>
-                  <option>Editorial Content</option>
+                  <option>PPL & Content Placement</option>
+                  <option>Influencer PR</option>
+                  <option>Editorial & Viral PR</option>
+                  <option>Offline Event PR</option>
+                  <option>Brand Ambassador</option>
+                  <option>Global Expansion</option>
                   <option>Full Brand PR</option>
                 </select>
               </label>
+              <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
+                <span className="text-label-caps text-secondary">Budget Range / 예산 범위</span>
+                <select className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
+                  <option>- 선택 -</option>
+                  <option>~ 500만원</option>
+                  <option>500만원 ~ 1,500만원</option>
+                  <option>1,500만원 ~ 3,000만원</option>
+                  <option>3,000만원 ~ 5,000만원</option>
+                  <option>5,000만원 이상</option>
+                  <option>상담 후 결정</option>
+                </select>
+              </label>
               <label className="flex flex-col gap-2 col-span-2">
-                <span className="text-label-caps text-secondary">Message</span>
+                <span className="text-label-caps text-secondary">Campaign Goal / 캠페인 목표</span>
+                <textarea
+                  rows={3}
+                  placeholder="예) 신상 라인 셀럽 노출 확보, 일본 셀렉트샵 입점, SNS 바이럴 확산 등"
+                  className="bg-transparent border border-deep-ink p-4 text-body-md focus:outline-none focus:border-neon-signal resize-none"
+                />
+              </label>
+              <label className="flex flex-col gap-2 col-span-2">
+                <span className="text-label-caps text-secondary">Brand Materials / 보유 자료 링크</span>
+                <input
+                  type="url"
+                  placeholder="브랜드 홈페이지, 인스타그램, 룩북 URL"
+                  className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                />
+              </label>
+              <label className="flex flex-col gap-2 col-span-2">
+                <span className="text-label-caps text-secondary">Message / 추가 메시지</span>
                 <textarea
                   rows={4}
                   className="bg-transparent border border-deep-ink p-4 text-body-md focus:outline-none focus:border-neon-signal resize-none"
