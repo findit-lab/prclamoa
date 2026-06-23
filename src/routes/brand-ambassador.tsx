@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SubPageNav } from "@/components/SubPageNav";
+import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { SectionCTA } from "@/components/SectionCTA";
 import ambassadorImages from "@/data/brand-ambassador-images.json";
 
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/brand-ambassador")({
 function AmbassadorPage() {
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
-      <SubPageNav variant="light" rightSlot={`${ambassadorImages.length} CASTINGS`} />
+      <ArchiveTabs variant="light" rightSlot={`${ambassadorImages.length} CASTINGS`} />
 
       <section className="px-5 md:px-12 pt-24 md:pt-36 pb-12 md:pb-20 border-b-2 border-deep-ink">
         <span className="text-label-caps text-secondary block mb-6">— ARCHIVE / 05</span>
