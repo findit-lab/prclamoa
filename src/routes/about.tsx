@@ -115,8 +115,8 @@ function AboutPage() {
               </h1>
             </div>
             <div className="col-span-12 md:col-span-8 md:col-start-1">
-              <p className="text-body-lg border-l-4 border-neon-signal pl-6 mb-8">
-                CLAMOA는 서울 압구정 기반의 패션 PR 에이전시로, 셀럽 협찬, 스타일리스트 릴레이션, PPL, 인플루언서 캠페인, 바이럴 콘텐츠, 글로벌 유통 확장을 통합적으로 설계합니다.
+              <p className="text-body-lg border-l-4 border-neon-signal pl-6 mb-8 whitespace-pre-line">
+                {"CLAMOA는 서울 압구정 기반의 패션 PR 에이전시로, 셀럽 협찬, 스타일리스트 릴레이션, PPL, 인플루언서 캠페인, 바이럴 콘텐츠, 글로벌 유통 확장을\u00a0\n통합적으로 설계합니다."}
               </p>
               <p className="text-body-md text-secondary max-w-2xl pl-6">
                 단순한 노출이 아닌 브랜드의 무드와 성장 단계에 맞춘 PR 전략을 설계합니다. 압구정 로데오 쇼룸을 중심으로 스타일리스트와 셀럽이 직접 제품을 만나고, 데이터 기반으로 협찬 결과를 관리합니다. 국내외 유통 및 인플루언서 네트워크를 연계해 브랜드의 다음 단계를 함께 만듭니다.
