@@ -1,11 +1,11 @@
 import { Link, useRouter, useRouterState } from "@tanstack/react-router";
 
 const TABS = [
-  { to: "/star", label: "STAR" },
-  { to: "/magazine", label: "MAGAZINE" },
-  { to: "/influencer", label: "INFLUENCER" },
-  { to: "/event", label: "EVENT" },
-  { to: "/brand-ambassador", label: "BRAND AMBASSADOR" },
+  { to: "/services/celebrity-seeding", label: "STAR" },
+  { to: "/services/editorial-viral-pr", label: "MAGAZINE" },
+  { to: "/services/influencer-pr", label: "INFLUENCER" },
+  { to: "/services/offline-event-pr", label: "EVENT" },
+  { to: "/services/brand-ambassador", label: "BRAND AMBASSADOR" },
 ] as const;
 
 type Variant = "light" | "dark";
