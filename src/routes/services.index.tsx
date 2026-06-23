@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SubPageNav } from "@/components/SubPageNav";
 
 const SERVICES = [
   {
@@ -85,7 +84,8 @@ export const Route = createFileRoute("/services/")({
 function ServicesHub() {
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
-      <SubPageNav variant="light" />
+
+
 
       <section className="px-5 md:px-12 pt-28 md:pt-40 pb-16 md:pb-24 border-b-2 border-deep-ink">
         <span className="text-label-caps text-secondary block mb-6">
