@@ -224,9 +224,14 @@ function Index() {
         <Link to="/" className="block" aria-label="CLAMOA"><img src={clamoaLogo.url} alt="CLAMOA" className="h-6 md:h-8 w-auto object-contain" /></Link>
         <div className="hidden md:flex gap-8">
           {navLinks.map(([l, h]) => (
-            <Link key={l} to={h} className="text-label-caps hover:text-neon-signal transition-colors duration-200">
+            <a
+              key={l}
+              href={h}
+              onClick={(e) => handleAnchor(e, h)}
+              className="text-label-caps hover:text-neon-signal transition-colors duration-200"
+            >
               {l}
-            </Link>
+            </a>
           ))}
         </div>
         <button
@@ -239,14 +244,14 @@ function Index() {
         {menuOpen && (
           <div className="absolute top-full left-0 right-0 bg-surface border-b border-deep-ink md:hidden flex flex-col">
             {navLinks.map(([l, h]) => (
-              <Link
+              <a
                 key={l}
-                to={h}
-                onClick={() => setMenuOpen(false)}
+                href={h}
+                onClick={(e) => handleAnchor(e, h)}
                 className="text-label-caps px-6 py-5 border-t border-deep-ink/20 hover:bg-neon-signal"
               >
                 {l}
-              </Link>
+              </a>
             ))}
           </div>
         )}
