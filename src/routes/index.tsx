@@ -156,15 +156,27 @@ function Index() {
     };
   }, []);
 
+  // 원페이지 스크롤 네비게이션 — 히어로 페이지 섹션 앵커와 매칭
   const navLinks: Array<[string, string]> = [
-    ["ABOUT", "/about"],
-    ["SERVICES", "/star"],
-    ["CASE STUDIES", "/case-studies"],
-    ["PROCESS", "/process"],
-    ["INSIGHTS", "/insights"],
-    ["FAQ", "/faq"],
-    ["CONTACT", "/contact"],
+    ["ABOUT", "#about"],
+    ["SERVICES", "#services"],
+    ["WORK", "#portfolio"],
+    ["PROCESS", "#process"],
+    ["GLOBAL", "#global"],
+    ["FAQ", "#faq"],
+    ["CONTACT", "#contact"],
   ];
+
+  const handleAnchor = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault();
+    const el = document.querySelector(hash);
+    if (el) {
+      const top = (el as HTMLElement).getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top, behavior: "smooth" });
+      window.history.replaceState(null, "", hash);
+    }
+    setMenuOpen(false);
+  };
 
   const services: Array<[string, string, string]> = [
     ["STAR MARKETING", "배우, 아이돌, 연애 프로그램 출연자 등 브랜드 이미지와 어울리는 셀럽 착용을 통해 신뢰도 높은 노출을 만듭니다.", "/services/celebrity-seeding"],
@@ -212,9 +224,14 @@ function Index() {
         <Link to="/" className="block" aria-label="CLAMOA"><img src={clamoaLogo.url} alt="CLAMOA" className="h-6 md:h-8 w-auto object-contain" /></Link>
         <div className="hidden md:flex gap-8">
           {navLinks.map(([l, h]) => (
-            <Link key={l} to={h} className="text-label-caps hover:text-neon-signal transition-colors duration-200">
+            <a
+              key={l}
+              href={h}
+              onClick={(e) => handleAnchor(e, h)}
+              className="text-label-caps hover:text-neon-signal transition-colors duration-200"
+            >
               {l}
-            </Link>
+            </a>
           ))}
         </div>
         <button
@@ -227,14 +244,14 @@ function Index() {
         {menuOpen && (
           <div className="absolute top-full left-0 right-0 bg-surface border-b border-deep-ink md:hidden flex flex-col">
             {navLinks.map(([l, h]) => (
-              <Link
+              <a
                 key={l}
-                to={h}
-                onClick={() => setMenuOpen(false)}
+                href={h}
+                onClick={(e) => handleAnchor(e, h)}
                 className="text-label-caps px-6 py-5 border-t border-deep-ink/20 hover:bg-neon-signal"
               >
                 {l}
-              </Link>
+              </a>
             ))}
           </div>
         )}
