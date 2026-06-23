@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ViralRouteImport } from './routes/viral'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as StarRouteImport } from './routes/star'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -42,6 +43,11 @@ import { Route as ApiInfluencerImageIdRouteImport } from './routes/api/influence
 import { Route as ApiEventImageIdRouteImport } from './routes/api/event.image.$id'
 import { Route as ApiBrandAmbassadorImageIdRouteImport } from './routes/api/brand-ambassador.image.$id'
 
+const ViralRoute = ViralRouteImport.update({
+  id: '/viral',
+  path: '/viral',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -226,6 +232,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
   '/terms': typeof TermsRoute
+  '/viral': typeof ViralRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
   '/services/celebrity-seeding': typeof ServicesCelebritySeedingRoute
@@ -259,6 +266,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
   '/terms': typeof TermsRoute
+  '/viral': typeof ViralRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
   '/services/celebrity-seeding': typeof ServicesCelebritySeedingRoute
@@ -294,6 +302,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
   '/terms': typeof TermsRoute
+  '/viral': typeof ViralRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
   '/services/celebrity-seeding': typeof ServicesCelebritySeedingRoute
@@ -330,6 +339,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/star'
     | '/terms'
+    | '/viral'
     | '/insights/$slug'
     | '/services/brand-ambassador'
     | '/services/celebrity-seeding'
@@ -363,6 +373,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/star'
     | '/terms'
+    | '/viral'
     | '/insights/$slug'
     | '/services/brand-ambassador'
     | '/services/celebrity-seeding'
@@ -397,6 +408,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/star'
     | '/terms'
+    | '/viral'
     | '/insights/$slug'
     | '/services/brand-ambassador'
     | '/services/celebrity-seeding'
@@ -432,6 +444,7 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StarRoute: typeof StarRoute
   TermsRoute: typeof TermsRoute
+  ViralRoute: typeof ViralRoute
   ApiBrandAmbassadorImageIdRoute: typeof ApiBrandAmbassadorImageIdRoute
   ApiEventImageIdRoute: typeof ApiEventImageIdRoute
   ApiInfluencerImageIdRoute: typeof ApiInfluencerImageIdRoute
@@ -441,6 +454,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/viral': {
+      id: '/viral'
+      path: '/viral'
+      fullPath: '/viral'
+      preLoaderRoute: typeof ViralRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -726,6 +746,7 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StarRoute: StarRoute,
   TermsRoute: TermsRoute,
+  ViralRoute: ViralRoute,
   ApiBrandAmbassadorImageIdRoute: ApiBrandAmbassadorImageIdRoute,
   ApiEventImageIdRoute: ApiEventImageIdRoute,
   ApiInfluencerImageIdRoute: ApiInfluencerImageIdRoute,
