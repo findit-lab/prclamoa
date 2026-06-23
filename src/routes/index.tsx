@@ -185,9 +185,9 @@ function Index() {
   };
 
   const services: Array<[string, string, string]> = [
-    ["STAR MARKETING", "배우, 아이돌, 연애 프로그램 출연자 등 브랜드 이미지와 어울리는 셀럽 착용을 통해 신뢰도 높은 노출을 만듭니다.", "/services/celebrity-seeding"],
-    ["INFLUENCER PR", "브랜드 타깃에 맞는 인플루언서와 크리에이터를 연결해 SNS 콘텐츠와 바이럴 확산을 유도합니다.", "/services/influencer-pr"],
-    ["PPL & CONTENTS", "영상 콘텐츠, 방송, 유튜브, OTT, 공항패션 등 브랜드가 주목받을 수 있는 노출 장면을 연결합니다.", "/services/ppl-content-placement"],
+    ["STAR MARKETING", "배우, 아이돌, 연애 프로그램 출연자 등 브랜드 이미지와 어울리는\u00a0\n셀럽 착용을 통해 신뢰도 높은 노출을 만듭니다.", "/services/celebrity-seeding"],
+    ["INFLUENCER PR", "브랜드 타깃에 맞는 인플루언서와 크리에이터를 연결해\u00a0\nSNS 콘텐츠와 바이럴 확산을 유도합니다.", "/services/influencer-pr"],
+    ["PPL & CONTENTS", "영상 콘텐츠, 방송, 유튜브, OTT, 공항패션 등 브랜드가\u00a0\n주목받을 수 있는\u00a0노출 장면을 연결합니다.", "/services/ppl-content-placement"],
     ["OFFLINE EXPERIENCE", "팝업, 플리마켓, 런칭 행사 등 오프라인 접점을 통해 브랜드 경험과 콘텐츠 기회를 확장합니다.", "/services/offline-event-pr"],
     ["AMBASSADOR CAMPAIGN", "브랜드와 어울리는 앰버서더·셀럽 단기 계약을 통해 확보된 콘텐츠의 2차 활용까지 설계합니다.", "/services/brand-ambassador"],
     ["BRAND EXPANSION", "국내외 유통, 팝업, 왕홍 라이브커머스 등 브랜드 성장에 필요한 다양한 기회를 함께 모색합니다.", "/services/global-expansion"],
@@ -364,7 +364,7 @@ function Index() {
                 {[
                   ["METHOD", "브랜드 이미지에 맞는 셀럽과 채널을 매칭하고,\n노출 이후의 2차 활용까지 함께 설계합니다."],
                   ["VISION", "중요한 것은 많이 보이는 것이 아니라,\n브랜드답게 보이는 것입니다."],
-                  ["RESULT", "브랜드의 무드가 소비자에게 자연스럽게 전달되고, 더 오래 기억되는 노출을 만듭니다."],
+                  ["RESULT", "브랜드의 무드가 소비자에게 자연스럽게 전달되고,\u00a0\n더 오래 기억되는 노출을 만듭니다."],
                 ].map(([h, b]) => (
                   <div key={h} className="border-l border-white/30 pl-6 hover:border-neon-signal transition-colors duration-300">
                     <span className="text-neon-signal text-label-caps block mb-4">{h}</span>
@@ -392,7 +392,7 @@ function Index() {
                 >
                   <span className="text-label-caps text-secondary group-hover:text-neon-signal block">0{i + 1}</span>
                   <h3 className="text-headline-md uppercase">{t}</h3>
-                  <p className="text-body-md opacity-90">
+                  <p className="text-body-md opacity-90 whitespace-pre-line">
                     {d}
                     <span className="block mt-3 text-label-caps opacity-70 group-hover:opacity-100 group-hover:text-neon-signal">자세히 보기 →</span>
                   </p>
