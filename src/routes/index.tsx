@@ -158,7 +158,7 @@ function Index() {
 
   // 원페이지 스크롤 네비게이션 — 히어로 페이지 섹션 앵커와 매칭
   const navLinks: Array<[string, string]> = [
-    ["ABOUT", "#about"],
+    ["HOME", "#top"],
     ["SERVICES", "#services"],
     ["WORK", "#portfolio"],
     ["PROCESS", "#process"],
@@ -169,6 +169,12 @@ function Index() {
 
   const handleAnchor = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
     e.preventDefault();
+    if (hash === "#top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.replaceState(null, "", "#top");
+      setMenuOpen(false);
+      return;
+    }
     const el = document.querySelector(hash);
     if (el) {
       const top = (el as HTMLElement).getBoundingClientRect().top + window.pageYOffset - 80;
