@@ -507,6 +507,8 @@ function Index() {
                     <img
                       src={c.img}
                       alt={`CLAMOA ${c.title.toLowerCase()} portfolio — ${c.kr} for Korean fashion brand PR`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full min-h-[260px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
