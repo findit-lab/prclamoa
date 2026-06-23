@@ -43,7 +43,7 @@ function MagazinePage() {
             const captionTitle = img.name.replace(/\.[^.]+$/, "");
             return (
               <figure key={img.id} className="flex flex-col">
-                <div className="overflow-hidden bg-surface-low">
+                <div className="overflow-hidden bg-surface-low aspect-[4/5]">
                   <img
                     src={`/api/magazine/image/${img.id}`}
                     alt={`CLAMOA fashion editorial archive — ${captionTitle}`}
@@ -51,7 +51,7 @@ function MagazinePage() {
                     height={img.h}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-auto block"
+                    className="w-full h-full object-cover block"
                   />
                 </div>
                 <figcaption className="mt-5 flex items-baseline justify-between gap-4 border-t border-deep-ink/15 pt-4">
