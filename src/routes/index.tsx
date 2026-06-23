@@ -156,15 +156,27 @@ function Index() {
     };
   }, []);
 
+  // 원페이지 스크롤 네비게이션 — 히어로 페이지 섹션 앵커와 매칭
   const navLinks: Array<[string, string]> = [
-    ["ABOUT", "/about"],
-    ["SERVICES", "/star"],
-    ["CASE STUDIES", "/case-studies"],
-    ["PROCESS", "/process"],
-    ["INSIGHTS", "/insights"],
-    ["FAQ", "/faq"],
-    ["CONTACT", "/contact"],
+    ["ABOUT", "#about"],
+    ["SERVICES", "#services"],
+    ["WORK", "#portfolio"],
+    ["PROCESS", "#process"],
+    ["GLOBAL", "#global"],
+    ["FAQ", "#faq"],
+    ["CONTACT", "#contact"],
   ];
+
+  const handleAnchor = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault();
+    const el = document.querySelector(hash);
+    if (el) {
+      const top = (el as HTMLElement).getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top, behavior: "smooth" });
+      window.history.replaceState(null, "", hash);
+    }
+    setMenuOpen(false);
+  };
 
   const services: Array<[string, string, string]> = [
     ["STAR MARKETING", "배우, 아이돌, 연애 프로그램 출연자 등 브랜드 이미지와 어울리는 셀럽 착용을 통해 신뢰도 높은 노출을 만듭니다.", "/services/celebrity-seeding"],
