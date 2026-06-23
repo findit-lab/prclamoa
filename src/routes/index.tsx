@@ -169,6 +169,12 @@ function Index() {
 
   const handleAnchor = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
     e.preventDefault();
+    if (hash === "#top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.replaceState(null, "", "#top");
+      setMenuOpen(false);
+      return;
+    }
     const el = document.querySelector(hash);
     if (el) {
       const top = (el as HTMLElement).getBoundingClientRect().top + window.pageYOffset - 80;
