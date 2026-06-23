@@ -96,13 +96,19 @@ export function ServiceDetailPage({
         type="button"
         onClick={goBack}
         aria-label="Back"
-        className="fixed top-5 left-5 md:top-8 md:left-8 z-50 flex items-center gap-2 group bg-surface/80 backdrop-blur border border-deep-ink/15 px-3 py-2 hover:bg-surface"
+        className="group fixed top-5 left-5 md:top-8 md:left-8 z-50 flex items-center bg-deep-ink overflow-hidden transition-all duration-500 ease-out hover:shadow-[6px_6px_0_0_var(--color-neon-signal,#C6FF00)] active:translate-x-1 active:translate-y-1 active:shadow-none"
       >
-        <span className="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">
-          arrow_back
+        <span className="self-stretch w-1.5 bg-neon-signal transition-all duration-500 group-hover:w-3" />
+        <span className="flex items-center gap-3 px-4 py-3 md:px-5 md:py-3.5">
+          <span className="material-symbols-outlined text-[18px] text-inverse-on-surface transition-transform duration-500 group-hover:-translate-x-1">
+            arrow_back
+          </span>
+          <span className="text-[11px] font-black tracking-[0.3em] uppercase text-inverse-on-surface">
+            Back
+          </span>
         </span>
-        <span className="text-label-caps hidden sm:inline">BACK</span>
       </button>
+
 
       {/* HERO + DEFINITION */}
       <section className="px-5 md:px-12 pt-28 md:pt-40 pb-16 md:pb-24 border-b-2 border-deep-ink">
