@@ -158,7 +158,7 @@ function Index() {
 
   // 원페이지 스크롤 네비게이션 — 히어로 페이지 섹션 앵커와 매칭
   const navLinks: Array<[string, string]> = [
-    ["ABOUT", "#about"],
+    ["HOME", "#top"],
     ["SERVICES", "#services"],
     ["WORK", "#portfolio"],
     ["PROCESS", "#process"],
