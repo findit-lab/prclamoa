@@ -11,18 +11,19 @@ export const organizationSchema = {
   name: "CLAMOA",
   alternateName: "클라모아",
   url: SITE_URL,
-  logo: "[로고 URL]",
+  logo: `${SITE_URL}/__l5e/assets-v1/085b2230-7ab0-414e-abd3-c2dcbc1ed4a5/clamoa-logo.png`,
   sameAs: [
     "[인스타그램 URL]",
-    "[기타 프로필 URL]",
   ],
   areaServed: ["KR", "JP", "TW", "CN"],
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Seoul",
-    addressRegion: "Apgujeong",
+    streetAddress: "선릉로155길 23-3, 3층",
+    addressLocality: "Gangnam-gu",
+    addressRegion: "Seoul",
     addressCountry: "KR",
   },
+  telephone: "+82-507-1322-0092",
 };
 
 export const localBusinessSchema = {
@@ -31,28 +32,22 @@ export const localBusinessSchema = {
   "@id": `${SITE_URL}/#localbusiness`,
   name: "CLAMOA",
   url: SITE_URL,
-  image: "[쇼룸/로고 이미지 URL]",
-  telephone: "[전화번호]",
+  image: `${SITE_URL}/__l5e/assets-v1/085b2230-7ab0-414e-abd3-c2dcbc1ed4a5/clamoa-logo.png`,
+  telephone: "+82-507-1322-0092",
   priceRange: "$$$",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "[압구정 쇼룸 도로명 주소]",
+    streetAddress: "선릉로155길 23-3, 3층",
     addressLocality: "Gangnam-gu",
     addressRegion: "Seoul",
-    postalCode: "[우편번호]",
     addressCountry: "KR",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: "[위도]",
-    longitude: "[경도]",
   },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "[10:00]",
-      closes: "[19:00]",
+      opens: "10:00",
+      closes: "19:00",
     },
   ],
   areaServed: ["KR", "JP", "TW", "CN"],
