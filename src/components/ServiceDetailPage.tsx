@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { SubPageNav } from "@/components/SubPageNav";
+
 import { getInsightsForService } from "@/data/insights";
 import {
   SITE_URL,
@@ -83,7 +83,8 @@ export function ServiceDetailPage({
 
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
-      <SubPageNav variant="light" />
+
+
 
       {/* HERO + DEFINITION */}
       <section className="px-5 md:px-12 pt-28 md:pt-40 pb-16 md:pb-24 border-b-2 border-deep-ink">
