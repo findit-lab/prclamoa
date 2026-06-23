@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SubPageNav } from "@/components/SubPageNav";
+import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { SectionCTA } from "@/components/SectionCTA";
 import influencerImages from "@/data/influencer-images.json";
 
@@ -79,7 +79,7 @@ function InfluencerPage() {
 
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
-      <SubPageNav variant="light" rightSlot={`${total} POSTS`} />
+      <ArchiveTabs variant="light" rightSlot={`${total} POSTS`} />
 
       {/* Profile header — Instagram style */}
       <section className="px-5 md:px-12 pt-24 md:pt-32 pb-10 md:pb-14 border-b border-deep-ink/10">

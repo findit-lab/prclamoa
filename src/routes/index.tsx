@@ -158,7 +158,7 @@ function Index() {
 
   const navLinks: Array<[string, string]> = [
     ["ABOUT", "/about"],
-    ["SERVICES", "/services"],
+    ["SERVICES", "/star"],
     ["CASE STUDIES", "/case-studies"],
     ["PROCESS", "/process"],
     ["INSIGHTS", "/insights"],

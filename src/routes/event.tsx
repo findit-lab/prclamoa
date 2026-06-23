@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SubPageNav } from "@/components/SubPageNav";
+import { ArchiveTabs } from "@/components/ArchiveTabs";
 import { SectionCTA } from "@/components/SectionCTA";
 import eventImages from "@/data/event-images.json";
 
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/event")({
 function EventPage() {
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
-      <SubPageNav variant="light" rightSlot={`${eventImages.length} FRAMES`} />
+      <ArchiveTabs variant="light" rightSlot={`${eventImages.length} FRAMES`} />
 
       <section className="px-5 md:px-12 pt-24 md:pt-36 pb-12 md:pb-20 border-b-2 border-deep-ink">
         <span className="text-label-caps text-secondary block mb-6">— ARCHIVE / 04</span>
