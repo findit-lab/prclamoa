@@ -698,7 +698,7 @@ function Index() {
         <section id="faq" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">FAQ — 자주 묻는 질문</span>
-            <h2 className="text-headline-lg uppercase max-w-2xl text-right">패션 PR · 셀럽 협찬 직답</h2>
+            <h2 className="text-headline-lg uppercase max-w-2xl text-right">패션 PR · 셀럽 협찬 FAQ</h2>
           </div>
           <div className="divide-y divide-deep-ink border-t border-b border-deep-ink">
             {faqPreview.map((item, i) => (
