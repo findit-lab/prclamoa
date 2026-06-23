@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useRouter, useRouterState } from "@tanstack/react-router";
 
 import { getInsightsForService } from "@/data/insights";
 import {
@@ -81,10 +81,28 @@ export function ServiceDetailPage({
   }
 
 
+  const router = useRouter();
+  const goBack = () => {
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      router.history.back();
+    } else {
+      router.navigate({ to: "/" });
+    }
+  };
+
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
-
-
+      <button
+        type="button"
+        onClick={goBack}
+        aria-label="Back"
+        className="fixed top-5 left-5 md:top-8 md:left-8 z-50 flex items-center gap-2 group bg-surface/80 backdrop-blur border border-deep-ink/15 px-3 py-2 hover:bg-surface"
+      >
+        <span className="material-symbols-outlined text-[20px] group-hover:-translate-x-1 transition-transform">
+          arrow_back
+        </span>
+        <span className="text-label-caps hidden sm:inline">BACK</span>
+      </button>
 
       {/* HERO + DEFINITION */}
       <section className="px-5 md:px-12 pt-28 md:pt-40 pb-16 md:pb-24 border-b-2 border-deep-ink">
