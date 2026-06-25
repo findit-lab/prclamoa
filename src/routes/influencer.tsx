@@ -179,7 +179,8 @@ function InfluencerPage() {
       </div>
 
       {/* Feed — 3-col square grid */}
-      <section className="px-1 md:px-1 py-1">
+      <section className="px-1 md:px-1 py-1" aria-labelledby="feed-heading">
+        <h2 id="feed-heading" className="sr-only">인플루언서 캠페인 피드</h2>
         <div className="grid grid-cols-3 gap-[2px] md:gap-1">
           {influencerImages.map((img, i) => {
             const stats = fakeStats(i);
