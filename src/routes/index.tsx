@@ -227,7 +227,7 @@ function Index() {
         ref={navRef}
         className="fixed top-0 w-full z-50 bg-surface/95 border-b border-deep-ink flex justify-between items-center px-5 md:px-16 py-5 md:py-6 transition-all duration-500"
       >
-        <Link to="/" className="block" aria-label="CLAMOA"><img src={clamoaLogo.url} alt="CLAMOA" className="h-6 md:h-8 w-auto object-contain" /></Link>
+        <Link to="/" className="block" aria-label="CLAMOA logo"><img src={clamoaLogo.url} alt="CLAMOA logo" className="h-6 md:h-8 w-auto object-contain" /></Link>
         <div className="hidden md:flex gap-8">
           {navLinks.map(([l, h]) => (
             <a
