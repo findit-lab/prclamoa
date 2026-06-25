@@ -116,7 +116,7 @@ function InfluencerPage() {
               <button className="text-xs md:text-sm px-4 py-1.5 bg-surface-low rounded-md font-medium">
                 Message
               </button>
-              <button className="text-xs md:text-sm px-3 py-1.5 bg-surface-low rounded-md">
+              <button aria-label="More options" className="text-xs md:text-sm px-3 py-1.5 bg-surface-low rounded-md">
                 <Icon.More className="w-4 h-4" />
               </button>
             </div>
@@ -179,7 +179,8 @@ function InfluencerPage() {
       </div>
 
       {/* Feed — 3-col square grid */}
-      <section className="px-1 md:px-1 py-1">
+      <section className="px-1 md:px-1 py-1" aria-labelledby="feed-heading">
+        <h2 id="feed-heading" className="sr-only">인플루언서 캠페인 피드</h2>
         <div className="grid grid-cols-3 gap-[2px] md:gap-1">
           {influencerImages.map((img, i) => {
             const stats = fakeStats(i);
@@ -218,6 +219,7 @@ function InfluencerPage() {
       {/* Single highlighted "post" preview — Instagram card */}
       <section className="px-5 md:px-12 py-16 md:py-24 border-t border-deep-ink/10 bg-surface-low/40">
         <span className="text-label-caps text-secondary block mb-6">— FEATURED POST</span>
+        <h2 className="sr-only">피처드 인플루언서 포스트</h2>
         <div className="max-w-xl mx-auto bg-surface border border-deep-ink/10 rounded-sm overflow-hidden shadow-sm">
           <div className="flex items-center justify-between px-4 py-3">
             <div className="flex items-center gap-3">

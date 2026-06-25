@@ -28,6 +28,27 @@ export const Route = createFileRoute("/insights/$slug")({
       scripts: [
         {
           type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post?.title ?? params.slug,
+            description: desc,
+            mainEntityOfPage: url,
+            url,
+            author: { "@type": "Organization", name: "CLAMOA", url: SITE_URL },
+            publisher: {
+              "@type": "Organization",
+              name: "CLAMOA",
+              logo: {
+                "@type": "ImageObject",
+                url: `${SITE_URL}/__l5e/assets-v1/085b2230-7ab0-414e-abd3-c2dcbc1ed4a5/clamoa-logo.png`,
+              },
+            },
+            articleSection: post?.category,
+          }),
+        },
+        {
+          type: "application/ld+json",
           children: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", url: `${SITE_URL}/` },
