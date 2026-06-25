@@ -1,0 +1,34 @@
+# CLAMOA
+
+> 서울 기반 패션 PR 에이전시. 셀럽 시딩, 스타일리스트 릴레이션, PPL, 인플루언서·앰배서더 캠페인, 에디토리얼 & 바이럴 PR, 오프라인 이벤트, 글로벌 확장 PR을 운영합니다.
+
+CLAMOA(클라모아)는 패션·라이프스타일 브랜드의 문화적 가시성을 데이터 기반으로 설계하는 PR 에이전시입니다. 한국·일본·대만·중국 시장을 커버하며, 브리프부터 리포팅까지 단계별 결과를 추적합니다.
+
+## Pages
+
+- [Home](/): 브랜드, 서비스 라인업, 대표 캠페인 개요.
+- [About](/about): CLAMOA의 미션, 팀, 커버리지.
+- [Services](/services): 8개 PR 서비스 라인업 인덱스.
+- [Celebrity Seeding](/services/celebrity-seeding): K-pop·배우 셀럽 협찬 운영.
+- [Stylist Relations](/services/stylist-relations): 스타일리스트 네트워크 기반 협찬.
+- [PPL & Content Placement](/services/ppl-content-placement): 드라마·예능 PPL 운영.
+- [Influencer PR](/services/influencer-pr): 인플루언서 셀렉션·시딩·페이드 콘텐츠.
+- [Editorial & Viral PR](/services/editorial-viral-pr): 매거진·온라인 매체 에디토리얼.
+- [Offline Event PR](/services/offline-event-pr): 팝업·런칭 이벤트 기획·운영.
+- [Brand Ambassador](/services/brand-ambassador): 앰배서더 캠페인 설계·운영.
+- [Global Expansion](/services/global-expansion): 일본·대만·중국 시장 진출 PR.
+- [Case Studies](/case-studies): 브랜드별 캠페인 결과 아카이브.
+- [Star Archive](/star): 셀럽 협찬 콘텐츠 아카이브.
+- [Magazine Archive](/magazine): 매거진 노출 아카이브.
+- [Influencer Archive](/influencer): 인플루언서 캠페인 피드.
+- [Brand Ambassador Archive](/brand-ambassador): 앰배서더 캠페인 아카이브.
+- [Event Archive](/event): 오프라인 이벤트 아카이브.
+- [Process](/process): 브리프부터 리포팅까지 진행 방식.
+- [Insights](/insights): 패션 PR 인사이트 아티클.
+- [FAQ](/faq): 자주 묻는 질문.
+- [Contact](/contact): 상담 문의.
+
+## Optional
+
+- [Privacy](/privacy): 개인정보 처리방침.
+- [Terms](/terms): 서비스 이용약관.
