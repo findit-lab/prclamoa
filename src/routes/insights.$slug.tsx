@@ -71,17 +71,20 @@ export const Route = createFileRoute("/insights/$slug")({
       </div>
     </div>
   ),
-  errorComponent: ({ error, reset }) => (
-    <div className="min-h-screen bg-surface flex items-center justify-center text-deep-ink p-6">
-      <div className="text-center">
-        <h1 className="text-headline-lg mb-4">ERROR</h1>
-        <p className="text-body-md text-secondary mb-6">{error.message}</p>
-        <button onClick={reset} className="text-label-caps underline">
-          RETRY
-        </button>
+  errorComponent: ({ error, reset }) => {
+    console.error(error);
+    return (
+      <div className="min-h-screen bg-surface flex items-center justify-center text-deep-ink p-6">
+        <div className="text-center">
+          <h1 className="text-headline-lg mb-4">ERROR</h1>
+          <p className="text-body-md text-secondary mb-6">Something went wrong. Please try again.</p>
+          <button onClick={reset} className="text-label-caps underline">
+            RETRY
+          </button>
+        </div>
       </div>
-    </div>
-  ),
+    );
+  },
 });
 
 function InsightDetail() {
