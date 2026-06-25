@@ -890,7 +890,7 @@ function Index() {
             (CLAMOA AGENCY)
           </address>
           <a href="tel:+82-507-1322-0092" className="text-body-md hover:text-neon-signal transition-colors">
-            T. 070-1322-0092
+            T. 0507-1322-0092
           </a>
           <a href="mailto:dannjo@clamoa.com" className="text-body-md hover:text-neon-signal transition-colors">
             E. dannjo@clamoa.com
