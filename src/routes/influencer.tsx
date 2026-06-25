@@ -116,7 +116,7 @@ function InfluencerPage() {
               <button className="text-xs md:text-sm px-4 py-1.5 bg-surface-low rounded-md font-medium">
                 Message
               </button>
-              <button className="text-xs md:text-sm px-3 py-1.5 bg-surface-low rounded-md">
+              <button aria-label="More options" className="text-xs md:text-sm px-3 py-1.5 bg-surface-low rounded-md">
                 <Icon.More className="w-4 h-4" />
               </button>
             </div>
