@@ -326,6 +326,9 @@ function Index() {
                 loop
                 muted
                 playsInline
+                preload="auto"
+                // @ts-expect-error — fetchpriority is a valid HTML attribute, not yet typed
+                fetchpriority="high"
                 className="w-full aspect-[1.5] object-cover grayscale transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute -bottom-6 -right-6 bg-deep-ink text-surface p-10 max-w-xs hidden md:block transition-transform duration-500 group-hover:-translate-x-4 group-hover:-translate-y-4">
