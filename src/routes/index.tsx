@@ -754,20 +754,46 @@ function Index() {
               </p>
             </div>
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={(e) => {
+                e.preventDefault();
+                const fd = new FormData(e.currentTarget);
+                const get = (k: string) => String(fd.get(k) ?? "").trim();
+                const subject = `[CLAMOA 문의] ${get("brand") || get("name") || "New Inquiry"}`;
+                const lines = [
+                  `Name: ${get("name")}`,
+                  `Brand: ${get("brand")}`,
+                  `Email: ${get("email")}`,
+                  `Phone: ${get("phone")}`,
+                  `Product Category: ${get("category")}`,
+                  `Campaign Timing: ${get("timing")}`,
+                  `Service Interest: ${get("service")}`,
+                  `Budget Range: ${get("budget")}`,
+                  "",
+                  "── Campaign Goal ──",
+                  get("goal"),
+                  "",
+                  `Brand Materials: ${get("materials")}`,
+                  "",
+                  "── Message ──",
+                  get("message"),
+                ];
+                const body = lines.join("\n");
+                window.location.href = `mailto:dannjo@clamoa.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+              }}
               className="col-span-12 md:col-span-6 md:col-start-7 grid grid-cols-2 gap-6"
             >
               {([
-                ["Name", "text", "col-span-2 md:col-span-1"],
-                ["Brand Name / 브랜드명", "text", "col-span-2 md:col-span-1"],
-                ["Email", "email", "col-span-2 md:col-span-1"],
-                ["Phone", "tel", "col-span-2 md:col-span-1"],
-                ["Product Category / 제품 카테고리", "text", "col-span-2 md:col-span-1"],
-                ["Campaign Timing / 진행 시기", "text", "col-span-2 md:col-span-1"],
-              ] as const).map(([label, type, span]) => (
-                <label key={label} className={`flex flex-col gap-2 ${span}`}>
+                ["Name", "name", "text", "col-span-2 md:col-span-1"],
+                ["Brand Name / 브랜드명", "brand", "text", "col-span-2 md:col-span-1"],
+                ["Email", "email", "email", "col-span-2 md:col-span-1"],
+                ["Phone", "phone", "tel", "col-span-2 md:col-span-1"],
+                ["Product Category / 제품 카테고리", "category", "text", "col-span-2 md:col-span-1"],
+                ["Campaign Timing / 진행 시기", "timing", "text", "col-span-2 md:col-span-1"],
+              ] as const).map(([label, name, type, span]) => (
+                <label key={name} className={`flex flex-col gap-2 ${span}`}>
                   <span className="text-label-caps text-secondary">{label}</span>
                   <input
+                    name={name}
                     type={type}
                     className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
                   />
@@ -775,7 +801,7 @@ function Index() {
               ))}
               <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
                 <span className="text-label-caps text-secondary">Service Interest / 희망 서비스</span>
-                <select className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
+                <select name="service" className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
                   <option>Celebrity Seeding (셀럽 협찬)</option>
                   <option>Stylist Relations</option>
                   <option>PPL & Content Placement</option>
@@ -789,7 +815,7 @@ function Index() {
               </label>
               <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
                 <span className="text-label-caps text-secondary">Budget Range / 예산 범위</span>
-                <select className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
+                <select name="budget" className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
                   <option>- 선택 -</option>
                   <option>~ 500만원</option>
                   <option>500만원 ~ 1,500만원</option>
@@ -802,6 +828,7 @@ function Index() {
               <label className="flex flex-col gap-2 col-span-2">
                 <span className="text-label-caps text-secondary">Campaign Goal / 캠페인 목표</span>
                 <textarea
+                  name="goal"
                   rows={3}
                   placeholder="예) 신상 라인 셀럽 노출 확보, 일본 셀렉트샵 입점, SNS 바이럴 확산 등"
                   className="bg-transparent border border-deep-ink p-4 text-body-md focus:outline-none focus:border-neon-signal resize-none"
@@ -810,6 +837,7 @@ function Index() {
               <label className="flex flex-col gap-2 col-span-2">
                 <span className="text-label-caps text-secondary">Brand Materials / 보유 자료 링크</span>
                 <input
+                  name="materials"
                   type="url"
                   placeholder="브랜드 홈페이지, 인스타그램, 룩북 URL"
                   className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
@@ -818,6 +846,7 @@ function Index() {
               <label className="flex flex-col gap-2 col-span-2">
                 <span className="text-label-caps text-secondary">Message / 추가 메시지</span>
                 <textarea
+                  name="message"
                   rows={4}
                   className="bg-transparent border border-deep-ink p-4 text-body-md focus:outline-none focus:border-neon-signal resize-none"
                 />
@@ -840,15 +869,13 @@ function Index() {
         </div>
         <div className="col-span-12 md:col-span-4 flex flex-col gap-6 reveal">
           <img src={clamoaLogo.url} alt="CLAMOA" className="h-8 w-auto object-contain self-start" />
-          <p className="text-body-md max-w-xs whitespace-pre-line">
-            {"\n"}
+          <p className="text-body-md max-w-xs leading-relaxed">
+            패션 & 라이프스타일 브랜드를 위한<br />통합 PR 에이전시.
           </p>
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
           <span className="text-label-caps text-secondary">SOCIAL</span>
-          {["INSTAGRAM", "\n", "\n"].map((l, idx) => (
-            <a key={idx} href="#" className="text-body-md hover:text-neon-signal transition-colors whitespace-pre-line">{l}</a>
-          ))}
+          <a href="#" className="text-body-md hover:text-neon-signal transition-colors">INSTAGRAM</a>
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
           <span className="text-label-caps text-secondary">LEGAL</span>
@@ -856,9 +883,19 @@ function Index() {
             <a key={l} href="#" className="text-body-md hover:text-neon-signal transition-colors">{l}</a>
           ))}
         </div>
-        <div className="col-span-12 md:col-span-4 flex flex-col justify-end items-start md:items-end gap-4 mt-12 md:mt-0 reveal">
-          <span className="text-label-caps text-secondary whitespace-pre-line">{"\n"}</span>
-          <div className="text-body-md text-right">© 2026 CLAMOA AGENCY. ALL RIGHTS RESERVED.</div>
+        <div className="col-span-12 md:col-span-4 flex flex-col justify-end items-start md:items-end gap-3 mt-12 md:mt-0 reveal">
+          <span className="text-label-caps text-secondary">CONTACT</span>
+          <address className="not-italic text-body-md md:text-right leading-relaxed">
+            서울특별시 강남구 선릉로155길 23-3, 3층<br />
+            (CLAMOA AGENCY)
+          </address>
+          <a href="tel:+82-507-1322-0092" className="text-body-md hover:text-neon-signal transition-colors">
+            T. 070-1322-0092
+          </a>
+          <a href="mailto:dannjo@clamoa.com" className="text-body-md hover:text-neon-signal transition-colors">
+            E. dannjo@clamoa.com
+          </a>
+          <div className="text-body-sm text-secondary md:text-right mt-4">© 2026 CLAMOA AGENCY. ALL RIGHTS RESERVED.</div>
         </div>
       </footer>
     </div>
