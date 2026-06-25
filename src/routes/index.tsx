@@ -754,20 +754,46 @@ function Index() {
               </p>
             </div>
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={(e) => {
+                e.preventDefault();
+                const fd = new FormData(e.currentTarget);
+                const get = (k: string) => String(fd.get(k) ?? "").trim();
+                const subject = `[CLAMOA 문의] ${get("brand") || get("name") || "New Inquiry"}`;
+                const lines = [
+                  `Name: ${get("name")}`,
+                  `Brand: ${get("brand")}`,
+                  `Email: ${get("email")}`,
+                  `Phone: ${get("phone")}`,
+                  `Product Category: ${get("category")}`,
+                  `Campaign Timing: ${get("timing")}`,
+                  `Service Interest: ${get("service")}`,
+                  `Budget Range: ${get("budget")}`,
+                  "",
+                  "── Campaign Goal ──",
+                  get("goal"),
+                  "",
+                  `Brand Materials: ${get("materials")}`,
+                  "",
+                  "── Message ──",
+                  get("message"),
+                ];
+                const body = lines.join("\n");
+                window.location.href = `mailto:dannjo@clamoa.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+              }}
               className="col-span-12 md:col-span-6 md:col-start-7 grid grid-cols-2 gap-6"
             >
               {([
-                ["Name", "text", "col-span-2 md:col-span-1"],
-                ["Brand Name / 브랜드명", "text", "col-span-2 md:col-span-1"],
-                ["Email", "email", "col-span-2 md:col-span-1"],
-                ["Phone", "tel", "col-span-2 md:col-span-1"],
-                ["Product Category / 제품 카테고리", "text", "col-span-2 md:col-span-1"],
-                ["Campaign Timing / 진행 시기", "text", "col-span-2 md:col-span-1"],
-              ] as const).map(([label, type, span]) => (
-                <label key={label} className={`flex flex-col gap-2 ${span}`}>
+                ["Name", "name", "text", "col-span-2 md:col-span-1"],
+                ["Brand Name / 브랜드명", "brand", "text", "col-span-2 md:col-span-1"],
+                ["Email", "email", "email", "col-span-2 md:col-span-1"],
+                ["Phone", "phone", "tel", "col-span-2 md:col-span-1"],
+                ["Product Category / 제품 카테고리", "category", "text", "col-span-2 md:col-span-1"],
+                ["Campaign Timing / 진행 시기", "timing", "text", "col-span-2 md:col-span-1"],
+              ] as const).map(([label, name, type, span]) => (
+                <label key={name} className={`flex flex-col gap-2 ${span}`}>
                   <span className="text-label-caps text-secondary">{label}</span>
                   <input
+                    name={name}
                     type={type}
                     className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
                   />
@@ -775,7 +801,7 @@ function Index() {
               ))}
               <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
                 <span className="text-label-caps text-secondary">Service Interest / 희망 서비스</span>
-                <select className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
+                <select name="service" className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
                   <option>Celebrity Seeding (셀럽 협찬)</option>
                   <option>Stylist Relations</option>
                   <option>PPL & Content Placement</option>
@@ -789,7 +815,7 @@ function Index() {
               </label>
               <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
                 <span className="text-label-caps text-secondary">Budget Range / 예산 범위</span>
-                <select className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
+                <select name="budget" className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
                   <option>- 선택 -</option>
                   <option>~ 500만원</option>
                   <option>500만원 ~ 1,500만원</option>
@@ -802,6 +828,7 @@ function Index() {
               <label className="flex flex-col gap-2 col-span-2">
                 <span className="text-label-caps text-secondary">Campaign Goal / 캠페인 목표</span>
                 <textarea
+                  name="goal"
                   rows={3}
                   placeholder="예) 신상 라인 셀럽 노출 확보, 일본 셀렉트샵 입점, SNS 바이럴 확산 등"
                   className="bg-transparent border border-deep-ink p-4 text-body-md focus:outline-none focus:border-neon-signal resize-none"
@@ -810,6 +837,7 @@ function Index() {
               <label className="flex flex-col gap-2 col-span-2">
                 <span className="text-label-caps text-secondary">Brand Materials / 보유 자료 링크</span>
                 <input
+                  name="materials"
                   type="url"
                   placeholder="브랜드 홈페이지, 인스타그램, 룩북 URL"
                   className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
@@ -818,6 +846,7 @@ function Index() {
               <label className="flex flex-col gap-2 col-span-2">
                 <span className="text-label-caps text-secondary">Message / 추가 메시지</span>
                 <textarea
+                  name="message"
                   rows={4}
                   className="bg-transparent border border-deep-ink p-4 text-body-md focus:outline-none focus:border-neon-signal resize-none"
                 />
