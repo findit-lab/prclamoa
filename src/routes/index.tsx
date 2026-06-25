@@ -865,7 +865,7 @@ function Index() {
       {/* Footer */}
       <footer className="w-full mt-20 md:mt-32 bg-surface border-t-2 border-deep-ink grid grid-cols-12 gap-6 px-5 md:px-16 py-20">
         <div className="col-span-12 mb-20 reveal">
-          <div className="text-display-xl opacity-10 uppercase select-none pointer-events-none whitespace-nowrap overflow-hidden">CLAMOA AGENCY</div>
+          <div className="text-display-xl opacity-10 uppercase select-none pointer-events-none whitespace-nowrap overflow-hidden text-center">CLAMOA AGENCY</div>
         </div>
         <div className="col-span-12 md:col-span-4 flex flex-col gap-6 reveal">
           <img src={clamoaLogo.url} alt="CLAMOA logo" className="h-8 w-auto object-contain self-start" />
