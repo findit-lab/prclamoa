@@ -869,15 +869,13 @@ function Index() {
         </div>
         <div className="col-span-12 md:col-span-4 flex flex-col gap-6 reveal">
           <img src={clamoaLogo.url} alt="CLAMOA" className="h-8 w-auto object-contain self-start" />
-          <p className="text-body-md max-w-xs whitespace-pre-line">
-            {"\n"}
+          <p className="text-body-md max-w-xs leading-relaxed">
+            패션 & 라이프스타일 브랜드를 위한<br />통합 PR 에이전시.
           </p>
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
           <span className="text-label-caps text-secondary">SOCIAL</span>
-          {["INSTAGRAM", "\n", "\n"].map((l, idx) => (
-            <a key={idx} href="#" className="text-body-md hover:text-neon-signal transition-colors whitespace-pre-line">{l}</a>
-          ))}
+          <a href="#" className="text-body-md hover:text-neon-signal transition-colors">INSTAGRAM</a>
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
           <span className="text-label-caps text-secondary">LEGAL</span>
@@ -885,9 +883,19 @@ function Index() {
             <a key={l} href="#" className="text-body-md hover:text-neon-signal transition-colors">{l}</a>
           ))}
         </div>
-        <div className="col-span-12 md:col-span-4 flex flex-col justify-end items-start md:items-end gap-4 mt-12 md:mt-0 reveal">
-          <span className="text-label-caps text-secondary whitespace-pre-line">{"\n"}</span>
-          <div className="text-body-md text-right">© 2026 CLAMOA AGENCY. ALL RIGHTS RESERVED.</div>
+        <div className="col-span-12 md:col-span-4 flex flex-col justify-end items-start md:items-end gap-3 mt-12 md:mt-0 reveal">
+          <span className="text-label-caps text-secondary">CONTACT</span>
+          <address className="not-italic text-body-md md:text-right leading-relaxed">
+            서울특별시 강남구 선릉로155길 23-3, 3층<br />
+            (CLAMOA AGENCY)
+          </address>
+          <a href="tel:+82-507-1322-0092" className="text-body-md hover:text-neon-signal transition-colors">
+            T. 070-1322-0092
+          </a>
+          <a href="mailto:dannjo@clamoa.com" className="text-body-md hover:text-neon-signal transition-colors">
+            E. dannjo@clamoa.com
+          </a>
+          <div className="text-body-sm text-secondary md:text-right mt-4">© 2026 CLAMOA AGENCY. ALL RIGHTS RESERVED.</div>
         </div>
       </footer>
     </div>
