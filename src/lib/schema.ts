@@ -12,9 +12,7 @@ export const organizationSchema = {
   alternateName: "클라모아",
   url: SITE_URL,
   logo: `${SITE_URL}/__l5e/assets-v1/085b2230-7ab0-414e-abd3-c2dcbc1ed4a5/clamoa-logo.png`,
-  sameAs: [
-    "[인스타그램 URL]",
-  ],
+  sameAs: ["[인스타그램 URL]"],
   areaServed: ["KR", "JP", "TW", "CN"],
   address: {
     "@type": "PostalAddress",

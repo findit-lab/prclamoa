@@ -59,7 +59,10 @@ function EventPage() {
       {/* HERO — 현장 노트 헤더 */}
       <section className="px-5 md:px-12 pt-24 md:pt-36 pb-10 md:pb-16 border-b-2 border-deep-ink relative overflow-hidden">
         {/* 모서리 등록 마크 */}
-        <span aria-hidden className="absolute top-24 right-5 md:right-12 text-[10px] font-mono tracking-[0.2em] text-secondary">
+        <span
+          aria-hidden
+          className="absolute top-24 right-5 md:right-12 text-[10px] font-mono tracking-[0.2em] text-secondary"
+        >
           + REG / 01 +
         </span>
 
@@ -84,14 +87,26 @@ function EventPage() {
 
         <div className="grid grid-cols-12 gap-6 items-end">
           <p className="col-span-12 md:col-span-7 text-body-lg md:text-headline-sm border-l-4 border-neon-signal pl-6 leading-relaxed">
-            팝업·런칭·프레스데이·셀럽 어태치먼트 현장. 셔터가 닫히기 전,
-            브랜드의 시즌 모먼트가 만들어지던 순간을 그대로 옮긴 필드 스케치입니다.
+            팝업·런칭·프레스데이·셀럽 어태치먼트 현장. 셔터가 닫히기 전, 브랜드의 시즌 모먼트가
+            만들어지던 순간을 그대로 옮긴 필드 스케치입니다.
           </p>
           <ul className="col-span-12 md:col-span-4 md:col-start-9 text-[11px] font-mono tracking-[0.15em] space-y-1.5 border-t border-deep-ink pt-4">
-            <li className="flex justify-between"><span className="text-secondary">LOCATION</span><span>SEOUL · APGUJEONG</span></li>
-            <li className="flex justify-between"><span className="text-secondary">FORMAT</span><span>35MM / DIGITAL</span></li>
-            <li className="flex justify-between"><span className="text-secondary">FRAMES</span><span>{String(imgs.length).padStart(3, "0")}</span></li>
-            <li className="flex justify-between"><span className="text-secondary">STATUS</span><span className="text-neon-signal bg-deep-ink px-1.5">DEVELOPED</span></li>
+            <li className="flex justify-between">
+              <span className="text-secondary">LOCATION</span>
+              <span>SEOUL · APGUJEONG</span>
+            </li>
+            <li className="flex justify-between">
+              <span className="text-secondary">FORMAT</span>
+              <span>35MM / DIGITAL</span>
+            </li>
+            <li className="flex justify-between">
+              <span className="text-secondary">FRAMES</span>
+              <span>{String(imgs.length).padStart(3, "0")}</span>
+            </li>
+            <li className="flex justify-between">
+              <span className="text-secondary">STATUS</span>
+              <span className="text-neon-signal bg-deep-ink px-1.5">DEVELOPED</span>
+            </li>
           </ul>
         </div>
       </section>
@@ -99,7 +114,9 @@ function EventPage() {
       {/* FILM STRIP — 35mm 느낌 가로 스트립 */}
       <section className="bg-deep-ink py-6 md:py-8 border-b-2 border-deep-ink">
         <div className="flex items-center justify-between px-5 md:px-12 mb-4">
-          <span className="text-[10px] font-mono tracking-[0.2em] text-neon-signal">► STRIP 01 / KODAK TX 400</span>
+          <span className="text-[10px] font-mono tracking-[0.2em] text-neon-signal">
+            ► STRIP 01 / KODAK TX 400
+          </span>
           <span className="text-[10px] font-mono tracking-[0.2em] text-surface/60">SCROLL →</span>
         </div>
         {/* 스프로켓 홀 */}
@@ -113,7 +130,10 @@ function EventPage() {
         <div className="overflow-x-auto no-scrollbar">
           <div className="flex gap-1 px-1 py-2 min-w-max">
             {filmStrip.map((img, i) => (
-              <figure key={img.id} className="relative w-[200px] md:w-[260px] aspect-[3/2] flex-shrink-0 bg-black overflow-hidden">
+              <figure
+                key={img.id}
+                className="relative w-[200px] md:w-[260px] aspect-[3/2] flex-shrink-0 bg-black overflow-hidden"
+              >
                 <img
                   src={`/api/event/image/${img.id}`}
                   alt={`CLAMOA event field sketch — strip frame ${i + 1}`}
@@ -141,7 +161,9 @@ function EventPage() {
       <section className="relative px-5 md:px-12 py-16 md:py-24 border-b-2 border-deep-ink bg-[radial-gradient(circle_at_20%_10%,rgba(0,0,0,0.04),transparent_50%),radial-gradient(circle_at_80%_90%,rgba(0,0,0,0.04),transparent_50%)]">
         <div className="flex items-end justify-between mb-10 md:mb-14">
           <div>
-            <span className="text-[10px] font-mono tracking-[0.2em] text-secondary block mb-2">— SCRAPBOOK / II</span>
+            <span className="text-[10px] font-mono tracking-[0.2em] text-secondary block mb-2">
+              — SCRAPBOOK / II
+            </span>
             <h2 className="font-serif font-bold uppercase leading-[0.9] tracking-[-0.02em] text-[clamp(28px,4vw,56px)]">
               taped &amp; <span className="italic font-normal">pinned</span>
             </h2>
@@ -180,8 +202,12 @@ function EventPage() {
                   />
                 </div>
                 <figcaption className="absolute bottom-2 left-3 right-3 flex items-baseline justify-between">
-                  <span className="text-[10px] font-mono tracking-[0.15em] text-deep-ink/70">{caption}</span>
-                  <span className="text-[10px] font-mono tracking-[0.15em] text-deep-ink/50">{frameNo}</span>
+                  <span className="text-[10px] font-mono tracking-[0.15em] text-deep-ink/70">
+                    {caption}
+                  </span>
+                  <span className="text-[10px] font-mono tracking-[0.15em] text-deep-ink/50">
+                    {frameNo}
+                  </span>
                 </figcaption>
               </figure>
             );
@@ -193,7 +219,9 @@ function EventPage() {
       <section className="bg-deep-ink py-12 md:py-20 px-5 md:px-12">
         <div className="flex flex-wrap items-end justify-between gap-4 mb-8 md:mb-12 border-b border-surface/20 pb-4">
           <div>
-            <span className="text-[10px] font-mono tracking-[0.2em] text-neon-signal block mb-2">— CONTACT SHEET / III</span>
+            <span className="text-[10px] font-mono tracking-[0.2em] text-neon-signal block mb-2">
+              — CONTACT SHEET / III
+            </span>
             <h2 className="text-surface font-serif font-bold uppercase leading-[0.9] tracking-[-0.02em] text-[clamp(28px,4vw,56px)]">
               the full <span className="italic font-normal">roll</span>
             </h2>
@@ -201,7 +229,7 @@ function EventPage() {
           <ul className="text-[10px] font-mono tracking-[0.15em] text-surface/70 space-y-1 text-right">
             <li>EXP. {String(contact.length).padStart(3, "0")} FRAMES</li>
             <li>ISO 400 · F/2.8 · 1/125</li>
-            <li>SELECT ▢  REJECT ▢  HOLD ▣</li>
+            <li>SELECT ▢ REJECT ▢ HOLD ▣</li>
           </ul>
         </div>
 
@@ -217,10 +245,22 @@ function EventPage() {
                 className="relative aspect-square overflow-hidden bg-black group"
               >
                 {/* 코너 크롭 마크 */}
-                <span aria-hidden className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-neon-signal/80 z-10" />
-                <span aria-hidden className="absolute top-0 right-0 w-2.5 h-2.5 border-t border-r border-neon-signal/80 z-10" />
-                <span aria-hidden className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b border-l border-neon-signal/80 z-10" />
-                <span aria-hidden className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-neon-signal/80 z-10" />
+                <span
+                  aria-hidden
+                  className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-neon-signal/80 z-10"
+                />
+                <span
+                  aria-hidden
+                  className="absolute top-0 right-0 w-2.5 h-2.5 border-t border-r border-neon-signal/80 z-10"
+                />
+                <span
+                  aria-hidden
+                  className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b border-l border-neon-signal/80 z-10"
+                />
+                <span
+                  aria-hidden
+                  className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-neon-signal/80 z-10"
+                />
                 <img
                   src={`/api/event/image/${img.id}`}
                   alt={`CLAMOA event field sketch — contact frame ${idx}`}
@@ -231,13 +271,32 @@ function EventPage() {
                 {rejected && (
                   <span aria-hidden className="absolute inset-0 pointer-events-none">
                     <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full">
-                      <line x1="0" y1="0" x2="100" y2="100" stroke="oklch(0.85 0.18 95)" strokeWidth="1.2" opacity="0.85" />
-                      <line x1="100" y1="0" x2="0" y2="100" stroke="oklch(0.85 0.18 95)" strokeWidth="1.2" opacity="0.85" />
+                      <line
+                        x1="0"
+                        y1="0"
+                        x2="100"
+                        y2="100"
+                        stroke="oklch(0.85 0.18 95)"
+                        strokeWidth="1.2"
+                        opacity="0.85"
+                      />
+                      <line
+                        x1="100"
+                        y1="0"
+                        x2="0"
+                        y2="100"
+                        stroke="oklch(0.85 0.18 95)"
+                        strokeWidth="1.2"
+                        opacity="0.85"
+                      />
                     </svg>
                   </span>
                 )}
                 {selected && !rejected && (
-                  <span aria-hidden className="absolute top-1 right-1 w-3 h-3 border border-neon-signal bg-neon-signal/30" />
+                  <span
+                    aria-hidden
+                    className="absolute top-1 right-1 w-3 h-3 border border-neon-signal bg-neon-signal/30"
+                  />
                 )}
                 <span className="absolute bottom-1 left-1.5 text-[9px] md:text-[10px] tracking-[0.15em] font-mono text-neon-signal/90 z-10">
                   {String(idx).padStart(3, "0")}

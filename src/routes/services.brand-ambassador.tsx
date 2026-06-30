@@ -17,9 +17,7 @@ export const Route = createFileRoute("/services/brand-ambassador")({
       },
       { property: "og:url", content: "https://clamoa.com/services/brand-ambassador" },
     ],
-    links: [
-      { rel: "canonical", href: "https://clamoa.com/services/brand-ambassador" },
-    ],
+    links: [{ rel: "canonical", href: "https://clamoa.com/services/brand-ambassador" }],
   }),
   component: () => (
     <ServiceDetailPage
@@ -44,9 +42,18 @@ export const Route = createFileRoute("/services/brand-ambassador")({
         "캠페인 자산 아카이브 & 리포트",
       ]}
       faqs={[
-        { q: "협찬과 앰버서더는 어떻게 다른가요?", a: "협찬은 단발성 노출, 앰버서더는 계약 기간 동안 독점적·장기적 협업입니다." },
-        { q: "계약 기간은 보통 어떻게 잡나요?", a: "6개월~1년 단위가 일반적이며, 시즌·시장 진출 일정과 맞춥니다." },
-        { q: "글로벌 활용도 가능한가요?", a: "사용 권한 협의 시 일본·대만·중국 등 글로벌 활용 조건을 함께 설계합니다." },
+        {
+          q: "협찬과 앰버서더는 어떻게 다른가요?",
+          a: "협찬은 단발성 노출, 앰버서더는 계약 기간 동안 독점적·장기적 협업입니다.",
+        },
+        {
+          q: "계약 기간은 보통 어떻게 잡나요?",
+          a: "6개월~1년 단위가 일반적이며, 시즌·시장 진출 일정과 맞춥니다.",
+        },
+        {
+          q: "글로벌 활용도 가능한가요?",
+          a: "사용 권한 협의 시 일본·대만·중국 등 글로벌 활용 조건을 함께 설계합니다.",
+        },
       ]}
     />
   ),

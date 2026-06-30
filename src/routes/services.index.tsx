@@ -73,8 +73,7 @@ export const Route = createFileRoute("/services/")({
       { property: "og:title", content: "SERVICES — 패션 PR 서비스 전체보기 | CLAMOA" },
       {
         property: "og:description",
-        content:
-          "셀럽 협찬부터 글로벌 유통 확장까지, CLAMOA의 통합 패션 PR 서비스 8종.",
+        content: "셀럽 협찬부터 글로벌 유통 확장까지, CLAMOA의 통합 패션 PR 서비스 8종.",
       },
       { property: "og:url", content: "https://clamoa.com/services" },
     ],
@@ -88,23 +87,19 @@ function ServicesHub() {
     <main className="min-h-screen bg-surface text-deep-ink">
       <SubPageNav variant="light" />
 
-
-
-
       <section className="px-5 md:px-12 pt-28 md:pt-40 pb-16 md:pb-24 border-b-2 border-deep-ink">
-        <span className="text-label-caps text-secondary block mb-6">
-          — SERVICES INDEX
-        </span>
+        <span className="text-label-caps text-secondary block mb-6">— SERVICES INDEX</span>
         <h1
           className="uppercase font-serif font-bold leading-[0.88] tracking-[-0.04em] mb-10"
           style={{ fontSize: "clamp(56px, 11vw, 180px)" }}
         >
-          WHAT<br />
+          WHAT
+          <br />
           <span className="italic font-normal">we do</span>
         </h1>
         <p className="text-body-lg max-w-2xl border-l-4 border-neon-signal pl-6 leading-relaxed">
-          CLAMOA는 서울 압구정 기반의 패션 PR 에이전시로, 셀럽 협찬부터 글로벌
-          유통 확장까지 8개 영역을 통합적으로 설계합니다.
+          CLAMOA는 서울 압구정 기반의 패션 PR 에이전시로, 셀럽 협찬부터 글로벌 유통 확장까지 8개
+          영역을 통합적으로 설계합니다.
         </p>
       </section>
 
@@ -124,9 +119,7 @@ function ServicesHub() {
                     arrow_outward
                   </span>
                 </div>
-                <h2 className="text-headline-sm uppercase leading-tight mb-2">
-                  {s.title}
-                </h2>
+                <h2 className="text-headline-sm uppercase leading-tight mb-2">{s.title}</h2>
                 <p className="text-label-caps text-secondary group-hover:text-neon-signal mb-5">
                   {s.ko}
                 </p>

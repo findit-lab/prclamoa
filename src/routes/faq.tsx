@@ -18,7 +18,11 @@ export const Route = createFileRoute("/faq")({
           "셀럽 협찬, PPL, 스타일리스트 릴레이션, 인플루언서 PR, 글로벌 확장에 대한 직답형 FAQ.",
       },
       { property: "og:url", content: "https://clamoa.com/faq" },
-      { name: "keywords", content: "패션 PR FAQ, 셀럽 협찬 비용, PPL 차이, 스타일리스트 릴레이션, 인플루언서 PR, 앰버서더, RINK, 샤오홍수, 왕홍 라이브커머스" },
+      {
+        name: "keywords",
+        content:
+          "패션 PR FAQ, 셀럽 협찬 비용, PPL 차이, 스타일리스트 릴레이션, 인플루언서 PR, 앰버서더, RINK, 샤오홍수, 왕홍 라이브커머스",
+      },
     ],
     links: [{ rel: "canonical", href: "https://clamoa.com/faq" }],
   }),
@@ -174,16 +178,15 @@ const faqSchema = {
       "@type": "Question",
       name: it.q,
       acceptedAnswer: { "@type": "Answer", text: it.a },
-    }))
+    })),
   ),
 };
 
 function FaqPage() {
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => e.isIntersecting && e.target.classList.add("active")),
-      { threshold: 0.08, rootMargin: "0px 0px -50px 0px" }
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("active")),
+      { threshold: 0.08, rootMargin: "0px 0px -50px 0px" },
     );
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
@@ -225,12 +228,15 @@ function FaqPage() {
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-10">
               <h1 className="text-display-xl uppercase mb-12">
-                FREQUENTLY<br />ASKED QUESTIONS
+                FREQUENTLY
+                <br />
+                ASKED QUESTIONS
               </h1>
             </div>
             <div className="col-span-12 md:col-span-8">
               <p className="text-body-lg border-l-4 border-neon-signal pl-6">
-                패션 브랜드가 셀럽 협찬, PPL, 스타일리스트 릴레이션, 인플루언서 PR, 글로벌 확장에 대해 가장 자주 묻는 20가지 질문에 CLAMOA가 직접 답합니다.
+                패션 브랜드가 셀럽 협찬, PPL, 스타일리스트 릴레이션, 인플루언서 PR, 글로벌 확장에
+                대해 가장 자주 묻는 20가지 질문에 CLAMOA가 직접 답합니다.
               </p>
             </div>
           </div>
@@ -262,7 +268,9 @@ function FaqPage() {
             className="px-5 md:px-16 mb-20 md:mb-32 scroll-mt-32 reveal"
           >
             <div className="border-t-2 border-deep-ink pt-12 mb-12">
-              <span className="text-label-caps text-secondary block mb-6">{cat.id.toUpperCase()}</span>
+              <span className="text-label-caps text-secondary block mb-6">
+                {cat.id.toUpperCase()}
+              </span>
               <h2 className="text-headline-lg uppercase max-w-3xl">{cat.title}</h2>
             </div>
 
@@ -296,9 +304,13 @@ function FaqPage() {
         <section className="bg-deep-ink text-surface py-20 md:py-32 px-5 md:px-16 reveal">
           <div className="grid grid-cols-12 gap-6 items-end">
             <div className="col-span-12 md:col-span-8">
-              <span className="text-neon-signal text-label-caps block mb-6">STILL HAVE QUESTIONS?</span>
+              <span className="text-neon-signal text-label-caps block mb-6">
+                STILL HAVE QUESTIONS?
+              </span>
               <h2 className="text-headline-lg uppercase">
-                브랜드 상황에 맞춰<br />직접 답변드립니다
+                브랜드 상황에 맞춰
+                <br />
+                직접 답변드립니다
               </h2>
             </div>
             <div className="col-span-12 md:col-span-4 md:text-right">
@@ -320,7 +332,8 @@ function FaqPage() {
           <div>
             <span className="text-label-caps text-secondary block mb-4">CLAMOA</span>
             <p className="text-body-md text-secondary max-w-sm">
-              서울 압구정 기반 패션 PR 에이전시<br />
+              서울 압구정 기반 패션 PR 에이전시
+              <br />
               셀럽 협찬 · 스타일리스트 릴레이션 · PPL · 인플루언서 · 바이럴 · 글로벌 확장
             </p>
           </div>
@@ -328,8 +341,18 @@ function FaqPage() {
         <div className="mt-12 pt-8 border-t border-deep-ink/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <p className="text-body-md text-secondary">© 2026 CLAMOA AGENCY. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="text-label-caps text-secondary hover:text-deep-ink transition-colors">PRIVACY</Link>
-            <Link to="/terms" className="text-label-caps text-secondary hover:text-deep-ink transition-colors">TERMS</Link>
+            <Link
+              to="/privacy"
+              className="text-label-caps text-secondary hover:text-deep-ink transition-colors"
+            >
+              PRIVACY
+            </Link>
+            <Link
+              to="/terms"
+              className="text-label-caps text-secondary hover:text-deep-ink transition-colors"
+            >
+              TERMS
+            </Link>
           </div>
         </div>
       </footer>

@@ -40,6 +40,7 @@ import scopeInfluencer from "@/assets/scope-influencer.jpg.asset.json";
 import scopeEvent from "@/assets/scope-event.jpg.asset.json";
 import scopeAmbassador from "@/assets/scope-ambassador.jpg.asset.json";
 import { DraggableMarquee } from "@/components/DraggableMarquee";
+import { trackLandingEvent } from "@/lib/utm-tracking";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -123,9 +124,8 @@ function Index() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => e.isIntersecting && e.target.classList.add("active")),
-      { threshold: 0.12, rootMargin: "0px 0px -50px 0px" }
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("active")),
+      { threshold: 0.12, rootMargin: "0px 0px -50px 0px" },
     );
     document.querySelectorAll(".reveal, .reveal-group").forEach((el) => observer.observe(el));
 
@@ -185,30 +185,93 @@ function Index() {
   };
 
   const services: Array<[string, string, string]> = [
-    ["STAR MARKETING", "배우, 아이돌, 연애 프로그램 출연자 등 브랜드 이미지와\n어울리는 셀럽 착용을 통해 신뢰도 높은 노출을 만듭니다.", "/services/celebrity-seeding"],
-    ["INFLUENCER PR", "브랜드 타깃에 맞는 인플루언서와 크리에이터를 연결해\u00a0\nSNS 콘텐츠와 바이럴 확산을 유도합니다.", "/services/influencer-pr"],
-    ["PPL & CONTENTS", "영상 콘텐츠, 방송, 유튜브, OTT, 공항패션 등 브랜드가\u00a0\n주목받을 수 있는\u00a0노출 장면을 연결합니다.", "/services/ppl-content-placement"],
-    ["OFFLINE EXPERIENCE", "팝업, 플리마켓, 런칭 행사 등 오프라인 접점을 통해 브랜드 경험과 콘텐츠 기회를 확장합니다.", "/services/offline-event-pr"],
-    ["AMBASSADOR CAMPAIGN", "브랜드와 어울리는 앰버서더·셀럽 단기 계약을 통해 확보된 콘텐츠의 2차 활용까지 설계합니다.", "/services/brand-ambassador"],
-    ["BRAND EXPANSION", "국내외 유통, 팝업, 왕홍 라이브커머스 등 브랜드 성장에\u00a0\n필요한 다양한 기회를 함께 모색합니다.", "/services/global-expansion"],
+    [
+      "STAR MARKETING",
+      "배우, 아이돌, 연애 프로그램 출연자 등 브랜드 이미지와\n어울리는 셀럽 착용을 통해 신뢰도 높은 노출을 만듭니다.",
+      "/services/celebrity-seeding",
+    ],
+    [
+      "INFLUENCER PR",
+      "브랜드 타깃에 맞는 인플루언서와 크리에이터를 연결해\u00a0\nSNS 콘텐츠와 바이럴 확산을 유도합니다.",
+      "/services/influencer-pr",
+    ],
+    [
+      "PPL & CONTENTS",
+      "영상 콘텐츠, 방송, 유튜브, OTT, 공항패션 등 브랜드가\u00a0\n주목받을 수 있는\u00a0노출 장면을 연결합니다.",
+      "/services/ppl-content-placement",
+    ],
+    [
+      "OFFLINE EXPERIENCE",
+      "팝업, 플리마켓, 런칭 행사 등 오프라인 접점을 통해 브랜드 경험과 콘텐츠 기회를 확장합니다.",
+      "/services/offline-event-pr",
+    ],
+    [
+      "AMBASSADOR CAMPAIGN",
+      "브랜드와 어울리는 앰버서더·셀럽 단기 계약을 통해 확보된 콘텐츠의 2차 활용까지 설계합니다.",
+      "/services/brand-ambassador",
+    ],
+    [
+      "BRAND EXPANSION",
+      "국내외 유통, 팝업, 왕홍 라이브커머스 등 브랜드 성장에\u00a0\n필요한 다양한 기회를 함께 모색합니다.",
+      "/services/global-expansion",
+    ],
   ];
 
   const faqPreview = [
-    { q: "패션 브랜드 셀럽 협찬은 어떻게 진행되나요?", a: "셀럽 협찬은 상담·브랜드 검토 → PR 플랜 제안 → 계약 및 쇼룸 입점 → 스타일리스트 피칭 → 셀럽 착용 → 노출 클리핑 순으로 진행됩니다. 클라모아는 브랜드 무드에 맞는 셀럽과 채널을 매칭하고, 착용 이후 콘텐츠 클리핑과 2차 확산까지 단계별로 관리합니다." },
-    { q: "신생 브랜드도 셀럽 협찬이 가능한가요?", a: "신생 브랜드도 가능합니다. 다만 제품 완성도, 브랜드 무드, 타깃 적합성이 성과를 좌우합니다. 클라모아는 브랜드 단계에 맞춰 PR 방향성을 먼저 설계하고, 무작위 노출이 아닌 타깃 중심의 셀럽 협찬으로 신생 브랜드의 인지도 확보를 돕습니다." },
-    { q: "협찬 후 셀럽 착용이 보장되나요?", a: "착용 방식은 보장형과 비보장형으로 구분됩니다. 비보장형은 스타일리스트 피칭을 통한 자연스러운 착용을 지향하고, 보장형은 셀럽 초상권 단기 계약 등으로 노출을 확정합니다. 브랜드 목표와 예산에 맞춰 적합한 구조를 상담 단계에서 함께 정합니다." },
-    { q: "셀럽 협찬 비용은 어떻게 책정되나요?", a: "협찬 비용은 브랜드 목표, 서비스 범위, 진행 기간, 콘텐츠 활용 범위에 따라 달라집니다. 셀럽 초상권 단기 계약처럼 2차 활용이 포함되면 비용 구조가 달라집니다. 정확한 견적은 상담 시 브랜드 상황과 캠페인 목표를 검토한 뒤 제안드립니다." },
-    { q: "상담은 어떻게 신청하나요?", a: "홈페이지 문의 폼에 브랜드명, 제품 카테고리, 희망 서비스, 캠페인 목표, 예산 범위, 진행 시기를 남겨주시면 담당자가 빠르게 연락드립니다. 정보가 구체적일수록 브랜드에 맞는 PR 방향과 채널을 더 정확하게 제안드릴 수 있습니다." },
+    {
+      q: "패션 브랜드 셀럽 협찬은 어떻게 진행되나요?",
+      a: "셀럽 협찬은 상담·브랜드 검토 → PR 플랜 제안 → 계약 및 쇼룸 입점 → 스타일리스트 피칭 → 셀럽 착용 → 노출 클리핑 순으로 진행됩니다. 클라모아는 브랜드 무드에 맞는 셀럽과 채널을 매칭하고, 착용 이후 콘텐츠 클리핑과 2차 확산까지 단계별로 관리합니다.",
+    },
+    {
+      q: "신생 브랜드도 셀럽 협찬이 가능한가요?",
+      a: "신생 브랜드도 가능합니다. 다만 제품 완성도, 브랜드 무드, 타깃 적합성이 성과를 좌우합니다. 클라모아는 브랜드 단계에 맞춰 PR 방향성을 먼저 설계하고, 무작위 노출이 아닌 타깃 중심의 셀럽 협찬으로 신생 브랜드의 인지도 확보를 돕습니다.",
+    },
+    {
+      q: "협찬 후 셀럽 착용이 보장되나요?",
+      a: "착용 방식은 보장형과 비보장형으로 구분됩니다. 비보장형은 스타일리스트 피칭을 통한 자연스러운 착용을 지향하고, 보장형은 셀럽 초상권 단기 계약 등으로 노출을 확정합니다. 브랜드 목표와 예산에 맞춰 적합한 구조를 상담 단계에서 함께 정합니다.",
+    },
+    {
+      q: "셀럽 협찬 비용은 어떻게 책정되나요?",
+      a: "협찬 비용은 브랜드 목표, 서비스 범위, 진행 기간, 콘텐츠 활용 범위에 따라 달라집니다. 셀럽 초상권 단기 계약처럼 2차 활용이 포함되면 비용 구조가 달라집니다. 정확한 견적은 상담 시 브랜드 상황과 캠페인 목표를 검토한 뒤 제안드립니다.",
+    },
+    {
+      q: "상담은 어떻게 신청하나요?",
+      a: "홈페이지 문의 폼에 브랜드명, 제품 카테고리, 희망 서비스, 캠페인 목표, 예산 범위, 진행 시기를 남겨주시면 담당자가 빠르게 연락드립니다. 정보가 구체적일수록 브랜드에 맞는 PR 방향과 채널을 더 정확하게 제안드릴 수 있습니다.",
+    },
   ];
 
   const process = [
     ["01", "상담 접수", "브랜드 상황과 캠페인 목표를 남겨주시면 담당자가 빠르게 연락드립니다."],
-    ["02", "브랜드 및 제품 검토", "브랜드 카테고리, 셀럽 타겟, 구매 연령층, 스큐 및 시즌 전략을 함께 검토합니다."],
-    ["03", "PR 플랜 제안", "예산과 목표에 맞춰 셀럽 협찬, PPL, 인플루언서, 셀럽 초상권 단기 계약 등 PR 플랜을 제안합니다."],
-    ["04", "계약 및 쇼룸 입점", "계약 완료 후 담당팀이 배정되며, 쇼룸 입점과 협찬 운영 세팅을 시작합니다."],
-    ["05", "스타일리스트 피칭 및\u00a0\n셀럽 협찬", "브랜드 타겟과 무드에 맞는 셀럽 및 스타일리스트 팀을 대상으로 룩북을 전달하고, 쇼룸 방문 시 제품 소개와 피칭을 진행합니다."],
-    ["06", "주간 보고 및 착용 자료 클립핑", "노출 콘텐츠를 클리핑하여 자사 SNS에 게시하고, 셀럽 픽업 및 착용 현황을 주간 보고합니다."],
-    ["07", "별도 콘텐츠 2차 확산", "이슈 가능한 소재를 기반으로 블로그, 매거진, 인플루언서 시딩 등 바이럴 확산을 진행합니다. (OPTION)"],
+    [
+      "02",
+      "브랜드 및 제품 검토",
+      "브랜드 카테고리, 셀럽 타겟, 구매 연령층, 스큐 및 시즌 전략을 함께 검토합니다.",
+    ],
+    [
+      "03",
+      "PR 플랜 제안",
+      "예산과 목표에 맞춰 셀럽 협찬, PPL, 인플루언서, 셀럽 초상권 단기 계약 등 PR 플랜을 제안합니다.",
+    ],
+    [
+      "04",
+      "계약 및 쇼룸 입점",
+      "계약 완료 후 담당팀이 배정되며, 쇼룸 입점과 협찬 운영 세팅을 시작합니다.",
+    ],
+    [
+      "05",
+      "스타일리스트 피칭 및\u00a0\n셀럽 협찬",
+      "브랜드 타겟과 무드에 맞는 셀럽 및 스타일리스트 팀을 대상으로 룩북을 전달하고, 쇼룸 방문 시 제품 소개와 피칭을 진행합니다.",
+    ],
+    [
+      "06",
+      "주간 보고 및 착용 자료 클립핑",
+      "노출 콘텐츠를 클리핑하여 자사 SNS에 게시하고, 셀럽 픽업 및 착용 현황을 주간 보고합니다.",
+    ],
+    [
+      "07",
+      "별도 콘텐츠 2차 확산",
+      "이슈 가능한 소재를 기반으로 블로그, 매거진, 인플루언서 시딩 등 바이럴 확산을 진행합니다. (OPTION)",
+    ],
   ];
 
   const differentiators = [
@@ -227,7 +290,13 @@ function Index() {
         ref={navRef}
         className="fixed top-0 w-full z-50 bg-surface/95 border-b border-deep-ink flex justify-between items-center px-5 md:px-16 py-5 md:py-6 transition-all duration-500"
       >
-        <Link to="/" className="block" aria-label="CLAMOA logo"><img src={clamoaLogo.url} alt="CLAMOA logo" className="h-6 md:h-8 w-auto object-contain" /></Link>
+        <Link to="/" className="block" aria-label="CLAMOA logo">
+          <img
+            src={clamoaLogo.url}
+            alt="CLAMOA logo"
+            className="h-6 md:h-8 w-auto object-contain"
+          />
+        </Link>
         <div className="hidden md:flex gap-8">
           {navLinks.map(([l, h]) => (
             <a
@@ -274,10 +343,13 @@ function Index() {
               </h1>
               <div className="max-w-xl space-y-6">
                 <p className="text-body-lg border-l-4 border-neon-signal pl-6 italic font-serif whitespace-pre-line">
-                  셀럽 협찬부터 PPL, 인플루언서, 바이럴, 글로벌 확장 연계까지 —{"\n"}패션 브랜드의 인지도와 새로운 기회를 함께 만들어갑니다.
+                  셀럽 협찬부터 PPL, 인플루언서, 바이럴, 글로벌 확장 연계까지 —{"\n"}패션 브랜드의
+                  인지도와 새로운 기회를 함께 만들어갑니다.
                 </p>
                 <p className="text-body-md pl-6 max-w-lg whitespace-pre-line">
-                  {"CLAMOA는 서울 압구정 기반의 패션 PR 에이전시로, 셀럽 협찬, 스타일리스트 릴레이션, PPL, 인플루언서 캠페인, 바이럴 콘텐츠, 글로벌 유통 확장을\u00a0\n통합적으로 설계합니다."}
+                  {
+                    "CLAMOA는 서울 압구정 기반의 패션 PR 에이전시로, 셀럽 협찬, 스타일리스트 릴레이션, PPL, 인플루언서 캠페인, 바이럴 콘텐츠, 글로벌 유통 확장을\u00a0\n통합적으로 설계합니다."
+                  }
                 </p>
                 <div className="pl-6 flex flex-wrap gap-3 pt-2">
                   <a
@@ -300,7 +372,13 @@ function Index() {
             <div className="col-span-12 md:col-span-4">
               <div className="border-2 border-deep-ink p-8 bg-neon-signal hover-lift shadow-[8px_8px_0px_0px_rgba(26,28,28,1)]">
                 <span className="text-label-caps block mb-4">APGUJEONG RODEO · SEOUL</span>
-                <h2 className="text-headline-md uppercase">셀럽과<br />스타일리스트가<br />찾는 패션 PR 쇼룸</h2>
+                <h2 className="text-headline-md uppercase">
+                  셀럽과
+                  <br />
+                  스타일리스트가
+                  <br />
+                  찾는 패션 PR 쇼룸
+                </h2>
               </div>
             </div>
           </div>
@@ -312,7 +390,6 @@ function Index() {
             <span className="text-label-caps text-neon-signal">STAR PORTFOLIO</span>
           </div>
           <DraggableMarquee images={MARQUEE_IMAGES} />
-
         </section>
 
         {/* Featured Work Preview */}
@@ -339,10 +416,17 @@ function Index() {
             </div>
             <div className="col-span-12 md:col-span-5 flex flex-col justify-start">
               <div className="border-t-2 border-deep-ink pt-8 mt-16 md:mt-0">
-                <span className="text-label-caps text-secondary mb-4 block">01 / BRAND VISIBILITY</span>
-                <h3 className="text-headline-lg mb-6 uppercase">PR STRATEGY<br />RIGHT EXPOSURE</h3>
+                <span className="text-label-caps text-secondary mb-4 block">
+                  01 / BRAND VISIBILITY
+                </span>
+                <h3 className="text-headline-lg mb-6 uppercase">
+                  PR STRATEGY
+                  <br />
+                  RIGHT EXPOSURE
+                </h3>
                 <p className="text-body-md mb-8 whitespace-pre-line">
-                  브랜드와 잘 맞는 셀럽, 콘텐츠, 채널을 연결해 가장 자연스럽고{"\n"}효과적인 노출 전략을 설계합니다.
+                  브랜드와 잘 맞는 셀럽, 콘텐츠, 채널을 연결해 가장 자연스럽고{"\n"}효과적인 노출
+                  전략을 설계합니다.
                 </p>
               </div>
             </div>
@@ -351,25 +435,42 @@ function Index() {
 
         {/* Dark Statement */}
         <section className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 overflow-hidden relative">
-          <div ref={parallaxContainer} className="absolute inset-0 opacity-10 pointer-events-none select-none overflow-hidden">
-            <div ref={parallaxText} className="whitespace-nowrap font-serif font-bold leading-none transform rotate-[-5deg]" style={{ fontSize: "clamp(120px, 30vw, 300px)" }}>
+          <div
+            ref={parallaxContainer}
+            className="absolute inset-0 opacity-10 pointer-events-none select-none overflow-hidden"
+          >
+            <div
+              ref={parallaxText}
+              className="whitespace-nowrap font-serif font-bold leading-none transform rotate-[-5deg]"
+              style={{ fontSize: "clamp(120px, 30vw, 300px)" }}
+            >
               INFLUENCE INFLUENCE INFLUENCE
             </div>
           </div>
           <div className="relative z-10 grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-10 md:col-start-2">
               <h2 className="text-headline-lg mb-12 reveal uppercase">
-                WE MAKE BRANDS{" "}
-                <span className="text-neon-signal">SEEN, REMEMBERED,</span> AND{" "}
-                <span className="italic underline decoration-neon-signal underline-offset-8">DESIRED.</span>
+                WE MAKE BRANDS <span className="text-neon-signal">SEEN, REMEMBERED,</span> AND{" "}
+                <span className="italic underline decoration-neon-signal underline-offset-8">
+                  DESIRED.
+                </span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-20 reveal-group">
                 {[
-                  ["METHOD", "브랜드 이미지에 맞는 셀럽과 채널을 매칭하고,\n노출 이후의 2차 활용까지 함께 설계합니다."],
+                  [
+                    "METHOD",
+                    "브랜드 이미지에 맞는 셀럽과 채널을 매칭하고,\n노출 이후의 2차 활용까지 함께 설계합니다.",
+                  ],
                   ["VISION", "중요한 것은 많이 보이는 것이 아니라,\n브랜드답게 보이는 것입니다."],
-                  ["RESULT", "브랜드의 무드가 소비자에게 자연스럽게 전달되고,\u00a0\n더 오래 기억되는 노출을 만듭니다."],
+                  [
+                    "RESULT",
+                    "브랜드의 무드가 소비자에게 자연스럽게 전달되고,\u00a0\n더 오래 기억되는 노출을 만듭니다.",
+                  ],
                 ].map(([h, b]) => (
-                  <div key={h} className="border-l border-white/30 pl-6 hover:border-neon-signal transition-colors duration-300">
+                  <div
+                    key={h}
+                    className="border-l border-white/30 pl-6 hover:border-neon-signal transition-colors duration-300"
+                  >
                     <span className="text-neon-signal text-label-caps block mb-4">{h}</span>
                     <p className="text-body-md whitespace-pre-line">{b}</p>
                   </div>
@@ -384,7 +485,9 @@ function Index() {
           <div className="border-t-2 border-deep-ink pt-12 reveal">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
               <span className="text-label-caps text-secondary">CORE CAPABILITIES</span>
-              <h2 className="text-headline-lg uppercase max-w-2xl text-right">패션 브랜드를 위한 통합 PR 솔루션</h2>
+              <h2 className="text-headline-lg uppercase max-w-2xl text-right">
+                패션 브랜드를 위한 통합 PR 솔루션
+              </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-[repeat(18,auto)] md:grid-rows-[repeat(9,auto)] lg:grid-rows-[repeat(6,auto)] border-l border-t border-deep-ink">
               {services.map(([t, d, href], i) => (
@@ -393,17 +496,24 @@ function Index() {
                   to={href}
                   className="grid grid-rows-subgrid row-span-3 gap-y-6 border-r border-b border-deep-ink p-10 hover:bg-deep-ink hover:text-surface transition-colors duration-300 group"
                 >
-                  <span className="text-label-caps text-secondary group-hover:text-neon-signal block">0{i + 1}</span>
+                  <span className="text-label-caps text-secondary group-hover:text-neon-signal block">
+                    0{i + 1}
+                  </span>
                   <h3 className="text-headline-md uppercase">{t}</h3>
                   <p className="text-body-md opacity-90 whitespace-pre-line">
                     {d}
-                    <span className="block mt-3 text-label-caps opacity-70 group-hover:opacity-100 group-hover:text-neon-signal">자세히 보기 →</span>
+                    <span className="block mt-3 text-label-caps opacity-70 group-hover:opacity-100 group-hover:text-neon-signal">
+                      자세히 보기 →
+                    </span>
                   </p>
                 </Link>
               ))}
             </div>
             <div className="mt-10 flex justify-end">
-              <Link to="/services" className="inline-flex items-center gap-2 text-label-caps border-2 border-deep-ink px-5 py-3 hover:bg-deep-ink hover:text-neon-signal transition-colors">
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 text-label-caps border-2 border-deep-ink px-5 py-3 hover:bg-deep-ink hover:text-neon-signal transition-colors"
+              >
                 VIEW ALL SERVICES
                 <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
               </Link>
@@ -412,15 +522,31 @@ function Index() {
         </section>
 
         {/* Agency Difference */}
-        <section id="about" className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 reveal">
+        <section
+          id="about"
+          className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 reveal"
+        >
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-5">
-              <span className="text-neon-signal text-label-caps block mb-6">THE CLAMOA DIFFERENCE</span>
-              <h2 className="font-serif font-bold uppercase mb-8 leading-[0.95] tracking-[-0.03em] text-[clamp(44px,6vw,88px)]">BEYOND<br />TRADITIONAL<br />PR</h2>
+              <span className="text-neon-signal text-label-caps block mb-6">
+                THE CLAMOA DIFFERENCE
+              </span>
+              <h2 className="font-serif font-bold uppercase mb-8 leading-[0.95] tracking-[-0.03em] text-[clamp(44px,6vw,88px)]">
+                BEYOND
+                <br />
+                TRADITIONAL
+                <br />
+                PR
+              </h2>
               <p className="text-body-lg max-w-md text-surface/80 mb-8">
-                CLAMOA는 브랜드의 무드와 목표에 맞춰 PR 방향성을 컨설팅하고, 무작위 노출이 아닌 타겟 중심의 셀럽 협찬을 진행합니다. RINK 플랫폼을 통한 운영 관리와 PPL·앰버서더 캠페인, 오프라인 및 글로벌 확장 기회를 함께 만들어 갑니다.
+                CLAMOA는 브랜드의 무드와 목표에 맞춰 PR 방향성을 컨설팅하고, 무작위 노출이 아닌 타겟
+                중심의 셀럽 협찬을 진행합니다. RINK 플랫폼을 통한 운영 관리와 PPL·앰버서더 캠페인,
+                오프라인 및 글로벌 확장 기회를 함께 만들어 갑니다.
               </p>
-              <Link to="/about" className="inline-flex items-center gap-2 text-label-caps text-neon-signal border border-neon-signal px-5 py-3 hover:bg-neon-signal hover:text-deep-ink transition-colors">
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 text-label-caps text-neon-signal border border-neon-signal px-5 py-3 hover:bg-neon-signal hover:text-deep-ink transition-colors"
+              >
                 MORE ABOUT CLAMOA
                 <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
               </Link>
@@ -430,7 +556,9 @@ function Index() {
                 {differentiators.map((d, i) => (
                   <li key={d} className="flex items-start gap-6 py-6 group">
                     <span className="text-neon-signal text-label-caps pt-1">0{i + 1}</span>
-                    <span className="text-headline-md font-serif group-hover:text-neon-signal transition-colors">{d}</span>
+                    <span className="text-headline-md font-serif group-hover:text-neon-signal transition-colors">
+                      {d}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -442,14 +570,20 @@ function Index() {
         <section id="process" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">PROCESS</span>
-            <h2 className="text-headline-lg uppercase max-w-2xl text-right">상담 접수부터 2차 확산까지</h2>
+            <h2 className="text-headline-lg uppercase max-w-2xl text-right">
+              상담 접수부터 2차 확산까지
+            </h2>
           </div>
           <p className="text-body-md max-w-2xl mb-10 -mt-8 text-secondary">
-            브랜드 목표와 예산에 맞춰 가장 적합한 노출 채널을 설계하고, 협찬 진행부터 콘텐츠 확산까지 단계별로 관리합니다.
+            브랜드 목표와 예산에 맞춰 가장 적합한 노출 채널을 설계하고, 협찬 진행부터 콘텐츠
+            확산까지 단계별로 관리합니다.
           </p>
           <div className="divide-y divide-deep-ink border-t border-b border-deep-ink">
             {process.map(([n, t, d]) => (
-              <div key={n} className="grid grid-cols-12 gap-3 md:gap-6 py-6 md:py-10 group hover:bg-neon-signal transition-colors duration-300">
+              <div
+                key={n}
+                className="grid grid-cols-12 gap-3 md:gap-6 py-6 md:py-10 group hover:bg-neon-signal transition-colors duration-300"
+              >
                 <div className="col-span-12 md:col-span-2">
                   <span className="font-serif text-3xl md:text-5xl">{n}</span>
                 </div>
@@ -464,12 +598,15 @@ function Index() {
           </div>
         </section>
 
-
         {/* Portfolio Categories */}
         <section id="portfolio" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">PORTFOLIO — CAPABILITIES</span>
-            <h2 className="text-headline-lg uppercase max-w-2xl">SCOPE OF<br />PR EXECUTION</h2>
+            <h2 className="text-headline-lg uppercase max-w-2xl">
+              SCOPE OF
+              <br />
+              PR EXECUTION
+            </h2>
           </div>
 
           <div className="grid grid-cols-12 gap-0 border-2 border-deep-ink">
@@ -541,7 +678,9 @@ function Index() {
                   <div className="md:col-span-3 p-8 md:p-10 flex flex-col gap-4">
                     <div className="flex items-baseline justify-between">
                       <span className="text-label-caps text-secondary">CAT / {c.no}</span>
-                      <span className="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
+                      <span className="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">
+                        north_east
+                      </span>
                     </div>
                     <h3 className="font-serif font-bold uppercase leading-[0.95] tracking-[-0.02em] text-[clamp(28px,2.6vw,44px)]">
                       {c.title}
@@ -560,17 +699,21 @@ function Index() {
                         ))}
                       </div>
                     )}
-                    {(c.title === "STAR" || c.title === "MAGAZINE" || c.title === "INFLUENCER" || c.title === "EVENT" || c.title === "BRAND AMBASSADOR CASTING") && (
+                    {(c.title === "STAR" ||
+                      c.title === "MAGAZINE" ||
+                      c.title === "INFLUENCER" ||
+                      c.title === "EVENT" ||
+                      c.title === "BRAND AMBASSADOR CASTING") && (
                       <span className="text-label-caps text-deep-ink mt-2 inline-flex items-center gap-2">
                         {c.title === "MAGAZINE"
                           ? "VIEW ISSUE"
                           : c.title === "INFLUENCER"
-                          ? "VIEW FEED"
-                          : c.title === "EVENT"
-                          ? "VIEW SKETCH"
-                          : c.title === "BRAND AMBASSADOR CASTING"
-                          ? "VIEW CASTING"
-                          : "VIEW ARCHIVE"}
+                            ? "VIEW FEED"
+                            : c.title === "EVENT"
+                              ? "VIEW SKETCH"
+                              : c.title === "BRAND AMBASSADOR CASTING"
+                                ? "VIEW CASTING"
+                                : "VIEW ARCHIVE"}
                         <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                       </span>
                     )}
@@ -623,15 +766,21 @@ function Index() {
         </section>
 
         {/* Global Expansion */}
-        <section id="global" className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 reveal">
+        <section
+          id="global"
+          className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 reveal"
+        >
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-5">
               <span className="text-neon-signal text-label-caps block mb-6">CROSS-BORDER B2B</span>
               <h2 className="font-serif font-bold uppercase mb-8 leading-[0.95] tracking-[-0.03em] text-[clamp(44px,6vw,88px)]">
-                GLOBAL<br />EXPANSION
+                GLOBAL
+                <br />
+                EXPANSION
               </h2>
               <p className="text-body-lg max-w-md text-surface/80">
-                클라모아는 국내외 유통 네트워크와 글로벌 마케팅 채널을 활용해 브랜드가 새로운 시장에서 성장할 수 있는 기회를 만들어갑니다.
+                클라모아는 국내외 유통 네트워크와 글로벌 마케팅 채널을 활용해 브랜드가 새로운
+                시장에서 성장할 수 있는 기회를 만들어갑니다.
               </p>
             </div>
             <div className="col-span-12 md:col-span-6 md:col-start-7 mt-12 md:mt-8">
@@ -666,7 +815,8 @@ function Index() {
               </div>
               <div className="mt-10 border-t border-white/20 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <p className="text-body-md text-surface/70 max-w-lg">
-                  쇼룸 협찬, 셀러브리티 시딩, 스타일리스트 플레이스먼트 데이터를 통합하여 최적의 바이어 매칭을 도출합니다.
+                  쇼룸 협찬, 셀러브리티 시딩, 스타일리스트 플레이스먼트 데이터를 통합하여 최적의
+                  바이어 매칭을 도출합니다.
                 </p>
                 <a
                   href="#contact"
@@ -681,23 +831,79 @@ function Index() {
         </section>
 
         {/* Partners - Marquee Logo Wall */}
-        <section id="partners" className="border-y-2 border-deep-ink bg-surface py-16 md:py-20 mb-20 md:mb-40 overflow-hidden">
+        <section
+          id="partners"
+          className="border-y-2 border-deep-ink bg-surface py-16 md:py-20 mb-20 md:mb-40 overflow-hidden"
+        >
           <div className="px-5 md:px-16 flex justify-between items-end mb-10 md:mb-12">
             <div>
-              <span className="text-label-caps text-secondary block mb-2">PARTNERS — TRUSTED BY</span>
+              <span className="text-label-caps text-secondary block mb-2">
+                PARTNERS — TRUSTED BY
+              </span>
               <h2 className="text-headline-md md:text-headline-lg uppercase">OUR CLIENTS</h2>
             </div>
             <span className="text-label-caps text-secondary hidden md:block">[ AUTO-SCROLL ]</span>
           </div>
 
           {(() => {
-            const ROW_A = ["EMPORIO ARMANI", "MICHAEL KORS", "LOSESLEEPOVER", "BOB", "OWNSER", "This is Fine", "DIESEL", "fusalp", "Kleesier", "DYSFUNCT®", "NICK NICOLE", "SALT&CHOCOLATE", "ANIA HAIE", "ARICONNECTION", "PRIMATE", "TICKET TO THE MOON", "Zeroplanet", "CLROTTE", "JBLIN"];
-            const ROW_B = ["PELOTE", "Cadeau", "ALIENAR", "FUNFLEX", "JYDIM", "ADEVA", "BLACKUSH", "KOMMUNTHEWEAR", "Whisfairy", "MSGRN", "the J.Soo", "CNN APPAREL", "DOROCY", "SELIVER®", "MERRYON", "SHOEHI", "BBIBBONG UNNI", "Rosé Frantz", "DeLine", "WAR DOG NYC", "MON PLISSÉ", "FRANK CUSTOM", "NOIR DESIR", "ALKI ALKA"];
+            const ROW_A = [
+              "EMPORIO ARMANI",
+              "MICHAEL KORS",
+              "LOSESLEEPOVER",
+              "BOB",
+              "OWNSER",
+              "This is Fine",
+              "DIESEL",
+              "fusalp",
+              "Kleesier",
+              "DYSFUNCT®",
+              "NICK NICOLE",
+              "SALT&CHOCOLATE",
+              "ANIA HAIE",
+              "ARICONNECTION",
+              "PRIMATE",
+              "TICKET TO THE MOON",
+              "Zeroplanet",
+              "CLROTTE",
+              "JBLIN",
+            ];
+            const ROW_B = [
+              "PELOTE",
+              "Cadeau",
+              "ALIENAR",
+              "FUNFLEX",
+              "JYDIM",
+              "ADEVA",
+              "BLACKUSH",
+              "KOMMUNTHEWEAR",
+              "Whisfairy",
+              "MSGRN",
+              "the J.Soo",
+              "CNN APPAREL",
+              "DOROCY",
+              "SELIVER®",
+              "MERRYON",
+              "SHOEHI",
+              "BBIBBONG UNNI",
+              "Rosé Frantz",
+              "DeLine",
+              "WAR DOG NYC",
+              "MON PLISSÉ",
+              "FRANK CUSTOM",
+              "NOIR DESIR",
+              "ALKI ALKA",
+            ];
             const renderItem = (name: string, i: number) => (
               <div
                 key={i}
                 className="flex-shrink-0 px-6 md:px-14 flex items-center justify-center h-16 md:h-24 text-deep-ink"
-                style={{ fontFamily: "'Noto Serif', 'Inter', serif", fontSize: "clamp(18px, 2.2vw, 32px)", fontWeight: 700, letterSpacing: "-0.01em", whiteSpace: "nowrap" }}
+                style={{
+                  fontFamily: "'Noto Serif', 'Inter', serif",
+                  fontSize: "clamp(18px, 2.2vw, 32px)",
+                  fontWeight: 700,
+                  letterSpacing: "-0.01em",
+                  whiteSpace: "nowrap",
+                }}
               >
                 {name}
               </div>
@@ -719,12 +925,13 @@ function Index() {
           })()}
         </section>
 
-
         {/* FAQ Preview */}
         <section id="faq" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">FAQ — 자주 묻는 질문</span>
-            <h2 className="text-headline-lg uppercase max-w-2xl text-right">패션 PR · 셀럽 협찬 FAQ</h2>
+            <h2 className="text-headline-lg uppercase max-w-2xl text-right">
+              패션 PR · 셀럽 협찬 FAQ
+            </h2>
           </div>
           <div className="divide-y divide-deep-ink border-t border-b border-deep-ink">
             {faqPreview.map((item, i) => (
@@ -732,14 +939,19 @@ function Index() {
                 <summary className="cursor-pointer list-none flex items-start gap-6">
                   <span className="text-label-caps text-secondary pt-1 shrink-0">Q.0{i + 1}</span>
                   <h3 className="text-headline-md font-serif flex-1">{item.q}</h3>
-                  <span className="material-symbols-outlined transition-transform group-open:rotate-45">add</span>
+                  <span className="material-symbols-outlined transition-transform group-open:rotate-45">
+                    add
+                  </span>
                 </summary>
                 <p className="text-body-md mt-4 md:pl-20 max-w-3xl leading-relaxed">{item.a}</p>
               </details>
             ))}
           </div>
           <div className="mt-10 flex justify-end">
-            <Link to="/faq" className="inline-flex items-center gap-2 text-label-caps border-2 border-deep-ink px-5 py-3 hover:bg-deep-ink hover:text-neon-signal transition-colors">
+            <Link
+              to="/faq"
+              className="inline-flex items-center gap-2 text-label-caps border-2 border-deep-ink px-5 py-3 hover:bg-deep-ink hover:text-neon-signal transition-colors"
+            >
               VIEW ALL FAQ
               <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </Link>
@@ -751,9 +963,17 @@ function Index() {
           <div className="grid grid-cols-12 gap-6 border-t-2 border-deep-ink pt-12">
             <div className="col-span-12 md:col-span-5">
               <span className="text-label-caps text-secondary mb-6 block">CONTACT</span>
-              <h2 className="text-display-xl uppercase mb-8">LET'S BUILD<br />YOUR BRAND<br />PRESENCE.</h2>
+              <h2 className="text-display-xl uppercase mb-8">
+                LET'S BUILD
+                <br />
+                YOUR BRAND
+                <br />
+                PRESENCE.
+              </h2>
               <p className="text-body-md max-w-md">
-                브랜드 상황을 남겨주시면 담당자가 제품 카테고리와 캠페인 목표에 맞는 PR 방향을 제안드립니다. 스타마케팅, PPL, 인플루언서, 언론 홍보, 통합 PR까지 — 가장 적합한 채널과 예산 구성을 함께 설계합니다.
+                브랜드 상황을 남겨주시면 담당자가 제품 카테고리와 캠페인 목표에 맞는 PR 방향을
+                제안드립니다. 스타마케팅, PPL, 인플루언서, 언론 홍보, 통합 PR까지 — 가장 적합한
+                채널과 예산 구성을 함께 설계합니다.
               </p>
             </div>
             <form
@@ -761,6 +981,7 @@ function Index() {
                 e.preventDefault();
                 const fd = new FormData(e.currentTarget);
                 const get = (k: string) => String(fd.get(k) ?? "").trim();
+                trackLandingEvent("Lead", { content_name: "clamoa_contact_form" });
                 const subject = `[CLAMOA 문의] ${get("brand") || get("name") || "New Inquiry"}`;
                 const lines = [
                   `Name: ${get("name")}`,
@@ -785,14 +1006,21 @@ function Index() {
               }}
               className="col-span-12 md:col-span-6 md:col-start-7 grid grid-cols-2 gap-6"
             >
-              {([
-                ["Name", "name", "text", "col-span-2 md:col-span-1"],
-                ["Brand Name / 브랜드명", "brand", "text", "col-span-2 md:col-span-1"],
-                ["Email", "email", "email", "col-span-2 md:col-span-1"],
-                ["Phone", "phone", "tel", "col-span-2 md:col-span-1"],
-                ["Product Category / 제품 카테고리", "category", "text", "col-span-2 md:col-span-1"],
-                ["Campaign Timing / 진행 시기", "timing", "text", "col-span-2 md:col-span-1"],
-              ] as const).map(([label, name, type, span]) => (
+              {(
+                [
+                  ["Name", "name", "text", "col-span-2 md:col-span-1"],
+                  ["Brand Name / 브랜드명", "brand", "text", "col-span-2 md:col-span-1"],
+                  ["Email", "email", "email", "col-span-2 md:col-span-1"],
+                  ["Phone", "phone", "tel", "col-span-2 md:col-span-1"],
+                  [
+                    "Product Category / 제품 카테고리",
+                    "category",
+                    "text",
+                    "col-span-2 md:col-span-1",
+                  ],
+                  ["Campaign Timing / 진행 시기", "timing", "text", "col-span-2 md:col-span-1"],
+                ] as const
+              ).map(([label, name, type, span]) => (
                 <label key={name} className={`flex flex-col gap-2 ${span}`}>
                   <span className="text-label-caps text-secondary">{label}</span>
                   <input
@@ -803,8 +1031,13 @@ function Index() {
                 </label>
               ))}
               <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
-                <span className="text-label-caps text-secondary">Service Interest / 희망 서비스</span>
-                <select name="service" className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
+                <span className="text-label-caps text-secondary">
+                  Service Interest / 희망 서비스
+                </span>
+                <select
+                  name="service"
+                  className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                >
                   <option>Celebrity Seeding (셀럽 협찬)</option>
                   <option>Stylist Relations</option>
                   <option>PPL & Content Placement</option>
@@ -818,7 +1051,10 @@ function Index() {
               </label>
               <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
                 <span className="text-label-caps text-secondary">Budget Range / 예산 범위</span>
-                <select name="budget" className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal">
+                <select
+                  name="budget"
+                  className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                >
                   <option>- 선택 -</option>
                   <option>~ 500만원</option>
                   <option>500만원 ~ 1,500만원</option>
@@ -838,7 +1074,9 @@ function Index() {
                 />
               </label>
               <label className="flex flex-col gap-2 col-span-2">
-                <span className="text-label-caps text-secondary">Brand Materials / 보유 자료 링크</span>
+                <span className="text-label-caps text-secondary">
+                  Brand Materials / 보유 자료 링크
+                </span>
                 <input
                   name="materials"
                   type="url"
@@ -868,37 +1106,58 @@ function Index() {
       {/* Footer */}
       <footer className="w-full mt-20 md:mt-32 bg-surface border-t-2 border-deep-ink grid grid-cols-12 gap-6 px-5 md:px-16 py-20">
         <div className="col-span-12 mb-20 reveal">
-          <div className="text-display-xl opacity-10 uppercase select-none pointer-events-none whitespace-nowrap overflow-hidden text-center">CLAMOA AGENCY</div>
+          <div className="text-display-xl opacity-10 uppercase select-none pointer-events-none whitespace-nowrap overflow-hidden text-center">
+            CLAMOA AGENCY
+          </div>
         </div>
         <div className="col-span-12 md:col-span-4 flex flex-col gap-6 reveal">
-          <img src={clamoaLogo.url} alt="CLAMOA logo" className="h-8 w-auto object-contain self-start" />
+          <img
+            src={clamoaLogo.url}
+            alt="CLAMOA logo"
+            className="h-8 w-auto object-contain self-start"
+          />
           <p className="text-body-md max-w-xs leading-relaxed">
-            패션 & 라이프스타일 브랜드를 위한<br />통합 PR 에이전시.
+            패션 & 라이프스타일 브랜드를 위한
+            <br />
+            통합 PR 에이전시.
           </p>
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
           <span className="text-label-caps text-secondary">SOCIAL</span>
-          <a href="#" className="text-body-md hover:text-neon-signal transition-colors">INSTAGRAM</a>
+          <a href="#" className="text-body-md hover:text-neon-signal transition-colors">
+            INSTAGRAM
+          </a>
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
           <span className="text-label-caps text-secondary">LEGAL</span>
           {["PRIVACY", "TERMS"].map((l) => (
-            <a key={l} href="#" className="text-body-md hover:text-neon-signal transition-colors">{l}</a>
+            <a key={l} href="#" className="text-body-md hover:text-neon-signal transition-colors">
+              {l}
+            </a>
           ))}
         </div>
         <div className="col-span-12 md:col-span-4 flex flex-col justify-end items-start md:items-end gap-3 mt-12 md:mt-0 reveal">
           <span className="text-label-caps text-secondary">CONTACT</span>
           <address className="not-italic text-body-md md:text-right leading-relaxed">
-            서울특별시 강남구 선릉로155길 23-3, 3층<br />
+            서울특별시 강남구 선릉로155길 23-3, 3층
+            <br />
             (CLAMOA AGENCY)
           </address>
-          <a href="tel:+82-507-1322-0092" className="text-body-md hover:text-neon-signal transition-colors">
+          <a
+            href="tel:+82-507-1322-0092"
+            className="text-body-md hover:text-neon-signal transition-colors"
+          >
             T. 0507-1322-0092
           </a>
-          <a href="mailto:dannjo@clamoa.com" className="text-body-md hover:text-neon-signal transition-colors">
+          <a
+            href="mailto:dannjo@clamoa.com"
+            className="text-body-md hover:text-neon-signal transition-colors"
+          >
             E. dannjo@clamoa.com
           </a>
-          <div className="text-body-sm text-secondary md:text-right mt-4">© 2026 CLAMOA AGENCY. ALL RIGHTS RESERVED.</div>
+          <div className="text-body-sm text-secondary md:text-right mt-4">
+            © 2026 CLAMOA AGENCY. ALL RIGHTS RESERVED.
+          </div>
         </div>
       </footer>
     </div>

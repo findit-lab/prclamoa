@@ -11,9 +11,7 @@ export function SubPageNav({ variant = "light", rightSlot }: Props) {
   const router = useRouter();
 
   const isDark = variant === "dark";
-  const wrapBg = isDark
-    ? "bg-deep-ink/90 border-white/15"
-    : "bg-surface/90 border-deep-ink/15";
+  const wrapBg = isDark ? "bg-deep-ink/90 border-white/15" : "bg-surface/90 border-deep-ink/15";
   const textColor = isDark ? "text-inverse-on-surface" : "text-deep-ink";
   const mutedColor = isDark ? "text-white/50" : "text-secondary";
 
@@ -26,9 +24,7 @@ export function SubPageNav({ variant = "light", rightSlot }: Props) {
   };
 
   return (
-    <header
-      className={`sticky top-0 z-40 backdrop-blur border-b ${wrapBg} ${textColor}`}
-    >
+    <header className={`sticky top-0 z-40 backdrop-blur border-b ${wrapBg} ${textColor}`}>
       <div className="flex items-center justify-between gap-3 md:gap-4 px-3 md:px-8 py-3">
         <button
           type="button"

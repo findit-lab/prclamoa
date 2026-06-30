@@ -9,8 +9,7 @@ export const Route = createFileRoute("/viral")({
       { title: "VIRAL — 바이럴 콘텐츠 아카이브 | CLAMOA" },
       {
         name: "description",
-        content:
-          "숏폼·릴스·틱톡·유튜브 쇼츠 등 CLAMOA가 기획·확산시킨 바이럴 콘텐츠 아카이브.",
+        content: "숏폼·릴스·틱톡·유튜브 쇼츠 등 CLAMOA가 기획·확산시킨 바이럴 콘텐츠 아카이브.",
       },
     ],
   }),
@@ -36,7 +35,9 @@ function ViralPage() {
       <ArchiveTabs variant="dark" rightSlot={`${reels.length} REELS`} />
 
       <section className="px-5 md:px-12 pt-20 md:pt-32 pb-12 md:pb-20 border-b border-white/10">
-        <span className="text-label-caps text-white/50 block mb-6 font-mono">— ARCHIVE / 02 · TRENDING NOW</span>
+        <span className="text-label-caps text-white/50 block mb-6 font-mono">
+          — ARCHIVE / 02 · TRENDING NOW
+        </span>
         <h1
           className="uppercase font-serif font-bold leading-[0.88] tracking-[-0.03em] mb-8"
           style={{ fontSize: "clamp(56px, 12vw, 180px)" }}
@@ -105,7 +106,11 @@ function ViralPage() {
                         {s.views}
                       </span>
                       <span className="flex items-center gap-1 text-[12px] font-bold">
-                        <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 text-neon-signal">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="w-3.5 h-3.5 text-neon-signal"
+                        >
                           <path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z" />
                         </svg>
                         {s.likes}

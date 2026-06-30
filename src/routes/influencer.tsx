@@ -20,23 +20,55 @@ export const Route = createFileRoute("/influencer")({
 // Mini SVG icon set — Instagram style line icons
 const Icon = {
   Heart: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
     </svg>
   ),
   Comment: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
     </svg>
   ),
   Send: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <line x1="22" y1="2" x2="11" y2="13" />
       <polygon points="22 2 15 22 11 13 2 9 22 2" />
     </svg>
   ),
   Bookmark: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
     </svg>
   ),
@@ -50,7 +82,14 @@ const Icon = {
   Verified: (props: React.SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
       <path d="M12 2l2.4 2.1 3.2-.3.6 3.1 2.8 1.6-1.5 2.8 1.5 2.8-2.8 1.6-.6 3.1-3.2-.3L12 22l-2.4-2.1-3.2.3-.6-3.1L3 15.5 4.5 12.7 3 9.9l2.8-1.6.6-3.1 3.2.3L12 2z" />
-      <path d="M9.5 12.3l1.8 1.8 3.4-3.4" stroke="#fff" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M9.5 12.3l1.8 1.8 3.4-3.4"
+        stroke="#fff"
+        strokeWidth="1.6"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
 };
@@ -83,7 +122,9 @@ function InfluencerPage() {
 
       {/* Profile header — Instagram style */}
       <section className="px-5 md:px-12 pt-24 md:pt-32 pb-10 md:pb-14 border-b border-deep-ink/10">
-        <span className="text-label-caps text-secondary block mb-6">— ARCHIVE / 03 · @CLAMOA.INFLUENCER</span>
+        <span className="text-label-caps text-secondary block mb-6">
+          — ARCHIVE / 03 · @CLAMOA.INFLUENCER
+        </span>
 
         <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-14">
           {/* Avatar with gradient ring */}
@@ -116,15 +157,24 @@ function InfluencerPage() {
               <button className="text-xs md:text-sm px-4 py-1.5 bg-surface-low rounded-md font-medium">
                 Message
               </button>
-              <button aria-label="More options" className="text-xs md:text-sm px-3 py-1.5 bg-surface-low rounded-md">
+              <button
+                aria-label="More options"
+                className="text-xs md:text-sm px-3 py-1.5 bg-surface-low rounded-md"
+              >
                 <Icon.More className="w-4 h-4" />
               </button>
             </div>
 
             <div className="flex flex-wrap gap-x-8 gap-y-2 mb-5 text-sm md:text-base">
-              <span><strong>{total}</strong> <span className="text-secondary">posts</span></span>
-              <span><strong>284K</strong> <span className="text-secondary">followers</span></span>
-              <span><strong>612</strong> <span className="text-secondary">following</span></span>
+              <span>
+                <strong>{total}</strong> <span className="text-secondary">posts</span>
+              </span>
+              <span>
+                <strong>284K</strong> <span className="text-secondary">followers</span>
+              </span>
+              <span>
+                <strong>612</strong> <span className="text-secondary">following</span>
+              </span>
             </div>
 
             <div className="space-y-1 text-sm md:text-base leading-relaxed max-w-2xl">
@@ -180,7 +230,9 @@ function InfluencerPage() {
 
       {/* Feed — 3-col square grid */}
       <section className="px-1 md:px-1 py-1" aria-labelledby="feed-heading">
-        <h2 id="feed-heading" className="sr-only">인플루언서 캠페인 피드</h2>
+        <h2 id="feed-heading" className="sr-only">
+          인플루언서 캠페인 피드
+        </h2>
         <div className="grid grid-cols-3 gap-[2px] md:gap-1">
           {influencerImages.map((img, i) => {
             const stats = fakeStats(i);
@@ -226,8 +278,7 @@ function InfluencerPage() {
               <div
                 className="p-[2px] rounded-full"
                 style={{
-                  background:
-                    "conic-gradient(from 45deg, #f09433, #dc2743, #bc1888, #f09433)",
+                  background: "conic-gradient(from 45deg, #f09433, #dc2743, #bc1888, #f09433)",
                 }}
               >
                 <div className="bg-surface p-[2px] rounded-full">
@@ -271,8 +322,12 @@ function InfluencerPage() {
             <p className="text-sm font-medium mb-1">12,482 likes</p>
             <p className="text-sm leading-relaxed">
               <span className="font-medium">clamoa.influencer</span> 시즌 무드를 일상 컨텍스트로
-              번역하는 인플루언서 캠페인. 셀렉션부터 콘텐츠 가이드, 페이드 부스팅까지 통합 운영합니다.
-              <span className="text-secondary"> #fashionpr #seoul #clamoa #influencermarketing</span>
+              번역하는 인플루언서 캠페인. 셀렉션부터 콘텐츠 가이드, 페이드 부스팅까지 통합
+              운영합니다.
+              <span className="text-secondary">
+                {" "}
+                #fashionpr #seoul #clamoa #influencermarketing
+              </span>
             </p>
             <p className="text-xs text-secondary mt-2">View all 248 comments</p>
             <p className="text-[10px] tracking-wider text-secondary mt-2 uppercase">2 DAYS AGO</p>

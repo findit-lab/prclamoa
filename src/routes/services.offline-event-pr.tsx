@@ -17,9 +17,7 @@ export const Route = createFileRoute("/services/offline-event-pr")({
       },
       { property: "og:url", content: "https://clamoa.com/services/offline-event-pr" },
     ],
-    links: [
-      { rel: "canonical", href: "https://clamoa.com/services/offline-event-pr" },
-    ],
+    links: [{ rel: "canonical", href: "https://clamoa.com/services/offline-event-pr" }],
   }),
   component: () => (
     <ServiceDetailPage
@@ -44,8 +42,14 @@ export const Route = createFileRoute("/services/offline-event-pr")({
         "사후 미디어·SNS 노출 리포트",
       ]}
       faqs={[
-        { q: "행사 규모는 어떻게 정하나요?", a: "타깃 인원, 미디어 노출 목표, 예산을 기준으로 50~300명 범위에서 설계합니다." },
-        { q: "셀럽 초청도 가능한가요?", a: "셀럽 협찬·앰버서더 라인과 연계해 초청 셀럽을 매칭합니다." },
+        {
+          q: "행사 규모는 어떻게 정하나요?",
+          a: "타깃 인원, 미디어 노출 목표, 예산을 기준으로 50~300명 범위에서 설계합니다.",
+        },
+        {
+          q: "셀럽 초청도 가능한가요?",
+          a: "셀럽 협찬·앰버서더 라인과 연계해 초청 셀럽을 매칭합니다.",
+        },
         { q: "공간이 없어도 가능한가요?", a: "쇼룸·갤러리·팝업 공간 매칭부터 함께 진행합니다." },
       ]}
     />

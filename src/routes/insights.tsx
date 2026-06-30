@@ -29,7 +29,7 @@ function InsightsPage() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("active")),
-      { threshold: 0.08, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -50px 0px" },
     );
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
@@ -70,12 +70,15 @@ function InsightsPage() {
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-10">
               <h1 className="text-display-xl uppercase mb-12">
-                FASHION PR<br />NOTES
+                FASHION PR
+                <br />
+                NOTES
               </h1>
             </div>
             <div className="col-span-12 md:col-span-8">
               <p className="text-body-lg border-l-4 border-neon-signal pl-6">
-                패션 PR 대행, 셀럽 협찬, 스타일리스트 릴레이션, PPL, 인플루언서 PR, 글로벌 확장 운영에서 CLAMOA가 정리한 인사이트와 실무 노트.
+                패션 PR 대행, 셀럽 협찬, 스타일리스트 릴레이션, PPL, 인플루언서 PR, 글로벌 확장
+                운영에서 CLAMOA가 정리한 인사이트와 실무 노트.
               </p>
             </div>
           </div>
@@ -94,7 +97,9 @@ function InsightsPage() {
                     <span className="text-label-caps text-secondary block">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-label-caps text-secondary block mt-2">{post.category}</span>
+                    <span className="text-label-caps text-secondary block mt-2">
+                      {post.category}
+                    </span>
                   </div>
                   <div className="col-span-12 md:col-span-8">
                     <h2 className="text-headline-md mb-3 group-hover:text-neon-signal transition-colors">
@@ -122,7 +127,8 @@ function InsightsPage() {
           <div>
             <span className="text-label-caps text-secondary block mb-4">CLAMOA</span>
             <p className="text-body-md text-secondary max-w-sm">
-              서울 압구정 기반 패션 PR 에이전시<br />
+              서울 압구정 기반 패션 PR 에이전시
+              <br />
               셀럽 협찬 · 스타일리스트 릴레이션 · PPL · 인플루언서 · 바이럴 · 글로벌 확장
             </p>
           </div>
@@ -130,8 +136,18 @@ function InsightsPage() {
         <div className="mt-12 pt-8 border-t border-deep-ink/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <p className="text-body-md text-secondary">© 2026 CLAMOA AGENCY. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="text-label-caps text-secondary hover:text-deep-ink transition-colors">PRIVACY</Link>
-            <Link to="/terms" className="text-label-caps text-secondary hover:text-deep-ink transition-colors">TERMS</Link>
+            <Link
+              to="/privacy"
+              className="text-label-caps text-secondary hover:text-deep-ink transition-colors"
+            >
+              PRIVACY
+            </Link>
+            <Link
+              to="/terms"
+              className="text-label-caps text-secondary hover:text-deep-ink transition-colors"
+            >
+              TERMS
+            </Link>
           </div>
         </div>
       </footer>

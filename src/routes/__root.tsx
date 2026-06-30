@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { organizationSchema } from "../lib/schema";
+import { trackInitialLandingVisit } from "../lib/utm-tracking";
 
 function NotFoundComponent() {
   return (
@@ -79,15 +80,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "CLAMOA — Fashion PR Agency Seoul" },
-      { name: "description", content: "클리모아는 쇼룸 전략, 셀러브리티 시딩, 스타일리스트 관계, 크리에이터 캠페인, 데이터 기반 PR로 패션·라이프스타일 브랜드의 문화적 가시성을 만들어내는 서울 기반 패션 PR 에이전시입니다." },
+      {
+        name: "description",
+        content:
+          "클리모아는 쇼룸 전략, 셀러브리티 시딩, 스타일리스트 관계, 크리에이터 캠페인, 데이터 기반 PR로 패션·라이프스타일 브랜드의 문화적 가시성을 만들어내는 서울 기반 패션 PR 에이전시입니다.",
+      },
       { name: "naver-site-verification", content: "25428b3d021a64d091f6dac6dc04e7f463dc037c" },
       { name: "google-site-verification", content: "mLNCTQ7_J1RQH4nYM_aq69eB_UsPxDWq7ZNfbAhU1B4" },
       { name: "author", content: "CLAMOA" },
       { property: "og:site_name", content: "CLAMOA" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1cf26590-7184-48e1-b4d3-bde7ec7f9455" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1cf26590-7184-48e1-b4d3-bde7ec7f9455" },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1cf26590-7184-48e1-b4d3-bde7ec7f9455",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1cf26590-7184-48e1-b4d3-bde7ec7f9455",
+      },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -138,6 +151,10 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    trackInitialLandingVisit();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

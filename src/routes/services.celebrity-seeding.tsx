@@ -13,14 +13,11 @@ export const Route = createFileRoute("/services/celebrity-seeding")({
       { property: "og:title", content: "셀럽 협찬(Celebrity Seeding) — 패션 PR | CLAMOA" },
       {
         property: "og:description",
-        content:
-          "패션 브랜드를 위한 셀럽 협찬 대행. 매칭 전략, 시딩 운영, 클리핑 데이터 관리까지.",
+        content: "패션 브랜드를 위한 셀럽 협찬 대행. 매칭 전략, 시딩 운영, 클리핑 데이터 관리까지.",
       },
       { property: "og:url", content: "https://clamoa.com/services/celebrity-seeding" },
     ],
-    links: [
-      { rel: "canonical", href: "https://clamoa.com/services/celebrity-seeding" },
-    ],
+    links: [{ rel: "canonical", href: "https://clamoa.com/services/celebrity-seeding" }],
   }),
   component: () => (
     <ServiceDetailPage

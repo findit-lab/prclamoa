@@ -83,9 +83,13 @@ const cases: CaseStudy[] = [
       "에디토리얼 & 바이럴 PR",
       "글로벌 확장(일본·대만·중국)",
     ],
-    channels: ["국내 셀럽 SNS·매거진", "일본 패션 미디어 협업", "샤오홍수 KOC/KOL 콘텐츠", "왕홍 라이브커머스"],
-    talentType:
-      "국내 주요 K-POP 아이돌 멤버, 패션 인플루언서, 중화권 KOC/KOL (실명 비공개)",
+    channels: [
+      "국내 셀럽 SNS·매거진",
+      "일본 패션 미디어 협업",
+      "샤오홍수 KOC/KOL 콘텐츠",
+      "왕홍 라이브커머스",
+    ],
+    talentType: "국내 주요 K-POP 아이돌 멤버, 패션 인플루언서, 중화권 KOC/KOL (실명 비공개)",
     results: {
       qualitative:
         "국내 셀럽 착용 레퍼런스가 일본 바이어 미팅 자료로 활용되며 셀렉트샵 입점 협상이 단축됨. 샤오홍수에서 브랜드 키 아이템 키워드 검색량이 증가하고, 라이브커머스 1회차에서 재고 소진 이슈가 발생할 정도의 반응을 확보.",
@@ -103,7 +107,7 @@ function CaseStudiesPage() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("active")),
-      { threshold: 0.08, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -50px 0px" },
     );
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
@@ -145,12 +149,16 @@ function CaseStudiesPage() {
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-10">
               <h1 className="text-display-xl uppercase mb-12">
-                STORIES BEHIND<br />THE EXPOSURE
+                STORIES BEHIND
+                <br />
+                THE EXPOSURE
               </h1>
             </div>
             <div className="col-span-12 md:col-span-8">
               <p className="text-body-lg border-l-4 border-neon-signal pl-6">
-                CLAMOA가 진행한 패션 PR 캠페인을 브랜드 무드, 목표, 진행 서비스, 결과, 2차 활용 관점에서 서술형으로 정리합니다. 셀럽 실명·이미지는 초상권을 고려해 비공개로 처리하고, 운영 방식과 성과 구조에 집중합니다.
+                CLAMOA가 진행한 패션 PR 캠페인을 브랜드 무드, 목표, 진행 서비스, 결과, 2차 활용
+                관점에서 서술형으로 정리합니다. 셀럽 실명·이미지는 초상권을 고려해 비공개로
+                처리하고, 운영 방식과 성과 구조에 집중합니다.
               </p>
             </div>
           </div>
@@ -218,7 +226,9 @@ function CaseStudiesPage() {
             <div className="col-span-12 md:col-span-8">
               <span className="text-neon-signal text-label-caps block mb-6">NEXT CAMPAIGN</span>
               <h2 className="text-headline-lg uppercase">
-                다음 케이스의<br />주인공이 되어보세요
+                다음 케이스의
+                <br />
+                주인공이 되어보세요
               </h2>
             </div>
             <div className="col-span-12 md:col-span-4 md:text-right">
@@ -239,7 +249,8 @@ function CaseStudiesPage() {
           <div>
             <span className="text-label-caps text-secondary block mb-4">CLAMOA</span>
             <p className="text-body-md text-secondary max-w-sm">
-              서울 압구정 기반 패션 PR 에이전시<br />
+              서울 압구정 기반 패션 PR 에이전시
+              <br />
               셀럽 협찬 · 스타일리스트 릴레이션 · PPL · 인플루언서 · 바이럴 · 글로벌 확장
             </p>
           </div>
@@ -247,8 +258,18 @@ function CaseStudiesPage() {
         <div className="mt-12 pt-8 border-t border-deep-ink/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <p className="text-body-md text-secondary">© 2026 CLAMOA AGENCY. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="text-label-caps text-secondary hover:text-deep-ink transition-colors">PRIVACY</Link>
-            <Link to="/terms" className="text-label-caps text-secondary hover:text-deep-ink transition-colors">TERMS</Link>
+            <Link
+              to="/privacy"
+              className="text-label-caps text-secondary hover:text-deep-ink transition-colors"
+            >
+              PRIVACY
+            </Link>
+            <Link
+              to="/terms"
+              className="text-label-caps text-secondary hover:text-deep-ink transition-colors"
+            >
+              TERMS
+            </Link>
           </div>
         </div>
       </footer>

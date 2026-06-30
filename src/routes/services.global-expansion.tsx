@@ -31,14 +31,11 @@ export const Route = createFileRoute("/services/global-expansion")({
       { property: "og:title", content: "글로벌 확장(Global Expansion) — 패션 PR | CLAMOA" },
       {
         property: "og:description",
-        content:
-          "한국 패션 브랜드의 일본·대만·중국 진출을 위한 PR·유통 통합 설계.",
+        content: "한국 패션 브랜드의 일본·대만·중국 진출을 위한 PR·유통 통합 설계.",
       },
       { property: "og:url", content: "https://clamoa.com/services/global-expansion" },
     ],
-    links: [
-      { rel: "canonical", href: "https://clamoa.com/services/global-expansion" },
-    ],
+    links: [{ rel: "canonical", href: "https://clamoa.com/services/global-expansion" }],
   }),
   component: () => (
     <ServiceDetailPage
@@ -79,24 +76,15 @@ export const Route = createFileRoute("/services/global-expansion")({
       extra={
         <div className="grid grid-cols-12 gap-6 md:gap-10">
           <div className="col-span-12 md:col-span-4">
-            <span className="text-label-caps text-secondary block mb-3">
-              03.5 — REGIONS
-            </span>
+            <span className="text-label-caps text-secondary block mb-3">03.5 — REGIONS</span>
             <h2 className="text-headline-md uppercase">대응 지역</h2>
           </div>
           <ul className="col-span-12 md:col-span-8 grid sm:grid-cols-3 gap-4">
             {REGIONS.map((r) => (
-              <li
-                key={r.flag}
-                className="border-2 border-deep-ink p-5 flex flex-col gap-3"
-              >
-                <span className="text-label-caps font-mono text-secondary">
-                  {r.flag}
-                </span>
+              <li key={r.flag} className="border-2 border-deep-ink p-5 flex flex-col gap-3">
+                <span className="text-label-caps font-mono text-secondary">{r.flag}</span>
                 <h3 className="text-headline-sm uppercase">{r.title}</h3>
-                <p className="text-body-sm text-secondary leading-relaxed">
-                  {r.desc}
-                </p>
+                <p className="text-body-sm text-secondary leading-relaxed">{r.desc}</p>
               </li>
             ))}
           </ul>

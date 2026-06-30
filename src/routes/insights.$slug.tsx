@@ -77,7 +77,9 @@ export const Route = createFileRoute("/insights/$slug")({
       <div className="min-h-screen bg-surface flex items-center justify-center text-deep-ink p-6">
         <div className="text-center">
           <h1 className="text-headline-lg mb-4">ERROR</h1>
-          <p className="text-body-md text-secondary mb-6">Something went wrong. Please try again.</p>
+          <p className="text-body-md text-secondary mb-6">
+            Something went wrong. Please try again.
+          </p>
           <button onClick={reset} className="text-label-caps underline">
             RETRY
           </button>
@@ -93,14 +95,14 @@ function InsightDetail() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("active")),
-      { threshold: 0.08, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -50px 0px" },
     );
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   const related = insights.filter(
-    (i) => i.slug !== post.slug && i.serviceSlug && i.serviceSlug === post.serviceSlug
+    (i) => i.slug !== post.slug && i.serviceSlug && i.serviceSlug === post.serviceSlug,
   );
 
   return (
@@ -158,7 +160,8 @@ function InsightDetail() {
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-8 md:col-start-1 space-y-8 border-t-2 border-deep-ink pt-12">
               <p className="text-body-md leading-relaxed text-secondary">
-                이 글은 작성 중입니다. 본문은 곧 업데이트됩니다. 관련 서비스 페이지에서 CLAMOA의 운영 방식을 먼저 확인하실 수 있습니다.
+                이 글은 작성 중입니다. 본문은 곧 업데이트됩니다. 관련 서비스 페이지에서 CLAMOA의
+                운영 방식을 먼저 확인하실 수 있습니다.
               </p>
               <div className="space-y-4">
                 <h2 className="text-headline-md uppercase">요약</h2>
@@ -196,7 +199,9 @@ function InsightDetail() {
               )}
               {related.length > 0 && (
                 <div>
-                  <span className="text-label-caps text-secondary block mb-4">RELATED INSIGHTS</span>
+                  <span className="text-label-caps text-secondary block mb-4">
+                    RELATED INSIGHTS
+                  </span>
                   <ul className="space-y-4">
                     {related.map((r) => (
                       <li key={r.slug}>
@@ -222,7 +227,9 @@ function InsightDetail() {
             <div className="col-span-12 md:col-span-8">
               <span className="text-neon-signal text-label-caps block mb-6">LET&apos;S TALK</span>
               <h2 className="text-headline-lg uppercase">
-                브랜드 상황에 맞춰<br />PR 플랜을 제안드립니다
+                브랜드 상황에 맞춰
+                <br />
+                PR 플랜을 제안드립니다
               </h2>
             </div>
             <div className="col-span-12 md:col-span-4 md:text-right">
@@ -250,8 +257,18 @@ function InsightDetail() {
         <div className="mt-12 pt-8 border-t border-deep-ink/20 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <p className="text-body-md text-secondary">© 2026 CLAMOA AGENCY. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="text-label-caps text-secondary hover:text-deep-ink transition-colors">PRIVACY</Link>
-            <Link to="/terms" className="text-label-caps text-secondary hover:text-deep-ink transition-colors">TERMS</Link>
+            <Link
+              to="/privacy"
+              className="text-label-caps text-secondary hover:text-deep-ink transition-colors"
+            >
+              PRIVACY
+            </Link>
+            <Link
+              to="/terms"
+              className="text-label-caps text-secondary hover:text-deep-ink transition-colors"
+            >
+              TERMS
+            </Link>
           </div>
         </div>
       </footer>

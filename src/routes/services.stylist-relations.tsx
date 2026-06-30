@@ -13,14 +13,11 @@ export const Route = createFileRoute("/services/stylist-relations")({
       { property: "og:title", content: "스타일리스트 릴레이션 — 패션 PR | CLAMOA" },
       {
         property: "og:description",
-        content:
-          "압구정 쇼룸 기반 스타일리스트 네트워크 운영. 상시 픽업·룩 매칭·시즌 프리뷰.",
+        content: "압구정 쇼룸 기반 스타일리스트 네트워크 운영. 상시 픽업·룩 매칭·시즌 프리뷰.",
       },
       { property: "og:url", content: "https://clamoa.com/services/stylist-relations" },
     ],
-    links: [
-      { rel: "canonical", href: "https://clamoa.com/services/stylist-relations" },
-    ],
+    links: [{ rel: "canonical", href: "https://clamoa.com/services/stylist-relations" }],
   }),
   component: () => (
     <ServiceDetailPage

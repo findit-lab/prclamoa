@@ -31,8 +31,8 @@ function StarPage() {
           STAR
         </h1>
         <p className="text-body-lg md:text-headline-sm max-w-3xl border-l-4 border-neon-signal pl-6 leading-relaxed">
-          K-POP 아이돌·드라마 주연 배우의 공항·출퇴근·일상 컷에서 브랜드를 자연스럽게 노출시킨
-          셀럽 시딩 아카이브입니다.
+          K-POP 아이돌·드라마 주연 배우의 공항·출퇴근·일상 컷에서 브랜드를 자연스럽게 노출시킨 셀럽
+          시딩 아카이브입니다.
         </p>
       </section>
 

@@ -2,28 +2,49 @@ import { Link, useRouterState } from "@tanstack/react-router";
 
 import { SubPageNav } from "@/components/SubPageNav";
 import { getInsightsForService } from "@/data/insights";
-import {
-  SITE_URL,
-  breadcrumbSchema,
-  serviceSchema,
-} from "@/lib/schema";
+import { SITE_URL, breadcrumbSchema, serviceSchema } from "@/lib/schema";
 
 export type ServiceFAQ = { q: string; a: string };
 export type ServiceStep = { title: string; desc: string };
 
 /** Per-slug meta used to build Service + Breadcrumb JSON-LD. */
-const SERVICE_META: Record<
-  string,
-  { serviceType: string; label: string; areaServed: string[] }
-> = {
-  "celebrity-seeding": { serviceType: "Celebrity Seeding", label: "Celebrity Seeding (셀럽 협찬)", areaServed: ["KR"] },
-  "stylist-relations": { serviceType: "Stylist Relations", label: "Stylist Relations (스타일리스트 릴레이션)", areaServed: ["KR"] },
-  "ppl-content-placement": { serviceType: "Product Placement", label: "PPL & Content Placement", areaServed: ["KR"] },
-  "influencer-pr": { serviceType: "Influencer Marketing", label: "Influencer PR", areaServed: ["KR"] },
-  "editorial-viral-pr": { serviceType: "Editorial & Viral PR", label: "Editorial & Viral PR", areaServed: ["KR"] },
+const SERVICE_META: Record<string, { serviceType: string; label: string; areaServed: string[] }> = {
+  "celebrity-seeding": {
+    serviceType: "Celebrity Seeding",
+    label: "Celebrity Seeding (셀럽 협찬)",
+    areaServed: ["KR"],
+  },
+  "stylist-relations": {
+    serviceType: "Stylist Relations",
+    label: "Stylist Relations (스타일리스트 릴레이션)",
+    areaServed: ["KR"],
+  },
+  "ppl-content-placement": {
+    serviceType: "Product Placement",
+    label: "PPL & Content Placement",
+    areaServed: ["KR"],
+  },
+  "influencer-pr": {
+    serviceType: "Influencer Marketing",
+    label: "Influencer PR",
+    areaServed: ["KR"],
+  },
+  "editorial-viral-pr": {
+    serviceType: "Editorial & Viral PR",
+    label: "Editorial & Viral PR",
+    areaServed: ["KR"],
+  },
   "offline-event-pr": { serviceType: "Event PR", label: "Offline Event PR", areaServed: ["KR"] },
-  "brand-ambassador": { serviceType: "Brand Ambassador Campaign", label: "Brand Ambassador Campaign", areaServed: ["KR"] },
-  "global-expansion": { serviceType: "Global Distribution & PR", label: "Global Expansion", areaServed: ["KR", "JP", "TW", "CN"] },
+  "brand-ambassador": {
+    serviceType: "Brand Ambassador Campaign",
+    label: "Brand Ambassador Campaign",
+    areaServed: ["KR"],
+  },
+  "global-expansion": {
+    serviceType: "Global Distribution & PR",
+    label: "Global Expansion",
+    areaServed: ["KR", "JP", "TW", "CN"],
+  },
 };
 
 type Props = {
@@ -84,9 +105,6 @@ export function ServiceDetailPage({
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
       <SubPageNav variant="light" />
-
-
-
 
       {/* HERO + DEFINITION */}
       <section className="px-5 md:px-12 pt-28 md:pt-40 pb-16 md:pb-24 border-b-2 border-deep-ink">
@@ -158,10 +176,7 @@ export function ServiceDetailPage({
           </div>
           <ul className="col-span-12 md:col-span-8 grid sm:grid-cols-2 gap-3">
             {deliverables.map((d, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 text-body-md leading-relaxed"
-              >
+              <li key={i} className="flex items-start gap-3 text-body-md leading-relaxed">
                 <span className="mt-2 h-2 w-2 bg-neon-signal flex-shrink-0" />
                 <span>{d}</span>
               </li>
@@ -211,7 +226,9 @@ export function ServiceDetailPage({
                     className="flex items-start justify-between gap-6 py-5 hover:text-neon-signal transition-colors group"
                   >
                     <div>
-                      <span className="text-label-caps text-secondary block mb-2">{i.category}</span>
+                      <span className="text-label-caps text-secondary block mb-2">
+                        {i.category}
+                      </span>
                       <span className="text-body-lg">{i.title}</span>
                     </div>
                     <span className="material-symbols-outlined text-[20px] mt-1 group-hover:translate-x-1 transition-transform">
@@ -233,7 +250,9 @@ export function ServiceDetailPage({
             className="uppercase font-serif font-bold leading-[0.95] mb-10"
             style={{ fontSize: "clamp(36px, 6vw, 80px)" }}
           >
-            브랜드에 맞는 PR 설계,<br />클라모아와 시작하세요.
+            브랜드에 맞는 PR 설계,
+            <br />
+            클라모아와 시작하세요.
           </h2>
           <Link
             to="/contact"

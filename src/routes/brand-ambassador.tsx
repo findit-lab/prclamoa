@@ -28,7 +28,9 @@ function AmbassadorPage() {
           className="uppercase font-serif font-bold leading-[0.88] tracking-[-0.03em] mb-8"
           style={{ fontSize: "clamp(48px, 10vw, 160px)" }}
         >
-          BRAND<br />AMBASSADOR
+          BRAND
+          <br />
+          AMBASSADOR
         </h1>
         <p className="text-body-lg md:text-headline-sm max-w-3xl border-l-4 border-neon-signal pl-6 leading-relaxed">
           단발성 협찬을 넘어 브랜드의 시즌 뮤즈·장기 앰배서더로 이어진 캐스팅. 브랜드 헤리티지와
@@ -65,7 +67,6 @@ function AmbassadorPage() {
           })}
         </div>
       </section>
-
 
       <SectionCTA
         eyebrow="DIVE DEEPER"

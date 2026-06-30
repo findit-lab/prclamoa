@@ -8,7 +8,13 @@ interface Props {
   ctaLabel?: string;
 }
 
-export function SectionCTA({ eyebrow, title, description, to, ctaLabel = "서비스 상세 보기" }: Props) {
+export function SectionCTA({
+  eyebrow,
+  title,
+  description,
+  to,
+  ctaLabel = "서비스 상세 보기",
+}: Props) {
   return (
     <section className="px-5 md:px-12 py-20 md:py-32 bg-deep-ink text-inverse-on-surface border-t-2 border-deep-ink">
       <div className="max-w-4xl">

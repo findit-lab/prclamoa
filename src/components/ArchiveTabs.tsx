@@ -24,9 +24,7 @@ export function ArchiveTabs({ variant = "light", rightSlot }: Props) {
   const shellBg = isDark ? "bg-deep-ink/95 border-white/10" : "bg-surface/95 border-deep-ink/10";
   const textColor = isDark ? "text-inverse-on-surface" : "text-deep-ink";
   const mutedColor = isDark ? "text-white/45" : "text-secondary";
-  const activeChip = isDark
-    ? "bg-neon-signal text-deep-ink"
-    : "bg-deep-ink text-neon-signal";
+  const activeChip = isDark ? "bg-neon-signal text-deep-ink" : "bg-deep-ink text-neon-signal";
   const inactiveChip = isDark
     ? "text-white/65 hover:text-white border border-white/15 hover:border-white/40"
     : "text-deep-ink/65 hover:text-deep-ink border border-deep-ink/15 hover:border-deep-ink/60";
@@ -48,9 +46,7 @@ export function ArchiveTabs({ variant = "light", rightSlot }: Props) {
           </span>
           <span className="text-label-caps font-mono">CLAMOA / ARCHIVE</span>
         </button>
-        <div className={`text-label-caps font-mono ${mutedColor} hidden md:block`}>
-          {rightSlot}
-        </div>
+        <div className={`text-label-caps font-mono ${mutedColor} hidden md:block`}>{rightSlot}</div>
       </div>
 
       {/* row 2 — chip tabs */}
