@@ -37,6 +37,7 @@ import { Route as ServicesEditorialViralPrRouteImport } from './routes/services.
 import { Route as ServicesCelebritySeedingRouteImport } from './routes/services.celebrity-seeding'
 import { Route as ServicesBrandAmbassadorRouteImport } from './routes/services.brand-ambassador'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
 import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
 import { Route as ApiInfluencerImageIdRouteImport } from './routes/api/influencer.image.$id'
@@ -187,6 +188,11 @@ const InsightsSlugRoute = InsightsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => InsightsRoute,
 } as any)
+const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
+  id: '/api/public/contact',
+  path: '/api/public/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiStarImageIdRoute = ApiStarImageIdRouteImport.update({
   id: '/api/star/image/$id',
   path: '/api/star/image/$id',
@@ -243,6 +249,7 @@ export interface FileRoutesByFullPath {
   '/services/ppl-content-placement': typeof ServicesPplContentPlacementRoute
   '/services/stylist-relations': typeof ServicesStylistRelationsRoute
   '/services/': typeof ServicesIndexRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -277,6 +284,7 @@ export interface FileRoutesByTo {
   '/services/ppl-content-placement': typeof ServicesPplContentPlacementRoute
   '/services/stylist-relations': typeof ServicesStylistRelationsRoute
   '/services': typeof ServicesIndexRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -313,6 +321,7 @@ export interface FileRoutesById {
   '/services/ppl-content-placement': typeof ServicesPplContentPlacementRoute
   '/services/stylist-relations': typeof ServicesStylistRelationsRoute
   '/services/': typeof ServicesIndexRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -350,6 +359,7 @@ export interface FileRouteTypes {
     | '/services/ppl-content-placement'
     | '/services/stylist-relations'
     | '/services/'
+    | '/api/public/contact'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -384,6 +394,7 @@ export interface FileRouteTypes {
     | '/services/ppl-content-placement'
     | '/services/stylist-relations'
     | '/services'
+    | '/api/public/contact'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -419,6 +430,7 @@ export interface FileRouteTypes {
     | '/services/ppl-content-placement'
     | '/services/stylist-relations'
     | '/services/'
+    | '/api/public/contact'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -445,6 +457,7 @@ export interface RootRouteChildren {
   StarRoute: typeof StarRoute
   TermsRoute: typeof TermsRoute
   ViralRoute: typeof ViralRoute
+  ApiPublicContactRoute: typeof ApiPublicContactRoute
   ApiBrandAmbassadorImageIdRoute: typeof ApiBrandAmbassadorImageIdRoute
   ApiEventImageIdRoute: typeof ApiEventImageIdRoute
   ApiInfluencerImageIdRoute: typeof ApiInfluencerImageIdRoute
@@ -650,6 +663,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsSlugRouteImport
       parentRoute: typeof InsightsRoute
     }
+    '/api/public/contact': {
+      id: '/api/public/contact'
+      path: '/api/public/contact'
+      fullPath: '/api/public/contact'
+      preLoaderRoute: typeof ApiPublicContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/star/image/$id': {
       id: '/api/star/image/$id'
       path: '/api/star/image/$id'
@@ -747,6 +767,7 @@ const rootRouteChildren: RootRouteChildren = {
   StarRoute: StarRoute,
   TermsRoute: TermsRoute,
   ViralRoute: ViralRoute,
+  ApiPublicContactRoute: ApiPublicContactRoute,
   ApiBrandAmbassadorImageIdRoute: ApiBrandAmbassadorImageIdRoute,
   ApiEventImageIdRoute: ApiEventImageIdRoute,
   ApiInfluencerImageIdRoute: ApiInfluencerImageIdRoute,
