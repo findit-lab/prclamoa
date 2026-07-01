@@ -79,6 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "utm-event-endpoint",
+        content: "https://clamoa-meta-ads.vercel.app/api/utm/event",
+      },
       { title: "CLAMOA — Fashion PR Agency Seoul" },
       {
         name: "description",
@@ -106,8 +110,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "FASHION PR, WE MAKE BRANDS VISIBLE" },
       { property: "og:description", content: "FASHION PR, WE MAKE BRANDS VISIBLE" },
       { name: "twitter:description", content: "FASHION PR, WE MAKE BRANDS VISIBLE" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d0eb9144-01b3-4e9b-9a42-32d0d432ffc0" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d0eb9144-01b3-4e9b-9a42-32d0d432ffc0" },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d0eb9144-01b3-4e9b-9a42-32d0d432ffc0",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d0eb9144-01b3-4e9b-9a42-32d0d432ffc0",
+      },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
