@@ -101,6 +101,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1cf26590-7184-48e1-b4d3-bde7ec7f9455",
       },
+      { property: "og:title", content: "CLAMOA — Fashion PR Agency Seoul" },
+      { name: "twitter:title", content: "CLAMOA — Fashion PR Agency Seoul" },
+      { name: "description", content: "FASHION PR, WE MAKE BRANDS VISIBLE" },
+      { property: "og:description", content: "FASHION PR, WE MAKE BRANDS VISIBLE" },
+      { name: "twitter:description", content: "FASHION PR, WE MAKE BRANDS VISIBLE" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d0eb9144-01b3-4e9b-9a42-32d0d432ffc0" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d0eb9144-01b3-4e9b-9a42-32d0d432ffc0" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
