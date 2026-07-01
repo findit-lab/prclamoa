@@ -993,9 +993,6 @@ function Index() {
                   `Service Interest: ${get("service")}`,
                   `Budget Range: ${get("budget")}`,
                   "",
-                  "── Campaign Goal ──",
-                  get("goal"),
-                  "",
                   `Brand Website: ${get("website")}`,
                   `Instagram: ${get("instagram")}`,
                   "",
@@ -1099,15 +1096,6 @@ function Index() {
                   <option>5,000만원 이상</option>
                   <option>상담 후 결정</option>
                 </select>
-              </label>
-              <label className="flex flex-col gap-2 col-span-2">
-                <span className="text-label-caps text-secondary">Campaign Goal / 캠페인 목표</span>
-                <textarea
-                  name="goal"
-                  rows={3}
-                  placeholder="예) 신상 라인 셀럽 노출 확보, 일본 셀렉트샵 입점, SNS 바이럴 확산 등"
-                  className="bg-transparent border border-deep-ink p-4 text-body-md focus:outline-none focus:border-neon-signal resize-none"
-                />
               </label>
               <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <label className="flex flex-col gap-2">
