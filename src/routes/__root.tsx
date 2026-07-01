@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         name: "utm-event-endpoint",
-        content: "https://clamoa-meta-ads-livid.vercel.app/api/utm/event",
+        content: "https://clamoa-meta-ads.vercel.app/api/utm/event",
       },
       { title: "CLAMOA — Fashion PR Agency Seoul" },
       {
