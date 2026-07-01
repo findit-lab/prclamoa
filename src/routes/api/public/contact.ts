@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 
 const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
 const TO_EMAIL = "dannjo@clamoa.com";
-// Uses Resend's shared sender until a custom domain is verified in Resend.
-const FROM_EMAIL = "CLAMOA Inquiry <onboarding@resend.dev>";
+// Requires clamoa.com (or a subdomain) to be verified in Resend with SPF/DKIM.
+const FROM_EMAIL = "CLAMOA Inquiry <dannjo@clamoa.com>";
 
 const MAX_LEN = 2000;
 const clean = (v: unknown) =>
