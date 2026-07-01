@@ -977,30 +977,35 @@ function Index() {
               </p>
             </div>
             <form
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
-                const fd = new FormData(e.currentTarget);
-                const get = (k: string) => String(fd.get(k) ?? "").trim();
-                trackLandingEvent("Lead", { content_name: "clamoa_contact_form" });
-                const subject = `[CLAMOA 문의] ${get("brand") || get("name") || "New Inquiry"}`;
-                const lines = [
-                  `Name: ${get("name")}`,
-                  `Brand: ${get("brand")}`,
-                  `Email: ${get("email")}`,
-                  `Phone: ${get("phone")}`,
-                  `Product Category: ${get("category")}`,
-                  `Campaign Timing: ${get("timing")}`,
-                  `Service Interest: ${get("service")}`,
-                  `Budget Range: ${get("budget")}`,
-                  "",
-                  `Brand Website: ${get("website")}`,
-                  `Instagram: ${get("instagram")}`,
-                  "",
-                  "── Message ──",
-                  get("message"),
-                ];
-                const body = lines.join("\n");
-                window.location.href = `mailto:dannjo@clamoa.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                const form = e.currentTarget;
+                const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+                const fd = new FormData(form);
+                const payload = Object.fromEntries(
+                  ["name","brand","email","phone","category","timing","service","budget","website","instagram","message"]
+                    .map((k) => [k, String(fd.get(k) ?? "").trim()])
+                );
+                if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "SENDING..."; }
+                try {
+                  const res = await fetch("/api/public/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                  });
+                  const data = await res.json().catch(() => ({}));
+                  if (res.ok && data.ok) {
+                    trackLandingEvent("Lead", { content_name: "clamoa_contact_form" });
+                    if (submitBtn) submitBtn.textContent = "SENT ✓ — 24시간 내 회신드리겠습니다";
+                    form.reset();
+                  } else {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "SEND INQUIRY"; }
+                    alert("전송에 실패했습니다. 잠시 후 다시 시도해 주세요.");
+                  }
+                } catch {
+                  if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "SEND INQUIRY"; }
+                  alert("네트워크 오류로 전송에 실패했습니다.");
+                }
               }}
               className="col-span-12 md:col-span-6 md:col-start-7 grid grid-cols-2 gap-6"
             >
