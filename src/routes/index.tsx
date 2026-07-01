@@ -996,7 +996,8 @@ function Index() {
                   "── Campaign Goal ──",
                   get("goal"),
                   "",
-                  `Brand Materials: ${get("materials")}`,
+                  `Brand Website: ${get("website")}`,
+                  `Instagram: ${get("instagram")}`,
                   "",
                   "── Message ──",
                   get("message"),
@@ -1012,13 +1013,6 @@ function Index() {
                   ["Brand Name / 브랜드명", "brand", "text", "col-span-2 md:col-span-1"],
                   ["Email", "email", "email", "col-span-2 md:col-span-1"],
                   ["Phone", "phone", "tel", "col-span-2 md:col-span-1"],
-                  [
-                    "Product Category / 제품 카테고리",
-                    "category",
-                    "text",
-                    "col-span-2 md:col-span-1",
-                  ],
-                  ["Campaign Timing / 진행 시기", "timing", "text", "col-span-2 md:col-span-1"],
                 ] as const
               ).map(([label, name, type, span]) => (
                 <label key={name} className={`flex flex-col gap-2 ${span}`}>
@@ -1030,6 +1024,48 @@ function Index() {
                   />
                 </label>
               ))}
+              <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
+                <span className="text-label-caps text-secondary">
+                  Product Category / 제품 카테고리
+                </span>
+                <select
+                  name="category"
+                  defaultValue=""
+                  className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                >
+                  <option value="" disabled>
+                    - 선택 -
+                  </option>
+                  <option>여성복 / Womenswear</option>
+                  <option>남성복 / Menswear</option>
+                  <option>유니섹스 / Unisex</option>
+                  <option>주얼리 / Jewelry</option>
+                  <option>가방·슈즈 / Bag & Shoes</option>
+                  <option>뷰티 / Beauty</option>
+                  <option>라이프스타일 / Lifestyle</option>
+                  <option>기타 / Other</option>
+                </select>
+              </label>
+              <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
+                <span className="text-label-caps text-secondary">
+                  Campaign Timing / 진행 시기
+                </span>
+                <select
+                  name="timing"
+                  defaultValue=""
+                  className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                >
+                  <option value="" disabled>
+                    - 선택 -
+                  </option>
+                  <option>즉시 진행 / ASAP</option>
+                  <option>1개월 이내</option>
+                  <option>1~3개월 이내</option>
+                  <option>3~6개월 이내</option>
+                  <option>6개월 이후</option>
+                  <option>미정 / 상담 후 결정</option>
+                </select>
+              </label>
               <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
                 <span className="text-label-caps text-secondary">
                   Service Interest / 희망 서비스
@@ -1073,17 +1109,31 @@ function Index() {
                   className="bg-transparent border border-deep-ink p-4 text-body-md focus:outline-none focus:border-neon-signal resize-none"
                 />
               </label>
-              <label className="flex flex-col gap-2 col-span-2">
-                <span className="text-label-caps text-secondary">
-                  Brand Materials / 보유 자료 링크
-                </span>
-                <input
-                  name="materials"
-                  type="url"
-                  placeholder="브랜드 홈페이지, 인스타그램, 룩북 URL"
-                  className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
-                />
-              </label>
+              <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <label className="flex flex-col gap-2">
+                  <span className="text-label-caps text-secondary">
+                    Brand Website / 브랜드 홈페이지
+                  </span>
+                  <input
+                    name="website"
+                    type="text"
+                    inputMode="url"
+                    placeholder="www.yourbrand.com"
+                    className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                  />
+                </label>
+                <label className="flex flex-col gap-2">
+                  <span className="text-label-caps text-secondary">
+                    Instagram / 인스타그램
+                  </span>
+                  <input
+                    name="instagram"
+                    type="text"
+                    placeholder="@yourbrand 또는 instagram.com/yourbrand"
+                    className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                  />
+                </label>
+              </div>
               <label className="flex flex-col gap-2 col-span-2">
                 <span className="text-label-caps text-secondary">Message / 추가 메시지</span>
                 <textarea
