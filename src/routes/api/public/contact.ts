@@ -4,8 +4,6 @@ const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
 const TO_EMAIL = "dannjo@clamoa.com";
 // Requires clamoa.com (or a subdomain) to be verified in Resend with SPF/DKIM.
 const FROM_EMAIL = "CLAMOA Inquiry <dannjo@clamoa.com>";
-// Used until clamoa.com is verified in Resend; delivers to the Resend account owner.
-const FALLBACK_FROM_EMAIL = "CLAMOA Inquiry <onboarding@resend.dev>";
 
 const MAX_LEN = 2000;
 const clean = (v: unknown) =>
