@@ -1,9 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
 const TO_EMAIL = "dannjo@clamoa.com";
-// Requires clamoa.com (or a subdomain) to be verified in Resend with SPF/DKIM.
-const FROM_EMAIL = "CLAMOA Inquiry <dannjo@clamoa.com>";
 
 const MAX_LEN = 2000;
 const clean = (v: unknown) =>
@@ -14,13 +11,15 @@ const escapeHtml = (s: string) =>
     ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!,
   );
 
+const row = (k: string, v: string) =>
+  `<tr><td style="padding:6px 12px;color:#666;white-space:nowrap;">${escapeHtml(k)}</td><td style="padding:6px 12px;">${escapeHtml(v) || "-"}</td></tr>`;
+
 export const Route = createFileRoute("/api/public/contact")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const LOVABLE_API_KEY = process.env.LOVABLE_API_KEY;
-        const RESEND_API_KEY = process.env.RESEND_API_KEY;
-        if (!LOVABLE_API_KEY || !RESEND_API_KEY) {
+        const GAS_CONTACT_URL = process.env.GAS_CONTACT_URL;
+        if (!GAS_CONTACT_URL) {
           return Response.json(
             { ok: false, error: "email_not_configured" },
             { status: 500 },
@@ -57,9 +56,6 @@ export const Route = createFileRoute("/api/public/contact")({
 
         const subject = `[CLAMOA 문의] ${f.brand || f.name || "New Inquiry"}`;
 
-        const row = (k: string, v: string) =>
-          `<tr><td style="padding:6px 12px;color:#666;white-space:nowrap;">${escapeHtml(k)}</td><td style="padding:6px 12px;">${escapeHtml(v) || "-"}</td></tr>`;
-
         const html = `<!doctype html><html><body style="font-family:-apple-system,Segoe UI,Arial,sans-serif;color:#111;">
 <h2 style="margin:0 0 16px;">New Inquiry — CLAMOA</h2>
 <table style="border-collapse:collapse;font-size:14px;">
@@ -94,36 +90,36 @@ ${row("Instagram", f.instagram)}
           f.message,
         ].join("\n");
 
-        const send = (from: string) =>
-          fetch(`${GATEWAY_URL}/emails`, {
+        try {
+          const res = await fetch(GAS_CONTACT_URL, {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${LOVABLE_API_KEY}`,
-              "X-Connection-Api-Key": RESEND_API_KEY,
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              from,
-              to: [TO_EMAIL],
-              reply_to: f.email,
+              to: TO_EMAIL,
               subject,
               html,
               text,
+              replyTo: f.email,
             }),
           });
 
-        const res = await send(FROM_EMAIL);
+          if (!res.ok) {
+            const body = await res.text();
+            console.error("gas_send_failed", res.status, body);
+            return Response.json(
+              { ok: false, error: "send_failed", status: res.status },
+              { status: 502 },
+            );
+          }
 
-        if (!res.ok) {
-          const body = await res.text();
-          console.error("resend_send_failed", res.status, body);
+          return Response.json({ ok: true });
+        } catch (err) {
+          console.error("gas_send_exception", err);
           return Response.json(
-            { ok: false, error: "send_failed", status: res.status },
+            { ok: false, error: "send_failed" },
             { status: 502 },
           );
         }
-
-        return Response.json({ ok: true });
       },
     },
   },
