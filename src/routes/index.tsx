@@ -1017,17 +1017,21 @@ function Index() {
             >
               {(
                 [
-                  ["Name", "name", "text", "col-span-2 md:col-span-1"],
-                  ["Brand Name / 브랜드명", "brand", "text", "col-span-2 md:col-span-1"],
-                  ["Email", "email", "email", "col-span-2 md:col-span-1"],
-                  ["Phone", "phone", "tel", "col-span-2 md:col-span-1"],
+                  ["Name", "name", "text", "col-span-2 md:col-span-1", true],
+                  ["Brand Name / 브랜드명", "brand", "text", "col-span-2 md:col-span-1", false],
+                  ["Email", "email", "email", "col-span-2 md:col-span-1", true],
+                  ["Phone", "phone", "tel", "col-span-2 md:col-span-1", false],
                 ] as const
-              ).map(([label, name, type, span]) => (
+              ).map(([label, name, type, span, required]) => (
                 <label key={name} className={`flex flex-col gap-2 ${span}`}>
-                  <span className="text-label-caps text-secondary">{label}</span>
+                  <span className="text-label-caps text-secondary">
+                    {label}
+                    {required ? " *" : ""}
+                  </span>
                   <input
                     name={name}
                     type={type}
+                    required={required}
                     className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
                   />
                 </label>
