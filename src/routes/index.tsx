@@ -1176,9 +1176,9 @@ function Index() {
           </p>
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
-          <span className="text-label-caps text-secondary">SOCIAL</span>
+          <span className="text-label-caps text-secondary">{"\n"}</span>
           <a href="#" className="text-body-md hover:text-neon-signal transition-colors">
-            INSTAGRAM
+            {"\n"}
           </a>
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
