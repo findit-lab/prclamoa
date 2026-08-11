@@ -114,15 +114,7 @@ ${row("Instagram", f.instagram)}
             }),
           });
 
-        let res = await send(FROM_EMAIL);
-
-        // clamoa.com not yet verified in Resend -> fall back to Resend's shared
-        // sender so inquiries still reach the account owner's inbox.
-        if (res.status === 403) {
-          const first = await res.text();
-          console.error("resend_send_failed", 403, first);
-          res = await send(FALLBACK_FROM_EMAIL);
-        }
+        const res = await send(FROM_EMAIL);
 
         if (!res.ok) {
           const body = await res.text();
