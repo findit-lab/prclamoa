@@ -94,22 +94,25 @@ ${row("Instagram", f.instagram)}
           f.message,
         ].join("\n");
 
-        const res = await fetch(`${GATEWAY_URL}/emails`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${LOVABLE_API_KEY}`,
-            "X-Connection-Api-Key": RESEND_API_KEY,
-          },
-          body: JSON.stringify({
-            from: FROM_EMAIL,
-            to: [TO_EMAIL],
-            reply_to: f.email,
-            subject,
-            html,
-            text,
-          }),
-        });
+        const send = (from: string) =>
+          fetch(`${GATEWAY_URL}/emails`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${LOVABLE_API_KEY}`,
+              "X-Connection-Api-Key": RESEND_API_KEY,
+            },
+            body: JSON.stringify({
+              from,
+              to: [TO_EMAIL],
+              reply_to: f.email,
+              subject,
+              html,
+              text,
+            }),
+          });
+
+        const res = await send(FROM_EMAIL);
 
         if (!res.ok) {
           const body = await res.text();

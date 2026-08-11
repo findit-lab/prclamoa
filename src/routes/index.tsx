@@ -993,14 +993,20 @@ function Index() {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload),
                   });
-                  const data = await res.json().catch(() => ({}));
+                  const data = await res.json().catch(() => ({}) as Record<string, unknown>);
                   if (res.ok && data.ok) {
                     trackLandingEvent("Lead", { content_name: "clamoa_contact_form" });
                     if (submitBtn) submitBtn.textContent = "SENT ✓ — 24시간 내 회신드리겠습니다";
                     form.reset();
                   } else {
                     if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "SEND INQUIRY"; }
-                    alert("전송에 실패했습니다. 잠시 후 다시 시도해 주세요.");
+                    const msg =
+                      data.error === "invalid_email"
+                        ? "이메일 주소를 올바르게 입력해 주세요."
+                        : data.error === "missing_fields"
+                          ? "이름 또는 브랜드명을 입력해 주세요."
+                          : "전송에 실패했습니다. 잠시 후 다시 시도해 주세요.";
+                    alert(msg);
                   }
                 } catch {
                   if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "SEND INQUIRY"; }
@@ -1011,17 +1017,21 @@ function Index() {
             >
               {(
                 [
-                  ["Name", "name", "text", "col-span-2 md:col-span-1"],
-                  ["Brand Name / 브랜드명", "brand", "text", "col-span-2 md:col-span-1"],
-                  ["Email", "email", "email", "col-span-2 md:col-span-1"],
-                  ["Phone", "phone", "tel", "col-span-2 md:col-span-1"],
+                  ["Name", "name", "text", "col-span-2 md:col-span-1", true],
+                  ["Brand Name / 브랜드명", "brand", "text", "col-span-2 md:col-span-1", false],
+                  ["Email", "email", "email", "col-span-2 md:col-span-1", true],
+                  ["Phone", "phone", "tel", "col-span-2 md:col-span-1", false],
                 ] as const
-              ).map(([label, name, type, span]) => (
+              ).map(([label, name, type, span, required]) => (
                 <label key={name} className={`flex flex-col gap-2 ${span}`}>
-                  <span className="text-label-caps text-secondary">{label}</span>
+                  <span className="text-label-caps text-secondary">
+                    {label}
+                    {required ? " *" : ""}
+                  </span>
                   <input
                     name={name}
                     type={type}
+                    required={required}
                     className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
                   />
                 </label>
