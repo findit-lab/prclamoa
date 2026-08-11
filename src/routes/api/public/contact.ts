@@ -94,22 +94,33 @@ ${row("Instagram", f.instagram)}
           f.message,
         ].join("\n");
 
-        const res = await fetch(`${GATEWAY_URL}/emails`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${LOVABLE_API_KEY}`,
-            "X-Connection-Api-Key": RESEND_API_KEY,
-          },
-          body: JSON.stringify({
-            from: FROM_EMAIL,
-            to: [TO_EMAIL],
-            reply_to: f.email,
-            subject,
-            html,
-            text,
-          }),
-        });
+        const send = (from: string) =>
+          fetch(`${GATEWAY_URL}/emails`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${LOVABLE_API_KEY}`,
+              "X-Connection-Api-Key": RESEND_API_KEY,
+            },
+            body: JSON.stringify({
+              from,
+              to: [TO_EMAIL],
+              reply_to: f.email,
+              subject,
+              html,
+              text,
+            }),
+          });
+
+        let res = await send(FROM_EMAIL);
+
+        // clamoa.com not yet verified in Resend -> fall back to Resend's shared
+        // sender so inquiries still reach the account owner's inbox.
+        if (res.status === 403) {
+          const first = await res.text();
+          console.error("resend_send_failed", 403, first);
+          res = await send(FALLBACK_FROM_EMAIL);
+        }
 
         if (!res.ok) {
           const body = await res.text();
