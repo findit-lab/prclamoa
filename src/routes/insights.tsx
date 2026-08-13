@@ -77,8 +77,8 @@ function InsightsPage() {
             </div>
             <div className="col-span-12 md:col-span-8">
               <p className="text-body-lg border-l-4 border-neon-signal pl-6">
-                패션 PR 대행, 셀럽 협찬, 스타일리스트 릴레이션, PPL, 인플루언서 PR, 글로벌 확장
-                운영에서 CLAMOA가 정리한 인사이트와 실무 노트.
+                패션 PR 대행, 셀럽 협찬, PPL, 인플루언서 PR, 글로벌 확장 운영에서 CLAMOA가 정리한
+                인사이트와 실무 노트.
               </p>
             </div>
           </div>
@@ -91,7 +91,7 @@ function InsightsPage() {
                 <Link
                   to="/insights/$slug"
                   params={{ slug: post.slug }}
-                  className="grid grid-cols-12 gap-6 py-10 md:py-14 hover:bg-deep-ink/[0.02] transition-colors"
+                  className="grid grid-cols-12 gap-6 py-10 md:py-14 hover:bg-deep-ink/[0.02] transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon-signal"
                 >
                   <div className="col-span-12 md:col-span-2">
                     <span className="text-label-caps text-secondary block">

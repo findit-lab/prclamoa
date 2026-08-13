@@ -109,7 +109,7 @@ function ServicesHub() {
             <li key={s.to}>
               <Link
                 to={s.to}
-                className="group block h-full bg-surface border-2 border-deep-ink p-6 md:p-7 hover:bg-deep-ink hover:text-inverse-on-surface transition-colors"
+                className="group block h-full bg-surface border-2 border-deep-ink p-6 md:p-7 hover:bg-deep-ink hover:text-inverse-on-surface transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon-signal"
               >
                 <div className="flex items-baseline justify-between mb-8">
                   <span className="text-label-caps font-mono text-secondary group-hover:text-neon-signal">
