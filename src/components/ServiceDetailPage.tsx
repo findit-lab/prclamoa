@@ -229,7 +229,7 @@ export function ServiceDetailPage({
                   <Link
                     to="/insights/$slug"
                     params={{ slug: i.slug }}
-                    className="flex items-start justify-between gap-6 py-5 hover:text-neon-signal transition-colors group"
+                    className="flex items-start justify-between gap-6 py-5 hover:text-neon-signal transition-colors group focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon-signal"
                   >
                     <div>
                       <span className="text-label-caps text-secondary block mb-2">

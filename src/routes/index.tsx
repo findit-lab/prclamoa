@@ -494,7 +494,7 @@ function Index() {
                 <Link
                   key={t}
                   to={href}
-                  className="grid grid-rows-subgrid row-span-3 gap-y-6 border-r border-b border-deep-ink p-10 hover:bg-deep-ink hover:text-surface transition-colors duration-300 group"
+                  className="grid grid-rows-subgrid row-span-3 gap-y-6 border-r border-b border-deep-ink p-10 hover:bg-deep-ink hover:text-surface transition-colors duration-300 group focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon-signal"
                 >
                   <span className="text-label-caps text-secondary group-hover:text-neon-signal block">
                     0{i + 1}
