@@ -56,6 +56,10 @@ type Props = {
   fitFor: string[];
   /** CLAMOA's process steps. */
   steps: ServiceStep[];
+  /** Optional intro sentence for the process section. */
+  processIntro?: string;
+  /** Optional override for the deliverables section heading. */
+  deliverablesTitle?: string;
   /** Expected deliverables / outputs. */
   deliverables: string[];
   /** 3~5 FAQ entries. */
@@ -70,7 +74,9 @@ export function ServiceDetailPage({
   definition,
   fitFor,
   steps,
+  processIntro,
   deliverables,
+  deliverablesTitle,
   faqs,
   extra,
 }: Props) {
@@ -148,7 +154,7 @@ export function ServiceDetailPage({
             <h2 className="text-headline-md uppercase">클라모아 진행 방식</h2>
           </div>
           <p className="col-span-12 md:col-span-8 text-body-md text-secondary max-w-2xl">
-            브리프부터 리포팅까지, 단계별로 결과를 추적합니다.
+            {processIntro ?? "브리프부터 리포팅까지, 단계별로 결과를 추적합니다."}
           </p>
         </div>
         <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -172,7 +178,7 @@ export function ServiceDetailPage({
         <div className="grid grid-cols-12 gap-6 md:gap-10">
           <div className="col-span-12 md:col-span-4">
             <span className="text-label-caps text-secondary block mb-3">03 — OUTPUT</span>
-            <h2 className="text-headline-md uppercase">기대 산출물</h2>
+            <h2 className="text-headline-md uppercase">{deliverablesTitle ?? "기대 산출물"}</h2>
           </div>
           <ul className="col-span-12 md:col-span-8 grid sm:grid-cols-2 gap-3">
             {deliverables.map((d, i) => (

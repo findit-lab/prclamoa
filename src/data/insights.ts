@@ -14,7 +14,7 @@ export const insights: Insight[] = [
     title: "패션 브랜드 셀럽 협찬은 어떻게 진행되나요?",
     excerpt:
       "상담·브랜드 검토 → PR 플랜 → 계약·쇼룸 입점 → 스타일리스트 피칭 → 셀럽 착용 → 클리핑까지, 패션 PR 대행사가 셀럽 협찬을 진행하는 전체 단계와 각 단계에서 브랜드가 준비해야 할 것을 정리합니다.",
-    category: "CELEBRITY SEEDING",
+    category: "STAR MARKETING",
     serviceSlug: "celebrity-seeding",
     serviceLabel: "셀럽 협찬(Celebrity Seeding)",
   },
@@ -36,18 +36,18 @@ export const insights: Insight[] = [
   },
   {
     slug: "ppl-vs-celebrity-seeding",
-    title: "패션 PPL과 셀럽 협찬의 차이",
+    title: "PPL과 셀럽 협찬의 차이",
     excerpt:
-      "PPL은 콘텐츠 장면에 제품을 배치하는 방식이고, 셀럽 협찬은 인물의 실착을 통한 노출입니다. 두 방식의 계약 구조·비용·노출 효과 차이와 함께 운영하는 시나리오를 비교합니다.",
+      "PPL은 인스타그램 피드, 유튜브 PPL·브랜디드 콘텐츠 등 사전에 협의된 방식으로 노출하며, 셀럽과 채널, 콘텐츠 형태에 따라 별도의 비용이 발생합니다. 셀럽 협찬은 쇼룸에 제품을 입점하고 스타일리스트 피칭을 통해 실제 셀럽 착용으로 이어졌을 때 자연스럽게 노출되는 PR 방식입니다.",
     category: "PPL",
     serviceSlug: "ppl-content-placement",
     serviceLabel: "PPL & 콘텐츠 플레이스먼트",
   },
   {
     slug: "influencer-and-celebrity-together",
-    title: "인플루언서 PR과 셀럽 협찬을 함께 운영하는 방법",
+    title: "셀럽 협찬을 인플루언서 PR로 확장하는 방법",
     excerpt:
-      "셀럽 협찬으로 만든 무드와 인플루언서 PR의 전환력은 다른 레이어에서 작동합니다. 두 채널을 캠페인 안에서 어떻게 결합해야 인지도와 전환을 동시에 만들 수 있는지 정리합니다.",
+      "셀럽 협찬을 통해 확보한 착용 및 노출 자료를 인플루언서 PR과 연계하여 브랜드 이슈를 확산하고, 제품에 대한 관심과 구매 전환으로 이어질 수 있는 마케팅 전략을 제안합니다.",
     category: "INFLUENCER PR",
     serviceSlug: "influencer-pr",
     serviceLabel: "인플루언서 PR",
@@ -63,18 +63,18 @@ export const insights: Insight[] = [
   },
   {
     slug: "showroom-preparation-checklist",
-    title: "패션 브랜드 쇼룸 입점 전 준비해야 할 자료",
+    title: "패션 브랜드 쇼룸 입점 전 준비사항",
     excerpt:
-      "룩북, 시즌 컨셉 도큐먼트, 가격·재고 시트, 협찬 가능 샘플, 브랜드 SNS·쇼핑몰 링크까지 — 압구정 쇼룸 입점 전에 정리해두면 좋은 자료를 단계별로 안내합니다.",
+      "쇼룸 입점 제품과 주력으로 노출하고 싶은 제품을 사전에 선정합니다. 입점 수량은 컬러별 SKU를 포함해 최소 30벌 이상, 최대 200벌 미만으로 구성하며, 제품 수가 많은 경우 브랜드 방향성과 주력 제품을 기준으로 입점 제품을 선별합니다.",
     category: "OPERATION",
     serviceSlug: "stylist-relations",
     serviceLabel: "스타일리스트 릴레이션",
   },
   {
     slug: "japan-select-shop-expansion",
-    title: "한국 패션 브랜드의 일본 편집샵 진출 전략",
+    title: "한국 패션 브랜드의 해외 편집샵 진출 전략",
     excerpt:
-      "일본 셀렉트샵·편집샵 입점을 위한 브랜드 포지셔닝, 바이어 미팅 자료, 가격 구조와 한국 셀럽 레퍼런스를 활용한 진입 전략을 정리합니다.",
+      "해외 셀렉트샵·편집샵 입점을 위한 브랜드 포지셔닝, 바이어 미팅 자료, 가격 구조와 한국 셀럽 레퍼런스를 활용한 진입 전략을 정리합니다.",
     category: "GLOBAL",
     serviceSlug: "global-expansion",
     serviceLabel: "글로벌 확장",
@@ -87,13 +87,6 @@ export const insights: Insight[] = [
     category: "GLOBAL",
     serviceSlug: "global-expansion",
     serviceLabel: "글로벌 확장",
-  },
-  {
-    slug: "fashion-pr-campaign-reporting",
-    title: "패션 PR 캠페인 성과를 리포팅하는 방법",
-    excerpt:
-      "셀럽 픽업·착용 현황, 노출 채널 클리핑, SNS 반응, 검색 트렌드, 매체 가치 환산까지 — 패션 PR 캠페인 성과를 투명하게 보고하는 리포팅 프레임.",
-    category: "REPORTING",
   },
 ];
 

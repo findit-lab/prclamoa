@@ -77,8 +77,8 @@ function InsightsPage() {
             </div>
             <div className="col-span-12 md:col-span-8">
               <p className="text-body-lg border-l-4 border-neon-signal pl-6">
-                패션 PR 대행, 셀럽 협찬, 스타일리스트 릴레이션, PPL, 인플루언서 PR, 글로벌 확장
-                운영에서 CLAMOA가 정리한 인사이트와 실무 노트.
+                패션 PR 대행, 셀럽 협찬, PPL, 인플루언서 PR, 글로벌 확장 운영에서 CLAMOA가
+                정리한 인사이트와 실무 노트.
               </p>
             </div>
           </div>
