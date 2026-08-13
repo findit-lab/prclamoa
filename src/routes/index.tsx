@@ -983,10 +983,24 @@ function Index() {
                 const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
                 const fd = new FormData(form);
                 const payload = Object.fromEntries(
-                  ["name","brand","email","phone","category","timing","service","budget","website","instagram","message"]
-                    .map((k) => [k, String(fd.get(k) ?? "").trim()])
+                  [
+                    "name",
+                    "brand",
+                    "email",
+                    "phone",
+                    "category",
+                    "timing",
+                    "service",
+                    "budget",
+                    "website",
+                    "instagram",
+                    "message",
+                  ].map((k) => [k, String(fd.get(k) ?? "").trim()]),
                 );
-                if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "SENDING..."; }
+                if (submitBtn) {
+                  submitBtn.disabled = true;
+                  submitBtn.textContent = "SENDING...";
+                }
                 try {
                   const res = await fetch("/api/public/contact", {
                     method: "POST",
@@ -999,7 +1013,10 @@ function Index() {
                     if (submitBtn) submitBtn.textContent = "SENT ✓ — 24시간 내 회신드리겠습니다";
                     form.reset();
                   } else {
-                    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "SEND INQUIRY"; }
+                    if (submitBtn) {
+                      submitBtn.disabled = false;
+                      submitBtn.textContent = "SEND INQUIRY";
+                    }
                     const msg =
                       data.error === "invalid_email"
                         ? "이메일 주소를 올바르게 입력해 주세요."
@@ -1009,7 +1026,10 @@ function Index() {
                     alert(msg);
                   }
                 } catch {
-                  if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "SEND INQUIRY"; }
+                  if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "SEND INQUIRY";
+                  }
                   alert("네트워크 오류로 전송에 실패했습니다.");
                 }
               }}
@@ -1059,9 +1079,7 @@ function Index() {
                 </select>
               </label>
               <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
-                <span className="text-label-caps text-secondary">
-                  Campaign Timing / 진행 시기
-                </span>
+                <span className="text-label-caps text-secondary">Campaign Timing / 진행 시기</span>
                 <select
                   name="timing"
                   defaultValue=""
@@ -1126,9 +1144,7 @@ function Index() {
                   />
                 </label>
                 <label className="flex flex-col gap-2">
-                  <span className="text-label-caps text-secondary">
-                    Instagram / 인스타그램
-                  </span>
+                  <span className="text-label-caps text-secondary">Instagram / 인스타그램</span>
                   <input
                     name="instagram"
                     type="text"
