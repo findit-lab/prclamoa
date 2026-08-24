@@ -186,36 +186,37 @@ function Index() {
 
   const services: Array<[string, string, string]> = [
     [
-      "STAR MARKETING",
-      "배우, 아이돌, 연애 프로그램 출연자 등 브랜드 이미지와\n어울리는 셀럽 착용을 통해 신뢰도 높은 노출을 만듭니다.",
+      "SHOWROOM CELEBRITY PR",
+      "쇼룸에 제품을 진열하고 스타일리스트 네트워크를 통해\n배우·아이돌 등 셀럽 착용 노출로 연결합니다.",
       "/services/celebrity-seeding",
     ],
     [
       "INFLUENCER PR",
-      "브랜드 타깃에 맞는 인플루언서와 크리에이터를 연결해\u00a0\nSNS 콘텐츠와 바이럴 확산을 유도합니다.",
+      "브랜드 무드에 맞는 인플루언서를 큐레이션하고\n시딩·콘텐츠 캠페인을 통합 운영합니다.",
       "/services/influencer-pr",
     ],
     [
-      "PPL & CONTENTS",
-      "영상 콘텐츠, 방송, 유튜브, OTT, 공항패션 등 브랜드가\u00a0\n주목받을 수 있는\u00a0노출 장면을 연결합니다.",
+      "SNS / YOUTUBE PPL",
+      "인플루언서·셀럽의 SNS·유튜브 콘텐츠 안에서\n제품을 자연스럽게 노출해 화제성을 만듭니다.",
       "/services/ppl-content-placement",
     ],
     [
-      "OFFLINE EXPERIENCE",
-      "팝업, 플리마켓, 런칭 행사 등 오프라인 접점을 통해 브랜드 경험과 콘텐츠 기회를 확장합니다.",
+      "OFFLINE EVENT",
+      "팝업스토어·프레스데이·런칭 파티를 기획·운영하고\n셀럽·프레스 초청과 현장 노출까지 연결합니다.",
       "/services/offline-event-pr",
     ],
     [
-      "AMBASSADOR CAMPAIGN",
-      "브랜드와 어울리는 앰버서더·셀럽 단기 계약을 통해 확보된 콘텐츠의 2차 활용까지 설계합니다.",
+      "BRAND AMBASSADOR",
+      "셀럽·아티스트와 일정 기간 협업해 캠페인 촬영과\n앰버서더 활동으로 브랜드 자산을 쌓습니다.",
       "/services/brand-ambassador",
     ],
     [
-      "BRAND EXPANSION",
-      "국내외 유통, 팝업, 왕홍 라이브커머스 등 브랜드 성장에\u00a0\n필요한 다양한 기회를 함께 모색합니다.",
+      "GLOBAL EXPANSION",
+      "일본·대만·중국 등 해외 유통 채널 입점부터\n샤오홍수·왕홍 라이브커머스까지 지원합니다.",
       "/services/global-expansion",
     ],
   ];
+
 
   const faqPreview = [
     {
