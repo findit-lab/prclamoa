@@ -22,15 +22,45 @@ const ENTRIES: SitemapEntry[] = [
     priority: "0.9",
   })),
   { path: "/about", changefreq: "monthly", priority: "0.8" },
-  { path: "/services", changefreq: "monthly", priority: "0.9" },
-  { path: "/services/celebrity-seeding", changefreq: "monthly", priority: "0.8" },
-  { path: "/services/stylist-relations", changefreq: "monthly", priority: "0.8" },
-  { path: "/services/ppl-content-placement", changefreq: "monthly", priority: "0.8" },
-  { path: "/services/influencer-pr", changefreq: "monthly", priority: "0.8" },
-  { path: "/services/editorial-viral-pr", changefreq: "monthly", priority: "0.8" },
-  { path: "/services/offline-event-pr", changefreq: "monthly", priority: "0.8" },
-  { path: "/services/brand-ambassador", changefreq: "monthly", priority: "0.8" },
-  { path: "/services/global-expansion", changefreq: "monthly", priority: "0.8" },
+  {
+    path: "/services",
+    changefreq: "monthly",
+    priority: "0.9",
+    cluster: SERVICE_CLUSTER_LOCALES.map((x) => ({
+      hreflang: LOCALE_REGISTRY[x].bcp47,
+      path: x === "ko" ? "/services" : `/${x}/services`,
+    })),
+  },
+  ...SERVICE_SLUGS.map((slug) => ({
+    path: `/services/${slug}`,
+    changefreq: "monthly" as const,
+    priority: "0.8",
+    cluster: SERVICE_CLUSTER_LOCALES.map((x) => ({
+      hreflang: LOCALE_REGISTRY[x].bcp47,
+      path: x === "ko" ? `/services/${slug}` : `/${x}/services/${slug}`,
+    })),
+  })),
+  ...SERVICE_LOCALES.flatMap((l) => [
+    {
+      path: `/${l}/services`,
+      changefreq: "monthly" as const,
+      priority: "0.8",
+      cluster: SERVICE_CLUSTER_LOCALES.map((x) => ({
+        hreflang: LOCALE_REGISTRY[x].bcp47,
+        path: x === "ko" ? "/services" : `/${x}/services`,
+      })),
+    },
+    ...SERVICE_SLUGS.map((slug) => ({
+      path: `/${l}/services/${slug}`,
+      changefreq: "monthly" as const,
+      priority: "0.7",
+      cluster: SERVICE_CLUSTER_LOCALES.map((x) => ({
+        hreflang: LOCALE_REGISTRY[x].bcp47,
+        path: x === "ko" ? `/services/${slug}` : `/${x}/services/${slug}`,
+      })),
+    })),
+  ]),
+
   { path: "/case-studies", changefreq: "weekly", priority: "0.9" },
   { path: "/star", changefreq: "monthly", priority: "0.7" },
   { path: "/magazine", changefreq: "monthly", priority: "0.7" },
