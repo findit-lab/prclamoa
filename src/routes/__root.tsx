@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -13,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { organizationSchema } from "../lib/schema";
 import { trackInitialLandingVisit } from "../lib/utm-tracking";
+import { LOCALE_REGISTRY, localeFromPathname } from "@/i18n/config";
 
 function NotFoundComponent() {
   return (
@@ -155,8 +157,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const locale = localeFromPathname(pathname);
+  const { bcp47, dir } = LOCALE_REGISTRY[locale];
   return (
-    <html lang="en">
+    <html lang={bcp47} dir={dir}>
       <head>
         <HeadContent />
       </head>
