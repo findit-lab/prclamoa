@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import { makeT } from "@/i18n";
+const LOCALE_JOURNAL = { en: "/en/journal", ja: "/ja/journal", vi: "/vi/journal", th: "/th/journal" } as const;
 const LOCALE_HOME = { ko: "/", en: "/en", ja: "/ja", vi: "/vi", th: "/th" } as const;
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Link } from "@tanstack/react-router";
@@ -291,6 +292,14 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               {l}
             </a>
           ))}
+          {locale !== "ko" && (
+            <Link
+              to={LOCALE_JOURNAL[locale as "en" | "ja" | "vi" | "th"]}
+              className="text-label-caps hover:text-neon-signal transition-colors duration-200"
+            >
+              JOURNAL
+            </Link>
+          )}
           <LanguageSwitcher locale={locale} />
         </div>
         <div className="flex md:hidden items-center gap-2">
@@ -315,6 +324,14 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                 {l}
               </a>
             ))}
+            {locale !== "ko" && (
+              <Link
+                to={LOCALE_JOURNAL[locale as "en" | "ja" | "vi" | "th"]}
+                className="text-label-caps px-6 py-5 border-t border-deep-ink/20 hover:bg-neon-signal"
+              >
+                JOURNAL
+              </Link>
+            )}
           </div>
         )}
       </nav>
