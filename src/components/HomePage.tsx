@@ -1,5 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import { makeT } from "@/i18n";
+import { localeHomePath } from "@/i18n/config";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Link } from "@tanstack/react-router";
 import brandVisibilityVideo from "@/assets/brand-visibility.mp4.asset.json";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -271,14 +273,14 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
         ref={navRef}
         className="fixed top-0 w-full z-50 bg-surface/95 border-b border-deep-ink flex justify-between items-center px-5 md:px-16 py-5 md:py-6 transition-all duration-500"
       >
-        <Link to="/" className="block" aria-label="CLAMOA logo">
+        <a href={localeHomePath(locale)} className="block" aria-label="CLAMOA logo">
           <img
             src={clamoaLogo.url}
             alt="CLAMOA logo"
             className="h-6 md:h-8 w-auto object-contain"
           />
-        </Link>
-        <div className="hidden md:flex gap-8">
+        </a>
+        <div className="hidden md:flex gap-8 items-center">
           {navLinks.map(([l, h]) => (
             <a
               key={l}
@@ -289,7 +291,10 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               {l}
             </a>
           ))}
+          <LanguageSwitcher locale={locale} />
         </div>
+        <div className="flex md:hidden items-center gap-2">
+        <LanguageSwitcher locale={locale} />
         <button
           aria-label="Toggle menu"
           className="md:hidden text-label-caps border border-deep-ink px-4 py-2"
@@ -297,6 +302,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
         >
           {menuOpen ? "CLOSE" : "MENU"}
         </button>
+        </div>
         {menuOpen && (
           <div className="absolute top-full left-0 right-0 bg-surface border-b border-deep-ink md:hidden flex flex-col">
             {navLinks.map(([l, h]) => (
