@@ -90,10 +90,10 @@ export function homeAlternateLinks() {
   return [
     ...LOCALES.map((l) => ({
       rel: "alternate" as const,
-      hrefLang: LOCALE_REGISTRY[l].bcp47,
+      hreflang: LOCALE_REGISTRY[l].bcp47,
       href: localeHomeUrl(l),
     })),
-    { rel: "alternate" as const, hrefLang: "x-default", href: localeHomeUrl(DEFAULT_LOCALE) },
+    { rel: "alternate" as const, hreflang: "x-default", href: localeHomeUrl(DEFAULT_LOCALE) },
   ];
 }
 
