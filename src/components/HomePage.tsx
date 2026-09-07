@@ -324,8 +324,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               </h1>
               <div className="max-w-xl space-y-6">
                 <p className="text-body-lg border-l-4 border-neon-signal pl-6 italic font-serif whitespace-pre-line">
-                  셀럽 협찬부터 PPL, 인플루언서, 바이럴, 글로벌 확장 연계까지 —{"\n"}패션 브랜드의
-                  인지도와 새로운 기회를 함께 만들어갑니다.
+                  {t("셀럽 협찬부터 PPL, 인플루언서, 바이럴, 글로벌 확장 연계까지 —\n패션 브랜드의 인지도와 새로운 기회를 함께 만들어갑니다.")}
                 </p>
                 <p className="text-body-md pl-6 max-w-lg whitespace-pre-line">
                   {
@@ -337,14 +336,14 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                     href="#portfolio"
                     className="inline-flex items-center gap-2 bg-deep-ink text-neon-signal px-5 py-3 text-label-caps border-2 border-deep-ink hover:bg-neon-signal hover:text-deep-ink transition-all duration-300"
                   >
-                    포트폴리오 보기
+                    {t("포트폴리오 보기")}
                     <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                   </a>
                   <a
                     href="#contact"
                     className="inline-flex items-center gap-2 bg-transparent text-deep-ink px-5 py-3 text-label-caps border-2 border-deep-ink hover:bg-deep-ink hover:text-neon-signal transition-all duration-300"
                   >
-                    상담 문의하기
+                    {t("상담 문의하기")}
                     <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                   </a>
                 </div>
@@ -353,12 +352,8 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
             <div className="col-span-12 md:col-span-4">
               <div className="border-2 border-deep-ink p-8 bg-neon-signal hover-lift shadow-[8px_8px_0px_0px_rgba(26,28,28,1)]">
                 <span className="text-label-caps block mb-4">APGUJEONG RODEO · SEOUL</span>
-                <h2 className="text-headline-md uppercase">
-                  셀럽과
-                  <br />
-                  스타일리스트가
-                  <br />
-                  찾는 패션 PR 쇼룸
+                <h2 className="text-headline-md uppercase whitespace-pre-line">
+                  {t("셀럽과\n스타일리스트가\n찾는 패션 PR 쇼룸")}
                 </h2>
               </div>
             </div>
@@ -406,8 +401,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                   RIGHT EXPOSURE
                 </h3>
                 <p className="text-body-md mb-8 whitespace-pre-line">
-                  브랜드와 잘 맞는 셀럽, 콘텐츠, 채널을 연결해 가장 자연스럽고{"\n"}효과적인 노출
-                  전략을 설계합니다.
+                  {t("브랜드와 잘 맞는 셀럽, 콘텐츠, 채널을 연결해 가장 자연스럽고\n효과적인 노출 전략을 설계합니다.")}
                 </p>
               </div>
             </div>
@@ -467,24 +461,24 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
               <span className="text-label-caps text-secondary">CORE CAPABILITIES</span>
               <h2 className="text-headline-lg uppercase max-w-2xl text-right">
-                패션 브랜드를 위한 통합 PR 솔루션
+                {t("패션 브랜드를 위한 통합 PR 솔루션")}
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-[repeat(18,auto)] md:grid-rows-[repeat(9,auto)] lg:grid-rows-[repeat(6,auto)] border-l border-t border-deep-ink">
-              {services.map(([t, d, href], i) => (
+              {services.map(([title, d, href], i) => (
                 <Link
-                  key={t}
+                  key={title}
                   to={href}
                   className="grid grid-rows-subgrid row-span-3 gap-y-6 border-r border-b border-deep-ink p-10 hover:bg-deep-ink hover:text-surface transition-colors duration-300 group focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon-signal"
                 >
                   <span className="text-label-caps text-secondary group-hover:text-neon-signal block">
                     0{i + 1}
                   </span>
-                  <h3 className="text-headline-md uppercase">{t}</h3>
+                  <h3 className="text-headline-md uppercase">{title}</h3>
                   <p className="text-body-md opacity-90 whitespace-pre-line">
                     {d}
                     <span className="block mt-3 text-label-caps opacity-70 group-hover:opacity-100 group-hover:text-neon-signal">
-                      자세히 보기 →
+                      {t("자세히 보기")} →
                     </span>
                   </p>
                 </Link>
@@ -520,9 +514,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                 PR
               </h2>
               <p className="text-body-lg max-w-md text-surface/80 mb-8">
-                CLAMOA는 브랜드의 무드와 목표에 맞춰 PR 방향성을 컨설팅하고, 무작위 노출이 아닌 타겟
-                중심의 셀럽 협찬을 진행합니다. RINK 플랫폼을 통한 운영 관리와 PPL·앰버서더 캠페인,
-                오프라인 및 글로벌 확장 기회를 함께 만들어 갑니다.
+                {t("CLAMOA는 브랜드의 무드와 목표에 맞춰 PR 방향성을 컨설팅하고, 무작위 노출이 아닌 타겟 중심의 셀럽 협찬을 진행합니다. RINK 플랫폼을 통한 운영 관리와 PPL·앰버서더 캠페인, 오프라인 및 글로벌 확장 기회를 함께 만들어 갑니다.")}
               </p>
               <Link
                 to="/about"
@@ -552,15 +544,14 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
             <span className="text-label-caps text-secondary">PROCESS</span>
             <h2 className="text-headline-lg uppercase max-w-2xl text-right">
-              상담 접수부터 2차 확산까지
+              {t("상담 접수부터 2차 확산까지")}
             </h2>
           </div>
           <p className="text-body-md max-w-2xl mb-10 -mt-8 text-secondary">
-            브랜드 목표와 예산에 맞춰 가장 적합한 노출 채널을 설계하고, 협찬 진행부터 콘텐츠
-            확산까지 단계별로 관리합니다.
+            {t("브랜드 목표와 예산에 맞춰 가장 적합한 노출 채널을 설계하고, 협찬 진행부터 콘텐츠 확산까지 단계별로 관리합니다.")}
           </p>
           <div className="divide-y divide-deep-ink border-t border-b border-deep-ink">
-            {process.map(([n, t, d]) => (
+            {process.map(([n, title, d]) => (
               <div
                 key={n}
                 className="grid grid-cols-12 gap-3 md:gap-6 py-6 md:py-10 group hover:bg-neon-signal transition-colors duration-300"
@@ -569,7 +560,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                   <span className="font-serif text-3xl md:text-5xl">{n}</span>
                 </div>
                 <div className="col-span-12 md:col-span-4">
-                  <h3 className="text-headline-md uppercase">{t}</h3>
+                  <h3 className="text-headline-md uppercase">{title}</h3>
                 </div>
                 <div className="col-span-12 md:col-span-6">
                   <p className="text-body-md max-w-xl">{d}</p>
@@ -672,7 +663,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                       <div className="flex flex-wrap gap-2 mt-2">
                         {c.tags.map((t) => (
                           <span
-                            key={t}
+                            key={title}
                             className="border border-deep-ink px-3 py-1 font-bold tracking-widest text-[10px] uppercase hover:bg-deep-ink hover:text-surface transition-colors"
                           >
                             {t}
@@ -760,8 +751,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                 EXPANSION
               </h2>
               <p className="text-body-lg max-w-md text-surface/80">
-                클라모아는 국내외 유통 네트워크와 글로벌 마케팅 채널을 활용해 브랜드가 새로운
-                시장에서 성장할 수 있는 기회를 만들어갑니다.
+                {t("클라모아는 국내외 유통 네트워크와 글로벌 마케팅 채널을 활용해 브랜드가 새로운 시장에서 성장할 수 있는 기회를 만들어갑니다.")}
               </p>
             </div>
             <div className="col-span-12 md:col-span-6 md:col-start-7 mt-12 md:mt-8">
@@ -796,8 +786,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               </div>
               <div className="mt-10 border-t border-white/20 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <p className="text-body-md text-surface/70 max-w-lg">
-                  쇼룸 협찬, 셀러브리티 시딩, 스타일리스트 플레이스먼트 데이터를 통합하여 최적의
-                  바이어 매칭을 도출합니다.
+                  {t("쇼룸 협찬, 셀러브리티 시딩, 스타일리스트 플레이스먼트 데이터를 통합하여 최적의 바이어 매칭을 도출합니다.")}
                 </p>
                 <a
                   href="#contact"
@@ -909,9 +898,9 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
         {/* FAQ Preview */}
         <section id="faq" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 border-t-2 border-deep-ink pt-12">
-            <span className="text-label-caps text-secondary">FAQ — 자주 묻는 질문</span>
+            <span className="text-label-caps text-secondary">{t("FAQ — 자주 묻는 질문")}</span>
             <h2 className="text-headline-lg uppercase max-w-2xl text-right">
-              패션 PR · 셀럽 협찬 FAQ
+              {t("패션 PR · 셀럽 협찬 FAQ")}
             </h2>
           </div>
           <div className="divide-y divide-deep-ink border-t border-b border-deep-ink">
@@ -952,9 +941,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                 PRESENCE.
               </h2>
               <p className="text-body-md max-w-md">
-                브랜드 상황을 남겨주시면 담당자가 제품 카테고리와 캠페인 목표에 맞는 PR 방향을
-                제안드립니다. 스타마케팅, PPL, 인플루언서, 언론 홍보, 통합 PR까지 — 가장 적합한
-                채널과 예산 구성을 함께 설계합니다.
+                {t("브랜드 상황을 남겨주시면 담당자가 제품 카테고리와 캠페인 목표에 맞는 PR 방향을 제안드립니다. 스타마케팅, PPL, 인플루언서, 언론 홍보, 통합 PR까지 — 가장 적합한 채널과 예산 구성을 함께 설계합니다.")}
               </p>
             </div>
             <form
@@ -1039,7 +1026,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               ))}
               <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
                 <span className="text-label-caps text-secondary">
-                  Product Category / 제품 카테고리
+                  {t("Product Category / 제품 카테고리")}
                 </span>
                 <select
                   name="category"
@@ -1047,45 +1034,45 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                   className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
                 >
                   <option value="" disabled>
-                    - 선택 -
+                    {t("- 선택 -")}
                   </option>
-                  <option>여성복 / Womenswear</option>
-                  <option>남성복 / Menswear</option>
-                  <option>유니섹스 / Unisex</option>
-                  <option>주얼리 / Jewelry</option>
-                  <option>가방·슈즈 / Bag & Shoes</option>
-                  <option>뷰티 / Beauty</option>
-                  <option>라이프스타일 / Lifestyle</option>
-                  <option>기타 / Other</option>
+                  <option>{t("여성복 / Womenswear")}</option>
+                  <option>{t("남성복 / Menswear")}</option>
+                  <option>{t("유니섹스 / Unisex")}</option>
+                  <option>{t("주얼리 / Jewelry")}</option>
+                  <option>{t("가방·슈즈 / Bag & Shoes")}</option>
+                  <option>{t("뷰티 / Beauty")}</option>
+                  <option>{t("라이프스타일 / Lifestyle")}</option>
+                  <option>{t("기타 / Other")}</option>
                 </select>
               </label>
               <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
-                <span className="text-label-caps text-secondary">Campaign Timing / 진행 시기</span>
+                <span className="text-label-caps text-secondary">{t("Campaign Timing / 진행 시기")}</span>
                 <select
                   name="timing"
                   defaultValue=""
                   className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
                 >
                   <option value="" disabled>
-                    - 선택 -
+                    {t("- 선택 -")}
                   </option>
-                  <option>즉시 진행 / ASAP</option>
-                  <option>1개월 이내</option>
-                  <option>1~3개월 이내</option>
-                  <option>3~6개월 이내</option>
-                  <option>6개월 이후</option>
-                  <option>미정 / 상담 후 결정</option>
+                  <option>{t("즉시 진행 / ASAP")}</option>
+                  <option>{t("1개월 이내")}</option>
+                  <option>{t("1~3개월 이내")}</option>
+                  <option>{t("3~6개월 이내")}</option>
+                  <option>{t("6개월 이후")}</option>
+                  <option>{t("미정 / 상담 후 결정")}</option>
                 </select>
               </label>
               <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
                 <span className="text-label-caps text-secondary">
-                  Service Interest / 희망 서비스
+                  {t("Service Interest / 희망 서비스")}
                 </span>
                 <select
                   name="service"
                   className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
                 >
-                  <option>Celebrity Seeding (셀럽 협찬)</option>
+                  <option>{t("Celebrity Seeding (셀럽 협찬)")}</option>
                   <option>Stylist Relations</option>
                   <option>PPL & Content Placement</option>
                   <option>Influencer PR</option>
@@ -1097,24 +1084,24 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                 </select>
               </label>
               <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
-                <span className="text-label-caps text-secondary">Budget Range / 예산 범위</span>
+                <span className="text-label-caps text-secondary">{t("Budget Range / 예산 범위")}</span>
                 <select
                   name="budget"
                   className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
                 >
-                  <option>- 선택 -</option>
-                  <option>~ 500만원</option>
-                  <option>500만원 ~ 1,500만원</option>
-                  <option>1,500만원 ~ 3,000만원</option>
-                  <option>3,000만원 ~ 5,000만원</option>
-                  <option>5,000만원 이상</option>
-                  <option>상담 후 결정</option>
+                  <option>{t("- 선택 -")}</option>
+                  <option>{t("~ 500만원")}</option>
+                  <option>{t("500만원 ~ 1,500만원")}</option>
+                  <option>{t("1,500만원 ~ 3,000만원")}</option>
+                  <option>{t("3,000만원 ~ 5,000만원")}</option>
+                  <option>{t("5,000만원 이상")}</option>
+                  <option>{t("상담 후 결정")}</option>
                 </select>
               </label>
               <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <label className="flex flex-col gap-2">
                   <span className="text-label-caps text-secondary">
-                    Brand Website / 브랜드 홈페이지
+                    {t("Brand Website / 브랜드 홈페이지")}
                   </span>
                   <input
                     name="website"
@@ -1125,17 +1112,17 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                   />
                 </label>
                 <label className="flex flex-col gap-2">
-                  <span className="text-label-caps text-secondary">Instagram / 인스타그램</span>
+                  <span className="text-label-caps text-secondary">{t("Instagram / 인스타그램")}</span>
                   <input
                     name="instagram"
                     type="text"
-                    placeholder="@yourbrand 또는 instagram.com/yourbrand"
+                    placeholder={t("@yourbrand 또는 instagram.com/yourbrand")}
                     className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
                   />
                 </label>
               </div>
               <label className="flex flex-col gap-2 col-span-2">
-                <span className="text-label-caps text-secondary">Message / 추가 메시지</span>
+                <span className="text-label-caps text-secondary">{t("Message / 추가 메시지")}</span>
                 <textarea
                   name="message"
                   rows={4}
@@ -1167,9 +1154,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
             className="h-8 w-auto object-contain self-start"
           />
           <p className="text-body-md max-w-xs leading-relaxed">
-            패션 & 라이프스타일 브랜드를 위한
-            <br />
-            통합 PR 에이전시.
+            {t("패션 & 라이프스타일 브랜드를 위한\n통합 PR 에이전시.")}
           </p>
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
@@ -1189,7 +1174,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
         <div className="col-span-12 md:col-span-4 flex flex-col justify-end items-start md:items-end gap-3 mt-12 md:mt-0 reveal">
           <span className="text-label-caps text-secondary">CONTACT</span>
           <address className="not-italic text-body-md md:text-right leading-relaxed">
-            서울특별시 강남구 선릉로155길 23-3, 3층
+            {t("서울특별시 강남구 선릉로155길 23-3, 3층")}
             <br />
             (CLAMOA AGENCY)
           </address>
