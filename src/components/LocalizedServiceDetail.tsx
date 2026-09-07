@@ -93,6 +93,26 @@ export function LocalizedServiceDetail({
         </div>
       </section>
 
+      {service.regions && (
+        <section className="px-5 md:px-12 py-16 md:py-24 border-b border-deep-ink/15">
+          <div className="grid grid-cols-12 gap-6 md:gap-10">
+            <div className="col-span-12 md:col-span-4">
+              <span className="text-label-caps text-secondary block mb-3">03.5 — REGIONS</span>
+              <h2 className="text-headline-md uppercase">{service.regionsTitle}</h2>
+            </div>
+            <ul className="col-span-12 md:col-span-8 grid sm:grid-cols-3 gap-4">
+              {service.regions.map((r) => (
+                <li key={r.flag} className="border-2 border-deep-ink p-5 flex flex-col gap-3">
+                  <span className="text-label-caps font-mono text-secondary">{r.flag}</span>
+                  <h3 className="text-headline-sm uppercase">{r.title}</h3>
+                  <p className="text-body-sm text-secondary leading-relaxed">{r.desc}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       <section className="px-5 md:px-12 py-16 md:py-24 border-b-2 border-deep-ink">
         <div className="grid grid-cols-12 gap-6 md:gap-10">
           <div className="col-span-12 md:col-span-4">
