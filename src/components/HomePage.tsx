@@ -167,36 +167,37 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
     setMenuOpen(false);
   };
 
+  const svcBase = locale === "ko" ? "/services" : `/${locale}/services`;
   const services: Array<[string, string, string]> = [
     [
       "SHOWROOM CELEBRITY PR",
       t("쇼룸에 제품을 진열하고 스타일리스트 네트워크를 통해\n배우·아이돌 등 셀럽 착용 노출로 연결합니다."),
-      "/services/celebrity-seeding",
+      `${svcBase}/celebrity-seeding`,
     ],
     [
       "INFLUENCER PR",
       t("브랜드 무드에 맞는 인플루언서를 큐레이션하고\n시딩·콘텐츠 캠페인을 통합 운영합니다."),
-      "/services/influencer-pr",
+      `${svcBase}/influencer-pr`,
     ],
     [
       "SNS / YOUTUBE PPL",
       t("인플루언서·셀럽의 SNS·유튜브 콘텐츠 안에서\n제품을 자연스럽게 노출해 화제성을 만듭니다."),
-      "/services/ppl-content-placement",
+      `${svcBase}/ppl-content-placement`,
     ],
     [
       "OFFLINE EVENT",
       t("팝업스토어·프레스데이·런칭 파티를 기획·운영하고\n셀럽·프레스 초청과 현장 노출까지 연결합니다."),
-      "/services/offline-event-pr",
+      `${svcBase}/offline-event-pr`,
     ],
     [
       "BRAND AMBASSADOR",
       t("셀럽·아티스트와 일정 기간 협업해 캠페인 촬영과\n앰버서더 활동으로 브랜드 자산을 쌓습니다."),
-      "/services/brand-ambassador",
+      `${svcBase}/brand-ambassador`,
     ],
     [
       "GLOBAL EXPANSION",
       t("일본·대만·중국 등 해외 유통 채널 입점부터\n샤오홍수·왕홍 라이브커머스까지 지원합니다."),
-      "/services/global-expansion",
+      `${svcBase}/global-expansion`,
     ],
   ];
 
@@ -509,7 +510,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
             </div>
             <div className="mt-10 flex justify-end">
               <Link
-                to="/services"
+                to={svcBase}
                 className="inline-flex items-center gap-2 text-label-caps border-2 border-deep-ink px-5 py-3 hover:bg-deep-ink hover:text-neon-signal transition-colors"
               >
                 VIEW ALL SERVICES
