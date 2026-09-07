@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { LOCALES, LOCALE_REGISTRY, DEFAULT_LOCALE } from "@/i18n/config";
 import { BLOG_LOCALES, getPosts } from "@/data/blog";
+import { SERVICE_LOCALES, SERVICE_SLUGS } from "@/data/services";
+
+const SERVICE_CLUSTER_LOCALES = ["ko", ...SERVICE_LOCALES] as const;
 
 const BASE_URL = "https://clamoa.com";
 
