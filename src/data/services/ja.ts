@@ -440,6 +440,12 @@ const data: ServiceLocaleData = {
         "ブランドアンバサダーキャンペーンとは、セレブ・アーティストと一定期間協業し、ルックブック・キャンペーン撮影、ブランドイベント、SNS掲載などを展開してブランドイメージと認知度を強化するファッションPR手法です。CLAMOAのアンバサダーマッチングとキャンペーン運営。",
     },
     "global-expansion": {
+    regionsTitle: "対応地域",
+    regions: [
+      { flag: "JP", title: "JAPAN", desc: "東京・大阪のセレクトショップ導入、日本のマガジン・インフルエンサーPR、ポップアップ運営。" },
+      { flag: "TW", title: "TAIWAN", desc: "台北のセレクトショップ流通、現地KOLとのコラボ、韓流コンテンツ連動キャンペーン。" },
+      { flag: "CN", title: "CHINA", desc: "小紅書コンテンツ、ワンホンによるライブコマース、Tmall・Tmall Globalのセラーマッチング。" },
+    ],
       slug: "global-expansion",
       no: "08",
       eyebrow: "08 — GLOBAL EXPANSION / グローバル展開",

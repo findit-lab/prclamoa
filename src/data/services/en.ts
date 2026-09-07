@@ -458,6 +458,12 @@ const data: ServiceLocaleData = {
         "Brand ambassador campaigns pair celebrities and artists with brands for long-term shoots, events, and SNS activity that build image over time.",
     },
     "global-expansion": {
+    regionsTitle: "REGIONS WE COVER",
+    regions: [
+      { flag: "JP", title: "JAPAN", desc: "Select-shop placement in Tokyo and Osaka, Japanese magazine and influencer PR, pop-up operations." },
+      { flag: "TW", title: "TAIWAN", desc: "Distribution through Taipei concept stores, local KOL collaborations, Hallyu-linked campaigns." },
+      { flag: "CN", title: "CHINA", desc: "Xiaohongshu content, wanghong live commerce, Tmall and Tmall Global seller matching." },
+    ],
       slug: "global-expansion",
       no: "08",
       eyebrow: "08 — GLOBAL EXPANSION",

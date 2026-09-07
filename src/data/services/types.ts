@@ -43,6 +43,9 @@ export interface ServiceContent {
   /** Overrides the OUTPUT heading (e.g. "Expected impact") */
   deliverablesTitle?: string;
   deliverables: string[];
+  /** Optional regions block (global expansion) */
+  regionsTitle?: string;
+  regions?: { flag: string; title: string; desc: string }[];
   faqs: ServiceFAQ[];
   metaTitle: string;
   metaDescription: string;

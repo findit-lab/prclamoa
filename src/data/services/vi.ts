@@ -459,6 +459,12 @@ const data: ServiceLocaleData = {
         "Chiến dịch đại sứ thương hiệu hợp tác với người nổi tiếng, nghệ sĩ trong một khoảng thời gian để triển khai chụp lookbook, chiến dịch, sự kiện thương hiệu, đăng tải SNS, qua đó củng cố hình ảnh và nhận diện thương hiệu. Ghép nối đại sứ và vận hành chiến dịch của CLAMOA.",
     },
     "global-expansion": {
+    regionsTitle: "KHU VỰC HỖ TRỢ",
+    regions: [
+      { flag: "JP", title: "JAPAN", desc: "Đưa hàng vào select shop tại Tokyo, Osaka; PR tạp chí và influencer Nhật; vận hành pop-up." },
+      { flag: "TW", title: "TAIWAN", desc: "Phân phối qua concept store tại Đài Bắc, hợp tác KOL bản địa, chiến dịch gắn với làn sóng Hallyu." },
+      { flag: "CN", title: "CHINA", desc: "Nội dung Xiaohongshu, live commerce cùng wanghong, kết nối seller Tmall và Tmall Global." },
+    ],
       slug: "global-expansion",
       no: "08",
       eyebrow: "08 — GLOBAL EXPANSION / Mở rộng toàn cầu",
