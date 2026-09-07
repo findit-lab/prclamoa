@@ -1,0 +1,1215 @@
+import type { Locale } from "@/i18n/config";
+import { makeT } from "@/i18n";
+import { Link } from "@tanstack/react-router";
+import brandVisibilityVideo from "@/assets/brand-visibility.mp4.asset.json";
+import { useEffect, useMemo, useRef, useState } from "react";
+import clamoaLogo from "@/assets/clamoa-logo.png.asset.json";
+import starAnyujin from "@/assets/star-anyujin.jpg.asset.json";
+import starByunwooseok from "@/assets/star-byunwooseok.jpg.asset.json";
+import starChaeunwoo from "@/assets/star-chaeunwoo.jpg.asset.json";
+import starFelix from "@/assets/star-felix.jpg.asset.json";
+import starHansohee from "@/assets/star-hansohee.jpg.asset.json";
+import starIu from "@/assets/star-iu.jpg.asset.json";
+import starJangwonyoung from "@/assets/star-jangwonyoung.jpg.asset.json";
+import starJennie from "@/assets/star-jennie.jpg.asset.json";
+import starJisoo from "@/assets/star-jisoo.jpg.asset.json";
+import starKarina from "@/assets/star-karina.jpg.asset.json";
+import starLisa from "@/assets/star-lisa.jpg.asset.json";
+import starRose from "@/assets/star-rose.jpg.asset.json";
+import starTaeyeon from "@/assets/star-taeyeon.jpg.asset.json";
+import starUdohwan from "@/assets/star-udohwan.jpg.asset.json";
+import starWinter from "@/assets/star-winter.jpg.asset.json";
+import starYoona from "@/assets/star-yoona.jpg.asset.json";
+import starNmixxSullyoon from "@/assets/star-nmixx-sullyoon.jpg.asset.json";
+import starRiizeWonbin from "@/assets/star-riize-wonbin.jpg.asset.json";
+import starNoyoonseo from "@/assets/star-noyoonseo.jpg.asset.json";
+import starBigbangDaesung from "@/assets/star-bigbang-daesung.jpg.asset.json";
+import starTwiceNayeon from "@/assets/star-twice-nayeon.jpg.asset.json";
+import starJeonjihyun from "@/assets/star-jeonjihyun.jpg.asset.json";
+import starTwiceDahyun from "@/assets/star-twice-dahyun.jpg.asset.json";
+import starGidleSoyeon from "@/assets/star-gidle-soyeon.jpg.asset.json";
+import starNctdreamJaemin from "@/assets/star-nctdream-jaemin.jpg.asset.json";
+import starKwoneunbi from "@/assets/star-kwoneunbi.jpg.asset.json";
+import starSeventeenMingyu from "@/assets/star-seventeen-mingyu.jpg.asset.json";
+import starChungha from "@/assets/star-chungha.jpg.asset.json";
+import starAespaNingning from "@/assets/star-aespa-ningning.jpg.asset.json";
+import starTwiceTzuyu from "@/assets/star-twice-tzuyu.jpg.asset.json";
+import starZb1Parkgunwook from "@/assets/star-zb1-parkgunwook.jpg.asset.json";
+import scopeStar from "@/assets/scope-star.jpg.asset.json";
+import scopeViral from "@/assets/scope-viral.jpg.asset.json";
+import scopeMagazine from "@/assets/scope-magazine.jpg.asset.json";
+import scopeInfluencer from "@/assets/scope-influencer.jpg.asset.json";
+import scopeEvent from "@/assets/scope-event.jpg.asset.json";
+import scopeAmbassador from "@/assets/scope-ambassador.jpg.asset.json";
+import { DraggableMarquee } from "@/components/DraggableMarquee";
+import { trackLandingEvent } from "@/lib/utm-tracking";
+const STAR_IMAGES = [
+  starAnyujin.url,
+  starByunwooseok.url,
+  starChaeunwoo.url,
+  starFelix.url,
+  starHansohee.url,
+  starIu.url,
+  starJangwonyoung.url,
+  starJennie.url,
+  starJisoo.url,
+  starKarina.url,
+  starLisa.url,
+  starRose.url,
+  starTaeyeon.url,
+  starUdohwan.url,
+  starWinter.url,
+  starYoona.url,
+  starNmixxSullyoon.url,
+  starRiizeWonbin.url,
+  starNoyoonseo.url,
+  starBigbangDaesung.url,
+  starTwiceNayeon.url,
+  starJeonjihyun.url,
+  starTwiceDahyun.url,
+  starGidleSoyeon.url,
+  starNctdreamJaemin.url,
+  starKwoneunbi.url,
+  starSeventeenMingyu.url,
+  starChungha.url,
+  starAespaNingning.url,
+  starTwiceTzuyu.url,
+  starZb1Parkgunwook.url,
+];
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+const VIDEO_BRAND_VISIBILITY = brandVisibilityVideo.url;
+const IMG_CASE_1 =
+  "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=1200&q=80&auto=format&fit=crop";
+const IMG_CASE_2 =
+  "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&q=80&auto=format&fit=crop";
+const IMG_CASE_3 =
+  "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=80&auto=format&fit=crop";
+
+export function HomePage({ locale = "ko" }: { locale?: Locale }) {
+  const t = makeT(locale);
+  const parallaxText = useRef<HTMLDivElement>(null);
+  const parallaxContainer = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const MARQUEE_IMAGES = useMemo(() => shuffleArray(STAR_IMAGES), []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("active")),
+      { threshold: 0.12, rootMargin: "0px 0px -50px 0px" },
+    );
+    document.querySelectorAll(".reveal, .reveal-group").forEach((el) => observer.observe(el));
+
+    const onScroll = () => {
+      const scrolled = window.pageYOffset;
+      if (parallaxText.current && parallaxContainer.current) {
+        const top = parallaxContainer.current.offsetTop;
+        const h = parallaxContainer.current.offsetHeight;
+        if (scrolled + window.innerHeight > top && scrolled < top + h) {
+          const rel = scrolled - top;
+          parallaxText.current.style.transform = `rotate(-5deg) translateX(${rel * 0.15 - 200}px)`;
+        }
+      }
+      if (navRef.current) {
+        if (scrolled > 50) {
+          navRef.current.classList.add("py-4", "backdrop-blur-md");
+          navRef.current.classList.remove("py-6");
+        } else {
+          navRef.current.classList.add("py-6");
+          navRef.current.classList.remove("py-4", "backdrop-blur-md");
+        }
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  // 원페이지 스크롤 네비게이션 — 히어로 페이지 섹션 앵커와 매칭
+  const navLinks: Array<[string, string]> = [
+    ["HOME", "#top"],
+    ["SERVICES", "#services"],
+    ["WORK", "#portfolio"],
+    ["PROCESS", "#process"],
+    ["GLOBAL", "#global"],
+    ["FAQ", "#faq"],
+    ["CONTACT", "#contact"],
+  ];
+
+  const handleAnchor = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault();
+    if (hash === "#top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.replaceState(null, "", "#top");
+      setMenuOpen(false);
+      return;
+    }
+    const el = document.querySelector(hash);
+    if (el) {
+      const top = (el as HTMLElement).getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top, behavior: "smooth" });
+      window.history.replaceState(null, "", hash);
+    }
+    setMenuOpen(false);
+  };
+
+  const services: Array<[string, string, string]> = [
+    [
+      "SHOWROOM CELEBRITY PR",
+      "쇼룸에 제품을 진열하고 스타일리스트 네트워크를 통해\n배우·아이돌 등 셀럽 착용 노출로 연결합니다.",
+      "/services/celebrity-seeding",
+    ],
+    [
+      "INFLUENCER PR",
+      "브랜드 무드에 맞는 인플루언서를 큐레이션하고\n시딩·콘텐츠 캠페인을 통합 운영합니다.",
+      "/services/influencer-pr",
+    ],
+    [
+      "SNS / YOUTUBE PPL",
+      "인플루언서·셀럽의 SNS·유튜브 콘텐츠 안에서\n제품을 자연스럽게 노출해 화제성을 만듭니다.",
+      "/services/ppl-content-placement",
+    ],
+    [
+      "OFFLINE EVENT",
+      "팝업스토어·프레스데이·런칭 파티를 기획·운영하고\n셀럽·프레스 초청과 현장 노출까지 연결합니다.",
+      "/services/offline-event-pr",
+    ],
+    [
+      "BRAND AMBASSADOR",
+      "셀럽·아티스트와 일정 기간 협업해 캠페인 촬영과\n앰버서더 활동으로 브랜드 자산을 쌓습니다.",
+      "/services/brand-ambassador",
+    ],
+    [
+      "GLOBAL EXPANSION",
+      "일본·대만·중국 등 해외 유통 채널 입점부터\n샤오홍수·왕홍 라이브커머스까지 지원합니다.",
+      "/services/global-expansion",
+    ],
+  ];
+
+
+  const faqPreview = [
+    {
+      q: "패션 브랜드 셀럽 협찬은 어떻게 진행되나요?",
+      a: "셀럽 협찬은 상담·브랜드 검토 → PR 플랜 제안 → 계약 및 쇼룸 입점 → 스타일리스트 피칭 → 셀럽 착용 → 노출 클리핑 순으로 진행됩니다. 클라모아는 브랜드 무드에 맞는 셀럽과 채널을 매칭하고, 착용 이후 콘텐츠 클리핑과 2차 확산까지 단계별로 관리합니다.",
+    },
+    {
+      q: "신생 브랜드도 셀럽 협찬이 가능한가요?",
+      a: "신생 브랜드도 가능합니다. 다만 제품 완성도, 브랜드 무드, 타깃 적합성이 성과를 좌우합니다. 클라모아는 브랜드 단계에 맞춰 PR 방향성을 먼저 설계하고, 무작위 노출이 아닌 타깃 중심의 셀럽 협찬으로 신생 브랜드의 인지도 확보를 돕습니다.",
+    },
+    {
+      q: "협찬 후 셀럽 착용이 보장되나요?",
+      a: "착용 방식은 보장형과 비보장형으로 구분됩니다. 비보장형은 스타일리스트 피칭을 통한 자연스러운 착용을 지향하고, 보장형은 셀럽 초상권 단기 계약 등으로 노출을 확정합니다. 브랜드 목표와 예산에 맞춰 적합한 구조를 상담 단계에서 함께 정합니다.",
+    },
+    {
+      q: "셀럽 협찬 비용은 어떻게 책정되나요?",
+      a: "협찬 비용은 브랜드 목표, 서비스 범위, 진행 기간, 콘텐츠 활용 범위에 따라 달라집니다. 셀럽 초상권 단기 계약처럼 2차 활용이 포함되면 비용 구조가 달라집니다. 정확한 견적은 상담 시 브랜드 상황과 캠페인 목표를 검토한 뒤 제안드립니다.",
+    },
+    {
+      q: "상담은 어떻게 신청하나요?",
+      a: "홈페이지 문의 폼에 브랜드명, 제품 카테고리, 희망 서비스, 캠페인 목표, 예산 범위, 진행 시기를 남겨주시면 담당자가 빠르게 연락드립니다. 정보가 구체적일수록 브랜드에 맞는 PR 방향과 채널을 더 정확하게 제안드릴 수 있습니다.",
+    },
+  ];
+
+  const process = [
+    ["01", "상담 접수", "브랜드 상황과 캠페인 목표를 남겨주시면 담당자가 빠르게 연락드립니다."],
+    [
+      "02",
+      "브랜드 및 제품 검토",
+      "브랜드 카테고리, 셀럽 타겟, 구매 연령층, 스큐 및 시즌 전략을 함께 검토합니다.",
+    ],
+    [
+      "03",
+      "PR 플랜 제안",
+      "예산과 목표에 맞춰 셀럽 협찬, PPL, 인플루언서, 셀럽 초상권 단기 계약 등 PR 플랜을 제안합니다.",
+    ],
+    [
+      "04",
+      "계약 및 쇼룸 입점",
+      "계약 완료 후 담당팀이 배정되며, 쇼룸 입점과 협찬 운영 세팅을 시작합니다.",
+    ],
+    [
+      "05",
+      "스타일리스트 피칭 및\u00a0\n셀럽 협찬",
+      "브랜드 타겟과 무드에 맞는 셀럽 및 스타일리스트 팀을 대상으로 룩북을 전달하고, 쇼룸 방문 시 제품 소개와 피칭을 진행합니다.",
+    ],
+    [
+      "06",
+      "주간 보고 및 착용 자료 클립핑",
+      "노출 콘텐츠를 클리핑하여 자사 SNS에 게시하고, 셀럽 픽업 및 착용 현황을 주간 보고합니다.",
+    ],
+    [
+      "07",
+      "별도 콘텐츠 2차 확산",
+      "이슈 가능한 소재를 기반으로 블로그, 매거진, 인플루언서 시딩 등 바이럴 확산을 진행합니다. (OPTION)",
+    ],
+  ];
+
+  const differentiators = [
+    "브랜드 단계에 맞춘 PR 방향성 설계",
+    "무작위가 아닌 타겟 셀럽 협찬",
+    "RINK 기반 운영 데이터 관리",
+    "기획사 네트워크 기반 캠페인 연결",
+    "팝업·플리마켓 등 오프라인 연계",
+    "국내외 브랜드 글로벌 확장 지원",
+  ];
+
+  return (
+    <div className="text-deep-ink min-h-screen">
+      {/* Nav */}
+      <nav
+        ref={navRef}
+        className="fixed top-0 w-full z-50 bg-surface/95 border-b border-deep-ink flex justify-between items-center px-5 md:px-16 py-5 md:py-6 transition-all duration-500"
+      >
+        <Link to="/" className="block" aria-label="CLAMOA logo">
+          <img
+            src={clamoaLogo.url}
+            alt="CLAMOA logo"
+            className="h-6 md:h-8 w-auto object-contain"
+          />
+        </Link>
+        <div className="hidden md:flex gap-8">
+          {navLinks.map(([l, h]) => (
+            <a
+              key={l}
+              href={h}
+              onClick={(e) => handleAnchor(e, h)}
+              className="text-label-caps hover:text-neon-signal transition-colors duration-200"
+            >
+              {l}
+            </a>
+          ))}
+        </div>
+        <button
+          aria-label="Toggle menu"
+          className="md:hidden text-label-caps border border-deep-ink px-4 py-2"
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          {menuOpen ? "CLOSE" : "MENU"}
+        </button>
+        {menuOpen && (
+          <div className="absolute top-full left-0 right-0 bg-surface border-b border-deep-ink md:hidden flex flex-col">
+            {navLinks.map(([l, h]) => (
+              <a
+                key={l}
+                href={h}
+                onClick={(e) => handleAnchor(e, h)}
+                className="text-label-caps px-6 py-5 border-t border-deep-ink/20 hover:bg-neon-signal"
+              >
+                {l}
+              </a>
+            ))}
+          </div>
+        )}
+      </nav>
+
+      <main id="top" className="pt-24 md:pt-32">
+        {/* Hero */}
+        <section className="px-5 md:px-16 mb-20 md:mb-40 reveal">
+          <div className="grid grid-cols-12 gap-6 items-end">
+            <div className="col-span-12 md:col-span-8">
+              <span className="text-label-caps text-secondary block mb-8">FASHION PR AGENCY</span>
+              <h1 className="text-display-xl uppercase mb-12 whitespace-pre-line">
+                FASHION PR,{"\n"}WE MAKE{"\n"}BRANDS VISIBLE
+              </h1>
+              <div className="max-w-xl space-y-6">
+                <p className="text-body-lg border-l-4 border-neon-signal pl-6 italic font-serif whitespace-pre-line">
+                  셀럽 협찬부터 PPL, 인플루언서, 바이럴, 글로벌 확장 연계까지 —{"\n"}패션 브랜드의
+                  인지도와 새로운 기회를 함께 만들어갑니다.
+                </p>
+                <p className="text-body-md pl-6 max-w-lg whitespace-pre-line">
+                  {
+                    "CLAMOA는 서울 압구정 기반의 패션 PR 에이전시로, 셀럽 협찬, 스타일리스트 릴레이션, PPL, 인플루언서 캠페인, 바이럴 콘텐츠, 글로벌 유통 확장을\u00a0\n통합적으로 설계합니다."
+                  }
+                </p>
+                <div className="pl-6 flex flex-wrap gap-3 pt-2">
+                  <a
+                    href="#portfolio"
+                    className="inline-flex items-center gap-2 bg-deep-ink text-neon-signal px-5 py-3 text-label-caps border-2 border-deep-ink hover:bg-neon-signal hover:text-deep-ink transition-all duration-300"
+                  >
+                    포트폴리오 보기
+                    <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </a>
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 bg-transparent text-deep-ink px-5 py-3 text-label-caps border-2 border-deep-ink hover:bg-deep-ink hover:text-neon-signal transition-all duration-300"
+                  >
+                    상담 문의하기
+                    <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-span-12 md:col-span-4">
+              <div className="border-2 border-deep-ink p-8 bg-neon-signal hover-lift shadow-[8px_8px_0px_0px_rgba(26,28,28,1)]">
+                <span className="text-label-caps block mb-4">APGUJEONG RODEO · SEOUL</span>
+                <h2 className="text-headline-md uppercase">
+                  셀럽과
+                  <br />
+                  스타일리스트가
+                  <br />
+                  찾는 패션 PR 쇼룸
+                </h2>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Auto-scrolling Looks Marquee */}
+        <section className="bg-deep-ink text-surface border-y-2 border-deep-ink py-10 md:py-14 mb-20 md:mb-40 overflow-hidden">
+          <div className="flex justify-between items-center px-5 md:px-16 mb-8">
+            <span className="text-label-caps text-neon-signal">STAR PORTFOLIO</span>
+          </div>
+          <DraggableMarquee images={MARQUEE_IMAGES} />
+        </section>
+
+        {/* Featured Work Preview */}
+
+        <section id="work" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
+          <div className="grid grid-cols-12 gap-6">
+            <div className="col-span-12 md:col-span-7 relative group overflow-hidden border-2 border-deep-ink">
+              <video
+                src={VIDEO_BRAND_VISIBILITY}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+                // @ts-expect-error — fetchpriority is a valid HTML attribute, not yet typed
+                fetchpriority="high"
+                className="w-full aspect-[1.5] object-cover grayscale transition-transform duration-1000 group-hover:scale-110"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-deep-ink text-surface p-10 max-w-xs hidden md:block transition-transform duration-500 group-hover:-translate-x-4 group-hover:-translate-y-4">
+                <p className="text-body-md italic font-serif">
+                  "중요한 것은 많이 보이는 것이 아니라, 제대로 보이는 것입니다."
+                </p>
+              </div>
+            </div>
+            <div className="col-span-12 md:col-span-5 flex flex-col justify-start">
+              <div className="border-t-2 border-deep-ink pt-8 mt-16 md:mt-0">
+                <span className="text-label-caps text-secondary mb-4 block">
+                  01 / BRAND VISIBILITY
+                </span>
+                <h3 className="text-headline-lg mb-6 uppercase">
+                  PR STRATEGY
+                  <br />
+                  RIGHT EXPOSURE
+                </h3>
+                <p className="text-body-md mb-8 whitespace-pre-line">
+                  브랜드와 잘 맞는 셀럽, 콘텐츠, 채널을 연결해 가장 자연스럽고{"\n"}효과적인 노출
+                  전략을 설계합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Dark Statement */}
+        <section className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 overflow-hidden relative">
+          <div
+            ref={parallaxContainer}
+            className="absolute inset-0 opacity-10 pointer-events-none select-none overflow-hidden"
+          >
+            <div
+              ref={parallaxText}
+              className="whitespace-nowrap font-serif font-bold leading-none transform rotate-[-5deg]"
+              style={{ fontSize: "clamp(120px, 30vw, 300px)" }}
+            >
+              INFLUENCE INFLUENCE INFLUENCE
+            </div>
+          </div>
+          <div className="relative z-10 grid grid-cols-12 gap-6">
+            <div className="col-span-12 md:col-span-10 md:col-start-2">
+              <h2 className="text-headline-lg mb-12 reveal uppercase">
+                WE MAKE BRANDS <span className="text-neon-signal">SEEN, REMEMBERED,</span> AND{" "}
+                <span className="italic underline decoration-neon-signal underline-offset-8">
+                  DESIRED.
+                </span>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-20 reveal-group">
+                {[
+                  [
+                    "METHOD",
+                    "브랜드 이미지에 맞는 셀럽과 채널을 매칭하고,\n노출 이후의 2차 활용까지 함께 설계합니다.",
+                  ],
+                  ["VISION", "중요한 것은 많이 보이는 것이 아니라,\n브랜드답게 보이는 것입니다."],
+                  [
+                    "RESULT",
+                    "브랜드의 무드가 소비자에게 자연스럽게 전달되고,\u00a0\n더 오래 기억되는 노출을 만듭니다.",
+                  ],
+                ].map(([h, b]) => (
+                  <div
+                    key={h}
+                    className="border-l border-white/30 pl-6 hover:border-neon-signal transition-colors duration-300"
+                  >
+                    <span className="text-neon-signal text-label-caps block mb-4">{h}</span>
+                    <p className="text-body-md whitespace-pre-line">{b}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Core Services Grid */}
+        <section id="services" className="px-5 md:px-16 mb-20 md:mb-40">
+          <div className="border-t-2 border-deep-ink pt-12 reveal">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+              <span className="text-label-caps text-secondary">CORE CAPABILITIES</span>
+              <h2 className="text-headline-lg uppercase max-w-2xl text-right">
+                패션 브랜드를 위한 통합 PR 솔루션
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-[repeat(18,auto)] md:grid-rows-[repeat(9,auto)] lg:grid-rows-[repeat(6,auto)] border-l border-t border-deep-ink">
+              {services.map(([t, d, href], i) => (
+                <Link
+                  key={t}
+                  to={href}
+                  className="grid grid-rows-subgrid row-span-3 gap-y-6 border-r border-b border-deep-ink p-10 hover:bg-deep-ink hover:text-surface transition-colors duration-300 group focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon-signal"
+                >
+                  <span className="text-label-caps text-secondary group-hover:text-neon-signal block">
+                    0{i + 1}
+                  </span>
+                  <h3 className="text-headline-md uppercase">{t}</h3>
+                  <p className="text-body-md opacity-90 whitespace-pre-line">
+                    {d}
+                    <span className="block mt-3 text-label-caps opacity-70 group-hover:opacity-100 group-hover:text-neon-signal">
+                      자세히 보기 →
+                    </span>
+                  </p>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-10 flex justify-end">
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 text-label-caps border-2 border-deep-ink px-5 py-3 hover:bg-deep-ink hover:text-neon-signal transition-colors"
+              >
+                VIEW ALL SERVICES
+                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Agency Difference */}
+        <section
+          id="about"
+          className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 reveal"
+        >
+          <div className="grid grid-cols-12 gap-6">
+            <div className="col-span-12 md:col-span-5">
+              <span className="text-neon-signal text-label-caps block mb-6">
+                THE CLAMOA DIFFERENCE
+              </span>
+              <h2 className="font-serif font-bold uppercase mb-8 leading-[0.95] tracking-[-0.03em] text-[clamp(44px,6vw,88px)]">
+                BEYOND
+                <br />
+                TRADITIONAL
+                <br />
+                PR
+              </h2>
+              <p className="text-body-lg max-w-md text-surface/80 mb-8">
+                CLAMOA는 브랜드의 무드와 목표에 맞춰 PR 방향성을 컨설팅하고, 무작위 노출이 아닌 타겟
+                중심의 셀럽 협찬을 진행합니다. RINK 플랫폼을 통한 운영 관리와 PPL·앰버서더 캠페인,
+                오프라인 및 글로벌 확장 기회를 함께 만들어 갑니다.
+              </p>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 text-label-caps text-neon-signal border border-neon-signal px-5 py-3 hover:bg-neon-signal hover:text-deep-ink transition-colors"
+              >
+                MORE ABOUT CLAMOA
+                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </Link>
+            </div>
+            <div className="col-span-12 md:col-span-6 md:col-start-7 mt-12 md:mt-8">
+              <ul className="divide-y divide-white/20 border-t border-b border-white/20">
+                {differentiators.map((d, i) => (
+                  <li key={d} className="flex items-start gap-6 py-6 group">
+                    <span className="text-neon-signal text-label-caps pt-1">0{i + 1}</span>
+                    <span className="text-headline-md font-serif group-hover:text-neon-signal transition-colors">
+                      {d}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Process */}
+        <section id="process" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
+            <span className="text-label-caps text-secondary">PROCESS</span>
+            <h2 className="text-headline-lg uppercase max-w-2xl text-right">
+              상담 접수부터 2차 확산까지
+            </h2>
+          </div>
+          <p className="text-body-md max-w-2xl mb-10 -mt-8 text-secondary">
+            브랜드 목표와 예산에 맞춰 가장 적합한 노출 채널을 설계하고, 협찬 진행부터 콘텐츠
+            확산까지 단계별로 관리합니다.
+          </p>
+          <div className="divide-y divide-deep-ink border-t border-b border-deep-ink">
+            {process.map(([n, t, d]) => (
+              <div
+                key={n}
+                className="grid grid-cols-12 gap-3 md:gap-6 py-6 md:py-10 group hover:bg-neon-signal transition-colors duration-300"
+              >
+                <div className="col-span-12 md:col-span-2">
+                  <span className="font-serif text-3xl md:text-5xl">{n}</span>
+                </div>
+                <div className="col-span-12 md:col-span-4">
+                  <h3 className="text-headline-md uppercase">{t}</h3>
+                </div>
+                <div className="col-span-12 md:col-span-6">
+                  <p className="text-body-md max-w-xl">{d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Portfolio Categories */}
+        <section id="portfolio" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 border-t-2 border-deep-ink pt-12">
+            <span className="text-label-caps text-secondary">PORTFOLIO — CAPABILITIES</span>
+            <h2 className="text-headline-lg uppercase max-w-2xl">
+              SCOPE OF
+              <br />
+              PR EXECUTION
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-12 gap-0 border-2 border-deep-ink">
+            {[
+              {
+                no: "01",
+                title: "STAR",
+                kr: "드라마, 예능, 무대, 유튜브, 공항패션 등",
+                desc: "K-POP 아이돌, 배우, 셀럽을 대상으로 협찬을 진행하여 셀럽 노출을 통해 브랜드 콘텐츠를 확보하고, 인지도 향상을 동시에 도모합니다.",
+                img: scopeStar.url,
+                span: "md:col-span-7",
+                tall: true,
+              },
+              {
+                no: "02",
+                title: "VIRAL",
+                kr: "디지털 콘텐츠",
+                desc: "인스타그램, 블로그, 유튜브 등 다양한 디지털 채널을 통해 소비자 접점을 넓히고, 자연스러운 바이럴 흐름을 만들어냅니다.",
+                tags: ["INSTAGRAM", "BLOG", "YOUTUBE"],
+                img: scopeViral.url,
+                span: "md:col-span-5",
+              },
+              {
+                no: "03",
+                title: "MAGAZINE",
+                kr: "에디토리얼 피칭",
+                desc: "유가화보를 기반으로 매거진 노출부터 셀럽 SNS 포스팅, 공항패션 및 언론 보도까지 원스톱으로 진행합니다.",
+                img: scopeMagazine.url,
+                span: "md:col-span-5",
+              },
+              {
+                no: "04",
+                title: "INFLUENCER",
+                kr: "크리에이터 매칭",
+                desc: "브랜드 톤에 정합하는 패션·뷰티·라이프스타일 크리에이터를 매칭하고 캠페인을 운영합니다.",
+                img: scopeInfluencer.url,
+                span: "md:col-span-7",
+              },
+              {
+                no: "05",
+                title: "EVENT",
+                kr: "RSVP & 프레스 & 셀럽 섭외",
+                desc: "RSVP 기반 팝업스토어, 프레스 행사, 플리마켓 등 오프라인 이벤트를 통해 고객과의 실질적인 접점을 확대합니다.",
+
+                img: scopeEvent.url,
+                span: "md:col-span-7",
+              },
+              {
+                no: "06",
+                title: "BRAND AMBASSADOR CASTING",
+                kr: "앰버서더 캐스팅",
+                desc: "브랜드의 장기 자산이 될 앰버서더를 전략적으로 캐스팅하고 계약·운영을 매니징합니다.",
+                img: scopeAmbassador.url,
+                span: "md:col-span-5",
+                accent: true,
+              },
+            ].map((c, i) => {
+              const inner = (
+                <div className="grid grid-cols-1 md:grid-cols-5 h-full">
+                  <div className="md:col-span-2 overflow-hidden border-b-2 md:border-b-0 md:border-r-2 border-deep-ink">
+                    <img
+                      src={c.img}
+                      alt={`CLAMOA ${c.title.toLowerCase()} portfolio — ${c.kr} for Korean fashion brand PR`}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full min-h-[260px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    />
+                  </div>
+                  <div className="md:col-span-3 p-8 md:p-10 flex flex-col gap-4">
+                    <div className="flex items-baseline justify-between">
+                      <span className="text-label-caps text-secondary">CAT / {c.no}</span>
+                      <span className="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity">
+                        north_east
+                      </span>
+                    </div>
+                    <h3 className="font-serif font-bold uppercase leading-[0.95] tracking-[-0.02em] text-[clamp(28px,2.6vw,44px)]">
+                      {c.title}
+                    </h3>
+                    <span className="text-label-caps text-deep-ink/70">{c.kr}</span>
+                    <p className="text-body-md font-serif leading-relaxed">{c.desc}</p>
+                    {c.tags && (
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {c.tags.map((t) => (
+                          <span
+                            key={t}
+                            className="border border-deep-ink px-3 py-1 font-bold tracking-widest text-[10px] uppercase hover:bg-deep-ink hover:text-surface transition-colors"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    {(c.title === "STAR" ||
+                      c.title === "MAGAZINE" ||
+                      c.title === "INFLUENCER" ||
+                      c.title === "EVENT" ||
+                      c.title === "BRAND AMBASSADOR CASTING") && (
+                      <span className="text-label-caps text-deep-ink mt-2 inline-flex items-center gap-2">
+                        {c.title === "MAGAZINE"
+                          ? "VIEW ISSUE"
+                          : c.title === "INFLUENCER"
+                            ? "VIEW FEED"
+                            : c.title === "EVENT"
+                              ? "VIEW SKETCH"
+                              : c.title === "BRAND AMBASSADOR CASTING"
+                                ? "VIEW CASTING"
+                                : "VIEW ARCHIVE"}
+                        <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                      </span>
+                    )}
+                  </div>
+                </div>
+              );
+              const className = `col-span-12 ${c.span} border-deep-ink ${i % 2 === 0 ? "md:border-r-2" : ""} ${i < 4 ? "border-b-2" : ""} group relative overflow-hidden ${c.accent ? "bg-neon-signal" : "bg-surface"}`;
+              if (c.title === "STAR") {
+                return (
+                  <Link key={c.title} to="/star" className={className}>
+                    {inner}
+                  </Link>
+                );
+              }
+              if (c.title === "MAGAZINE") {
+                return (
+                  <Link key={c.title} to="/magazine" className={className}>
+                    {inner}
+                  </Link>
+                );
+              }
+              if (c.title === "INFLUENCER") {
+                return (
+                  <Link key={c.title} to="/influencer" className={className}>
+                    {inner}
+                  </Link>
+                );
+              }
+              if (c.title === "EVENT") {
+                return (
+                  <Link key={c.title} to="/event" className={className}>
+                    {inner}
+                  </Link>
+                );
+              }
+              if (c.title === "BRAND AMBASSADOR CASTING") {
+                return (
+                  <Link key={c.title} to="/brand-ambassador" className={className}>
+                    {inner}
+                  </Link>
+                );
+              }
+              return (
+                <article key={c.title} className={className}>
+                  {inner}
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Global Expansion */}
+        <section
+          id="global"
+          className="bg-deep-ink text-surface py-20 md:py-40 px-5 md:px-16 mb-20 md:mb-40 reveal"
+        >
+          <div className="grid grid-cols-12 gap-6">
+            <div className="col-span-12 md:col-span-5">
+              <span className="text-neon-signal text-label-caps block mb-6">CROSS-BORDER B2B</span>
+              <h2 className="font-serif font-bold uppercase mb-8 leading-[0.95] tracking-[-0.03em] text-[clamp(44px,6vw,88px)]">
+                GLOBAL
+                <br />
+                EXPANSION
+              </h2>
+              <p className="text-body-lg max-w-md text-surface/80">
+                클라모아는 국내외 유통 네트워크와 글로벌 마케팅 채널을 활용해 브랜드가 새로운
+                시장에서 성장할 수 있는 기회를 만들어갑니다.
+              </p>
+            </div>
+            <div className="col-span-12 md:col-span-6 md:col-start-7 mt-12 md:mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  {
+                    country: "JAPAN",
+                    kr: "일본",
+                    desc: "일본 주요 셀렉트샵 입점 연계를 비롯해 브랜드의 일본 시장 진출을 전략적으로 연결합니다.",
+                  },
+                  {
+                    country: "TAIWAN",
+                    kr: "대만",
+                    desc: "대만 주요 편집샵 입점 연계와 대만 왕홍 라이브 커머스 판매 연계를 지원합니다.",
+                  },
+                  {
+                    country: "CHINA",
+                    kr: "중국",
+                    desc: "셀럽 착용 자료를 기반으로 샤오홍수 바이럴, 중화권 유통 채널 확대, 왕홍 라이브커머스 판매 연계를 진행합니다.",
+                  },
+                ].map((m, i) => (
+                  <div
+                    key={m.country}
+                    className="border border-white/20 p-8 hover:border-neon-signal hover:bg-white/5 transition-all duration-300 group"
+                  >
+                    <span className="text-neon-signal text-label-caps block mb-4">0{i + 1}</span>
+                    <h3 className="font-serif text-headline-md uppercase mb-2">{m.country}</h3>
+                    <span className="text-label-caps text-surface/60 block mb-4">{m.kr}</span>
+                    <p className="text-body-md text-surface/80">{m.desc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-10 border-t border-white/20 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <p className="text-body-md text-surface/70 max-w-lg">
+                  쇼룸 협찬, 셀러브리티 시딩, 스타일리스트 플레이스먼트 데이터를 통합하여 최적의
+                  바이어 매칭을 도출합니다.
+                </p>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-4 text-label-caps text-neon-signal border border-neon-signal px-6 py-3 hover:bg-neon-signal hover:text-deep-ink transition-all duration-300 shrink-0"
+                >
+                  START EXPORT MATCHING
+                  <span className="material-symbols-outlined">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Partners - Marquee Logo Wall */}
+        <section
+          id="partners"
+          className="border-y-2 border-deep-ink bg-surface py-16 md:py-20 mb-20 md:mb-40 overflow-hidden"
+        >
+          <div className="px-5 md:px-16 flex justify-between items-end mb-10 md:mb-12">
+            <div>
+              <span className="text-label-caps text-secondary block mb-2">
+                PARTNERS — TRUSTED BY
+              </span>
+              <h2 className="text-headline-md md:text-headline-lg uppercase">OUR CLIENTS</h2>
+            </div>
+            <span className="text-label-caps text-secondary hidden md:block">[ AUTO-SCROLL ]</span>
+          </div>
+
+          {(() => {
+            const ROW_A = [
+              "EMPORIO ARMANI",
+              "MICHAEL KORS",
+              "LOSESLEEPOVER",
+              "BOB",
+              "OWNSER",
+              "This is Fine",
+              "DIESEL",
+              "fusalp",
+              "Kleesier",
+              "DYSFUNCT®",
+              "NICK NICOLE",
+              "SALT&CHOCOLATE",
+              "ANIA HAIE",
+              "ARICONNECTION",
+              "PRIMATE",
+              "TICKET TO THE MOON",
+              "Zeroplanet",
+              "CLROTTE",
+              "JBLIN",
+            ];
+            const ROW_B = [
+              "PELOTE",
+              "Cadeau",
+              "ALIENAR",
+              "FUNFLEX",
+              "JYDIM",
+              "ADEVA",
+              "BLACKUSH",
+              "KOMMUNTHEWEAR",
+              "Whisfairy",
+              "MSGRN",
+              "the J.Soo",
+              "CNN APPAREL",
+              "DOROCY",
+              "SELIVER®",
+              "MERRYON",
+              "SHOEHI",
+              "BBIBBONG UNNI",
+              "Rosé Frantz",
+              "DeLine",
+              "WAR DOG NYC",
+              "MON PLISSÉ",
+              "FRANK CUSTOM",
+              "NOIR DESIR",
+              "ALKI ALKA",
+            ];
+            const renderItem = (name: string, i: number) => (
+              <div
+                key={i}
+                className="flex-shrink-0 px-6 md:px-14 flex items-center justify-center h-16 md:h-24 text-deep-ink"
+                style={{
+                  fontFamily: "'Noto Serif', 'Inter', serif",
+                  fontSize: "clamp(18px, 2.2vw, 32px)",
+                  fontWeight: 700,
+                  letterSpacing: "-0.01em",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {name}
+              </div>
+            );
+            return (
+              <div className="flex flex-col gap-6 marquee-mask">
+                <div className="overflow-hidden">
+                  <div className="flex w-max marquee-track-fast">
+                    {[...ROW_A, ...ROW_A].map(renderItem)}
+                  </div>
+                </div>
+                <div className="overflow-hidden">
+                  <div className="flex w-max marquee-track-reverse">
+                    {[...ROW_B, ...ROW_B].map(renderItem)}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+        </section>
+
+        {/* FAQ Preview */}
+        <section id="faq" className="px-5 md:px-16 mb-20 md:mb-40 reveal">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 border-t-2 border-deep-ink pt-12">
+            <span className="text-label-caps text-secondary">FAQ — 자주 묻는 질문</span>
+            <h2 className="text-headline-lg uppercase max-w-2xl text-right">
+              패션 PR · 셀럽 협찬 FAQ
+            </h2>
+          </div>
+          <div className="divide-y divide-deep-ink border-t border-b border-deep-ink">
+            {faqPreview.map((item, i) => (
+              <details key={i} open className="group py-6 md:py-8">
+                <summary className="cursor-pointer list-none flex items-start gap-6">
+                  <span className="text-label-caps text-secondary pt-1 shrink-0">Q.0{i + 1}</span>
+                  <h3 className="text-headline-md font-serif flex-1">{item.q}</h3>
+                  <span className="material-symbols-outlined transition-transform group-open:rotate-45">
+                    add
+                  </span>
+                </summary>
+                <p className="text-body-md mt-4 md:pl-20 max-w-3xl leading-relaxed">{item.a}</p>
+              </details>
+            ))}
+          </div>
+          <div className="mt-10 flex justify-end">
+            <Link
+              to="/faq"
+              className="inline-flex items-center gap-2 text-label-caps border-2 border-deep-ink px-5 py-3 hover:bg-deep-ink hover:text-neon-signal transition-colors"
+            >
+              VIEW ALL FAQ
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </Link>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section id="contact" className="px-5 md:px-16 mb-32 reveal">
+          <div className="grid grid-cols-12 gap-6 border-t-2 border-deep-ink pt-12">
+            <div className="col-span-12 md:col-span-5">
+              <span className="text-label-caps text-secondary mb-6 block">CONTACT</span>
+              <h2 className="text-display-xl uppercase mb-8">
+                LET'S BUILD
+                <br />
+                YOUR BRAND
+                <br />
+                PRESENCE.
+              </h2>
+              <p className="text-body-md max-w-md">
+                브랜드 상황을 남겨주시면 담당자가 제품 카테고리와 캠페인 목표에 맞는 PR 방향을
+                제안드립니다. 스타마케팅, PPL, 인플루언서, 언론 홍보, 통합 PR까지 — 가장 적합한
+                채널과 예산 구성을 함께 설계합니다.
+              </p>
+            </div>
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                const form = e.currentTarget;
+                const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+                const fd = new FormData(form);
+                const payload = Object.fromEntries(
+                  [
+                    "name",
+                    "brand",
+                    "email",
+                    "phone",
+                    "category",
+                    "timing",
+                    "service",
+                    "budget",
+                    "website",
+                    "instagram",
+                    "message",
+                  ].map((k) => [k, String(fd.get(k) ?? "").trim()]),
+                );
+                if (submitBtn) {
+                  submitBtn.disabled = true;
+                  submitBtn.textContent = "SENDING...";
+                }
+                try {
+                  const res = await fetch("/api/public/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                  });
+                  const data = await res.json().catch(() => ({}) as Record<string, unknown>);
+                  if (res.ok && data.ok) {
+                    trackLandingEvent("Lead", { content_name: "clamoa_contact_form" });
+                    if (submitBtn) submitBtn.textContent = "SENT ✓ — 24시간 내 회신드리겠습니다";
+                    form.reset();
+                  } else {
+                    if (submitBtn) {
+                      submitBtn.disabled = false;
+                      submitBtn.textContent = "SEND INQUIRY";
+                    }
+                    const msg =
+                      data.error === "invalid_email"
+                        ? "이메일 주소를 올바르게 입력해 주세요."
+                        : data.error === "missing_fields"
+                          ? "이름 또는 브랜드명을 입력해 주세요."
+                          : "전송에 실패했습니다. 잠시 후 다시 시도해 주세요.";
+                    alert(msg);
+                  }
+                } catch {
+                  if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "SEND INQUIRY";
+                  }
+                  alert("네트워크 오류로 전송에 실패했습니다.");
+                }
+              }}
+              className="col-span-12 md:col-span-6 md:col-start-7 grid grid-cols-2 gap-6"
+            >
+              {(
+                [
+                  ["Name", "name", "text", "col-span-2 md:col-span-1", true],
+                  ["Brand Name / 브랜드명", "brand", "text", "col-span-2 md:col-span-1", false],
+                  ["Email", "email", "email", "col-span-2 md:col-span-1", true],
+                  ["Phone", "phone", "tel", "col-span-2 md:col-span-1", false],
+                ] as const
+              ).map(([label, name, type, span, required]) => (
+                <label key={name} className={`flex flex-col gap-2 ${span}`}>
+                  <span className="text-label-caps text-secondary">
+                    {label}
+                    {required ? " *" : ""}
+                  </span>
+                  <input
+                    name={name}
+                    type={type}
+                    required={required}
+                    className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                  />
+                </label>
+              ))}
+              <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
+                <span className="text-label-caps text-secondary">
+                  Product Category / 제품 카테고리
+                </span>
+                <select
+                  name="category"
+                  defaultValue=""
+                  className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                >
+                  <option value="" disabled>
+                    - 선택 -
+                  </option>
+                  <option>여성복 / Womenswear</option>
+                  <option>남성복 / Menswear</option>
+                  <option>유니섹스 / Unisex</option>
+                  <option>주얼리 / Jewelry</option>
+                  <option>가방·슈즈 / Bag & Shoes</option>
+                  <option>뷰티 / Beauty</option>
+                  <option>라이프스타일 / Lifestyle</option>
+                  <option>기타 / Other</option>
+                </select>
+              </label>
+              <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
+                <span className="text-label-caps text-secondary">Campaign Timing / 진행 시기</span>
+                <select
+                  name="timing"
+                  defaultValue=""
+                  className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                >
+                  <option value="" disabled>
+                    - 선택 -
+                  </option>
+                  <option>즉시 진행 / ASAP</option>
+                  <option>1개월 이내</option>
+                  <option>1~3개월 이내</option>
+                  <option>3~6개월 이내</option>
+                  <option>6개월 이후</option>
+                  <option>미정 / 상담 후 결정</option>
+                </select>
+              </label>
+              <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
+                <span className="text-label-caps text-secondary">
+                  Service Interest / 희망 서비스
+                </span>
+                <select
+                  name="service"
+                  className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                >
+                  <option>Celebrity Seeding (셀럽 협찬)</option>
+                  <option>Stylist Relations</option>
+                  <option>PPL & Content Placement</option>
+                  <option>Influencer PR</option>
+                  <option>Editorial & Viral PR</option>
+                  <option>Offline Event PR</option>
+                  <option>Brand Ambassador</option>
+                  <option>Global Expansion</option>
+                  <option>Full Brand PR</option>
+                </select>
+              </label>
+              <label className="flex flex-col gap-2 col-span-2 md:col-span-1">
+                <span className="text-label-caps text-secondary">Budget Range / 예산 범위</span>
+                <select
+                  name="budget"
+                  className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                >
+                  <option>- 선택 -</option>
+                  <option>~ 500만원</option>
+                  <option>500만원 ~ 1,500만원</option>
+                  <option>1,500만원 ~ 3,000만원</option>
+                  <option>3,000만원 ~ 5,000만원</option>
+                  <option>5,000만원 이상</option>
+                  <option>상담 후 결정</option>
+                </select>
+              </label>
+              <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <label className="flex flex-col gap-2">
+                  <span className="text-label-caps text-secondary">
+                    Brand Website / 브랜드 홈페이지
+                  </span>
+                  <input
+                    name="website"
+                    type="text"
+                    inputMode="url"
+                    placeholder="www.yourbrand.com"
+                    className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                  />
+                </label>
+                <label className="flex flex-col gap-2">
+                  <span className="text-label-caps text-secondary">Instagram / 인스타그램</span>
+                  <input
+                    name="instagram"
+                    type="text"
+                    placeholder="@yourbrand 또는 instagram.com/yourbrand"
+                    className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
+                  />
+                </label>
+              </div>
+              <label className="flex flex-col gap-2 col-span-2">
+                <span className="text-label-caps text-secondary">Message / 추가 메시지</span>
+                <textarea
+                  name="message"
+                  rows={4}
+                  className="bg-transparent border border-deep-ink p-4 text-body-md focus:outline-none focus:border-neon-signal resize-none"
+                />
+              </label>
+              <button
+                type="submit"
+                className="col-span-2 bg-deep-ink text-neon-signal py-6 text-label-caps hover:bg-neon-signal hover:text-deep-ink border border-deep-ink transition-all duration-300 active:scale-95"
+              >
+                SEND INQUIRY
+              </button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="w-full mt-20 md:mt-32 bg-surface border-t-2 border-deep-ink grid grid-cols-12 gap-6 px-5 md:px-16 py-20">
+        <div className="col-span-12 mb-20 reveal">
+          <div className="text-display-xl opacity-10 uppercase select-none pointer-events-none whitespace-nowrap overflow-hidden text-center">
+            CLAMOA AGENCY
+          </div>
+        </div>
+        <div className="col-span-12 md:col-span-4 flex flex-col gap-6 reveal">
+          <img
+            src={clamoaLogo.url}
+            alt="CLAMOA logo"
+            className="h-8 w-auto object-contain self-start"
+          />
+          <p className="text-body-md max-w-xs leading-relaxed">
+            패션 & 라이프스타일 브랜드를 위한
+            <br />
+            통합 PR 에이전시.
+          </p>
+        </div>
+        <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
+          <span className="text-label-caps text-secondary">{"\n"}</span>
+          <a href="#" className="text-body-md hover:text-neon-signal transition-colors">
+            {"\n"}
+          </a>
+        </div>
+        <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
+          <span className="text-label-caps text-secondary">LEGAL</span>
+          {["PRIVACY", "TERMS"].map((l) => (
+            <a key={l} href="#" className="text-body-md hover:text-neon-signal transition-colors">
+              {l}
+            </a>
+          ))}
+        </div>
+        <div className="col-span-12 md:col-span-4 flex flex-col justify-end items-start md:items-end gap-3 mt-12 md:mt-0 reveal">
+          <span className="text-label-caps text-secondary">CONTACT</span>
+          <address className="not-italic text-body-md md:text-right leading-relaxed">
+            서울특별시 강남구 선릉로155길 23-3, 3층
+            <br />
+            (CLAMOA AGENCY)
+          </address>
+          <a
+            href="tel:+82-507-1322-0092"
+            className="text-body-md hover:text-neon-signal transition-colors"
+          >
+            T. 0507-1322-0092
+          </a>
+          <a
+            href="mailto:dannjo@clamoa.com"
+            className="text-body-md hover:text-neon-signal transition-colors"
+          >
+            E. dannjo@clamoa.com
+          </a>
+          <div className="text-body-sm text-secondary md:text-right mt-4">
+            © 2026 CLAMOA AGENCY. ALL RIGHTS RESERVED.
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
