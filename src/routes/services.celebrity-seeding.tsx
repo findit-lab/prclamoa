@@ -4,16 +4,16 @@ import { ServiceDetailPage } from "@/components/ServiceDetailPage";
 export const Route = createFileRoute("/services/celebrity-seeding")({
   head: () => ({
     meta: [
-      { title: "셀럽 협찬(Celebrity Seeding) — 패션 PR | CLAMOA" },
+      { title: "쇼룸 셀럽 PR(Showroom Celebrity PR) — 패션 PR | CLAMOA" },
       {
         name: "description",
         content:
-          "셀럽 협찬은 배우·아이돌·방송인 착장 노출을 통해 브랜드 인지도와 콘텐츠 자산을 확보하는 패션 PR입니다. CLAMOA의 셀럽 시딩 진행 방식과 산출물을 안내합니다.",
+          "쇼룸 PR은 브랜드 제품을 쇼룸에 진열하고 스타일리스트 네트워크를 통해 배우·아이돌 등 셀럽 착용 노출로 연결하는 패션 PR입니다. CLAMOA의 셀럽 가이드라인 설정부터 클리핑 리포트까지 전 과정을 안내합니다.",
       },
-      { property: "og:title", content: "셀럽 협찬(Celebrity Seeding) — 패션 PR | CLAMOA" },
+      { property: "og:title", content: "쇼룸 셀럽 PR(Showroom Celebrity PR) — 패션 PR | CLAMOA" },
       {
         property: "og:description",
-        content: "패션 브랜드를 위한 셀럽 협찬 대행. 매칭 전략, 시딩 운영, 클리핑 데이터 관리까지.",
+        content: "쇼룸 디스플레이·스타일리스트 피칭·셀럽 착용 모니터링과 클리핑 데이터 관리까지 통합 운영하는 쇼룸 셀럽 PR.",
       },
       { property: "og:url", content: "https://clamoa.com/services/celebrity-seeding" },
     ],

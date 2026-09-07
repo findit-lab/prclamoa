@@ -26,12 +26,12 @@ export const Route = createFileRoute("/services/global-expansion")({
       {
         name: "description",
         content:
-          "글로벌 확장은 한국 패션 브랜드의 일본·대만·중국 진출을 위한 PR·유통 연계 서비스입니다. 일본 셀렉트샵, 대만 편집샵, 중국 샤오홍수·왕홍 라이브커머스 포함.",
+          "글로벌 확장은 한국 패션 브랜드의 일본·대만·중국 등 아시아 시장 진출을 위해 현지 유통과 마케팅을 연계하는 글로벌 비즈니스 지원 서비스입니다. 해외 셀렉트샵·편집샵 입점부터 샤오홍수 마케팅, 왕홍 라이브커머스 매칭까지 지원합니다.",
       },
       { property: "og:title", content: "글로벌 확장(Global Expansion) — 패션 PR | CLAMOA" },
       {
         property: "og:description",
-        content: "한국 패션 브랜드의 일본·대만·중국 진출을 위한 PR·유통 통합 설계.",
+        content: "한국 패션 브랜드의 아시아 시장 진출을 위한 해외 유통 입점과 현지 마케팅 연계 지원.",
       },
       { property: "og:url", content: "https://clamoa.com/services/global-expansion" },
     ],
