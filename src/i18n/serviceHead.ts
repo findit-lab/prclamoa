@@ -121,3 +121,10 @@ export function serviceDetailHead(locale: ServiceLocale, service: ServiceContent
     ],
   };
 }
+
+/** hreflang links to add on the Korean service pages. */
+export function koServiceAlternates(slug?: string) {
+  const koUrl = slug ? `${SITE_URL}/services/${slug}` : `${SITE_URL}/services`;
+  const make = (l: ServiceLocale) => (slug ? serviceDetailUrl(l, slug) : servicesHubUrl(l));
+  return alternates(make, koUrl);
+}
