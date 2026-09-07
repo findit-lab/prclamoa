@@ -80,7 +80,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1, viewport-fit=cover",
+      },
+      { name: "theme-color", content: "#1A1C1C" },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+      { name: "format-detection", content: "telephone=no" },
       {
         name: "utm-event-endpoint",
         content: "https://clamoa-meta-ads.vercel.app/api/utm/event",
@@ -96,27 +104,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "CLAMOA" },
       { property: "og:site_name", content: "CLAMOA" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      {
-        property: "og:image",
-        content:
-          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1cf26590-7184-48e1-b4d3-bde7ec7f9455",
-      },
-      {
-        name: "twitter:image",
-        content:
-          "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/1cf26590-7184-48e1-b4d3-bde7ec7f9455",
-      },
       { property: "og:title", content: "CLAMOA — Fashion PR Agency Seoul" },
-      { name: "twitter:title", content: "CLAMOA — Fashion PR Agency Seoul" },
-      { name: "description", content: "FASHION PR, WE MAKE BRANDS VISIBLE" },
-      { property: "og:description", content: "FASHION PR, WE MAKE BRANDS VISIBLE" },
-      { name: "twitter:description", content: "FASHION PR, WE MAKE BRANDS VISIBLE" },
+      {
+        property: "og:description",
+        content: "FASHION PR, WE MAKE BRANDS VISIBLE",
+      },
       {
         property: "og:image",
         content:
           "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d0eb9144-01b3-4e9b-9a42-32d0d432ffc0",
       },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "CLAMOA — Fashion PR Agency Seoul" },
+      { name: "twitter:description", content: "FASHION PR, WE MAKE BRANDS VISIBLE" },
       {
         name: "twitter:image",
         content:
