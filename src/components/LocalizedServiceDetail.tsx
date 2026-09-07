@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
-import { LocalizedServiceNav } from "@/components/LocalizedServiceNav";
+import { LOCALE_HOME, LocalizedServiceNav } from "@/components/LocalizedServiceNav";
 import { getServiceUI, type ServiceContent, type ServiceLocale } from "@/data/services";
 
 export function LocalizedServiceDetail({
@@ -140,7 +140,8 @@ export function LocalizedServiceDetail({
             {ui.ctaTitle}
           </h2>
           <Link
-            to="/contact"
+            to={LOCALE_HOME[locale]}
+            hash="contact"
             className="inline-flex items-center gap-3 bg-neon-signal text-deep-ink px-8 md:px-12 py-5 md:py-6 text-label-caps hover:bg-surface transition-colors border-2 border-neon-signal"
           >
             <span>{ui.ctaButton}</span>
