@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -13,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { organizationSchema } from "../lib/schema";
 import { trackInitialLandingVisit } from "../lib/utm-tracking";
+import { LOCALE_REGISTRY, localeFromPathname } from "@/i18n/config";
 
 function NotFoundComponent() {
   return (
