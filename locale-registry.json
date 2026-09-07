@@ -1,0 +1,86 @@
+{
+  "site": "https://clamoa.com",
+  "defaultLocale": "ko",
+  "xDefault": "ko",
+  "urlStrategy": "path-prefix",
+  "slugPolicy": "stable",
+  "scope": {
+    "localized": ["/"],
+    "koreanOnly": [
+      "/about",
+      "/services",
+      "/services/*",
+      "/case-studies",
+      "/process",
+      "/insights",
+      "/insights/*",
+      "/faq",
+      "/contact",
+      "/star",
+      "/magazine",
+      "/influencer",
+      "/event",
+      "/brand-ambassador",
+      "/viral",
+      "/privacy",
+      "/terms"
+    ],
+    "note": "Only the one-page home experience is localized so far. Korean-only pages are excluded from the hreflang cluster; do not emit alternates for them until translated."
+  },
+  "locales": [
+    {
+      "code": "ko",
+      "bcp47": "ko-KR",
+      "prefix": "",
+      "dir": "ltr",
+      "label": "한국어",
+      "ogLocale": "ko_KR",
+      "priority": "primary",
+      "formality": "polite (해요/합니다체)"
+    },
+    {
+      "code": "en",
+      "bcp47": "en",
+      "prefix": "/en",
+      "dir": "ltr",
+      "label": "English",
+      "ogLocale": "en_US",
+      "priority": "primary",
+      "formality": "professional neutral"
+    },
+    {
+      "code": "ja",
+      "bcp47": "ja-JP",
+      "prefix": "/ja",
+      "dir": "ltr",
+      "label": "日本語",
+      "ogLocale": "ja_JP",
+      "priority": "secondary",
+      "formality": "です・ます体"
+    },
+    {
+      "code": "vi",
+      "bcp47": "vi-VN",
+      "prefix": "/vi",
+      "dir": "ltr",
+      "label": "Tiếng Việt",
+      "ogLocale": "vi_VN",
+      "priority": "secondary",
+      "formality": "trang trọng, xưng 'chúng tôi'"
+    },
+    {
+      "code": "th",
+      "bcp47": "th-TH",
+      "prefix": "/th",
+      "dir": "ltr",
+      "label": "ไทย",
+      "ogLocale": "th_TH",
+      "priority": "maintain",
+      "formality": "สุภาพ (ครับ/ค่ะ omitted in body copy)"
+    }
+  ],
+  "reviewFlags": {
+    "needs_native_review": ["vi", "th"],
+    "reason": "Marketing copy adapted by the agent; recommend a native marketing review before paid promotion."
+  }
+}
