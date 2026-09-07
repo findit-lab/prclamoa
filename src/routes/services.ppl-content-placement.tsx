@@ -4,16 +4,16 @@ import { ServiceDetailPage } from "@/components/ServiceDetailPage";
 export const Route = createFileRoute("/services/ppl-content-placement")({
   head: () => ({
     meta: [
-      { title: "PPL & 콘텐츠 플레이스먼트 — 패션 PR | CLAMOA" },
+      { title: "SNS / YouTube PPL — 패션 PR | CLAMOA" },
       {
         name: "description",
         content:
-          "PPL은 드라마·예능·뮤직비디오·웹콘텐츠에 브랜드 제품을 자연스럽게 노출하는 패션 PR 방식입니다. CLAMOA의 PPL 매칭과 운영을 안내합니다.",
+          "SNS / YouTube PPL은 인플루언서·셀럽의 SNS 및 YouTube 콘텐츠를 통해 브랜드 제품을 자연스럽게 노출하는 PR 방식입니다. CLAMOA의 인물 선정부터 콘텐츠 발행까지 전 과정을 안내합니다.",
       },
-      { property: "og:title", content: "PPL & 콘텐츠 플레이스먼트 — 패션 PR | CLAMOA" },
+      { property: "og:title", content: "SNS / YouTube PPL — 패션 PR | CLAMOA" },
       {
         property: "og:description",
-        content: "드라마·예능·MV·웹콘텐츠 PPL 매칭과 운영. 노출 효과 트래킹 포함.",
+        content: "인플루언서·셀럽 SNS·YouTube 콘텐츠 기반 PPL. 채널 매칭부터 발행·결과 취합까지 운영.",
       },
       { property: "og:url", content: "https://clamoa.com/services/ppl-content-placement" },
     ],
