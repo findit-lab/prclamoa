@@ -392,7 +392,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               />
               <div className="absolute -bottom-6 -right-6 bg-deep-ink text-surface p-10 max-w-xs hidden md:block transition-transform duration-500 group-hover:-translate-x-4 group-hover:-translate-y-4">
                 <p className="text-body-md italic font-serif">
-                  t("중요한 것은 많이 보이는 것이 아니라, 제대로 보이는 것입니다.")
+                  {t("중요한 것은 많이 보이는 것이 아니라, 제대로 보이는 것입니다.")}
                 </p>
               </div>
             </div>
