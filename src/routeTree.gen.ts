@@ -10,8 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ViralRouteImport } from './routes/viral'
-import { Route as ViRouteImport } from './routes/vi'
-import { Route as ThRouteImport } from './routes/th'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as StarRouteImport } from './routes/star'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -20,18 +18,20 @@ import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ProcessRouteImport } from './routes/process'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as MagazineRouteImport } from './routes/magazine'
-import { Route as JaRouteImport } from './routes/ja'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as InfluencerRouteImport } from './routes/influencer'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EventRouteImport } from './routes/event'
-import { Route as EnRouteImport } from './routes/en'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as BrandAmbassadorRouteImport } from './routes/brand-ambassador'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ViIndexRouteImport } from './routes/vi/index'
+import { Route as ThIndexRouteImport } from './routes/th/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as JaIndexRouteImport } from './routes/ja/index'
+import { Route as EnIndexRouteImport } from './routes/en/index'
 import { Route as ServicesStylistRelationsRouteImport } from './routes/services.stylist-relations'
 import { Route as ServicesPplContentPlacementRouteImport } from './routes/services.ppl-content-placement'
 import { Route as ServicesOfflineEventPrRouteImport } from './routes/services.offline-event-pr'
@@ -41,6 +41,14 @@ import { Route as ServicesEditorialViralPrRouteImport } from './routes/services.
 import { Route as ServicesCelebritySeedingRouteImport } from './routes/services.celebrity-seeding'
 import { Route as ServicesBrandAmbassadorRouteImport } from './routes/services.brand-ambassador'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as ViJournalIndexRouteImport } from './routes/vi/journal/index'
+import { Route as ThJournalIndexRouteImport } from './routes/th/journal/index'
+import { Route as JaJournalIndexRouteImport } from './routes/ja/journal/index'
+import { Route as EnJournalIndexRouteImport } from './routes/en/journal/index'
+import { Route as ViJournalSlugRouteImport } from './routes/vi/journal/$slug'
+import { Route as ThJournalSlugRouteImport } from './routes/th/journal/$slug'
+import { Route as JaJournalSlugRouteImport } from './routes/ja/journal/$slug'
+import { Route as EnJournalSlugRouteImport } from './routes/en/journal/$slug'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
 import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
@@ -51,16 +59,6 @@ import { Route as ApiBrandAmbassadorImageIdRouteImport } from './routes/api/bran
 const ViralRoute = ViralRouteImport.update({
   id: '/viral',
   path: '/viral',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ViRoute = ViRouteImport.update({
-  id: '/vi',
-  path: '/vi',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ThRoute = ThRouteImport.update({
-  id: '/th',
-  path: '/th',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TermsRoute = TermsRouteImport.update({
@@ -103,11 +101,6 @@ const MagazineRoute = MagazineRouteImport.update({
   path: '/magazine',
   getParentRoute: () => rootRouteImport,
 } as any)
-const JaRoute = JaRouteImport.update({
-  id: '/ja',
-  path: '/ja',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const InsightsRoute = InsightsRouteImport.update({
   id: '/insights',
   path: '/insights',
@@ -126,11 +119,6 @@ const FaqRoute = FaqRouteImport.update({
 const EventRoute = EventRouteImport.update({
   id: '/event',
   path: '/event',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnRoute = EnRouteImport.update({
-  id: '/en',
-  path: '/en',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -158,10 +146,30 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ViIndexRoute = ViIndexRouteImport.update({
+  id: '/vi/',
+  path: '/vi/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThIndexRoute = ThIndexRouteImport.update({
+  id: '/th/',
+  path: '/th/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => ServicesRoute,
+} as any)
+const JaIndexRoute = JaIndexRouteImport.update({
+  id: '/ja/',
+  path: '/ja/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/en/',
+  path: '/en/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesStylistRelationsRoute =
   ServicesStylistRelationsRouteImport.update({
@@ -212,6 +220,46 @@ const InsightsSlugRoute = InsightsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => InsightsRoute,
 } as any)
+const ViJournalIndexRoute = ViJournalIndexRouteImport.update({
+  id: '/vi/journal/',
+  path: '/vi/journal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThJournalIndexRoute = ThJournalIndexRouteImport.update({
+  id: '/th/journal/',
+  path: '/th/journal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JaJournalIndexRoute = JaJournalIndexRouteImport.update({
+  id: '/ja/journal/',
+  path: '/ja/journal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnJournalIndexRoute = EnJournalIndexRouteImport.update({
+  id: '/en/journal/',
+  path: '/en/journal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ViJournalSlugRoute = ViJournalSlugRouteImport.update({
+  id: '/vi/journal/$slug',
+  path: '/vi/journal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThJournalSlugRoute = ThJournalSlugRouteImport.update({
+  id: '/th/journal/$slug',
+  path: '/th/journal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JaJournalSlugRoute = JaJournalSlugRouteImport.update({
+  id: '/ja/journal/$slug',
+  path: '/ja/journal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnJournalSlugRoute = EnJournalSlugRouteImport.update({
+  id: '/en/journal/$slug',
+  path: '/en/journal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   id: '/api/public/contact',
   path: '/api/public/contact',
@@ -250,12 +298,10 @@ export interface FileRoutesByFullPath {
   '/brand-ambassador': typeof BrandAmbassadorRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
-  '/en': typeof EnRoute
   '/event': typeof EventRoute
   '/faq': typeof FaqRoute
   '/influencer': typeof InfluencerRoute
   '/insights': typeof InsightsRouteWithChildren
-  '/ja': typeof JaRoute
   '/magazine': typeof MagazineRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -264,8 +310,6 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
   '/terms': typeof TermsRoute
-  '/th': typeof ThRoute
-  '/vi': typeof ViRoute
   '/viral': typeof ViralRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
@@ -276,8 +320,20 @@ export interface FileRoutesByFullPath {
   '/services/offline-event-pr': typeof ServicesOfflineEventPrRoute
   '/services/ppl-content-placement': typeof ServicesPplContentPlacementRoute
   '/services/stylist-relations': typeof ServicesStylistRelationsRoute
+  '/en/': typeof EnIndexRoute
+  '/ja/': typeof JaIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/th/': typeof ThIndexRoute
+  '/vi/': typeof ViIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/en/journal/$slug': typeof EnJournalSlugRoute
+  '/ja/journal/$slug': typeof JaJournalSlugRoute
+  '/th/journal/$slug': typeof ThJournalSlugRoute
+  '/vi/journal/$slug': typeof ViJournalSlugRoute
+  '/en/journal/': typeof EnJournalIndexRoute
+  '/ja/journal/': typeof JaJournalIndexRoute
+  '/th/journal/': typeof ThJournalIndexRoute
+  '/vi/journal/': typeof ViJournalIndexRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -290,12 +346,10 @@ export interface FileRoutesByTo {
   '/brand-ambassador': typeof BrandAmbassadorRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
-  '/en': typeof EnRoute
   '/event': typeof EventRoute
   '/faq': typeof FaqRoute
   '/influencer': typeof InfluencerRoute
   '/insights': typeof InsightsRouteWithChildren
-  '/ja': typeof JaRoute
   '/magazine': typeof MagazineRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -303,8 +357,6 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
   '/terms': typeof TermsRoute
-  '/th': typeof ThRoute
-  '/vi': typeof ViRoute
   '/viral': typeof ViralRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
@@ -315,8 +367,20 @@ export interface FileRoutesByTo {
   '/services/offline-event-pr': typeof ServicesOfflineEventPrRoute
   '/services/ppl-content-placement': typeof ServicesPplContentPlacementRoute
   '/services/stylist-relations': typeof ServicesStylistRelationsRoute
+  '/en': typeof EnIndexRoute
+  '/ja': typeof JaIndexRoute
   '/services': typeof ServicesIndexRoute
+  '/th': typeof ThIndexRoute
+  '/vi': typeof ViIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/en/journal/$slug': typeof EnJournalSlugRoute
+  '/ja/journal/$slug': typeof JaJournalSlugRoute
+  '/th/journal/$slug': typeof ThJournalSlugRoute
+  '/vi/journal/$slug': typeof ViJournalSlugRoute
+  '/en/journal': typeof EnJournalIndexRoute
+  '/ja/journal': typeof JaJournalIndexRoute
+  '/th/journal': typeof ThJournalIndexRoute
+  '/vi/journal': typeof ViJournalIndexRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -330,12 +394,10 @@ export interface FileRoutesById {
   '/brand-ambassador': typeof BrandAmbassadorRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
-  '/en': typeof EnRoute
   '/event': typeof EventRoute
   '/faq': typeof FaqRoute
   '/influencer': typeof InfluencerRoute
   '/insights': typeof InsightsRouteWithChildren
-  '/ja': typeof JaRoute
   '/magazine': typeof MagazineRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -344,8 +406,6 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/star': typeof StarRoute
   '/terms': typeof TermsRoute
-  '/th': typeof ThRoute
-  '/vi': typeof ViRoute
   '/viral': typeof ViralRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/services/brand-ambassador': typeof ServicesBrandAmbassadorRoute
@@ -356,8 +416,20 @@ export interface FileRoutesById {
   '/services/offline-event-pr': typeof ServicesOfflineEventPrRoute
   '/services/ppl-content-placement': typeof ServicesPplContentPlacementRoute
   '/services/stylist-relations': typeof ServicesStylistRelationsRoute
+  '/en/': typeof EnIndexRoute
+  '/ja/': typeof JaIndexRoute
   '/services/': typeof ServicesIndexRoute
+  '/th/': typeof ThIndexRoute
+  '/vi/': typeof ViIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/en/journal/$slug': typeof EnJournalSlugRoute
+  '/ja/journal/$slug': typeof JaJournalSlugRoute
+  '/th/journal/$slug': typeof ThJournalSlugRoute
+  '/vi/journal/$slug': typeof ViJournalSlugRoute
+  '/en/journal/': typeof EnJournalIndexRoute
+  '/ja/journal/': typeof JaJournalIndexRoute
+  '/th/journal/': typeof ThJournalIndexRoute
+  '/vi/journal/': typeof ViJournalIndexRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -372,12 +444,10 @@ export interface FileRouteTypes {
     | '/brand-ambassador'
     | '/case-studies'
     | '/contact'
-    | '/en'
     | '/event'
     | '/faq'
     | '/influencer'
     | '/insights'
-    | '/ja'
     | '/magazine'
     | '/privacy'
     | '/process'
@@ -386,8 +456,6 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/star'
     | '/terms'
-    | '/th'
-    | '/vi'
     | '/viral'
     | '/insights/$slug'
     | '/services/brand-ambassador'
@@ -398,8 +466,20 @@ export interface FileRouteTypes {
     | '/services/offline-event-pr'
     | '/services/ppl-content-placement'
     | '/services/stylist-relations'
+    | '/en/'
+    | '/ja/'
     | '/services/'
+    | '/th/'
+    | '/vi/'
     | '/api/public/contact'
+    | '/en/journal/$slug'
+    | '/ja/journal/$slug'
+    | '/th/journal/$slug'
+    | '/vi/journal/$slug'
+    | '/en/journal/'
+    | '/ja/journal/'
+    | '/th/journal/'
+    | '/vi/journal/'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -412,12 +492,10 @@ export interface FileRouteTypes {
     | '/brand-ambassador'
     | '/case-studies'
     | '/contact'
-    | '/en'
     | '/event'
     | '/faq'
     | '/influencer'
     | '/insights'
-    | '/ja'
     | '/magazine'
     | '/privacy'
     | '/process'
@@ -425,8 +503,6 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/star'
     | '/terms'
-    | '/th'
-    | '/vi'
     | '/viral'
     | '/insights/$slug'
     | '/services/brand-ambassador'
@@ -437,8 +513,20 @@ export interface FileRouteTypes {
     | '/services/offline-event-pr'
     | '/services/ppl-content-placement'
     | '/services/stylist-relations'
+    | '/en'
+    | '/ja'
     | '/services'
+    | '/th'
+    | '/vi'
     | '/api/public/contact'
+    | '/en/journal/$slug'
+    | '/ja/journal/$slug'
+    | '/th/journal/$slug'
+    | '/vi/journal/$slug'
+    | '/en/journal'
+    | '/ja/journal'
+    | '/th/journal'
+    | '/vi/journal'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -451,12 +539,10 @@ export interface FileRouteTypes {
     | '/brand-ambassador'
     | '/case-studies'
     | '/contact'
-    | '/en'
     | '/event'
     | '/faq'
     | '/influencer'
     | '/insights'
-    | '/ja'
     | '/magazine'
     | '/privacy'
     | '/process'
@@ -465,8 +551,6 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/star'
     | '/terms'
-    | '/th'
-    | '/vi'
     | '/viral'
     | '/insights/$slug'
     | '/services/brand-ambassador'
@@ -477,8 +561,20 @@ export interface FileRouteTypes {
     | '/services/offline-event-pr'
     | '/services/ppl-content-placement'
     | '/services/stylist-relations'
+    | '/en/'
+    | '/ja/'
     | '/services/'
+    | '/th/'
+    | '/vi/'
     | '/api/public/contact'
+    | '/en/journal/$slug'
+    | '/ja/journal/$slug'
+    | '/th/journal/$slug'
+    | '/vi/journal/$slug'
+    | '/en/journal/'
+    | '/ja/journal/'
+    | '/th/journal/'
+    | '/vi/journal/'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -492,12 +588,10 @@ export interface RootRouteChildren {
   BrandAmbassadorRoute: typeof BrandAmbassadorRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
-  EnRoute: typeof EnRoute
   EventRoute: typeof EventRoute
   FaqRoute: typeof FaqRoute
   InfluencerRoute: typeof InfluencerRoute
   InsightsRoute: typeof InsightsRouteWithChildren
-  JaRoute: typeof JaRoute
   MagazineRoute: typeof MagazineRoute
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
@@ -506,10 +600,20 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StarRoute: typeof StarRoute
   TermsRoute: typeof TermsRoute
-  ThRoute: typeof ThRoute
-  ViRoute: typeof ViRoute
   ViralRoute: typeof ViralRoute
+  EnIndexRoute: typeof EnIndexRoute
+  JaIndexRoute: typeof JaIndexRoute
+  ThIndexRoute: typeof ThIndexRoute
+  ViIndexRoute: typeof ViIndexRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
+  EnJournalSlugRoute: typeof EnJournalSlugRoute
+  JaJournalSlugRoute: typeof JaJournalSlugRoute
+  ThJournalSlugRoute: typeof ThJournalSlugRoute
+  ViJournalSlugRoute: typeof ViJournalSlugRoute
+  EnJournalIndexRoute: typeof EnJournalIndexRoute
+  JaJournalIndexRoute: typeof JaJournalIndexRoute
+  ThJournalIndexRoute: typeof ThJournalIndexRoute
+  ViJournalIndexRoute: typeof ViJournalIndexRoute
   ApiBrandAmbassadorImageIdRoute: typeof ApiBrandAmbassadorImageIdRoute
   ApiEventImageIdRoute: typeof ApiEventImageIdRoute
   ApiInfluencerImageIdRoute: typeof ApiInfluencerImageIdRoute
@@ -524,20 +628,6 @@ declare module '@tanstack/react-router' {
       path: '/viral'
       fullPath: '/viral'
       preLoaderRoute: typeof ViralRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/vi': {
-      id: '/vi'
-      path: '/vi'
-      fullPath: '/vi'
-      preLoaderRoute: typeof ViRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/th': {
-      id: '/th'
-      path: '/th'
-      fullPath: '/th'
-      preLoaderRoute: typeof ThRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms': {
@@ -596,13 +686,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MagazineRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/ja': {
-      id: '/ja'
-      path: '/ja'
-      fullPath: '/ja'
-      preLoaderRoute: typeof JaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/insights': {
       id: '/insights'
       path: '/insights'
@@ -629,13 +712,6 @@ declare module '@tanstack/react-router' {
       path: '/event'
       fullPath: '/event'
       preLoaderRoute: typeof EventRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/en': {
-      id: '/en'
-      path: '/en'
-      fullPath: '/en'
-      preLoaderRoute: typeof EnRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -673,12 +749,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/vi/': {
+      id: '/vi/'
+      path: '/vi'
+      fullPath: '/vi/'
+      preLoaderRoute: typeof ViIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/th/': {
+      id: '/th/'
+      path: '/th'
+      fullPath: '/th/'
+      preLoaderRoute: typeof ThIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/': {
       id: '/services/'
       path: '/'
       fullPath: '/services/'
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
+    }
+    '/ja/': {
+      id: '/ja/'
+      path: '/ja'
+      fullPath: '/ja/'
+      preLoaderRoute: typeof JaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/': {
+      id: '/en/'
+      path: '/en'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/services/stylist-relations': {
       id: '/services/stylist-relations'
@@ -742,6 +846,62 @@ declare module '@tanstack/react-router' {
       fullPath: '/insights/$slug'
       preLoaderRoute: typeof InsightsSlugRouteImport
       parentRoute: typeof InsightsRoute
+    }
+    '/vi/journal/': {
+      id: '/vi/journal/'
+      path: '/vi/journal'
+      fullPath: '/vi/journal/'
+      preLoaderRoute: typeof ViJournalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/th/journal/': {
+      id: '/th/journal/'
+      path: '/th/journal'
+      fullPath: '/th/journal/'
+      preLoaderRoute: typeof ThJournalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ja/journal/': {
+      id: '/ja/journal/'
+      path: '/ja/journal'
+      fullPath: '/ja/journal/'
+      preLoaderRoute: typeof JaJournalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/journal/': {
+      id: '/en/journal/'
+      path: '/en/journal'
+      fullPath: '/en/journal/'
+      preLoaderRoute: typeof EnJournalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vi/journal/$slug': {
+      id: '/vi/journal/$slug'
+      path: '/vi/journal/$slug'
+      fullPath: '/vi/journal/$slug'
+      preLoaderRoute: typeof ViJournalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/th/journal/$slug': {
+      id: '/th/journal/$slug'
+      path: '/th/journal/$slug'
+      fullPath: '/th/journal/$slug'
+      preLoaderRoute: typeof ThJournalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ja/journal/$slug': {
+      id: '/ja/journal/$slug'
+      path: '/ja/journal/$slug'
+      fullPath: '/ja/journal/$slug'
+      preLoaderRoute: typeof JaJournalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/journal/$slug': {
+      id: '/en/journal/$slug'
+      path: '/en/journal/$slug'
+      fullPath: '/en/journal/$slug'
+      preLoaderRoute: typeof EnJournalSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/api/public/contact': {
       id: '/api/public/contact'
@@ -834,12 +994,10 @@ const rootRouteChildren: RootRouteChildren = {
   BrandAmbassadorRoute: BrandAmbassadorRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
-  EnRoute: EnRoute,
   EventRoute: EventRoute,
   FaqRoute: FaqRoute,
   InfluencerRoute: InfluencerRoute,
   InsightsRoute: InsightsRouteWithChildren,
-  JaRoute: JaRoute,
   MagazineRoute: MagazineRoute,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,
@@ -848,10 +1006,20 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StarRoute: StarRoute,
   TermsRoute: TermsRoute,
-  ThRoute: ThRoute,
-  ViRoute: ViRoute,
   ViralRoute: ViralRoute,
+  EnIndexRoute: EnIndexRoute,
+  JaIndexRoute: JaIndexRoute,
+  ThIndexRoute: ThIndexRoute,
+  ViIndexRoute: ViIndexRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
+  EnJournalSlugRoute: EnJournalSlugRoute,
+  JaJournalSlugRoute: JaJournalSlugRoute,
+  ThJournalSlugRoute: ThJournalSlugRoute,
+  ViJournalSlugRoute: ViJournalSlugRoute,
+  EnJournalIndexRoute: EnJournalIndexRoute,
+  JaJournalIndexRoute: JaJournalIndexRoute,
+  ThJournalIndexRoute: ThJournalIndexRoute,
+  ViJournalIndexRoute: ViJournalIndexRoute,
   ApiBrandAmbassadorImageIdRoute: ApiBrandAmbassadorImageIdRoute,
   ApiEventImageIdRoute: ApiEventImageIdRoute,
   ApiInfluencerImageIdRoute: ApiInfluencerImageIdRoute,
