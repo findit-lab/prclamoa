@@ -667,12 +667,12 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                     <p className="text-body-md font-serif leading-relaxed">{c.desc}</p>
                     {c.tags && (
                       <div className="flex flex-wrap gap-2 mt-2">
-                        {c.tags.map((t) => (
+                        {c.tags.map((tag) => (
                           <span
-                            key={title}
+                            key={tag}
                             className="border border-deep-ink px-3 py-1 font-bold tracking-widest text-[10px] uppercase hover:bg-deep-ink hover:text-surface transition-colors"
                           >
-                            {t}
+                            {tag}
                           </span>
                         ))}
                       </div>
