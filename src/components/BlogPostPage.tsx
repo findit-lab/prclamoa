@@ -2,6 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { BLOG_UI, getPosts, type BlogLocale, type BlogPost } from "@/data/blog";
 
 const LOCALE_HOME = { en: "/en", ja: "/ja", vi: "/vi", th: "/th" } as const;
+const LOCALE_POST = {
+  en: "/en/journal/$slug",
+  ja: "/ja/journal/$slug",
+  vi: "/vi/journal/$slug",
+  th: "/th/journal/$slug",
+} as const;
 const LOCALE_BLOG = {
   en: "/en/journal",
   ja: "/ja/journal",
@@ -76,7 +82,7 @@ export function BlogPostPage({ locale, post }: { locale: BlogLocale; post: BlogP
                   {related.map((r) => (
                     <li key={r.slug}>
                       <Link
-                        to={`${LOCALE_BLOG[locale]}/$slug`}
+                        to={LOCALE_POST[locale]}
                         params={{ slug: r.slug }}
                         className="block border-b border-deep-ink/20 pb-4 text-body-md hover:text-neon-signal"
                       >
