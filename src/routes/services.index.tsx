@@ -1,3 +1,4 @@
+import { koServiceAlternates } from "@/i18n/serviceHead";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { SubPageNav } from "@/components/SubPageNav";
@@ -77,7 +78,7 @@ export const Route = createFileRoute("/services/")({
       },
       { property: "og:url", content: "https://clamoa.com/services" },
     ],
-    links: [{ rel: "canonical", href: "https://clamoa.com/services" }],
+    links: [{ rel: "canonical", href: "https://clamoa.com/services" }, ...koServiceAlternates()],
   }),
   component: ServicesHub,
 });

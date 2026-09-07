@@ -1,3 +1,4 @@
+import { koServiceAlternates } from "@/i18n/serviceHead";
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
 
@@ -35,7 +36,7 @@ export const Route = createFileRoute("/services/global-expansion")({
       },
       { property: "og:url", content: "https://clamoa.com/services/global-expansion" },
     ],
-    links: [{ rel: "canonical", href: "https://clamoa.com/services/global-expansion" }],
+    links: [{ rel: "canonical", href: "https://clamoa.com/services/global-expansion" }, ...koServiceAlternates("global-expansion")],
   }),
   component: () => (
     <ServiceDetailPage

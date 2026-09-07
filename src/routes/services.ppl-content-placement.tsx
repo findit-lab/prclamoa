@@ -1,3 +1,4 @@
+import { koServiceAlternates } from "@/i18n/serviceHead";
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
 
@@ -17,7 +18,7 @@ export const Route = createFileRoute("/services/ppl-content-placement")({
       },
       { property: "og:url", content: "https://clamoa.com/services/ppl-content-placement" },
     ],
-    links: [{ rel: "canonical", href: "https://clamoa.com/services/ppl-content-placement" }],
+    links: [{ rel: "canonical", href: "https://clamoa.com/services/ppl-content-placement" }, ...koServiceAlternates("ppl-content-placement")],
   }),
   component: () => (
     <ServiceDetailPage
