@@ -1,11 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { LOCALES, LOCALE_REGISTRY, DEFAULT_LOCALE } from "@/i18n/config";
+import { BLOG_LOCALES, getPosts } from "@/data/blog";
 
 const BASE_URL = "https://clamoa.com";
 
 interface SitemapEntry {
   path: string;
+  lastmod?: string;
+  /** hreflang cluster: locale -> path */
+  cluster?: { hreflang: string; path: string }[];
   changefreq?: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
   priority?: string;
 }
@@ -39,6 +43,26 @@ const ENTRIES: SitemapEntry[] = [
   { path: "/contact", changefreq: "yearly", priority: "0.7" },
   { path: "/privacy", changefreq: "yearly", priority: "0.3" },
   { path: "/terms", changefreq: "yearly", priority: "0.3" },
+  ...BLOG_LOCALES.map((l) => ({
+    path: `/${l}/journal`,
+    changefreq: "weekly" as const,
+    priority: "0.8",
+    cluster: BLOG_LOCALES.map((x) => ({
+      hreflang: LOCALE_REGISTRY[x].bcp47,
+      path: `/${x}/journal`,
+    })),
+  })),
+  ...BLOG_LOCALES.flatMap((l) =>
+    getPosts(l).map((post) => ({
+      path: `/${l}/journal/${post.slug}`,
+      lastmod: post.updated,
+      changefreq: "monthly" as const,
+      priority: "0.7",
+      cluster: BLOG_LOCALES.filter((x) => getPosts(x).some((p) => p.slug === post.slug)).map(
+        (x) => ({ hreflang: LOCALE_REGISTRY[x].bcp47, path: `/${x}/journal/${post.slug}` }),
+      ),
+    })),
+  ),
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({
@@ -49,8 +73,16 @@ export const Route = createFileRoute("/sitemap.xml")({
           "/",
           ...LOCALES.filter((l) => l !== DEFAULT_LOCALE).map((l) => LOCALE_REGISTRY[l].prefix),
         ]);
-        const alternates = (path: string) =>
-          homeCluster.has(path)
+        const alternates = (e: SitemapEntry) =>
+          e.cluster
+            ? [
+                ...e.cluster.map(
+                  (c) =>
+                    `    <xhtml:link rel="alternate" hreflang="${c.hreflang}" href="${BASE_URL}${c.path}" />`,
+                ),
+                `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${e.cluster[0].path}" />`,
+              ]
+            : homeCluster.has(e.path)
             ? [
                 ...LOCALES.map(
                   (l) =>
@@ -63,7 +95,8 @@ export const Route = createFileRoute("/sitemap.xml")({
           [
             `  <url>`,
             `    <loc>${BASE_URL}${e.path}</loc>`,
-            ...alternates(e.path),
+            ...alternates(e),
+            e.lastmod ? `    <lastmod>${e.lastmod}</lastmod>` : null,
             e.changefreq ? `    <changefreq>${e.changefreq}</changefreq>` : null,
             e.priority ? `    <priority>${e.priority}</priority>` : null,
             `  </url>`,
