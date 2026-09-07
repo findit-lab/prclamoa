@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import { makeT } from "@/i18n";
-import { localeHomePath } from "@/i18n/config";
+const LOCALE_HOME = { ko: "/", en: "/en", ja: "/ja", vi: "/vi", th: "/th" } as const;
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Link } from "@tanstack/react-router";
 import brandVisibilityVideo from "@/assets/brand-visibility.mp4.asset.json";
@@ -273,13 +273,13 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
         ref={navRef}
         className="fixed top-0 w-full z-50 bg-surface/95 border-b border-deep-ink flex justify-between items-center px-5 md:px-16 py-5 md:py-6 transition-all duration-500"
       >
-        <Link to={locale === "ko" ? "/" : `/${locale}`} className="block" aria-label="CLAMOA logo">
+        <Link to={LOCALE_HOME[locale]} className="block" aria-label="CLAMOA logo">
           <img
             src={clamoaLogo.url}
             alt="CLAMOA logo"
             className="h-6 md:h-8 w-auto object-contain"
           />
-        </a>
+        </Link>
         <div className="hidden md:flex gap-8 items-center">
           {navLinks.map(([l, h]) => (
             <a
