@@ -273,7 +273,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
         ref={navRef}
         className="fixed top-0 w-full z-50 bg-surface/95 border-b border-deep-ink flex justify-between items-center px-5 md:px-16 py-5 md:py-6 transition-all duration-500"
       >
-        <a href={localeHomePath(locale)} className="block" aria-label="CLAMOA logo">
+        <Link to={locale === "ko" ? "/" : `/${locale}`} className="block" aria-label="CLAMOA logo">
           <img
             src={clamoaLogo.url}
             alt="CLAMOA logo"
