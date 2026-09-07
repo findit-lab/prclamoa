@@ -8,7 +8,7 @@ export const Route = createFileRoute("/services/brand-ambassador")({
       {
         name: "description",
         content:
-          "브랜드 앰버서더 캠페인은 셀럽·아티스트와 장기적으로 협업해 브랜드 자산을 함께 만드는 패션 PR 방식입니다. CLAMOA의 앰버서더 매칭과 캠페인 운영.",
+          "브랜드 앰버서더 캠페인은 셀럽·아티스트와 일정 기간 협업해 룩북·캠페인 촬영, 브랜드 행사, SNS 게재 등을 전개하며 브랜드 이미지와 인지도를 강화하는 패션 PR 방식입니다. CLAMOA의 앰버서더 매칭과 캠페인 운영.",
       },
       { property: "og:title", content: "브랜드 앰버서더 캠페인 — 패션 PR | CLAMOA" },
       {

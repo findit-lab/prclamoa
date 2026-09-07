@@ -8,7 +8,7 @@ export const Route = createFileRoute("/services/offline-event-pr")({
       {
         name: "description",
         content:
-          "오프라인 이벤트 PR은 팝업, 쇼룸 프레스데이, 런칭 파티 등 오프라인 브랜드 경험을 설계하고 미디어 노출까지 연결하는 패션 PR 방식입니다.",
+          "오프라인 이벤트 PR은 팝업스토어·쇼룸 프레스데이·런칭 파티 등 오프라인 브랜드 경험을 기획·운영하고 매거진·셀럽·인플루언서·SNS 노출까지 연결하는 패션 PR 방식입니다.",
       },
       { property: "og:title", content: "오프라인 이벤트 PR — 패션 PR | CLAMOA" },
       {

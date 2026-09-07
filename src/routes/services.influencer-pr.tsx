@@ -8,7 +8,7 @@ export const Route = createFileRoute("/services/influencer-pr")({
       {
         name: "description",
         content:
-          "인플루언서 PR은 브랜드 무드에 맞는 패션 인플루언서를 큐레이션하고 콘텐츠 캠페인을 운영하는 패션 PR 방식입니다. CLAMOA의 인플루언서 매칭과 캠페인 운영.",
+          "인플루언서 PR은 브랜드 무드와 타깃에 맞는 패션 인플루언서를 큐레이션하고 시딩·콘텐츠·캠페인을 통합 운영해 인지도와 전환을 만드는 패션 PR 방식입니다. CLAMOA의 인플루언서 매칭과 콘텐츠 운영.",
       },
       { property: "og:title", content: "인플루언서 PR(Influencer PR) — 패션 PR | CLAMOA" },
       {

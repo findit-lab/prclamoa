@@ -8,7 +8,7 @@ export const Route = createFileRoute("/services/stylist-relations")({
       {
         name: "description",
         content:
-          "스타일리스트 릴레이션은 스타일리스트가 상시 픽업·검토하는 환경을 만들어 셀럽 착장 기회를 늘리는 패션 PR입니다. CLAMOA 압구정 쇼룸 기반 운영.",
+          "스타일리스트 릴레이션은 방송·화보·아티스트 활동을 담당하는 스타일리스트가 브랜드 제품을 상시 검토·픽업할 수 있는 환경을 만들어 노출 기회를 늘리는 패션 PR 방식입니다. CLAMOA 압구정 쇼룸 기반 운영.",
       },
       { property: "og:title", content: "스타일리스트 릴레이션 — 패션 PR | CLAMOA" },
       {
