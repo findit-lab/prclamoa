@@ -1182,18 +1182,13 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
           </p>
         </div>
         <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
-          <span className="text-label-caps text-secondary">{"\n"}</span>
-          <a href="#" className="text-body-md hover:text-neon-signal transition-colors">
-            {"\n"}
-          </a>
-        </div>
-        <div className="col-span-6 md:col-span-2 flex flex-col gap-4 reveal">
           <span className="text-label-caps text-secondary">LEGAL</span>
-          {["PRIVACY", "TERMS"].map((l) => (
-            <a key={l} href="#" className="text-body-md hover:text-neon-signal transition-colors">
-              {l}
-            </a>
-          ))}
+          <Link to="/privacy" className="text-body-md hover:text-neon-signal transition-colors">
+            PRIVACY
+          </Link>
+          <Link to="/terms" className="text-body-md hover:text-neon-signal transition-colors">
+            TERMS
+          </Link>
         </div>
         <div className="col-span-12 md:col-span-4 flex flex-col justify-end items-start md:items-end gap-3 mt-12 md:mt-0 reveal">
           <span className="text-label-caps text-secondary">CONTACT</span>
