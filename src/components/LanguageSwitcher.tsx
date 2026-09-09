@@ -6,6 +6,7 @@ const LOCALE_ROUTE = {
   ko: "/",
   en: "/en",
   ja: "/ja",
+  zh: "/zh",
   vi: "/vi",
   th: "/th",
 } as const;
