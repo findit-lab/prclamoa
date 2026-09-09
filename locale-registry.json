@@ -59,6 +59,16 @@
       "formality": "です・ます体"
     },
     {
+      "code": "zh",
+      "bcp47": "zh-Hans",
+      "prefix": "/zh",
+      "dir": "ltr",
+      "label": "简体中文",
+      "ogLocale": "zh_CN",
+      "priority": "secondary",
+      "formality": "business-standard Simplified Chinese"
+    },
+    {
       "code": "vi",
       "bcp47": "vi-VN",
       "prefix": "/vi",
