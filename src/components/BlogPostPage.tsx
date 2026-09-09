@@ -32,35 +32,48 @@ export function BlogPostPage({ locale, post }: { locale: BlogLocale; post: BlogP
         </Link>
       </header>
 
-      <main className="pt-28 md:pt-40 px-5 md:px-16 pb-24 md:pb-32">
-        <span className="text-label-caps text-secondary block mb-6">{post.category}</span>
-        <h1 className="text-display-lg md:text-display-xl leading-tight mb-8 max-w-5xl">
-          {post.title}
-        </h1>
-        <p className="text-body-lg max-w-3xl border-l-4 border-neon-signal pl-6 mb-16">
-          {post.excerpt}
-        </p>
+      <main className="px-5 pb-24 pt-28 md:px-16 md:pb-32 md:pt-40">
+        <header className="mx-auto max-w-5xl md:mx-0">
+          <span className="mb-4 block text-label-caps text-secondary md:mb-6">
+            {post.category}
+          </span>
+          <h1 className="mb-7 break-words font-sans text-[30px] font-bold leading-[1.22] md:mb-8 md:max-w-5xl md:font-display md:text-display-xl md:font-normal md:leading-[0.94]">
+            {post.title}
+          </h1>
+          <div className="mb-14 border-y border-deep-ink/15 bg-surface-low px-5 py-5 md:mb-16 md:max-w-3xl md:border-y-0 md:border-l-4 md:border-neon-signal md:bg-transparent md:px-0 md:py-0 md:pl-6">
+            <p className="text-[17px] font-medium leading-[1.68] md:text-body-lg md:font-normal">
+              {post.excerpt}
+            </p>
+          </div>
+        </header>
 
         <div className="grid grid-cols-12 gap-8">
-          <article className="col-span-12 md:col-span-8 border-t-2 border-deep-ink pt-12 space-y-12">
-            <p className="text-body-md leading-relaxed">{post.intro}</p>
+          <article className="col-span-12 space-y-14 border-t-2 border-deep-ink pt-9 md:col-span-8 md:space-y-12 md:pt-12">
+            <p className="text-[17px] leading-[1.75] md:text-body-md md:leading-relaxed">{post.intro}</p>
             {post.sections.map((s) => (
-              <section key={s.heading} className="space-y-4">
-                <h2 className="text-headline-md">{s.heading}</h2>
+              <section key={s.heading} className="border-t border-deep-ink/15 pt-8 md:border-0 md:pt-0">
+                <h2 className="mb-5 break-words font-sans text-[22px] font-bold leading-[1.25] md:mb-4 md:font-display md:text-headline-md md:font-normal">
+                  {s.heading}
+                </h2>
                 {s.paragraphs.map((p, i) => (
-                  <p key={i} className="text-body-md leading-relaxed text-secondary">
+                  <p
+                    key={i}
+                    className="mt-5 text-[17px] leading-[1.75] text-secondary first:mt-0 md:text-body-md md:leading-relaxed"
+                  >
                     {p}
                   </p>
                 ))}
               </section>
             ))}
-            <section className="border-2 border-deep-ink p-8">
+            <section className="border-2 border-deep-ink p-6 md:p-8">
               <span className="text-label-caps text-secondary block mb-3">{ui.takeaway}</span>
-              <p className="text-body-lg leading-relaxed">{post.takeaway}</p>
+              <p className="text-[17px] font-medium leading-[1.7] md:text-body-lg md:font-normal md:leading-relaxed">
+                {post.takeaway}
+              </p>
             </section>
           </article>
 
-          <aside className="col-span-12 md:col-span-4 md:border-l md:border-deep-ink/20 md:pl-8 pt-12 space-y-12">
+          <aside className="col-span-12 space-y-10 border-t border-deep-ink/20 pt-12 md:col-span-4 md:space-y-12 md:border-l md:border-t-0 md:pl-8">
             {post.serviceSlug && post.serviceLabel && (
               <div>
                 <span className="text-label-caps text-secondary block mb-4">
