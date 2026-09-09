@@ -1,5 +1,6 @@
 import en from "./en";
 import ja from "./ja";
+import zh from "./zh";
 import vi from "./vi";
 import th from "./th";
 import type { BlogPost } from "./types";
@@ -7,10 +8,10 @@ import type { BlogPost } from "./types";
 export type { BlogPost, BlogSection } from "./types";
 
 /** Locales that have a localized service blog. */
-export const BLOG_LOCALES = ["en", "ja", "vi", "th"] as const;
+export const BLOG_LOCALES = ["en", "ja", "zh", "vi", "th"] as const;
 export type BlogLocale = (typeof BLOG_LOCALES)[number];
 
-export const BLOG: Record<BlogLocale, BlogPost[]> = { en, ja, vi, th };
+export const BLOG: Record<BlogLocale, BlogPost[]> = { en, ja, zh, vi, th };
 
 export function getPosts(locale: BlogLocale): BlogPost[] {
   return BLOG[locale];
@@ -68,6 +69,22 @@ export const BLOG_UI: Record<BlogLocale, UiStrings> = {
     ctaBody: "ブランド情報をお送りいただければ、現実的なプランと概算予算をご提案します。",
     ctaButton: "お問い合わせ",
     home: "ホーム",
+  },
+  zh: {
+    eyebrow: "CLAMOA JOURNAL",
+    title: "时尚公关洞察",
+    subtitle:
+      "明星借势、造型师资源、影视综植入与海外拓展，在韩国时尚品牌的实际操作中是如何运转的。",
+    readMore: "阅读全文",
+    backToBlog: "返回 JOURNAL",
+    related: "相关文章",
+    relatedService: "相关服务",
+    viewService: "查看服务",
+    takeaway: "核心要点",
+    ctaTitle: "正在筹备韩国市场的公关方案？",
+    ctaBody: "请告诉我们品牌情况，我们会提供切实可行的方案与预算区间。",
+    ctaButton: "联系 CLAMOA",
+    home: "首页",
   },
   vi: {
     eyebrow: "CLAMOA JOURNAL",
