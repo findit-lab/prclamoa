@@ -2,16 +2,18 @@ import { Link } from "@tanstack/react-router";
 
 import type { ServiceLocale } from "@/data/services";
 
-export const LOCALE_HOME = { en: "/en", ja: "/ja", vi: "/vi", th: "/th" } as const;
+export const LOCALE_HOME = { en: "/en", ja: "/ja", zh: "/zh", vi: "/vi", th: "/th" } as const;
 export const LOCALE_SERVICES = {
   en: "/en/services",
   ja: "/ja/services",
+  zh: "/zh/services",
   vi: "/vi/services",
   th: "/th/services",
 } as const;
 export const LOCALE_SERVICE_DETAIL = {
   en: "/en/services/$slug",
   ja: "/ja/services/$slug",
+  zh: "/zh/services/$slug",
   vi: "/vi/services/$slug",
   th: "/th/services/$slug",
 } as const;

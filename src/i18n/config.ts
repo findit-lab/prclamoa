@@ -1,4 +1,4 @@
-export const LOCALES = ["ko", "en", "ja", "vi", "th"] as const;
+export const LOCALES = ["ko", "en", "ja", "zh", "vi", "th"] as const;
 
 export type Locale = (typeof LOCALES)[number];
 
@@ -50,6 +50,15 @@ export const LOCALE_REGISTRY: Record<Locale, LocaleEntry> = {
     label: "日本語",
     short: "JA",
     ogLocale: "ja_JP",
+  },
+  zh: {
+    code: "zh",
+    bcp47: "zh-Hans",
+    prefix: "/zh",
+    dir: "ltr",
+    label: "简体中文",
+    short: "ZH",
+    ogLocale: "zh_CN",
   },
   vi: {
     code: "vi",

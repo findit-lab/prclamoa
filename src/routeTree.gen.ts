@@ -27,6 +27,7 @@ import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as BrandAmbassadorRouteImport } from './routes/brand-ambassador'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ZhIndexRouteImport } from './routes/zh/index'
 import { Route as ViIndexRouteImport } from './routes/vi/index'
 import { Route as ThIndexRouteImport } from './routes/th/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -41,6 +42,8 @@ import { Route as ServicesEditorialViralPrRouteImport } from './routes/services.
 import { Route as ServicesCelebritySeedingRouteImport } from './routes/services.celebrity-seeding'
 import { Route as ServicesBrandAmbassadorRouteImport } from './routes/services.brand-ambassador'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as ZhServicesIndexRouteImport } from './routes/zh/services/index'
+import { Route as ZhJournalIndexRouteImport } from './routes/zh/journal/index'
 import { Route as ViServicesIndexRouteImport } from './routes/vi/services/index'
 import { Route as ViJournalIndexRouteImport } from './routes/vi/journal/index'
 import { Route as ThServicesIndexRouteImport } from './routes/th/services/index'
@@ -49,6 +52,8 @@ import { Route as JaServicesIndexRouteImport } from './routes/ja/services/index'
 import { Route as JaJournalIndexRouteImport } from './routes/ja/journal/index'
 import { Route as EnServicesIndexRouteImport } from './routes/en/services/index'
 import { Route as EnJournalIndexRouteImport } from './routes/en/journal/index'
+import { Route as ZhServicesSlugRouteImport } from './routes/zh/services/$slug'
+import { Route as ZhJournalSlugRouteImport } from './routes/zh/journal/$slug'
 import { Route as ViServicesSlugRouteImport } from './routes/vi/services/$slug'
 import { Route as ViJournalSlugRouteImport } from './routes/vi/journal/$slug'
 import { Route as ThServicesSlugRouteImport } from './routes/th/services/$slug'
@@ -154,6 +159,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ZhIndexRoute = ZhIndexRouteImport.update({
+  id: '/zh/',
+  path: '/zh/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ViIndexRoute = ViIndexRouteImport.update({
   id: '/vi/',
   path: '/vi/',
@@ -228,6 +238,16 @@ const InsightsSlugRoute = InsightsSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => InsightsRoute,
 } as any)
+const ZhServicesIndexRoute = ZhServicesIndexRouteImport.update({
+  id: '/zh/services/',
+  path: '/zh/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZhJournalIndexRoute = ZhJournalIndexRouteImport.update({
+  id: '/zh/journal/',
+  path: '/zh/journal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ViServicesIndexRoute = ViServicesIndexRouteImport.update({
   id: '/vi/services/',
   path: '/vi/services/',
@@ -266,6 +286,16 @@ const EnServicesIndexRoute = EnServicesIndexRouteImport.update({
 const EnJournalIndexRoute = EnJournalIndexRouteImport.update({
   id: '/en/journal/',
   path: '/en/journal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZhServicesSlugRoute = ZhServicesSlugRouteImport.update({
+  id: '/zh/services/$slug',
+  path: '/zh/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZhJournalSlugRoute = ZhJournalSlugRouteImport.update({
+  id: '/zh/journal/$slug',
+  path: '/zh/journal/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ViServicesSlugRoute = ViServicesSlugRouteImport.update({
@@ -373,6 +403,7 @@ export interface FileRoutesByFullPath {
   '/services/': typeof ServicesIndexRoute
   '/th/': typeof ThIndexRoute
   '/vi/': typeof ViIndexRoute
+  '/zh/': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/en/journal/$slug': typeof EnJournalSlugRoute
   '/en/services/$slug': typeof EnServicesSlugRoute
@@ -382,6 +413,8 @@ export interface FileRoutesByFullPath {
   '/th/services/$slug': typeof ThServicesSlugRoute
   '/vi/journal/$slug': typeof ViJournalSlugRoute
   '/vi/services/$slug': typeof ViServicesSlugRoute
+  '/zh/journal/$slug': typeof ZhJournalSlugRoute
+  '/zh/services/$slug': typeof ZhServicesSlugRoute
   '/en/journal/': typeof EnJournalIndexRoute
   '/en/services/': typeof EnServicesIndexRoute
   '/ja/journal/': typeof JaJournalIndexRoute
@@ -390,6 +423,8 @@ export interface FileRoutesByFullPath {
   '/th/services/': typeof ThServicesIndexRoute
   '/vi/journal/': typeof ViJournalIndexRoute
   '/vi/services/': typeof ViServicesIndexRoute
+  '/zh/journal/': typeof ZhJournalIndexRoute
+  '/zh/services/': typeof ZhServicesIndexRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -428,6 +463,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesIndexRoute
   '/th': typeof ThIndexRoute
   '/vi': typeof ViIndexRoute
+  '/zh': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/en/journal/$slug': typeof EnJournalSlugRoute
   '/en/services/$slug': typeof EnServicesSlugRoute
@@ -437,6 +473,8 @@ export interface FileRoutesByTo {
   '/th/services/$slug': typeof ThServicesSlugRoute
   '/vi/journal/$slug': typeof ViJournalSlugRoute
   '/vi/services/$slug': typeof ViServicesSlugRoute
+  '/zh/journal/$slug': typeof ZhJournalSlugRoute
+  '/zh/services/$slug': typeof ZhServicesSlugRoute
   '/en/journal': typeof EnJournalIndexRoute
   '/en/services': typeof EnServicesIndexRoute
   '/ja/journal': typeof JaJournalIndexRoute
@@ -445,6 +483,8 @@ export interface FileRoutesByTo {
   '/th/services': typeof ThServicesIndexRoute
   '/vi/journal': typeof ViJournalIndexRoute
   '/vi/services': typeof ViServicesIndexRoute
+  '/zh/journal': typeof ZhJournalIndexRoute
+  '/zh/services': typeof ZhServicesIndexRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -485,6 +525,7 @@ export interface FileRoutesById {
   '/services/': typeof ServicesIndexRoute
   '/th/': typeof ThIndexRoute
   '/vi/': typeof ViIndexRoute
+  '/zh/': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/en/journal/$slug': typeof EnJournalSlugRoute
   '/en/services/$slug': typeof EnServicesSlugRoute
@@ -494,6 +535,8 @@ export interface FileRoutesById {
   '/th/services/$slug': typeof ThServicesSlugRoute
   '/vi/journal/$slug': typeof ViJournalSlugRoute
   '/vi/services/$slug': typeof ViServicesSlugRoute
+  '/zh/journal/$slug': typeof ZhJournalSlugRoute
+  '/zh/services/$slug': typeof ZhServicesSlugRoute
   '/en/journal/': typeof EnJournalIndexRoute
   '/en/services/': typeof EnServicesIndexRoute
   '/ja/journal/': typeof JaJournalIndexRoute
@@ -502,6 +545,8 @@ export interface FileRoutesById {
   '/th/services/': typeof ThServicesIndexRoute
   '/vi/journal/': typeof ViJournalIndexRoute
   '/vi/services/': typeof ViServicesIndexRoute
+  '/zh/journal/': typeof ZhJournalIndexRoute
+  '/zh/services/': typeof ZhServicesIndexRoute
   '/api/brand-ambassador/image/$id': typeof ApiBrandAmbassadorImageIdRoute
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
@@ -543,6 +588,7 @@ export interface FileRouteTypes {
     | '/services/'
     | '/th/'
     | '/vi/'
+    | '/zh/'
     | '/api/public/contact'
     | '/en/journal/$slug'
     | '/en/services/$slug'
@@ -552,6 +598,8 @@ export interface FileRouteTypes {
     | '/th/services/$slug'
     | '/vi/journal/$slug'
     | '/vi/services/$slug'
+    | '/zh/journal/$slug'
+    | '/zh/services/$slug'
     | '/en/journal/'
     | '/en/services/'
     | '/ja/journal/'
@@ -560,6 +608,8 @@ export interface FileRouteTypes {
     | '/th/services/'
     | '/vi/journal/'
     | '/vi/services/'
+    | '/zh/journal/'
+    | '/zh/services/'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -598,6 +648,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/th'
     | '/vi'
+    | '/zh'
     | '/api/public/contact'
     | '/en/journal/$slug'
     | '/en/services/$slug'
@@ -607,6 +658,8 @@ export interface FileRouteTypes {
     | '/th/services/$slug'
     | '/vi/journal/$slug'
     | '/vi/services/$slug'
+    | '/zh/journal/$slug'
+    | '/zh/services/$slug'
     | '/en/journal'
     | '/en/services'
     | '/ja/journal'
@@ -615,6 +668,8 @@ export interface FileRouteTypes {
     | '/th/services'
     | '/vi/journal'
     | '/vi/services'
+    | '/zh/journal'
+    | '/zh/services'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -654,6 +709,7 @@ export interface FileRouteTypes {
     | '/services/'
     | '/th/'
     | '/vi/'
+    | '/zh/'
     | '/api/public/contact'
     | '/en/journal/$slug'
     | '/en/services/$slug'
@@ -663,6 +719,8 @@ export interface FileRouteTypes {
     | '/th/services/$slug'
     | '/vi/journal/$slug'
     | '/vi/services/$slug'
+    | '/zh/journal/$slug'
+    | '/zh/services/$slug'
     | '/en/journal/'
     | '/en/services/'
     | '/ja/journal/'
@@ -671,6 +729,8 @@ export interface FileRouteTypes {
     | '/th/services/'
     | '/vi/journal/'
     | '/vi/services/'
+    | '/zh/journal/'
+    | '/zh/services/'
     | '/api/brand-ambassador/image/$id'
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
@@ -701,6 +761,7 @@ export interface RootRouteChildren {
   JaIndexRoute: typeof JaIndexRoute
   ThIndexRoute: typeof ThIndexRoute
   ViIndexRoute: typeof ViIndexRoute
+  ZhIndexRoute: typeof ZhIndexRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
   EnJournalSlugRoute: typeof EnJournalSlugRoute
   EnServicesSlugRoute: typeof EnServicesSlugRoute
@@ -710,6 +771,8 @@ export interface RootRouteChildren {
   ThServicesSlugRoute: typeof ThServicesSlugRoute
   ViJournalSlugRoute: typeof ViJournalSlugRoute
   ViServicesSlugRoute: typeof ViServicesSlugRoute
+  ZhJournalSlugRoute: typeof ZhJournalSlugRoute
+  ZhServicesSlugRoute: typeof ZhServicesSlugRoute
   EnJournalIndexRoute: typeof EnJournalIndexRoute
   EnServicesIndexRoute: typeof EnServicesIndexRoute
   JaJournalIndexRoute: typeof JaJournalIndexRoute
@@ -718,6 +781,8 @@ export interface RootRouteChildren {
   ThServicesIndexRoute: typeof ThServicesIndexRoute
   ViJournalIndexRoute: typeof ViJournalIndexRoute
   ViServicesIndexRoute: typeof ViServicesIndexRoute
+  ZhJournalIndexRoute: typeof ZhJournalIndexRoute
+  ZhServicesIndexRoute: typeof ZhServicesIndexRoute
   ApiBrandAmbassadorImageIdRoute: typeof ApiBrandAmbassadorImageIdRoute
   ApiEventImageIdRoute: typeof ApiEventImageIdRoute
   ApiInfluencerImageIdRoute: typeof ApiInfluencerImageIdRoute
@@ -853,6 +918,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/zh/': {
+      id: '/zh/'
+      path: '/zh'
+      fullPath: '/zh/'
+      preLoaderRoute: typeof ZhIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/vi/': {
       id: '/vi/'
       path: '/vi'
@@ -951,6 +1023,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsSlugRouteImport
       parentRoute: typeof InsightsRoute
     }
+    '/zh/services/': {
+      id: '/zh/services/'
+      path: '/zh/services'
+      fullPath: '/zh/services/'
+      preLoaderRoute: typeof ZhServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zh/journal/': {
+      id: '/zh/journal/'
+      path: '/zh/journal'
+      fullPath: '/zh/journal/'
+      preLoaderRoute: typeof ZhJournalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/vi/services/': {
       id: '/vi/services/'
       path: '/vi/services'
@@ -1005,6 +1091,20 @@ declare module '@tanstack/react-router' {
       path: '/en/journal'
       fullPath: '/en/journal/'
       preLoaderRoute: typeof EnJournalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zh/services/$slug': {
+      id: '/zh/services/$slug'
+      path: '/zh/services/$slug'
+      fullPath: '/zh/services/$slug'
+      preLoaderRoute: typeof ZhServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zh/journal/$slug': {
+      id: '/zh/journal/$slug'
+      path: '/zh/journal/$slug'
+      fullPath: '/zh/journal/$slug'
+      preLoaderRoute: typeof ZhJournalSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/vi/services/$slug': {
@@ -1171,6 +1271,7 @@ const rootRouteChildren: RootRouteChildren = {
   JaIndexRoute: JaIndexRoute,
   ThIndexRoute: ThIndexRoute,
   ViIndexRoute: ViIndexRoute,
+  ZhIndexRoute: ZhIndexRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
   EnJournalSlugRoute: EnJournalSlugRoute,
   EnServicesSlugRoute: EnServicesSlugRoute,
@@ -1180,6 +1281,8 @@ const rootRouteChildren: RootRouteChildren = {
   ThServicesSlugRoute: ThServicesSlugRoute,
   ViJournalSlugRoute: ViJournalSlugRoute,
   ViServicesSlugRoute: ViServicesSlugRoute,
+  ZhJournalSlugRoute: ZhJournalSlugRoute,
+  ZhServicesSlugRoute: ZhServicesSlugRoute,
   EnJournalIndexRoute: EnJournalIndexRoute,
   EnServicesIndexRoute: EnServicesIndexRoute,
   JaJournalIndexRoute: JaJournalIndexRoute,
@@ -1188,6 +1291,8 @@ const rootRouteChildren: RootRouteChildren = {
   ThServicesIndexRoute: ThServicesIndexRoute,
   ViJournalIndexRoute: ViJournalIndexRoute,
   ViServicesIndexRoute: ViServicesIndexRoute,
+  ZhJournalIndexRoute: ZhJournalIndexRoute,
+  ZhServicesIndexRoute: ZhServicesIndexRoute,
   ApiBrandAmbassadorImageIdRoute: ApiBrandAmbassadorImageIdRoute,
   ApiEventImageIdRoute: ApiEventImageIdRoute,
   ApiInfluencerImageIdRoute: ApiInfluencerImageIdRoute,

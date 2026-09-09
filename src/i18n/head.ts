@@ -28,6 +28,11 @@ const HOME_META: Record<Locale, HomeMeta> = {
     description:
       "ソウル・狎鴎亭拠点のファッションPRエージェンシー。セレブ協賛、スタイリストリレーション、PPL、インフルエンサー施策、日本市場への展開までサポートします。",
   },
+  zh: {
+    title: "CLAMOA — 韩国时尚公关公司｜明星借势·植入·达人营销",
+    description:
+      "位于首尔狎鸥亭的时尚公关公司 CLAMOA，提供明星借势、造型师资源对接、影视综植入、达人（KOL）营销及海外渠道拓展，助力时尚品牌在韩国与全球提升声量。",
+  },
   vi: {
     title: "CLAMOA — Agency PR thời trang Hàn Quốc | Tài trợ người nổi tiếng & Influencer",
     description:

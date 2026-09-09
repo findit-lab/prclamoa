@@ -2,6 +2,7 @@ import en from "./en";
 import ja from "./ja";
 import th from "./th";
 import vi from "./vi";
+import zh from "./zh";
 import {
   SERVICE_SLUGS,
   type ServiceContent,
@@ -13,10 +14,10 @@ export { SERVICE_SLUGS };
 export type { ServiceContent, ServiceSlug, ServiceLocaleData };
 export type { ServiceFAQ, ServiceStep, ServiceUI } from "./types";
 
-export const SERVICE_LOCALES = ["en", "ja", "vi", "th"] as const;
+export const SERVICE_LOCALES = ["en", "ja", "zh", "vi", "th"] as const;
 export type ServiceLocale = (typeof SERVICE_LOCALES)[number];
 
-export const SERVICES: Record<ServiceLocale, ServiceLocaleData> = { en, ja, vi, th };
+export const SERVICES: Record<ServiceLocale, ServiceLocaleData> = { en, ja, zh, vi, th };
 
 export function getServiceUI(locale: ServiceLocale) {
   return SERVICES[locale].ui;
