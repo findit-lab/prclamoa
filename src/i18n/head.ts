@@ -2,7 +2,6 @@ import {
   LOCALE_REGISTRY,
   homeAlternateLinks,
   localeHomeUrl,
-  ogLocaleAlternates,
   socialImageMeta,
   type Locale,
 } from "./config";
@@ -60,7 +59,6 @@ export function homeHead(locale: Locale) {
       { property: "og:url", content: url },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: LOCALE_REGISTRY[locale].ogLocale },
-      ...ogLocaleAlternates(locale),
       ...socialImageMeta(locale),
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },

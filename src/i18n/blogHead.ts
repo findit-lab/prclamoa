@@ -1,4 +1,4 @@
-import { LOCALE_REGISTRY, SITE_URL, ogLocaleAlternates, socialImageMeta } from "./config";
+import { LOCALE_REGISTRY, SITE_URL, socialImageMeta } from "./config";
 import { BLOG_LOCALES, BLOG_UI, getPost, type BlogLocale, type BlogPost } from "@/data/blog";
 
 
@@ -38,7 +38,6 @@ export function blogIndexHead(locale: BlogLocale) {
       { property: "og:url", content: url },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: LOCALE_REGISTRY[locale].ogLocale },
-      ...ogLocaleAlternates(locale, BLOG_LOCALES),
       ...socialImageMeta(locale),
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
@@ -92,10 +91,6 @@ export function blogPostHead(locale: BlogLocale, slug: string, post?: BlogPost) 
       { property: "og:url", content: url },
       { property: "og:type", content: "article" },
       { property: "og:locale", content: LOCALE_REGISTRY[locale].ogLocale },
-      ...ogLocaleAlternates(
-        locale,
-        BLOG_LOCALES.filter((l) => Boolean(getPost(l, slug))),
-      ),
       ...socialImageMeta(locale),
       { name: "twitter:card", content: "summary_large_image" },
 

@@ -1,9 +1,7 @@
 import {
   LOCALE_REGISTRY,
   SITE_URL,
-  ogLocaleAlternates,
   socialImageMeta,
-  type Locale,
 } from "./config";
 import {
   SERVICE_LOCALES,
@@ -19,8 +17,6 @@ export function servicesHubUrl(locale: ServiceLocale) {
 export function serviceDetailUrl(locale: ServiceLocale, slug: string) {
   return `${SITE_URL}/${locale}/services/${slug}`;
 }
-
-const SERVICE_CLUSTER: readonly Locale[] = ["ko", ...SERVICE_LOCALES];
 
 function alternates(make: (l: ServiceLocale) => string, koUrl: string) {
   return [
@@ -42,7 +38,6 @@ function baseMeta(locale: ServiceLocale, title: string, description: string, url
     { property: "og:description", content: description },
     { property: "og:url", content: url },
     { property: "og:locale", content: LOCALE_REGISTRY[locale].ogLocale },
-    ...ogLocaleAlternates(locale, SERVICE_CLUSTER),
     ...socialImageMeta(locale),
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
