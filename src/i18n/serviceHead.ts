@@ -1,4 +1,8 @@
-import { LOCALE_REGISTRY, SITE_URL } from "./config";
+import {
+  LOCALE_REGISTRY,
+  SITE_URL,
+  socialImageMeta,
+} from "./config";
 import {
   SERVICE_LOCALES,
   getServiceUI,
@@ -34,11 +38,13 @@ function baseMeta(locale: ServiceLocale, title: string, description: string, url
     { property: "og:description", content: description },
     { property: "og:url", content: url },
     { property: "og:locale", content: LOCALE_REGISTRY[locale].ogLocale },
+    ...socialImageMeta(locale),
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
   ];
 }
+
 
 export function servicesHubHead(locale: ServiceLocale) {
   const ui = getServiceUI(locale);

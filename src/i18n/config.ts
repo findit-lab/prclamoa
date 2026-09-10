@@ -122,12 +122,42 @@ export function homeAlternateLinks() {
   ];
 }
 
-export function ogLocaleAlternates(current: Locale) {
-  return LOCALES.filter((l) => l !== current).map((l) => ({
-    property: "og:locale:alternate",
-    content: LOCALE_REGISTRY[l].ogLocale,
-  }));
+export function ogLocaleAlternates(current: Locale, within: readonly Locale[] = LOCALES) {
+  return within
+    .filter((l) => l !== current)
+    .map((l) => ({
+      property: "og:locale:alternate",
+      content: LOCALE_REGISTRY[l].ogLocale,
+    }));
 }
+
+/** Absolute, share-sized (1200x630) social preview image. */
+export const OG_IMAGE_URL =
+  "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/d0eb9144-01b3-4e9b-9a42-32d0d432ffc0";
+
+/** Localized alt text for the shared social preview image. */
+const OG_IMAGE_ALT: Record<Locale, string> = {
+  ko: "CLAMOA — 패션 PR 에이전시",
+  en: "CLAMOA — Korean fashion PR agency",
+  ja: "CLAMOA — 韓国ファッションPRエージェンシー",
+  zh: "CLAMOA — 韩国时尚公关公司",
+  vi: "CLAMOA — Agency PR thời trang Hàn Quốc",
+  th: "CLAMOA — เอเจนซี PR แฟชั่นเกาหลี",
+};
+
+/** og/twitter image tags with locale-specific alt text. */
+export function socialImageMeta(locale: Locale) {
+  return [
+    { property: "og:image", content: OG_IMAGE_URL },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { property: "og:image:alt", content: OG_IMAGE_ALT[locale] },
+    { property: "og:site_name", content: "CLAMOA" },
+    { name: "twitter:image", content: OG_IMAGE_URL },
+    { name: "twitter:image:alt", content: OG_IMAGE_ALT[locale] },
+  ];
+}
+
 
 /** Detect the locale from a pathname (used by the root layout for html[lang]). */
 export function localeFromPathname(pathname: string): Locale {
