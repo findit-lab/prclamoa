@@ -65,6 +65,7 @@ import { Route as EnJournalSlugRouteImport } from './routes/en/journal/$slug'
 import { Route as ApiPublicTrackRouteImport } from './routes/api/public/track'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
+import { Route as ApiPublicHooksWeeklyReportRouteImport } from './routes/api/public/hooks/weekly-report'
 import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
 import { Route as ApiInfluencerImageIdRouteImport } from './routes/api/influencer.image.$id'
 import { Route as ApiEventImageIdRouteImport } from './routes/api/event.image.$id'
@@ -354,6 +355,12 @@ const ApiStarImageIdRoute = ApiStarImageIdRouteImport.update({
   path: '/api/star/image/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicHooksWeeklyReportRoute =
+  ApiPublicHooksWeeklyReportRouteImport.update({
+    id: '/api/public/hooks/weekly-report',
+    path: '/api/public/hooks/weekly-report',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiMagazineImageIdRoute = ApiMagazineImageIdRouteImport.update({
   id: '/api/magazine/image/$id',
   path: '/api/magazine/image/$id',
@@ -436,6 +443,7 @@ export interface FileRoutesByFullPath {
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
   '/api/magazine/image/$id': typeof ApiMagazineImageIdRoute
+  '/api/public/hooks/weekly-report': typeof ApiPublicHooksWeeklyReportRoute
   '/api/star/image/$id': typeof ApiStarImageIdRoute
 }
 export interface FileRoutesByTo {
@@ -497,6 +505,7 @@ export interface FileRoutesByTo {
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
   '/api/magazine/image/$id': typeof ApiMagazineImageIdRoute
+  '/api/public/hooks/weekly-report': typeof ApiPublicHooksWeeklyReportRoute
   '/api/star/image/$id': typeof ApiStarImageIdRoute
 }
 export interface FileRoutesById {
@@ -560,6 +569,7 @@ export interface FileRoutesById {
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
   '/api/magazine/image/$id': typeof ApiMagazineImageIdRoute
+  '/api/public/hooks/weekly-report': typeof ApiPublicHooksWeeklyReportRoute
   '/api/star/image/$id': typeof ApiStarImageIdRoute
 }
 export interface FileRouteTypes {
@@ -624,6 +634,7 @@ export interface FileRouteTypes {
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
     | '/api/magazine/image/$id'
+    | '/api/public/hooks/weekly-report'
     | '/api/star/image/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -685,6 +696,7 @@ export interface FileRouteTypes {
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
     | '/api/magazine/image/$id'
+    | '/api/public/hooks/weekly-report'
     | '/api/star/image/$id'
   id:
     | '__root__'
@@ -747,6 +759,7 @@ export interface FileRouteTypes {
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
     | '/api/magazine/image/$id'
+    | '/api/public/hooks/weekly-report'
     | '/api/star/image/$id'
   fileRoutesById: FileRoutesById
 }
@@ -800,6 +813,7 @@ export interface RootRouteChildren {
   ApiEventImageIdRoute: typeof ApiEventImageIdRoute
   ApiInfluencerImageIdRoute: typeof ApiInfluencerImageIdRoute
   ApiMagazineImageIdRoute: typeof ApiMagazineImageIdRoute
+  ApiPublicHooksWeeklyReportRoute: typeof ApiPublicHooksWeeklyReportRoute
   ApiStarImageIdRoute: typeof ApiStarImageIdRoute
 }
 
@@ -1197,6 +1211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiStarImageIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hooks/weekly-report': {
+      id: '/api/public/hooks/weekly-report'
+      path: '/api/public/hooks/weekly-report'
+      fullPath: '/api/public/hooks/weekly-report'
+      preLoaderRoute: typeof ApiPublicHooksWeeklyReportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/magazine/image/$id': {
       id: '/api/magazine/image/$id'
       path: '/api/magazine/image/$id'
@@ -1318,6 +1339,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiEventImageIdRoute: ApiEventImageIdRoute,
   ApiInfluencerImageIdRoute: ApiInfluencerImageIdRoute,
   ApiMagazineImageIdRoute: ApiMagazineImageIdRoute,
+  ApiPublicHooksWeeklyReportRoute: ApiPublicHooksWeeklyReportRoute,
   ApiStarImageIdRoute: ApiStarImageIdRoute,
 }
 export const routeTree = rootRouteImport

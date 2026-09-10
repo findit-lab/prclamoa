@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { BLOG_UI, getPosts, type BlogLocale } from "@/data/blog";
+import { trackSiteEvent, usePageView } from "@/lib/event-tracking";
 
 const LOCALE_HOME = { en: "/en", ja: "/ja", zh: "/zh", vi: "/vi", th: "/th" } as const;
 const LOCALE_POST = {
@@ -20,6 +21,7 @@ const LOCALE_BLOG = {
 export function BlogIndexPage({ locale }: { locale: BlogLocale }) {
   const ui = BLOG_UI[locale];
   const posts = getPosts(locale);
+  usePageView(locale, "journal-index");
 
   return (
     <div className="min-h-screen bg-surface text-deep-ink">
@@ -45,6 +47,7 @@ export function BlogIndexPage({ locale }: { locale: BlogLocale }) {
               <Link
                 to={LOCALE_POST[locale]}
                 params={{ slug: post.slug }}
+                onClick={() => trackSiteEvent("journal_click", { locale, label: post.slug })}
                 className="flex h-full flex-col justify-between p-8 md:p-10 hover:bg-neon-signal transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-deep-ink"
               >
                 <div>

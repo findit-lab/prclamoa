@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { BLOG_UI, getPosts, type BlogLocale, type BlogPost } from "@/data/blog";
+import { usePageView } from "@/lib/event-tracking";
 
 const LOCALE_HOME = { en: "/en", ja: "/ja", zh: "/zh", vi: "/vi", th: "/th" } as const;
 const LOCALE_POST = {
@@ -19,6 +20,7 @@ const LOCALE_BLOG = {
 
 export function BlogPostPage({ locale, post }: { locale: BlogLocale; post: BlogPost }) {
   const ui = BLOG_UI[locale];
+  usePageView(locale, `journal:${post.slug}`);
   const related = getPosts(locale).filter(
     (p) => p.slug !== post.slug && p.serviceSlug === post.serviceSlug,
   );
