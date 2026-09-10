@@ -85,6 +85,7 @@ export const Route = createFileRoute("/services/")({
 });
 
 function ServicesHub() {
+  usePageView("ko", "services-hub");
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
       <SubPageNav variant="light" />

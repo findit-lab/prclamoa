@@ -27,6 +27,7 @@ export const Route = createFileRoute("/insights")({
 });
 
 function InsightsPage() {
+  usePageView("ko", "journal-index");
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("active")),
