@@ -62,6 +62,7 @@ import { Route as JaServicesSlugRouteImport } from './routes/ja/services/$slug'
 import { Route as JaJournalSlugRouteImport } from './routes/ja/journal/$slug'
 import { Route as EnServicesSlugRouteImport } from './routes/en/services/$slug'
 import { Route as EnJournalSlugRouteImport } from './routes/en/journal/$slug'
+import { Route as ApiPublicTrackRouteImport } from './routes/api/public/track'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
 import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
@@ -338,6 +339,11 @@ const EnJournalSlugRoute = EnJournalSlugRouteImport.update({
   path: '/en/journal/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicTrackRoute = ApiPublicTrackRouteImport.update({
+  id: '/api/public/track',
+  path: '/api/public/track',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   id: '/api/public/contact',
   path: '/api/public/contact',
@@ -405,6 +411,7 @@ export interface FileRoutesByFullPath {
   '/vi/': typeof ViIndexRoute
   '/zh/': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/track': typeof ApiPublicTrackRoute
   '/en/journal/$slug': typeof EnJournalSlugRoute
   '/en/services/$slug': typeof EnServicesSlugRoute
   '/ja/journal/$slug': typeof JaJournalSlugRoute
@@ -465,6 +472,7 @@ export interface FileRoutesByTo {
   '/vi': typeof ViIndexRoute
   '/zh': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/track': typeof ApiPublicTrackRoute
   '/en/journal/$slug': typeof EnJournalSlugRoute
   '/en/services/$slug': typeof EnServicesSlugRoute
   '/ja/journal/$slug': typeof JaJournalSlugRoute
@@ -527,6 +535,7 @@ export interface FileRoutesById {
   '/vi/': typeof ViIndexRoute
   '/zh/': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/track': typeof ApiPublicTrackRoute
   '/en/journal/$slug': typeof EnJournalSlugRoute
   '/en/services/$slug': typeof EnServicesSlugRoute
   '/ja/journal/$slug': typeof JaJournalSlugRoute
@@ -590,6 +599,7 @@ export interface FileRouteTypes {
     | '/vi/'
     | '/zh/'
     | '/api/public/contact'
+    | '/api/public/track'
     | '/en/journal/$slug'
     | '/en/services/$slug'
     | '/ja/journal/$slug'
@@ -650,6 +660,7 @@ export interface FileRouteTypes {
     | '/vi'
     | '/zh'
     | '/api/public/contact'
+    | '/api/public/track'
     | '/en/journal/$slug'
     | '/en/services/$slug'
     | '/ja/journal/$slug'
@@ -711,6 +722,7 @@ export interface FileRouteTypes {
     | '/vi/'
     | '/zh/'
     | '/api/public/contact'
+    | '/api/public/track'
     | '/en/journal/$slug'
     | '/en/services/$slug'
     | '/ja/journal/$slug'
@@ -763,6 +775,7 @@ export interface RootRouteChildren {
   ViIndexRoute: typeof ViIndexRoute
   ZhIndexRoute: typeof ZhIndexRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
+  ApiPublicTrackRoute: typeof ApiPublicTrackRoute
   EnJournalSlugRoute: typeof EnJournalSlugRoute
   EnServicesSlugRoute: typeof EnServicesSlugRoute
   JaJournalSlugRoute: typeof JaJournalSlugRoute
@@ -1163,6 +1176,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnJournalSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/track': {
+      id: '/api/public/track'
+      path: '/api/public/track'
+      fullPath: '/api/public/track'
+      preLoaderRoute: typeof ApiPublicTrackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/contact': {
       id: '/api/public/contact'
       path: '/api/public/contact'
@@ -1273,6 +1293,7 @@ const rootRouteChildren: RootRouteChildren = {
   ViIndexRoute: ViIndexRoute,
   ZhIndexRoute: ZhIndexRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
+  ApiPublicTrackRoute: ApiPublicTrackRoute,
   EnJournalSlugRoute: EnJournalSlugRoute,
   EnServicesSlugRoute: EnServicesSlugRoute,
   JaJournalSlugRoute: JaJournalSlugRoute,
