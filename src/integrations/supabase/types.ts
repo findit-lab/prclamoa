@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      site_events: {
+        Row: {
+          created_at: string
+          event_type: string
+          id: number
+          label: string
+          locale: string
+          path: string
+          referrer: string
+          session_id: string
+        }
+        Insert: {
+          created_at?: string
+          event_type: string
+          id?: number
+          label?: string
+          locale?: string
+          path?: string
+          referrer?: string
+          session_id?: string
+        }
+        Update: {
+          created_at?: string
+          event_type?: string
+          id?: number
+          label?: string
+          locale?: string
+          path?: string
+          referrer?: string
+          session_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
