@@ -3,8 +3,10 @@ import {
   homeAlternateLinks,
   localeHomeUrl,
   ogLocaleAlternates,
+  socialImageMeta,
   type Locale,
 } from "./config";
+
 
 interface HomeMeta {
   title: string;
