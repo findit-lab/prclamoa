@@ -2,6 +2,7 @@ import { koServiceAlternates } from "@/i18n/serviceHead";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { SubPageNav } from "@/components/SubPageNav";
+import { trackSiteEvent, usePageView } from "@/lib/event-tracking";
 
 const SERVICES = [
   {
@@ -84,6 +85,7 @@ export const Route = createFileRoute("/services/")({
 });
 
 function ServicesHub() {
+  usePageView("ko", "services-hub");
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
       <SubPageNav variant="light" />
@@ -110,6 +112,7 @@ function ServicesHub() {
             <li key={s.to}>
               <Link
                 to={s.to}
+                onClick={() => trackSiteEvent("service_click", { locale: "ko", label: s.to })}
                 className="group block h-full bg-surface border-2 border-deep-ink p-6 md:p-7 hover:bg-deep-ink hover:text-inverse-on-surface transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon-signal"
               >
                 <div className="flex items-baseline justify-between mb-8">
