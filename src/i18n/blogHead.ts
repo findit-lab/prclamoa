@@ -38,9 +38,12 @@ export function blogIndexHead(locale: BlogLocale) {
       { property: "og:url", content: url },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: LOCALE_REGISTRY[locale].ogLocale },
+      ...ogLocaleAlternates(locale, BLOG_LOCALES),
+      ...socialImageMeta(locale),
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
+
     ],
     links: [
       { rel: "canonical", href: url },
