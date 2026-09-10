@@ -40,15 +40,24 @@ export const Route = createFileRoute("/api/public/hooks/weekly-report")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const secret = process.env.REPORT_CRON_SECRET;
         const provided = request.headers.get("x-report-key") ?? "";
-        if (!secret || provided !== secret) {
-          return new Response("Unauthorized", { status: 401 });
-        }
+        if (!provided) return new Response("Unauthorized", { status: 401 });
 
         const GAS_CONTACT_URL = process.env.GAS_CONTACT_URL;
 
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
+        const envSecret = process.env.REPORT_CRON_SECRET ?? "";
+        let allowed = envSecret !== "" && provided === envSecret;
+        if (!allowed) {
+          const { data: keyRow } = await supabaseAdmin
+            .from("app_secrets")
+            .select("value")
+            .eq("key", "report_cron_token")
+            .maybeSingle();
+          allowed = !!keyRow?.value && keyRow.value === provided;
+        }
+        if (!allowed) return new Response("Unauthorized", { status: 401 });
         const { data, error } = await supabaseAdmin.rpc("weekly_event_report", { _days: 7 });
         if (error) {
           console.error("weekly_report_query_failed", error.message);
