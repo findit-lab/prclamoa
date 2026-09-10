@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SubPageNav } from "@/components/SubPageNav";
 import { useEffect } from "react";
 import { insights } from "@/data/insights";
+import { trackSiteEvent, usePageView } from "@/lib/event-tracking";
 
 export const Route = createFileRoute("/insights")({
   head: () => ({
@@ -91,6 +92,7 @@ function InsightsPage() {
                 <Link
                   to="/insights/$slug"
                   params={{ slug: post.slug }}
+                  onClick={() => trackSiteEvent("journal_click", { locale: "ko", label: post.slug })}
                   className="grid grid-cols-12 gap-6 py-10 md:py-14 hover:bg-deep-ink/[0.02] transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon-signal"
                 >
                   <div className="col-span-12 md:col-span-2">
