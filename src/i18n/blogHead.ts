@@ -1,5 +1,6 @@
-import { LOCALE_REGISTRY, SITE_URL } from "./config";
+import { LOCALE_REGISTRY, SITE_URL, ogLocaleAlternates, socialImageMeta } from "./config";
 import { BLOG_LOCALES, BLOG_UI, getPost, type BlogLocale, type BlogPost } from "@/data/blog";
+
 
 const LOGO_URL = `${SITE_URL}/__l5e/assets-v1/085b2230-7ab0-414e-abd3-c2dcbc1ed4a5/clamoa-logo.png`;
 
