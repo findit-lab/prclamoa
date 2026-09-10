@@ -2,10 +2,12 @@ import { Link } from "@tanstack/react-router";
 
 import { LOCALE_SERVICE_DETAIL, LocalizedServiceNav } from "@/components/LocalizedServiceNav";
 import { getServiceUI, getServices, type ServiceLocale } from "@/data/services";
+import { trackSiteEvent, usePageView } from "@/lib/event-tracking";
 
 export function LocalizedServicesHub({ locale }: { locale: ServiceLocale }) {
   const ui = getServiceUI(locale);
   const services = getServices(locale);
+  usePageView(locale, "services-hub");
 
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
@@ -33,6 +35,7 @@ export function LocalizedServicesHub({ locale }: { locale: ServiceLocale }) {
               <Link
                 to={LOCALE_SERVICE_DETAIL[locale]}
                 params={{ slug: s.slug }}
+                onClick={() => trackSiteEvent("service_click", { locale, label: s.slug })}
                 className="group block h-full bg-surface border-2 border-deep-ink p-6 md:p-7 hover:bg-deep-ink hover:text-inverse-on-surface transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-neon-signal"
               >
                 <div className="flex items-baseline justify-between mb-8">

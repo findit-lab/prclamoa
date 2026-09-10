@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { LOCALES, LOCALE_REGISTRY, type Locale } from "@/i18n/config";
+import { trackSiteEvent } from "@/lib/event-tracking";
 
 const LOCALE_ROUTE = {
   ko: "/",
@@ -63,7 +64,10 @@ export function LanguageSwitcher({
                 preload="intent"
                 hrefLang={LOCALE_REGISTRY[l].bcp47}
                 lang={LOCALE_REGISTRY[l].bcp47}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  trackSiteEvent("language_select", { locale, label: l });
+                  setOpen(false);
+                }}
                 aria-current={l === locale ? "true" : undefined}
                 className={`block px-4 py-3 text-body-sm border-b border-deep-ink/15 last:border-b-0 hover:bg-neon-signal ${
                   l === locale ? "font-bold" : ""

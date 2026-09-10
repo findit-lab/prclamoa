@@ -62,8 +62,10 @@ import { Route as JaServicesSlugRouteImport } from './routes/ja/services/$slug'
 import { Route as JaJournalSlugRouteImport } from './routes/ja/journal/$slug'
 import { Route as EnServicesSlugRouteImport } from './routes/en/services/$slug'
 import { Route as EnJournalSlugRouteImport } from './routes/en/journal/$slug'
+import { Route as ApiPublicTrackRouteImport } from './routes/api/public/track'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
+import { Route as ApiPublicHooksWeeklyReportRouteImport } from './routes/api/public/hooks/weekly-report'
 import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
 import { Route as ApiInfluencerImageIdRouteImport } from './routes/api/influencer.image.$id'
 import { Route as ApiEventImageIdRouteImport } from './routes/api/event.image.$id'
@@ -338,6 +340,11 @@ const EnJournalSlugRoute = EnJournalSlugRouteImport.update({
   path: '/en/journal/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicTrackRoute = ApiPublicTrackRouteImport.update({
+  id: '/api/public/track',
+  path: '/api/public/track',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   id: '/api/public/contact',
   path: '/api/public/contact',
@@ -348,6 +355,12 @@ const ApiStarImageIdRoute = ApiStarImageIdRouteImport.update({
   path: '/api/star/image/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicHooksWeeklyReportRoute =
+  ApiPublicHooksWeeklyReportRouteImport.update({
+    id: '/api/public/hooks/weekly-report',
+    path: '/api/public/hooks/weekly-report',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ApiMagazineImageIdRoute = ApiMagazineImageIdRouteImport.update({
   id: '/api/magazine/image/$id',
   path: '/api/magazine/image/$id',
@@ -405,6 +418,7 @@ export interface FileRoutesByFullPath {
   '/vi/': typeof ViIndexRoute
   '/zh/': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/track': typeof ApiPublicTrackRoute
   '/en/journal/$slug': typeof EnJournalSlugRoute
   '/en/services/$slug': typeof EnServicesSlugRoute
   '/ja/journal/$slug': typeof JaJournalSlugRoute
@@ -429,6 +443,7 @@ export interface FileRoutesByFullPath {
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
   '/api/magazine/image/$id': typeof ApiMagazineImageIdRoute
+  '/api/public/hooks/weekly-report': typeof ApiPublicHooksWeeklyReportRoute
   '/api/star/image/$id': typeof ApiStarImageIdRoute
 }
 export interface FileRoutesByTo {
@@ -465,6 +480,7 @@ export interface FileRoutesByTo {
   '/vi': typeof ViIndexRoute
   '/zh': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/track': typeof ApiPublicTrackRoute
   '/en/journal/$slug': typeof EnJournalSlugRoute
   '/en/services/$slug': typeof EnServicesSlugRoute
   '/ja/journal/$slug': typeof JaJournalSlugRoute
@@ -489,6 +505,7 @@ export interface FileRoutesByTo {
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
   '/api/magazine/image/$id': typeof ApiMagazineImageIdRoute
+  '/api/public/hooks/weekly-report': typeof ApiPublicHooksWeeklyReportRoute
   '/api/star/image/$id': typeof ApiStarImageIdRoute
 }
 export interface FileRoutesById {
@@ -527,6 +544,7 @@ export interface FileRoutesById {
   '/vi/': typeof ViIndexRoute
   '/zh/': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/track': typeof ApiPublicTrackRoute
   '/en/journal/$slug': typeof EnJournalSlugRoute
   '/en/services/$slug': typeof EnServicesSlugRoute
   '/ja/journal/$slug': typeof JaJournalSlugRoute
@@ -551,6 +569,7 @@ export interface FileRoutesById {
   '/api/event/image/$id': typeof ApiEventImageIdRoute
   '/api/influencer/image/$id': typeof ApiInfluencerImageIdRoute
   '/api/magazine/image/$id': typeof ApiMagazineImageIdRoute
+  '/api/public/hooks/weekly-report': typeof ApiPublicHooksWeeklyReportRoute
   '/api/star/image/$id': typeof ApiStarImageIdRoute
 }
 export interface FileRouteTypes {
@@ -590,6 +609,7 @@ export interface FileRouteTypes {
     | '/vi/'
     | '/zh/'
     | '/api/public/contact'
+    | '/api/public/track'
     | '/en/journal/$slug'
     | '/en/services/$slug'
     | '/ja/journal/$slug'
@@ -614,6 +634,7 @@ export interface FileRouteTypes {
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
     | '/api/magazine/image/$id'
+    | '/api/public/hooks/weekly-report'
     | '/api/star/image/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -650,6 +671,7 @@ export interface FileRouteTypes {
     | '/vi'
     | '/zh'
     | '/api/public/contact'
+    | '/api/public/track'
     | '/en/journal/$slug'
     | '/en/services/$slug'
     | '/ja/journal/$slug'
@@ -674,6 +696,7 @@ export interface FileRouteTypes {
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
     | '/api/magazine/image/$id'
+    | '/api/public/hooks/weekly-report'
     | '/api/star/image/$id'
   id:
     | '__root__'
@@ -711,6 +734,7 @@ export interface FileRouteTypes {
     | '/vi/'
     | '/zh/'
     | '/api/public/contact'
+    | '/api/public/track'
     | '/en/journal/$slug'
     | '/en/services/$slug'
     | '/ja/journal/$slug'
@@ -735,6 +759,7 @@ export interface FileRouteTypes {
     | '/api/event/image/$id'
     | '/api/influencer/image/$id'
     | '/api/magazine/image/$id'
+    | '/api/public/hooks/weekly-report'
     | '/api/star/image/$id'
   fileRoutesById: FileRoutesById
 }
@@ -763,6 +788,7 @@ export interface RootRouteChildren {
   ViIndexRoute: typeof ViIndexRoute
   ZhIndexRoute: typeof ZhIndexRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
+  ApiPublicTrackRoute: typeof ApiPublicTrackRoute
   EnJournalSlugRoute: typeof EnJournalSlugRoute
   EnServicesSlugRoute: typeof EnServicesSlugRoute
   JaJournalSlugRoute: typeof JaJournalSlugRoute
@@ -787,6 +813,7 @@ export interface RootRouteChildren {
   ApiEventImageIdRoute: typeof ApiEventImageIdRoute
   ApiInfluencerImageIdRoute: typeof ApiInfluencerImageIdRoute
   ApiMagazineImageIdRoute: typeof ApiMagazineImageIdRoute
+  ApiPublicHooksWeeklyReportRoute: typeof ApiPublicHooksWeeklyReportRoute
   ApiStarImageIdRoute: typeof ApiStarImageIdRoute
 }
 
@@ -1163,6 +1190,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnJournalSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/track': {
+      id: '/api/public/track'
+      path: '/api/public/track'
+      fullPath: '/api/public/track'
+      preLoaderRoute: typeof ApiPublicTrackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/contact': {
       id: '/api/public/contact'
       path: '/api/public/contact'
@@ -1175,6 +1209,13 @@ declare module '@tanstack/react-router' {
       path: '/api/star/image/$id'
       fullPath: '/api/star/image/$id'
       preLoaderRoute: typeof ApiStarImageIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/hooks/weekly-report': {
+      id: '/api/public/hooks/weekly-report'
+      path: '/api/public/hooks/weekly-report'
+      fullPath: '/api/public/hooks/weekly-report'
+      preLoaderRoute: typeof ApiPublicHooksWeeklyReportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/magazine/image/$id': {
@@ -1273,6 +1314,7 @@ const rootRouteChildren: RootRouteChildren = {
   ViIndexRoute: ViIndexRoute,
   ZhIndexRoute: ZhIndexRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
+  ApiPublicTrackRoute: ApiPublicTrackRoute,
   EnJournalSlugRoute: EnJournalSlugRoute,
   EnServicesSlugRoute: EnServicesSlugRoute,
   JaJournalSlugRoute: JaJournalSlugRoute,
@@ -1297,6 +1339,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiEventImageIdRoute: ApiEventImageIdRoute,
   ApiInfluencerImageIdRoute: ApiInfluencerImageIdRoute,
   ApiMagazineImageIdRoute: ApiMagazineImageIdRoute,
+  ApiPublicHooksWeeklyReportRoute: ApiPublicHooksWeeklyReportRoute,
   ApiStarImageIdRoute: ApiStarImageIdRoute,
 }
 export const routeTree = rootRouteImport

@@ -6,6 +6,7 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Link } from "@tanstack/react-router";
 import brandVisibilityVideo from "@/assets/brand-visibility.mp4.asset.json";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { usePageView } from "@/lib/event-tracking";
 import clamoaLogo from "@/assets/clamoa-logo.png.asset.json";
 import starAnyujin from "@/assets/star-anyujin.jpg.asset.json";
 import starByunwooseok from "@/assets/star-byunwooseok.jpg.asset.json";
@@ -104,6 +105,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
   const navRef = useRef<HTMLElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const MARQUEE_IMAGES = useMemo(() => shuffleArray(STAR_IMAGES), []);
+  usePageView(locale, "home");
 
   useEffect(() => {
     const observer = new IntersectionObserver(

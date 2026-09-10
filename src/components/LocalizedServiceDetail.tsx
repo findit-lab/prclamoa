@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 
 import { LOCALE_HOME, LocalizedServiceNav } from "@/components/LocalizedServiceNav";
 import { getServiceUI, type ServiceContent, type ServiceLocale } from "@/data/services";
+import { usePageView } from "@/lib/event-tracking";
 
 export function LocalizedServiceDetail({
   locale,
@@ -11,6 +12,7 @@ export function LocalizedServiceDetail({
   service: ServiceContent;
 }) {
   const ui = getServiceUI(locale);
+  usePageView(locale, `service:${service.slug}`);
 
   return (
     <main className="min-h-screen bg-surface text-deep-ink">
