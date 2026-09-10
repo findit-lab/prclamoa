@@ -21,6 +21,10 @@ export interface LocaleEntry {
   short: string;
   /** Open Graph locale */
   ogLocale: string;
+  /** flag emoji shown in the language switcher */
+  flag: string;
+  /** country name in English */
+  country: string;
 }
 
 export const LOCALE_REGISTRY: Record<Locale, LocaleEntry> = {
@@ -32,6 +36,8 @@ export const LOCALE_REGISTRY: Record<Locale, LocaleEntry> = {
     label: "한국어",
     short: "KO",
     ogLocale: "ko_KR",
+    flag: "🇰🇷",
+    country: "Korea",
   },
   en: {
     code: "en",
@@ -41,6 +47,8 @@ export const LOCALE_REGISTRY: Record<Locale, LocaleEntry> = {
     label: "English",
     short: "EN",
     ogLocale: "en_US",
+    flag: "🇺🇸",
+    country: "USA",
   },
   ja: {
     code: "ja",
@@ -50,6 +58,8 @@ export const LOCALE_REGISTRY: Record<Locale, LocaleEntry> = {
     label: "日本語",
     short: "JA",
     ogLocale: "ja_JP",
+    flag: "🇯🇵",
+    country: "Japan",
   },
   zh: {
     code: "zh",
@@ -59,6 +69,8 @@ export const LOCALE_REGISTRY: Record<Locale, LocaleEntry> = {
     label: "简体中文",
     short: "ZH",
     ogLocale: "zh_CN",
+    flag: "🇨🇳",
+    country: "China",
   },
   vi: {
     code: "vi",
@@ -68,6 +80,8 @@ export const LOCALE_REGISTRY: Record<Locale, LocaleEntry> = {
     label: "Tiếng Việt",
     short: "VI",
     ogLocale: "vi_VN",
+    flag: "🇻🇳",
+    country: "Vietnam",
   },
   th: {
     code: "th",
@@ -77,6 +91,8 @@ export const LOCALE_REGISTRY: Record<Locale, LocaleEntry> = {
     label: "ไทย",
     short: "TH",
     ogLocale: "th_TH",
+    flag: "🇹🇭",
+    country: "Thailand",
   },
 };
 

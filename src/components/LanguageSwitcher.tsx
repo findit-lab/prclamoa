@@ -46,7 +46,9 @@ export function LanguageSwitcher({
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-1 text-label-caps border border-deep-ink px-3 py-1.5 hover:bg-neon-signal transition-colors"
       >
-        <span className="material-symbols-outlined text-[16px]">language</span>
+        <span aria-hidden="true" className="text-[16px] leading-none">
+          {current.flag}
+        </span>
         {current.short}
         <span className="material-symbols-outlined text-[16px]">
           {open ? "expand_less" : "expand_more"}
@@ -69,11 +71,14 @@ export function LanguageSwitcher({
                   setOpen(false);
                 }}
                 aria-current={l === locale ? "true" : undefined}
-                className={`block px-4 py-3 text-body-sm border-b border-deep-ink/15 last:border-b-0 hover:bg-neon-signal ${
+                className={`flex items-center gap-2 px-4 py-3 text-body-sm border-b border-deep-ink/15 last:border-b-0 hover:bg-neon-signal ${
                   l === locale ? "font-bold" : ""
                 }`}
               >
-                {LOCALE_REGISTRY[l].label}
+                <span aria-hidden="true" className="text-[16px] leading-none">
+                  {LOCALE_REGISTRY[l].flag}
+                </span>
+                {LOCALE_REGISTRY[l].country}
               </Link>
             </li>
           ))}
