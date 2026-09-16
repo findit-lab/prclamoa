@@ -54,14 +54,19 @@ import { Route as EnServicesIndexRouteImport } from './routes/en/services/index'
 import { Route as EnJournalIndexRouteImport } from './routes/en/journal/index'
 import { Route as ZhServicesSlugRouteImport } from './routes/zh/services/$slug'
 import { Route as ZhJournalSlugRouteImport } from './routes/zh/journal/$slug'
+import { Route as ZhArchiveSlugRouteImport } from './routes/zh/archive/$slug'
 import { Route as ViServicesSlugRouteImport } from './routes/vi/services/$slug'
 import { Route as ViJournalSlugRouteImport } from './routes/vi/journal/$slug'
+import { Route as ViArchiveSlugRouteImport } from './routes/vi/archive/$slug'
 import { Route as ThServicesSlugRouteImport } from './routes/th/services/$slug'
 import { Route as ThJournalSlugRouteImport } from './routes/th/journal/$slug'
+import { Route as ThArchiveSlugRouteImport } from './routes/th/archive/$slug'
 import { Route as JaServicesSlugRouteImport } from './routes/ja/services/$slug'
 import { Route as JaJournalSlugRouteImport } from './routes/ja/journal/$slug'
+import { Route as JaArchiveSlugRouteImport } from './routes/ja/archive/$slug'
 import { Route as EnServicesSlugRouteImport } from './routes/en/services/$slug'
 import { Route as EnJournalSlugRouteImport } from './routes/en/journal/$slug'
+import { Route as EnArchiveSlugRouteImport } from './routes/en/archive/$slug'
 import { Route as ApiPublicTrackRouteImport } from './routes/api/public/track'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
@@ -300,6 +305,11 @@ const ZhJournalSlugRoute = ZhJournalSlugRouteImport.update({
   path: '/zh/journal/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ZhArchiveSlugRoute = ZhArchiveSlugRouteImport.update({
+  id: '/zh/archive/$slug',
+  path: '/zh/archive/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ViServicesSlugRoute = ViServicesSlugRouteImport.update({
   id: '/vi/services/$slug',
   path: '/vi/services/$slug',
@@ -308,6 +318,11 @@ const ViServicesSlugRoute = ViServicesSlugRouteImport.update({
 const ViJournalSlugRoute = ViJournalSlugRouteImport.update({
   id: '/vi/journal/$slug',
   path: '/vi/journal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ViArchiveSlugRoute = ViArchiveSlugRouteImport.update({
+  id: '/vi/archive/$slug',
+  path: '/vi/archive/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ThServicesSlugRoute = ThServicesSlugRouteImport.update({
@@ -320,6 +335,11 @@ const ThJournalSlugRoute = ThJournalSlugRouteImport.update({
   path: '/th/journal/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ThArchiveSlugRoute = ThArchiveSlugRouteImport.update({
+  id: '/th/archive/$slug',
+  path: '/th/archive/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JaServicesSlugRoute = JaServicesSlugRouteImport.update({
   id: '/ja/services/$slug',
   path: '/ja/services/$slug',
@@ -330,6 +350,11 @@ const JaJournalSlugRoute = JaJournalSlugRouteImport.update({
   path: '/ja/journal/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JaArchiveSlugRoute = JaArchiveSlugRouteImport.update({
+  id: '/ja/archive/$slug',
+  path: '/ja/archive/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnServicesSlugRoute = EnServicesSlugRouteImport.update({
   id: '/en/services/$slug',
   path: '/en/services/$slug',
@@ -338,6 +363,11 @@ const EnServicesSlugRoute = EnServicesSlugRouteImport.update({
 const EnJournalSlugRoute = EnJournalSlugRouteImport.update({
   id: '/en/journal/$slug',
   path: '/en/journal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnArchiveSlugRoute = EnArchiveSlugRouteImport.update({
+  id: '/en/archive/$slug',
+  path: '/en/archive/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicTrackRoute = ApiPublicTrackRouteImport.update({
@@ -419,14 +449,19 @@ export interface FileRoutesByFullPath {
   '/zh/': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/track': typeof ApiPublicTrackRoute
+  '/en/archive/$slug': typeof EnArchiveSlugRoute
   '/en/journal/$slug': typeof EnJournalSlugRoute
   '/en/services/$slug': typeof EnServicesSlugRoute
+  '/ja/archive/$slug': typeof JaArchiveSlugRoute
   '/ja/journal/$slug': typeof JaJournalSlugRoute
   '/ja/services/$slug': typeof JaServicesSlugRoute
+  '/th/archive/$slug': typeof ThArchiveSlugRoute
   '/th/journal/$slug': typeof ThJournalSlugRoute
   '/th/services/$slug': typeof ThServicesSlugRoute
+  '/vi/archive/$slug': typeof ViArchiveSlugRoute
   '/vi/journal/$slug': typeof ViJournalSlugRoute
   '/vi/services/$slug': typeof ViServicesSlugRoute
+  '/zh/archive/$slug': typeof ZhArchiveSlugRoute
   '/zh/journal/$slug': typeof ZhJournalSlugRoute
   '/zh/services/$slug': typeof ZhServicesSlugRoute
   '/en/journal/': typeof EnJournalIndexRoute
@@ -481,14 +516,19 @@ export interface FileRoutesByTo {
   '/zh': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/track': typeof ApiPublicTrackRoute
+  '/en/archive/$slug': typeof EnArchiveSlugRoute
   '/en/journal/$slug': typeof EnJournalSlugRoute
   '/en/services/$slug': typeof EnServicesSlugRoute
+  '/ja/archive/$slug': typeof JaArchiveSlugRoute
   '/ja/journal/$slug': typeof JaJournalSlugRoute
   '/ja/services/$slug': typeof JaServicesSlugRoute
+  '/th/archive/$slug': typeof ThArchiveSlugRoute
   '/th/journal/$slug': typeof ThJournalSlugRoute
   '/th/services/$slug': typeof ThServicesSlugRoute
+  '/vi/archive/$slug': typeof ViArchiveSlugRoute
   '/vi/journal/$slug': typeof ViJournalSlugRoute
   '/vi/services/$slug': typeof ViServicesSlugRoute
+  '/zh/archive/$slug': typeof ZhArchiveSlugRoute
   '/zh/journal/$slug': typeof ZhJournalSlugRoute
   '/zh/services/$slug': typeof ZhServicesSlugRoute
   '/en/journal': typeof EnJournalIndexRoute
@@ -545,14 +585,19 @@ export interface FileRoutesById {
   '/zh/': typeof ZhIndexRoute
   '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/track': typeof ApiPublicTrackRoute
+  '/en/archive/$slug': typeof EnArchiveSlugRoute
   '/en/journal/$slug': typeof EnJournalSlugRoute
   '/en/services/$slug': typeof EnServicesSlugRoute
+  '/ja/archive/$slug': typeof JaArchiveSlugRoute
   '/ja/journal/$slug': typeof JaJournalSlugRoute
   '/ja/services/$slug': typeof JaServicesSlugRoute
+  '/th/archive/$slug': typeof ThArchiveSlugRoute
   '/th/journal/$slug': typeof ThJournalSlugRoute
   '/th/services/$slug': typeof ThServicesSlugRoute
+  '/vi/archive/$slug': typeof ViArchiveSlugRoute
   '/vi/journal/$slug': typeof ViJournalSlugRoute
   '/vi/services/$slug': typeof ViServicesSlugRoute
+  '/zh/archive/$slug': typeof ZhArchiveSlugRoute
   '/zh/journal/$slug': typeof ZhJournalSlugRoute
   '/zh/services/$slug': typeof ZhServicesSlugRoute
   '/en/journal/': typeof EnJournalIndexRoute
@@ -610,14 +655,19 @@ export interface FileRouteTypes {
     | '/zh/'
     | '/api/public/contact'
     | '/api/public/track'
+    | '/en/archive/$slug'
     | '/en/journal/$slug'
     | '/en/services/$slug'
+    | '/ja/archive/$slug'
     | '/ja/journal/$slug'
     | '/ja/services/$slug'
+    | '/th/archive/$slug'
     | '/th/journal/$slug'
     | '/th/services/$slug'
+    | '/vi/archive/$slug'
     | '/vi/journal/$slug'
     | '/vi/services/$slug'
+    | '/zh/archive/$slug'
     | '/zh/journal/$slug'
     | '/zh/services/$slug'
     | '/en/journal/'
@@ -672,14 +722,19 @@ export interface FileRouteTypes {
     | '/zh'
     | '/api/public/contact'
     | '/api/public/track'
+    | '/en/archive/$slug'
     | '/en/journal/$slug'
     | '/en/services/$slug'
+    | '/ja/archive/$slug'
     | '/ja/journal/$slug'
     | '/ja/services/$slug'
+    | '/th/archive/$slug'
     | '/th/journal/$slug'
     | '/th/services/$slug'
+    | '/vi/archive/$slug'
     | '/vi/journal/$slug'
     | '/vi/services/$slug'
+    | '/zh/archive/$slug'
     | '/zh/journal/$slug'
     | '/zh/services/$slug'
     | '/en/journal'
@@ -735,14 +790,19 @@ export interface FileRouteTypes {
     | '/zh/'
     | '/api/public/contact'
     | '/api/public/track'
+    | '/en/archive/$slug'
     | '/en/journal/$slug'
     | '/en/services/$slug'
+    | '/ja/archive/$slug'
     | '/ja/journal/$slug'
     | '/ja/services/$slug'
+    | '/th/archive/$slug'
     | '/th/journal/$slug'
     | '/th/services/$slug'
+    | '/vi/archive/$slug'
     | '/vi/journal/$slug'
     | '/vi/services/$slug'
+    | '/zh/archive/$slug'
     | '/zh/journal/$slug'
     | '/zh/services/$slug'
     | '/en/journal/'
@@ -789,14 +849,19 @@ export interface RootRouteChildren {
   ZhIndexRoute: typeof ZhIndexRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
   ApiPublicTrackRoute: typeof ApiPublicTrackRoute
+  EnArchiveSlugRoute: typeof EnArchiveSlugRoute
   EnJournalSlugRoute: typeof EnJournalSlugRoute
   EnServicesSlugRoute: typeof EnServicesSlugRoute
+  JaArchiveSlugRoute: typeof JaArchiveSlugRoute
   JaJournalSlugRoute: typeof JaJournalSlugRoute
   JaServicesSlugRoute: typeof JaServicesSlugRoute
+  ThArchiveSlugRoute: typeof ThArchiveSlugRoute
   ThJournalSlugRoute: typeof ThJournalSlugRoute
   ThServicesSlugRoute: typeof ThServicesSlugRoute
+  ViArchiveSlugRoute: typeof ViArchiveSlugRoute
   ViJournalSlugRoute: typeof ViJournalSlugRoute
   ViServicesSlugRoute: typeof ViServicesSlugRoute
+  ZhArchiveSlugRoute: typeof ZhArchiveSlugRoute
   ZhJournalSlugRoute: typeof ZhJournalSlugRoute
   ZhServicesSlugRoute: typeof ZhServicesSlugRoute
   EnJournalIndexRoute: typeof EnJournalIndexRoute
@@ -1134,6 +1199,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ZhJournalSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/zh/archive/$slug': {
+      id: '/zh/archive/$slug'
+      path: '/zh/archive/$slug'
+      fullPath: '/zh/archive/$slug'
+      preLoaderRoute: typeof ZhArchiveSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/vi/services/$slug': {
       id: '/vi/services/$slug'
       path: '/vi/services/$slug'
@@ -1146,6 +1218,13 @@ declare module '@tanstack/react-router' {
       path: '/vi/journal/$slug'
       fullPath: '/vi/journal/$slug'
       preLoaderRoute: typeof ViJournalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vi/archive/$slug': {
+      id: '/vi/archive/$slug'
+      path: '/vi/archive/$slug'
+      fullPath: '/vi/archive/$slug'
+      preLoaderRoute: typeof ViArchiveSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/th/services/$slug': {
@@ -1162,6 +1241,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ThJournalSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/th/archive/$slug': {
+      id: '/th/archive/$slug'
+      path: '/th/archive/$slug'
+      fullPath: '/th/archive/$slug'
+      preLoaderRoute: typeof ThArchiveSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ja/services/$slug': {
       id: '/ja/services/$slug'
       path: '/ja/services/$slug'
@@ -1176,6 +1262,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JaJournalSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ja/archive/$slug': {
+      id: '/ja/archive/$slug'
+      path: '/ja/archive/$slug'
+      fullPath: '/ja/archive/$slug'
+      preLoaderRoute: typeof JaArchiveSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/services/$slug': {
       id: '/en/services/$slug'
       path: '/en/services/$slug'
@@ -1188,6 +1281,13 @@ declare module '@tanstack/react-router' {
       path: '/en/journal/$slug'
       fullPath: '/en/journal/$slug'
       preLoaderRoute: typeof EnJournalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/archive/$slug': {
+      id: '/en/archive/$slug'
+      path: '/en/archive/$slug'
+      fullPath: '/en/archive/$slug'
+      preLoaderRoute: typeof EnArchiveSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/track': {
@@ -1315,14 +1415,19 @@ const rootRouteChildren: RootRouteChildren = {
   ZhIndexRoute: ZhIndexRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
   ApiPublicTrackRoute: ApiPublicTrackRoute,
+  EnArchiveSlugRoute: EnArchiveSlugRoute,
   EnJournalSlugRoute: EnJournalSlugRoute,
   EnServicesSlugRoute: EnServicesSlugRoute,
+  JaArchiveSlugRoute: JaArchiveSlugRoute,
   JaJournalSlugRoute: JaJournalSlugRoute,
   JaServicesSlugRoute: JaServicesSlugRoute,
+  ThArchiveSlugRoute: ThArchiveSlugRoute,
   ThJournalSlugRoute: ThJournalSlugRoute,
   ThServicesSlugRoute: ThServicesSlugRoute,
+  ViArchiveSlugRoute: ViArchiveSlugRoute,
   ViJournalSlugRoute: ViJournalSlugRoute,
   ViServicesSlugRoute: ViServicesSlugRoute,
+  ZhArchiveSlugRoute: ZhArchiveSlugRoute,
   ZhJournalSlugRoute: ZhJournalSlugRoute,
   ZhServicesSlugRoute: ZhServicesSlugRoute,
   EnJournalIndexRoute: EnJournalIndexRoute,

@@ -3,7 +3,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { LocalizedArchive, isArchiveSlug } from "@/components/archive/LocalizedArchive";
 import { archiveHead } from "@/i18n/archiveHead";
 
-export const Route = createFileRoute("/th/archive/\$slug")({
+export const Route = createFileRoute("/th/archive/$slug")({
   loader: ({ params }) => {
     if (!isArchiveSlug(params.slug)) throw notFound();
     return { slug: params.slug };
