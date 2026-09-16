@@ -4,7 +4,7 @@ const dict: ArchiveDict = {
   ui: {
     dive: "DIVE DEEPER",
     ctaLabel: "ดูรายละเอียดบริการ",
-    influencerBio: "คลังผลงานแคมเปเนื้อหาแบรนด์ที่ทำร่วมกับอินฟลูเอนเซอร์และครีเอเตอร์",
+    influencerBio: "คลังผลงานคอนเทนต์แบรนด์ที่ทำร่วมกับอินฟลูเอนเซอร์และครีเอเตอร์",
     influencerLocation: "โซล · อับกูจอง · since 2018",
     feedHeading: "ฟีดแคมเปญอินฟลูเอนเซอร์",
     featuredHeading: "โพสต์อินฟลูเอนเซอร์ที่คัดมา",

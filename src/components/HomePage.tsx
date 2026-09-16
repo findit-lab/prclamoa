@@ -1,5 +1,15 @@
 import type { Locale } from "@/i18n/config";
 import { makeT } from "@/i18n";
+import { archivePath, type ArchiveSlug } from "@/data/archive";
+
+const SCOPE_VIEW_LABEL: Record<ArchiveSlug, string> = {
+  star: "VIEW ARCHIVE",
+  viral: "VIEW REELS",
+  magazine: "VIEW ISSUE",
+  influencer: "VIEW FEED",
+  event: "VIEW SKETCH",
+  "brand-ambassador": "VIEW CASTING",
+};
 const LOCALE_JOURNAL = { en: "/en/journal", ja: "/ja/journal", zh: "/zh/journal", vi: "/vi/journal", th: "/th/journal" } as const;
 const LOCALE_HOME = { ko: "/", en: "/en", ja: "/ja", zh: "/zh", vi: "/vi", th: "/th" } as const;
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -612,6 +622,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               {
                 no: "01",
                 title: "STAR",
+                slug: "star" as const,
                 kr: t("드라마, 예능, 무대, 유튜브, 공항패션 등"),
                 desc: t("K-POP 아이돌, 배우, 셀럽을 대상으로 협찬을 진행하여 셀럽 노출을 통해 브랜드 콘텐츠를 확보하고, 인지도 향상을 동시에 도모합니다."),
                 img: scopeStar.url,
@@ -621,6 +632,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               {
                 no: "02",
                 title: "VIRAL",
+                slug: "viral" as const,
                 kr: t("디지털 콘텐츠"),
                 desc: t("인스타그램, 블로그, 유튜브 등 다양한 디지털 채널을 통해 소비자 접점을 넓히고, 자연스러운 바이럴 흐름을 만들어냅니다."),
                 tags: ["INSTAGRAM", "BLOG", "YOUTUBE"],
@@ -630,6 +642,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               {
                 no: "03",
                 title: "MAGAZINE",
+                slug: "magazine" as const,
                 kr: t("에디토리얼 피칭"),
                 desc: t("유가화보를 기반으로 매거진 노출부터 셀럽 SNS 포스팅, 공항패션 및 언론 보도까지 원스톱으로 진행합니다."),
                 img: scopeMagazine.url,
@@ -638,6 +651,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               {
                 no: "04",
                 title: "INFLUENCER",
+                slug: "influencer" as const,
                 kr: t("크리에이터 매칭"),
                 desc: t("브랜드 톤에 정합하는 패션·뷰티·라이프스타일 크리에이터를 매칭하고 캠페인을 운영합니다."),
                 img: scopeInfluencer.url,
@@ -646,6 +660,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               {
                 no: "05",
                 title: "EVENT",
+                slug: "event" as const,
                 kr: t("RSVP & 프레스 & 셀럽 섭외"),
                 desc: t("RSVP 기반 팝업스토어, 프레스 행사, 플리마켓 등 오프라인 이벤트를 통해 고객과의 실질적인 접점을 확대합니다."),
 
@@ -655,6 +670,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               {
                 no: "06",
                 title: "BRAND AMBASSADOR CASTING",
+                slug: "brand-ambassador" as const,
                 kr: t("앰버서더 캐스팅"),
                 desc: t("브랜드의 장기 자산이 될 앰버서더를 전략적으로 캐스팅하고 계약·운영을 매니징합니다."),
                 img: scopeAmbassador.url,
