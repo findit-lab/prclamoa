@@ -65,11 +65,17 @@ const ENTRIES: SitemapEntry[] = [
   ]),
 
   { path: "/case-studies", changefreq: "weekly", priority: "0.9" },
-  { path: "/star", changefreq: "monthly", priority: "0.7" },
-  { path: "/magazine", changefreq: "monthly", priority: "0.7" },
-  { path: "/influencer", changefreq: "monthly", priority: "0.7" },
-  { path: "/brand-ambassador", changefreq: "monthly", priority: "0.7" },
-  { path: "/event", changefreq: "monthly", priority: "0.7" },
+  ...ARCHIVE_CLUSTER_LOCALES.flatMap((l) =>
+    ARCHIVE_SLUGS.map((slug) => ({
+      path: archivePath(l, slug),
+      changefreq: "monthly" as const,
+      priority: l === "ko" ? "0.7" : "0.6",
+      cluster: ARCHIVE_CLUSTER_LOCALES.map((x) => ({
+        hreflang: LOCALE_REGISTRY[x].bcp47,
+        path: archivePath(x, slug),
+      })),
+    })),
+  ),
   { path: "/process", changefreq: "monthly", priority: "0.7" },
   { path: "/faq", changefreq: "monthly", priority: "0.6" },
   { path: "/insights", changefreq: "weekly", priority: "0.7" },
