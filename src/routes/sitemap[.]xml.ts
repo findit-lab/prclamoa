@@ -3,8 +3,10 @@ import type {} from "@tanstack/react-start";
 import { LOCALES, LOCALE_REGISTRY, DEFAULT_LOCALE } from "@/i18n/config";
 import { BLOG_LOCALES, getPosts } from "@/data/blog";
 import { SERVICE_LOCALES, SERVICE_SLUGS } from "@/data/services";
+import { ARCHIVE_LOCALES, ARCHIVE_SLUGS, archivePath } from "@/data/archive";
 
 const SERVICE_CLUSTER_LOCALES = ["ko", ...SERVICE_LOCALES] as const;
+const ARCHIVE_CLUSTER_LOCALES = ["ko", ...ARCHIVE_LOCALES] as const;
 
 const BASE_URL = "https://clamoa.com";
 
@@ -65,11 +67,17 @@ const ENTRIES: SitemapEntry[] = [
   ]),
 
   { path: "/case-studies", changefreq: "weekly", priority: "0.9" },
-  { path: "/star", changefreq: "monthly", priority: "0.7" },
-  { path: "/magazine", changefreq: "monthly", priority: "0.7" },
-  { path: "/influencer", changefreq: "monthly", priority: "0.7" },
-  { path: "/brand-ambassador", changefreq: "monthly", priority: "0.7" },
-  { path: "/event", changefreq: "monthly", priority: "0.7" },
+  ...ARCHIVE_CLUSTER_LOCALES.flatMap((l) =>
+    ARCHIVE_SLUGS.map((slug) => ({
+      path: archivePath(l, slug),
+      changefreq: "monthly" as const,
+      priority: l === "ko" ? "0.7" : "0.6",
+      cluster: ARCHIVE_CLUSTER_LOCALES.map((x) => ({
+        hreflang: LOCALE_REGISTRY[x].bcp47,
+        path: archivePath(x, slug),
+      })),
+    })),
+  ),
   { path: "/process", changefreq: "monthly", priority: "0.7" },
   { path: "/faq", changefreq: "monthly", priority: "0.6" },
   { path: "/insights", changefreq: "weekly", priority: "0.7" },
