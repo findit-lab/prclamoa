@@ -697,67 +697,18 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                         ))}
                       </div>
                     )}
-                    {(c.title === "STAR" ||
-                      c.title === "MAGAZINE" ||
-                      c.title === "INFLUENCER" ||
-                      c.title === "EVENT" ||
-                      c.title === "BRAND AMBASSADOR CASTING") && (
-                      <span className="text-label-caps text-deep-ink mt-2 inline-flex items-center gap-2">
-                        {c.title === "MAGAZINE"
-                          ? "VIEW ISSUE"
-                          : c.title === "INFLUENCER"
-                            ? "VIEW FEED"
-                            : c.title === "EVENT"
-                              ? "VIEW SKETCH"
-                              : c.title === "BRAND AMBASSADOR CASTING"
-                                ? "VIEW CASTING"
-                                : "VIEW ARCHIVE"}
-                        <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-                      </span>
-                    )}
+                    <span className="text-label-caps text-deep-ink mt-2 inline-flex items-center gap-2">
+                      {SCOPE_VIEW_LABEL[c.slug]}
+                      <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </span>
                   </div>
                 </div>
               );
               const className = `col-span-12 ${c.span} border-deep-ink ${i % 2 === 0 ? "md:border-r-2" : ""} ${i < 4 ? "border-b-2" : ""} group relative overflow-hidden ${c.accent ? "bg-neon-signal" : "bg-surface"}`;
-              if (c.title === "STAR") {
-                return (
-                  <Link key={c.title} to="/star" className={className}>
-                    {inner}
-                  </Link>
-                );
-              }
-              if (c.title === "MAGAZINE") {
-                return (
-                  <Link key={c.title} to="/magazine" className={className}>
-                    {inner}
-                  </Link>
-                );
-              }
-              if (c.title === "INFLUENCER") {
-                return (
-                  <Link key={c.title} to="/influencer" className={className}>
-                    {inner}
-                  </Link>
-                );
-              }
-              if (c.title === "EVENT") {
-                return (
-                  <Link key={c.title} to="/event" className={className}>
-                    {inner}
-                  </Link>
-                );
-              }
-              if (c.title === "BRAND AMBASSADOR CASTING") {
-                return (
-                  <Link key={c.title} to="/brand-ambassador" className={className}>
-                    {inner}
-                  </Link>
-                );
-              }
               return (
-                <article key={c.title} className={className}>
+                <Link key={c.title} to={archivePath(locale, c.slug)} className={className}>
                   {inner}
-                </article>
+                </Link>
               );
             })}
           </div>
