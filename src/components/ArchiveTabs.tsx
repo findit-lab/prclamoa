@@ -1,22 +1,36 @@
 import { Link, useRouter, useRouterState } from "@tanstack/react-router";
 
-const TABS = [
-  { to: "/star", label: "STAR", num: "01" },
-  { to: "/viral", label: "VIRAL", num: "02" },
-  { to: "/magazine", label: "MAGAZINE", num: "03" },
-  { to: "/influencer", label: "INFLUENCER", num: "04" },
-  { to: "/event", label: "EVENT", num: "05" },
-  { to: "/brand-ambassador", label: "AMBASSADOR", num: "06" },
-] as const;
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { archivePath, type ArchiveSlug } from "@/data/archive";
+import type { Locale } from "@/i18n/config";
+
+const TABS: { slug: ArchiveSlug; label: string; num: string }[] = [
+  { slug: "star", label: "STAR", num: "01" },
+  { slug: "viral", label: "VIRAL", num: "02" },
+  { slug: "magazine", label: "MAGAZINE", num: "03" },
+  { slug: "influencer", label: "INFLUENCER", num: "04" },
+  { slug: "event", label: "EVENT", num: "05" },
+  { slug: "brand-ambassador", label: "AMBASSADOR", num: "06" },
+];
+
+const LOCALE_HOME = {
+  ko: "/",
+  en: "/en",
+  ja: "/ja",
+  zh: "/zh",
+  vi: "/vi",
+  th: "/th",
+} as const;
 
 type Variant = "light" | "dark";
 
 interface Props {
   variant?: Variant;
   rightSlot?: React.ReactNode;
+  locale?: Locale;
 }
 
-export function ArchiveTabs({ variant = "light", rightSlot }: Props) {
+export function ArchiveTabs({ variant = "light", rightSlot, locale = "ko" }: Props) {
   const router = useRouter();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
@@ -29,12 +43,12 @@ export function ArchiveTabs({ variant = "light", rightSlot }: Props) {
     ? "text-white/65 hover:text-white border border-white/15 hover:border-white/40"
     : "text-deep-ink/65 hover:text-deep-ink border border-deep-ink/15 hover:border-deep-ink/60";
 
-  const goHome = () => router.navigate({ to: "/" });
+  const goHome = () => router.navigate({ to: LOCALE_HOME[locale] });
 
   return (
     <header className={`sticky top-0 z-40 backdrop-blur-md border-b ${shellBg} ${textColor}`}>
       {/* row 1 — brand / back */}
-      <div className="flex items-center justify-between px-4 md:px-10 pt-3 md:pt-4">
+      <div className="flex items-center justify-between gap-3 px-4 md:px-10 pt-3 md:pt-4">
         <button
           type="button"
           onClick={goHome}
@@ -46,7 +60,12 @@ export function ArchiveTabs({ variant = "light", rightSlot }: Props) {
           </span>
           <span className="text-label-caps font-mono">CLAMOA / ARCHIVE</span>
         </button>
-        <div className={`text-label-caps font-mono ${mutedColor} hidden md:block`}>{rightSlot}</div>
+        <div className="flex items-center gap-4">
+          <div className={`text-label-caps font-mono ${mutedColor} hidden md:block`}>
+            {rightSlot}
+          </div>
+          <LanguageSwitcher locale={locale} />
+        </div>
       </div>
 
       {/* row 2 — chip tabs */}
@@ -57,11 +76,12 @@ export function ArchiveTabs({ variant = "light", rightSlot }: Props) {
       >
         <ul className="flex items-center gap-2 md:gap-3 px-4 md:px-10 py-3 md:py-4 whitespace-nowrap">
           {TABS.map((t) => {
-            const active = pathname === t.to;
+            const to = archivePath(locale, t.slug);
+            const active = pathname === to;
             return (
-              <li key={t.to}>
+              <li key={t.slug}>
                 <Link
-                  to={t.to}
+                  to={to}
                   className={`group inline-flex items-center gap-2 rounded-full pl-2 pr-3.5 md:pl-2.5 md:pr-4 py-1.5 md:py-2 transition-all duration-200 ${
                     active ? activeChip : inactiveChip
                   }`}
