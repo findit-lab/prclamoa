@@ -9,151 +9,76 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as BrandAmbassadorRouteImport } from './routes/brand-ambassador'
-import { Route as CaseStudiesRouteImport } from './routes/case-studies'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as EventRouteImport } from './routes/event'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as InfluencerRouteImport } from './routes/influencer'
-import { Route as InsightsRouteImport } from './routes/insights'
-import { Route as MagazineRouteImport } from './routes/magazine'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as ProcessRouteImport } from './routes/process'
-import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as StarRouteImport } from './routes/star'
-import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ViralRouteImport } from './routes/viral'
-import { Route as EnIndexRouteImport } from './routes/en/index'
-import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
-import { Route as JaIndexRouteImport } from './routes/ja/index'
-import { Route as ServicesIndexRouteImport } from './routes/services.index'
-import { Route as ServicesBrandAmbassadorRouteImport } from './routes/services.brand-ambassador'
-import { Route as ServicesCelebritySeedingRouteImport } from './routes/services.celebrity-seeding'
-import { Route as ServicesEditorialViralPrRouteImport } from './routes/services.editorial-viral-pr'
-import { Route as ServicesGlobalExpansionRouteImport } from './routes/services.global-expansion'
-import { Route as ServicesInfluencerPrRouteImport } from './routes/services.influencer-pr'
-import { Route as ServicesOfflineEventPrRouteImport } from './routes/services.offline-event-pr'
-import { Route as ServicesPplContentPlacementRouteImport } from './routes/services.ppl-content-placement'
-import { Route as ServicesStylistRelationsRouteImport } from './routes/services.stylist-relations'
-import { Route as ThIndexRouteImport } from './routes/th/index'
-import { Route as ViIndexRouteImport } from './routes/vi/index'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as StarRouteImport } from './routes/star'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as ProcessRouteImport } from './routes/process'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as MagazineRouteImport } from './routes/magazine'
+import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as InfluencerRouteImport } from './routes/influencer'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as EventRouteImport } from './routes/event'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as BrandAmbassadorRouteImport } from './routes/brand-ambassador'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as ZhIndexRouteImport } from './routes/zh/index'
-import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
-import { Route as ApiPublicTrackRouteImport } from './routes/api/public/track'
-import { Route as EnArchiveSlugRouteImport } from './routes/en/archive/$slug'
-import { Route as EnJournalIndexRouteImport } from './routes/en/journal/index'
-import { Route as EnJournalSlugRouteImport } from './routes/en/journal/$slug'
-import { Route as EnServicesIndexRouteImport } from './routes/en/services/index'
-import { Route as EnServicesSlugRouteImport } from './routes/en/services/$slug'
-import { Route as JaArchiveSlugRouteImport } from './routes/ja/archive/$slug'
-import { Route as JaJournalIndexRouteImport } from './routes/ja/journal/index'
-import { Route as JaJournalSlugRouteImport } from './routes/ja/journal/$slug'
-import { Route as JaServicesIndexRouteImport } from './routes/ja/services/index'
-import { Route as JaServicesSlugRouteImport } from './routes/ja/services/$slug'
-import { Route as ThArchiveSlugRouteImport } from './routes/th/archive/$slug'
-import { Route as ThJournalIndexRouteImport } from './routes/th/journal/index'
-import { Route as ThJournalSlugRouteImport } from './routes/th/journal/$slug'
-import { Route as ThServicesIndexRouteImport } from './routes/th/services/index'
-import { Route as ThServicesSlugRouteImport } from './routes/th/services/$slug'
-import { Route as ViArchiveSlugRouteImport } from './routes/vi/archive/$slug'
-import { Route as ViJournalIndexRouteImport } from './routes/vi/journal/index'
-import { Route as ViJournalSlugRouteImport } from './routes/vi/journal/$slug'
-import { Route as ViServicesIndexRouteImport } from './routes/vi/services/index'
-import { Route as ViServicesSlugRouteImport } from './routes/vi/services/$slug'
-import { Route as ZhArchiveSlugRouteImport } from './routes/zh/archive/$slug'
-import { Route as ZhJournalIndexRouteImport } from './routes/zh/journal/index'
-import { Route as ZhJournalSlugRouteImport } from './routes/zh/journal/$slug'
+import { Route as ViIndexRouteImport } from './routes/vi/index'
+import { Route as ThIndexRouteImport } from './routes/th/index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as JaIndexRouteImport } from './routes/ja/index'
+import { Route as EnIndexRouteImport } from './routes/en/index'
+import { Route as ServicesStylistRelationsRouteImport } from './routes/services.stylist-relations'
+import { Route as ServicesPplContentPlacementRouteImport } from './routes/services.ppl-content-placement'
+import { Route as ServicesOfflineEventPrRouteImport } from './routes/services.offline-event-pr'
+import { Route as ServicesInfluencerPrRouteImport } from './routes/services.influencer-pr'
+import { Route as ServicesGlobalExpansionRouteImport } from './routes/services.global-expansion'
+import { Route as ServicesEditorialViralPrRouteImport } from './routes/services.editorial-viral-pr'
+import { Route as ServicesCelebritySeedingRouteImport } from './routes/services.celebrity-seeding'
+import { Route as ServicesBrandAmbassadorRouteImport } from './routes/services.brand-ambassador'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 import { Route as ZhServicesIndexRouteImport } from './routes/zh/services/index'
+import { Route as ZhJournalIndexRouteImport } from './routes/zh/journal/index'
+import { Route as ViServicesIndexRouteImport } from './routes/vi/services/index'
+import { Route as ViJournalIndexRouteImport } from './routes/vi/journal/index'
+import { Route as ThServicesIndexRouteImport } from './routes/th/services/index'
+import { Route as ThJournalIndexRouteImport } from './routes/th/journal/index'
+import { Route as JaServicesIndexRouteImport } from './routes/ja/services/index'
+import { Route as JaJournalIndexRouteImport } from './routes/ja/journal/index'
+import { Route as EnServicesIndexRouteImport } from './routes/en/services/index'
+import { Route as EnJournalIndexRouteImport } from './routes/en/journal/index'
 import { Route as ZhServicesSlugRouteImport } from './routes/zh/services/$slug'
-import { Route as ApiBrandAmbassadorImageIdRouteImport } from './routes/api/brand-ambassador.image.$id'
-import { Route as ApiEventImageIdRouteImport } from './routes/api/event.image.$id'
-import { Route as ApiInfluencerImageIdRouteImport } from './routes/api/influencer.image.$id'
-import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
-import { Route as ApiPublicHooksWeeklyReportRouteImport } from './routes/api/public/hooks/weekly-report'
+import { Route as ZhJournalSlugRouteImport } from './routes/zh/journal/$slug'
+import { Route as ZhArchiveSlugRouteImport } from './routes/zh/archive/$slug'
+import { Route as ViServicesSlugRouteImport } from './routes/vi/services/$slug'
+import { Route as ViJournalSlugRouteImport } from './routes/vi/journal/$slug'
+import { Route as ViArchiveSlugRouteImport } from './routes/vi/archive/$slug'
+import { Route as ThServicesSlugRouteImport } from './routes/th/services/$slug'
+import { Route as ThJournalSlugRouteImport } from './routes/th/journal/$slug'
+import { Route as ThArchiveSlugRouteImport } from './routes/th/archive/$slug'
+import { Route as JaServicesSlugRouteImport } from './routes/ja/services/$slug'
+import { Route as JaJournalSlugRouteImport } from './routes/ja/journal/$slug'
+import { Route as JaArchiveSlugRouteImport } from './routes/ja/archive/$slug'
+import { Route as EnServicesSlugRouteImport } from './routes/en/services/$slug'
+import { Route as EnJournalSlugRouteImport } from './routes/en/journal/$slug'
+import { Route as EnArchiveSlugRouteImport } from './routes/en/archive/$slug'
+import { Route as ApiPublicTrackRouteImport } from './routes/api/public/track'
+import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 import { Route as ApiStarImageIdRouteImport } from './routes/api/star.image.$id'
+import { Route as ApiPublicHooksWeeklyReportRouteImport } from './routes/api/public/hooks/weekly-report'
+import { Route as ApiMagazineImageIdRouteImport } from './routes/api/magazine.image.$id'
+import { Route as ApiInfluencerImageIdRouteImport } from './routes/api/influencer.image.$id'
+import { Route as ApiEventImageIdRouteImport } from './routes/api/event.image.$id'
+import { Route as ApiBrandAmbassadorImageIdRouteImport } from './routes/api/brand-ambassador.image.$id'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BrandAmbassadorRoute = BrandAmbassadorRouteImport.update({
-  id: '/brand-ambassador',
-  path: '/brand-ambassador',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CaseStudiesRoute = CaseStudiesRouteImport.update({
-  id: '/case-studies',
-  path: '/case-studies',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EventRoute = EventRouteImport.update({
-  id: '/event',
-  path: '/event',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InfluencerRoute = InfluencerRouteImport.update({
-  id: '/influencer',
-  path: '/influencer',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InsightsRoute = InsightsRouteImport.update({
-  id: '/insights',
-  path: '/insights',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MagazineRoute = MagazineRouteImport.update({
-  id: '/magazine',
-  path: '/magazine',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProcessRoute = ProcessRouteImport.update({
-  id: '/process',
-  path: '/process',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
-  id: '/robots.txt',
-  path: '/robots.txt',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const StarRoute = StarRouteImport.update({
-  id: '/star',
-  path: '/star',
+const ViralRoute = ViralRouteImport.update({
+  id: '/viral',
+  path: '/viral',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TermsRoute = TermsRouteImport.update({
@@ -161,83 +86,84 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ViralRoute = ViralRouteImport.update({
-  id: '/viral',
-  path: '/viral',
+const StarRoute = StarRouteImport.update({
+  id: '/star',
+  path: '/star',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnIndexRoute = EnIndexRouteImport.update({
-  id: '/en/',
-  path: '/en/',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InsightsSlugRoute = InsightsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => InsightsRoute,
-} as any)
-const JaIndexRoute = JaIndexRouteImport.update({
-  id: '/ja/',
-  path: '/ja/',
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesIndexRoute = ServicesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => ServicesRoute,
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesBrandAmbassadorRoute = ServicesBrandAmbassadorRouteImport.update({
+const ProcessRoute = ProcessRouteImport.update({
+  id: '/process',
+  path: '/process',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MagazineRoute = MagazineRouteImport.update({
+  id: '/magazine',
+  path: '/magazine',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InfluencerRoute = InfluencerRouteImport.update({
+  id: '/influencer',
+  path: '/influencer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventRoute = EventRouteImport.update({
+  id: '/event',
+  path: '/event',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandAmbassadorRoute = BrandAmbassadorRouteImport.update({
   id: '/brand-ambassador',
   path: '/brand-ambassador',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesCelebritySeedingRoute =
-  ServicesCelebritySeedingRouteImport.update({
-    id: '/celebrity-seeding',
-    path: '/celebrity-seeding',
-    getParentRoute: () => ServicesRoute,
-  } as any)
-const ServicesEditorialViralPrRoute =
-  ServicesEditorialViralPrRouteImport.update({
-    id: '/editorial-viral-pr',
-    path: '/editorial-viral-pr',
-    getParentRoute: () => ServicesRoute,
-  } as any)
-const ServicesGlobalExpansionRoute = ServicesGlobalExpansionRouteImport.update({
-  id: '/global-expansion',
-  path: '/global-expansion',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesInfluencerPrRoute = ServicesInfluencerPrRouteImport.update({
-  id: '/influencer-pr',
-  path: '/influencer-pr',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesOfflineEventPrRoute = ServicesOfflineEventPrRouteImport.update({
-  id: '/offline-event-pr',
-  path: '/offline-event-pr',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesPplContentPlacementRoute =
-  ServicesPplContentPlacementRouteImport.update({
-    id: '/ppl-content-placement',
-    path: '/ppl-content-placement',
-    getParentRoute: () => ServicesRoute,
-  } as any)
-const ServicesStylistRelationsRoute =
-  ServicesStylistRelationsRouteImport.update({
-    id: '/stylist-relations',
-    path: '/stylist-relations',
-    getParentRoute: () => ServicesRoute,
-  } as any)
-const ThIndexRoute = ThIndexRouteImport.update({
-  id: '/th/',
-  path: '/th/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ViIndexRoute = ViIndexRouteImport.update({
-  id: '/vi/',
-  path: '/vi/',
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ZhIndexRoute = ZhIndexRouteImport.update({
@@ -245,119 +171,83 @@ const ZhIndexRoute = ZhIndexRouteImport.update({
   path: '/zh/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
-  id: '/api/public/contact',
-  path: '/api/public/contact',
+const ViIndexRoute = ViIndexRouteImport.update({
+  id: '/vi/',
+  path: '/vi/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPublicTrackRoute = ApiPublicTrackRouteImport.update({
-  id: '/api/public/track',
-  path: '/api/public/track',
+const ThIndexRoute = ThIndexRouteImport.update({
+  id: '/th/',
+  path: '/th/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnArchiveSlugRoute = EnArchiveSlugRouteImport.update({
-  id: '/en/archive/$slug',
-  path: '/en/archive/$slug',
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const JaIndexRoute = JaIndexRouteImport.update({
+  id: '/ja/',
+  path: '/ja/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnJournalIndexRoute = EnJournalIndexRouteImport.update({
-  id: '/en/journal/',
-  path: '/en/journal/',
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/en/',
+  path: '/en/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EnJournalSlugRoute = EnJournalSlugRouteImport.update({
-  id: '/en/journal/$slug',
-  path: '/en/journal/$slug',
-  getParentRoute: () => rootRouteImport,
+const ServicesStylistRelationsRoute =
+  ServicesStylistRelationsRouteImport.update({
+    id: '/stylist-relations',
+    path: '/stylist-relations',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesPplContentPlacementRoute =
+  ServicesPplContentPlacementRouteImport.update({
+    id: '/ppl-content-placement',
+    path: '/ppl-content-placement',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesOfflineEventPrRoute = ServicesOfflineEventPrRouteImport.update({
+  id: '/offline-event-pr',
+  path: '/offline-event-pr',
+  getParentRoute: () => ServicesRoute,
 } as any)
-const EnServicesIndexRoute = EnServicesIndexRouteImport.update({
-  id: '/en/services/',
-  path: '/en/services/',
-  getParentRoute: () => rootRouteImport,
+const ServicesInfluencerPrRoute = ServicesInfluencerPrRouteImport.update({
+  id: '/influencer-pr',
+  path: '/influencer-pr',
+  getParentRoute: () => ServicesRoute,
 } as any)
-const EnServicesSlugRoute = EnServicesSlugRouteImport.update({
-  id: '/en/services/$slug',
-  path: '/en/services/$slug',
-  getParentRoute: () => rootRouteImport,
+const ServicesGlobalExpansionRoute = ServicesGlobalExpansionRouteImport.update({
+  id: '/global-expansion',
+  path: '/global-expansion',
+  getParentRoute: () => ServicesRoute,
 } as any)
-const JaArchiveSlugRoute = JaArchiveSlugRouteImport.update({
-  id: '/ja/archive/$slug',
-  path: '/ja/archive/$slug',
-  getParentRoute: () => rootRouteImport,
+const ServicesEditorialViralPrRoute =
+  ServicesEditorialViralPrRouteImport.update({
+    id: '/editorial-viral-pr',
+    path: '/editorial-viral-pr',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesCelebritySeedingRoute =
+  ServicesCelebritySeedingRouteImport.update({
+    id: '/celebrity-seeding',
+    path: '/celebrity-seeding',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesBrandAmbassadorRoute = ServicesBrandAmbassadorRouteImport.update({
+  id: '/brand-ambassador',
+  path: '/brand-ambassador',
+  getParentRoute: () => ServicesRoute,
 } as any)
-const JaJournalIndexRoute = JaJournalIndexRouteImport.update({
-  id: '/ja/journal/',
-  path: '/ja/journal/',
-  getParentRoute: () => rootRouteImport,
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => InsightsRoute,
 } as any)
-const JaJournalSlugRoute = JaJournalSlugRouteImport.update({
-  id: '/ja/journal/$slug',
-  path: '/ja/journal/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const JaServicesIndexRoute = JaServicesIndexRouteImport.update({
-  id: '/ja/services/',
-  path: '/ja/services/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const JaServicesSlugRoute = JaServicesSlugRouteImport.update({
-  id: '/ja/services/$slug',
-  path: '/ja/services/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ThArchiveSlugRoute = ThArchiveSlugRouteImport.update({
-  id: '/th/archive/$slug',
-  path: '/th/archive/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ThJournalIndexRoute = ThJournalIndexRouteImport.update({
-  id: '/th/journal/',
-  path: '/th/journal/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ThJournalSlugRoute = ThJournalSlugRouteImport.update({
-  id: '/th/journal/$slug',
-  path: '/th/journal/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ThServicesIndexRoute = ThServicesIndexRouteImport.update({
-  id: '/th/services/',
-  path: '/th/services/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ThServicesSlugRoute = ThServicesSlugRouteImport.update({
-  id: '/th/services/$slug',
-  path: '/th/services/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ViArchiveSlugRoute = ViArchiveSlugRouteImport.update({
-  id: '/vi/archive/$slug',
-  path: '/vi/archive/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ViJournalIndexRoute = ViJournalIndexRouteImport.update({
-  id: '/vi/journal/',
-  path: '/vi/journal/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ViJournalSlugRoute = ViJournalSlugRouteImport.update({
-  id: '/vi/journal/$slug',
-  path: '/vi/journal/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ViServicesIndexRoute = ViServicesIndexRouteImport.update({
-  id: '/vi/services/',
-  path: '/vi/services/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ViServicesSlugRoute = ViServicesSlugRouteImport.update({
-  id: '/vi/services/$slug',
-  path: '/vi/services/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ZhArchiveSlugRoute = ZhArchiveSlugRouteImport.update({
-  id: '/zh/archive/$slug',
-  path: '/zh/archive/$slug',
+const ZhServicesIndexRoute = ZhServicesIndexRouteImport.update({
+  id: '/zh/services/',
+  path: '/zh/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ZhJournalIndexRoute = ZhJournalIndexRouteImport.update({
@@ -365,14 +255,44 @@ const ZhJournalIndexRoute = ZhJournalIndexRouteImport.update({
   path: '/zh/journal/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ZhJournalSlugRoute = ZhJournalSlugRouteImport.update({
-  id: '/zh/journal/$slug',
-  path: '/zh/journal/$slug',
+const ViServicesIndexRoute = ViServicesIndexRouteImport.update({
+  id: '/vi/services/',
+  path: '/vi/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ZhServicesIndexRoute = ZhServicesIndexRouteImport.update({
-  id: '/zh/services/',
-  path: '/zh/services/',
+const ViJournalIndexRoute = ViJournalIndexRouteImport.update({
+  id: '/vi/journal/',
+  path: '/vi/journal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThServicesIndexRoute = ThServicesIndexRouteImport.update({
+  id: '/th/services/',
+  path: '/th/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThJournalIndexRoute = ThJournalIndexRouteImport.update({
+  id: '/th/journal/',
+  path: '/th/journal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JaServicesIndexRoute = JaServicesIndexRouteImport.update({
+  id: '/ja/services/',
+  path: '/ja/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JaJournalIndexRoute = JaJournalIndexRouteImport.update({
+  id: '/ja/journal/',
+  path: '/ja/journal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnServicesIndexRoute = EnServicesIndexRouteImport.update({
+  id: '/en/services/',
+  path: '/en/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnJournalIndexRoute = EnJournalIndexRouteImport.update({
+  id: '/en/journal/',
+  path: '/en/journal/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ZhServicesSlugRoute = ZhServicesSlugRouteImport.update({
@@ -380,25 +300,89 @@ const ZhServicesSlugRoute = ZhServicesSlugRouteImport.update({
   path: '/zh/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiBrandAmbassadorImageIdRoute =
-  ApiBrandAmbassadorImageIdRouteImport.update({
-    id: '/api/brand-ambassador/image/$id',
-    path: '/api/brand-ambassador/image/$id',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ApiEventImageIdRoute = ApiEventImageIdRouteImport.update({
-  id: '/api/event/image/$id',
-  path: '/api/event/image/$id',
+const ZhJournalSlugRoute = ZhJournalSlugRouteImport.update({
+  id: '/zh/journal/$slug',
+  path: '/zh/journal/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiInfluencerImageIdRoute = ApiInfluencerImageIdRouteImport.update({
-  id: '/api/influencer/image/$id',
-  path: '/api/influencer/image/$id',
+const ZhArchiveSlugRoute = ZhArchiveSlugRouteImport.update({
+  id: '/zh/archive/$slug',
+  path: '/zh/archive/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiMagazineImageIdRoute = ApiMagazineImageIdRouteImport.update({
-  id: '/api/magazine/image/$id',
-  path: '/api/magazine/image/$id',
+const ViServicesSlugRoute = ViServicesSlugRouteImport.update({
+  id: '/vi/services/$slug',
+  path: '/vi/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ViJournalSlugRoute = ViJournalSlugRouteImport.update({
+  id: '/vi/journal/$slug',
+  path: '/vi/journal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ViArchiveSlugRoute = ViArchiveSlugRouteImport.update({
+  id: '/vi/archive/$slug',
+  path: '/vi/archive/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThServicesSlugRoute = ThServicesSlugRouteImport.update({
+  id: '/th/services/$slug',
+  path: '/th/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThJournalSlugRoute = ThJournalSlugRouteImport.update({
+  id: '/th/journal/$slug',
+  path: '/th/journal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThArchiveSlugRoute = ThArchiveSlugRouteImport.update({
+  id: '/th/archive/$slug',
+  path: '/th/archive/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JaServicesSlugRoute = JaServicesSlugRouteImport.update({
+  id: '/ja/services/$slug',
+  path: '/ja/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JaJournalSlugRoute = JaJournalSlugRouteImport.update({
+  id: '/ja/journal/$slug',
+  path: '/ja/journal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JaArchiveSlugRoute = JaArchiveSlugRouteImport.update({
+  id: '/ja/archive/$slug',
+  path: '/ja/archive/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnServicesSlugRoute = EnServicesSlugRouteImport.update({
+  id: '/en/services/$slug',
+  path: '/en/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnJournalSlugRoute = EnJournalSlugRouteImport.update({
+  id: '/en/journal/$slug',
+  path: '/en/journal/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnArchiveSlugRoute = EnArchiveSlugRouteImport.update({
+  id: '/en/archive/$slug',
+  path: '/en/archive/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicTrackRoute = ApiPublicTrackRouteImport.update({
+  id: '/api/public/track',
+  path: '/api/public/track',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
+  id: '/api/public/contact',
+  path: '/api/public/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStarImageIdRoute = ApiStarImageIdRouteImport.update({
+  id: '/api/star/image/$id',
+  path: '/api/star/image/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicHooksWeeklyReportRoute =
@@ -407,11 +391,27 @@ const ApiPublicHooksWeeklyReportRoute =
     path: '/api/public/hooks/weekly-report',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ApiStarImageIdRoute = ApiStarImageIdRouteImport.update({
-  id: '/api/star/image/$id',
-  path: '/api/star/image/$id',
+const ApiMagazineImageIdRoute = ApiMagazineImageIdRouteImport.update({
+  id: '/api/magazine/image/$id',
+  path: '/api/magazine/image/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiInfluencerImageIdRoute = ApiInfluencerImageIdRouteImport.update({
+  id: '/api/influencer/image/$id',
+  path: '/api/influencer/image/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiEventImageIdRoute = ApiEventImageIdRouteImport.update({
+  id: '/api/event/image/$id',
+  path: '/api/event/image/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiBrandAmbassadorImageIdRoute =
+  ApiBrandAmbassadorImageIdRouteImport.update({
+    id: '/api/brand-ambassador/image/$id',
+    path: '/api/brand-ambassador/image/$id',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -884,116 +884,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/brand-ambassador': {
-      id: '/brand-ambassador'
-      path: '/brand-ambassador'
-      fullPath: '/brand-ambassador'
-      preLoaderRoute: typeof BrandAmbassadorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/case-studies': {
-      id: '/case-studies'
-      path: '/case-studies'
-      fullPath: '/case-studies'
-      preLoaderRoute: typeof CaseStudiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/event': {
-      id: '/event'
-      path: '/event'
-      fullPath: '/event'
-      preLoaderRoute: typeof EventRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/influencer': {
-      id: '/influencer'
-      path: '/influencer'
-      fullPath: '/influencer'
-      preLoaderRoute: typeof InfluencerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/insights': {
-      id: '/insights'
-      path: '/insights'
-      fullPath: '/insights'
-      preLoaderRoute: typeof InsightsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/magazine': {
-      id: '/magazine'
-      path: '/magazine'
-      fullPath: '/magazine'
-      preLoaderRoute: typeof MagazineRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/process': {
-      id: '/process'
-      path: '/process'
-      fullPath: '/process'
-      preLoaderRoute: typeof ProcessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/robots.txt': {
-      id: '/robots.txt'
-      path: '/robots.txt'
-      fullPath: '/robots.txt'
-      preLoaderRoute: typeof RobotsDottxtRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/star': {
-      id: '/star'
-      path: '/star'
-      fullPath: '/star'
-      preLoaderRoute: typeof StarRouteImport
+    '/viral': {
+      id: '/viral'
+      path: '/viral'
+      fullPath: '/viral'
+      preLoaderRoute: typeof ViralRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/terms': {
@@ -1003,109 +898,116 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/viral': {
-      id: '/viral'
-      path: '/viral'
-      fullPath: '/viral'
-      preLoaderRoute: typeof ViralRouteImport
+    '/star': {
+      id: '/star'
+      path: '/star'
+      fullPath: '/star'
+      preLoaderRoute: typeof StarRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/en/': {
-      id: '/en/'
-      path: '/en'
-      fullPath: '/en/'
-      preLoaderRoute: typeof EnIndexRouteImport
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/insights/$slug': {
-      id: '/insights/$slug'
-      path: '/$slug'
-      fullPath: '/insights/$slug'
-      preLoaderRoute: typeof InsightsSlugRouteImport
-      parentRoute: typeof InsightsRoute
-    }
-    '/ja/': {
-      id: '/ja/'
-      path: '/ja'
-      fullPath: '/ja/'
-      preLoaderRoute: typeof JaIndexRouteImport
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/': {
-      id: '/services/'
-      path: '/'
-      fullPath: '/services/'
-      preLoaderRoute: typeof ServicesIndexRouteImport
-      parentRoute: typeof ServicesRoute
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/services/brand-ambassador': {
-      id: '/services/brand-ambassador'
+    '/process': {
+      id: '/process'
+      path: '/process'
+      fullPath: '/process'
+      preLoaderRoute: typeof ProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/magazine': {
+      id: '/magazine'
+      path: '/magazine'
+      fullPath: '/magazine'
+      preLoaderRoute: typeof MagazineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/influencer': {
+      id: '/influencer'
+      path: '/influencer'
+      fullPath: '/influencer'
+      preLoaderRoute: typeof InfluencerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/event': {
+      id: '/event'
+      path: '/event'
+      fullPath: '/event'
+      preLoaderRoute: typeof EventRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brand-ambassador': {
+      id: '/brand-ambassador'
       path: '/brand-ambassador'
-      fullPath: '/services/brand-ambassador'
-      preLoaderRoute: typeof ServicesBrandAmbassadorRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/celebrity-seeding': {
-      id: '/services/celebrity-seeding'
-      path: '/celebrity-seeding'
-      fullPath: '/services/celebrity-seeding'
-      preLoaderRoute: typeof ServicesCelebritySeedingRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/editorial-viral-pr': {
-      id: '/services/editorial-viral-pr'
-      path: '/editorial-viral-pr'
-      fullPath: '/services/editorial-viral-pr'
-      preLoaderRoute: typeof ServicesEditorialViralPrRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/global-expansion': {
-      id: '/services/global-expansion'
-      path: '/global-expansion'
-      fullPath: '/services/global-expansion'
-      preLoaderRoute: typeof ServicesGlobalExpansionRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/influencer-pr': {
-      id: '/services/influencer-pr'
-      path: '/influencer-pr'
-      fullPath: '/services/influencer-pr'
-      preLoaderRoute: typeof ServicesInfluencerPrRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/offline-event-pr': {
-      id: '/services/offline-event-pr'
-      path: '/offline-event-pr'
-      fullPath: '/services/offline-event-pr'
-      preLoaderRoute: typeof ServicesOfflineEventPrRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/ppl-content-placement': {
-      id: '/services/ppl-content-placement'
-      path: '/ppl-content-placement'
-      fullPath: '/services/ppl-content-placement'
-      preLoaderRoute: typeof ServicesPplContentPlacementRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/stylist-relations': {
-      id: '/services/stylist-relations'
-      path: '/stylist-relations'
-      fullPath: '/services/stylist-relations'
-      preLoaderRoute: typeof ServicesStylistRelationsRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/th/': {
-      id: '/th/'
-      path: '/th'
-      fullPath: '/th/'
-      preLoaderRoute: typeof ThIndexRouteImport
+      fullPath: '/brand-ambassador'
+      preLoaderRoute: typeof BrandAmbassadorRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/vi/': {
-      id: '/vi/'
-      path: '/vi'
-      fullPath: '/vi/'
-      preLoaderRoute: typeof ViIndexRouteImport
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/zh/': {
@@ -1115,165 +1017,109 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ZhIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/public/contact': {
-      id: '/api/public/contact'
-      path: '/api/public/contact'
-      fullPath: '/api/public/contact'
-      preLoaderRoute: typeof ApiPublicContactRouteImport
+    '/vi/': {
+      id: '/vi/'
+      path: '/vi'
+      fullPath: '/vi/'
+      preLoaderRoute: typeof ViIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/public/track': {
-      id: '/api/public/track'
-      path: '/api/public/track'
-      fullPath: '/api/public/track'
-      preLoaderRoute: typeof ApiPublicTrackRouteImport
+    '/th/': {
+      id: '/th/'
+      path: '/th'
+      fullPath: '/th/'
+      preLoaderRoute: typeof ThIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/en/archive/$slug': {
-      id: '/en/archive/$slug'
-      path: '/en/archive/$slug'
-      fullPath: '/en/archive/$slug'
-      preLoaderRoute: typeof EnArchiveSlugRouteImport
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/ja/': {
+      id: '/ja/'
+      path: '/ja'
+      fullPath: '/ja/'
+      preLoaderRoute: typeof JaIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/en/journal/': {
-      id: '/en/journal/'
-      path: '/en/journal'
-      fullPath: '/en/journal/'
-      preLoaderRoute: typeof EnJournalIndexRouteImport
+    '/en/': {
+      id: '/en/'
+      path: '/en'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/en/journal/$slug': {
-      id: '/en/journal/$slug'
-      path: '/en/journal/$slug'
-      fullPath: '/en/journal/$slug'
-      preLoaderRoute: typeof EnJournalSlugRouteImport
-      parentRoute: typeof rootRouteImport
+    '/services/stylist-relations': {
+      id: '/services/stylist-relations'
+      path: '/stylist-relations'
+      fullPath: '/services/stylist-relations'
+      preLoaderRoute: typeof ServicesStylistRelationsRouteImport
+      parentRoute: typeof ServicesRoute
     }
-    '/en/services/': {
-      id: '/en/services/'
-      path: '/en/services'
-      fullPath: '/en/services/'
-      preLoaderRoute: typeof EnServicesIndexRouteImport
-      parentRoute: typeof rootRouteImport
+    '/services/ppl-content-placement': {
+      id: '/services/ppl-content-placement'
+      path: '/ppl-content-placement'
+      fullPath: '/services/ppl-content-placement'
+      preLoaderRoute: typeof ServicesPplContentPlacementRouteImport
+      parentRoute: typeof ServicesRoute
     }
-    '/en/services/$slug': {
-      id: '/en/services/$slug'
-      path: '/en/services/$slug'
-      fullPath: '/en/services/$slug'
-      preLoaderRoute: typeof EnServicesSlugRouteImport
-      parentRoute: typeof rootRouteImport
+    '/services/offline-event-pr': {
+      id: '/services/offline-event-pr'
+      path: '/offline-event-pr'
+      fullPath: '/services/offline-event-pr'
+      preLoaderRoute: typeof ServicesOfflineEventPrRouteImport
+      parentRoute: typeof ServicesRoute
     }
-    '/ja/archive/$slug': {
-      id: '/ja/archive/$slug'
-      path: '/ja/archive/$slug'
-      fullPath: '/ja/archive/$slug'
-      preLoaderRoute: typeof JaArchiveSlugRouteImport
-      parentRoute: typeof rootRouteImport
+    '/services/influencer-pr': {
+      id: '/services/influencer-pr'
+      path: '/influencer-pr'
+      fullPath: '/services/influencer-pr'
+      preLoaderRoute: typeof ServicesInfluencerPrRouteImport
+      parentRoute: typeof ServicesRoute
     }
-    '/ja/journal/': {
-      id: '/ja/journal/'
-      path: '/ja/journal'
-      fullPath: '/ja/journal/'
-      preLoaderRoute: typeof JaJournalIndexRouteImport
-      parentRoute: typeof rootRouteImport
+    '/services/global-expansion': {
+      id: '/services/global-expansion'
+      path: '/global-expansion'
+      fullPath: '/services/global-expansion'
+      preLoaderRoute: typeof ServicesGlobalExpansionRouteImport
+      parentRoute: typeof ServicesRoute
     }
-    '/ja/journal/$slug': {
-      id: '/ja/journal/$slug'
-      path: '/ja/journal/$slug'
-      fullPath: '/ja/journal/$slug'
-      preLoaderRoute: typeof JaJournalSlugRouteImport
-      parentRoute: typeof rootRouteImport
+    '/services/editorial-viral-pr': {
+      id: '/services/editorial-viral-pr'
+      path: '/editorial-viral-pr'
+      fullPath: '/services/editorial-viral-pr'
+      preLoaderRoute: typeof ServicesEditorialViralPrRouteImport
+      parentRoute: typeof ServicesRoute
     }
-    '/ja/services/': {
-      id: '/ja/services/'
-      path: '/ja/services'
-      fullPath: '/ja/services/'
-      preLoaderRoute: typeof JaServicesIndexRouteImport
-      parentRoute: typeof rootRouteImport
+    '/services/celebrity-seeding': {
+      id: '/services/celebrity-seeding'
+      path: '/celebrity-seeding'
+      fullPath: '/services/celebrity-seeding'
+      preLoaderRoute: typeof ServicesCelebritySeedingRouteImport
+      parentRoute: typeof ServicesRoute
     }
-    '/ja/services/$slug': {
-      id: '/ja/services/$slug'
-      path: '/ja/services/$slug'
-      fullPath: '/ja/services/$slug'
-      preLoaderRoute: typeof JaServicesSlugRouteImport
-      parentRoute: typeof rootRouteImport
+    '/services/brand-ambassador': {
+      id: '/services/brand-ambassador'
+      path: '/brand-ambassador'
+      fullPath: '/services/brand-ambassador'
+      preLoaderRoute: typeof ServicesBrandAmbassadorRouteImport
+      parentRoute: typeof ServicesRoute
     }
-    '/th/archive/$slug': {
-      id: '/th/archive/$slug'
-      path: '/th/archive/$slug'
-      fullPath: '/th/archive/$slug'
-      preLoaderRoute: typeof ThArchiveSlugRouteImport
-      parentRoute: typeof rootRouteImport
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof InsightsRoute
     }
-    '/th/journal/': {
-      id: '/th/journal/'
-      path: '/th/journal'
-      fullPath: '/th/journal/'
-      preLoaderRoute: typeof ThJournalIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/th/journal/$slug': {
-      id: '/th/journal/$slug'
-      path: '/th/journal/$slug'
-      fullPath: '/th/journal/$slug'
-      preLoaderRoute: typeof ThJournalSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/th/services/': {
-      id: '/th/services/'
-      path: '/th/services'
-      fullPath: '/th/services/'
-      preLoaderRoute: typeof ThServicesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/th/services/$slug': {
-      id: '/th/services/$slug'
-      path: '/th/services/$slug'
-      fullPath: '/th/services/$slug'
-      preLoaderRoute: typeof ThServicesSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/vi/archive/$slug': {
-      id: '/vi/archive/$slug'
-      path: '/vi/archive/$slug'
-      fullPath: '/vi/archive/$slug'
-      preLoaderRoute: typeof ViArchiveSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/vi/journal/': {
-      id: '/vi/journal/'
-      path: '/vi/journal'
-      fullPath: '/vi/journal/'
-      preLoaderRoute: typeof ViJournalIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/vi/journal/$slug': {
-      id: '/vi/journal/$slug'
-      path: '/vi/journal/$slug'
-      fullPath: '/vi/journal/$slug'
-      preLoaderRoute: typeof ViJournalSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/vi/services/': {
-      id: '/vi/services/'
-      path: '/vi/services'
-      fullPath: '/vi/services/'
-      preLoaderRoute: typeof ViServicesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/vi/services/$slug': {
-      id: '/vi/services/$slug'
-      path: '/vi/services/$slug'
-      fullPath: '/vi/services/$slug'
-      preLoaderRoute: typeof ViServicesSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/zh/archive/$slug': {
-      id: '/zh/archive/$slug'
-      path: '/zh/archive/$slug'
-      fullPath: '/zh/archive/$slug'
-      preLoaderRoute: typeof ZhArchiveSlugRouteImport
+    '/zh/services/': {
+      id: '/zh/services/'
+      path: '/zh/services'
+      fullPath: '/zh/services/'
+      preLoaderRoute: typeof ZhServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/zh/journal/': {
@@ -1283,18 +1129,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ZhJournalIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/zh/journal/$slug': {
-      id: '/zh/journal/$slug'
-      path: '/zh/journal/$slug'
-      fullPath: '/zh/journal/$slug'
-      preLoaderRoute: typeof ZhJournalSlugRouteImport
+    '/vi/services/': {
+      id: '/vi/services/'
+      path: '/vi/services'
+      fullPath: '/vi/services/'
+      preLoaderRoute: typeof ViServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/zh/services/': {
-      id: '/zh/services/'
-      path: '/zh/services'
-      fullPath: '/zh/services/'
-      preLoaderRoute: typeof ZhServicesIndexRouteImport
+    '/vi/journal/': {
+      id: '/vi/journal/'
+      path: '/vi/journal'
+      fullPath: '/vi/journal/'
+      preLoaderRoute: typeof ViJournalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/th/services/': {
+      id: '/th/services/'
+      path: '/th/services'
+      fullPath: '/th/services/'
+      preLoaderRoute: typeof ThServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/th/journal/': {
+      id: '/th/journal/'
+      path: '/th/journal'
+      fullPath: '/th/journal/'
+      preLoaderRoute: typeof ThJournalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ja/services/': {
+      id: '/ja/services/'
+      path: '/ja/services'
+      fullPath: '/ja/services/'
+      preLoaderRoute: typeof JaServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ja/journal/': {
+      id: '/ja/journal/'
+      path: '/ja/journal'
+      fullPath: '/ja/journal/'
+      preLoaderRoute: typeof JaJournalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/services/': {
+      id: '/en/services/'
+      path: '/en/services'
+      fullPath: '/en/services/'
+      preLoaderRoute: typeof EnServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/journal/': {
+      id: '/en/journal/'
+      path: '/en/journal'
+      fullPath: '/en/journal/'
+      preLoaderRoute: typeof EnJournalIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/zh/services/$slug': {
@@ -1304,32 +1192,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ZhServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/brand-ambassador/image/$id': {
-      id: '/api/brand-ambassador/image/$id'
-      path: '/api/brand-ambassador/image/$id'
-      fullPath: '/api/brand-ambassador/image/$id'
-      preLoaderRoute: typeof ApiBrandAmbassadorImageIdRouteImport
+    '/zh/journal/$slug': {
+      id: '/zh/journal/$slug'
+      path: '/zh/journal/$slug'
+      fullPath: '/zh/journal/$slug'
+      preLoaderRoute: typeof ZhJournalSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/event/image/$id': {
-      id: '/api/event/image/$id'
-      path: '/api/event/image/$id'
-      fullPath: '/api/event/image/$id'
-      preLoaderRoute: typeof ApiEventImageIdRouteImport
+    '/zh/archive/$slug': {
+      id: '/zh/archive/$slug'
+      path: '/zh/archive/$slug'
+      fullPath: '/zh/archive/$slug'
+      preLoaderRoute: typeof ZhArchiveSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/influencer/image/$id': {
-      id: '/api/influencer/image/$id'
-      path: '/api/influencer/image/$id'
-      fullPath: '/api/influencer/image/$id'
-      preLoaderRoute: typeof ApiInfluencerImageIdRouteImport
+    '/vi/services/$slug': {
+      id: '/vi/services/$slug'
+      path: '/vi/services/$slug'
+      fullPath: '/vi/services/$slug'
+      preLoaderRoute: typeof ViServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/magazine/image/$id': {
-      id: '/api/magazine/image/$id'
-      path: '/api/magazine/image/$id'
-      fullPath: '/api/magazine/image/$id'
-      preLoaderRoute: typeof ApiMagazineImageIdRouteImport
+    '/vi/journal/$slug': {
+      id: '/vi/journal/$slug'
+      path: '/vi/journal/$slug'
+      fullPath: '/vi/journal/$slug'
+      preLoaderRoute: typeof ViJournalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vi/archive/$slug': {
+      id: '/vi/archive/$slug'
+      path: '/vi/archive/$slug'
+      fullPath: '/vi/archive/$slug'
+      preLoaderRoute: typeof ViArchiveSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/th/services/$slug': {
+      id: '/th/services/$slug'
+      path: '/th/services/$slug'
+      fullPath: '/th/services/$slug'
+      preLoaderRoute: typeof ThServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/th/journal/$slug': {
+      id: '/th/journal/$slug'
+      path: '/th/journal/$slug'
+      fullPath: '/th/journal/$slug'
+      preLoaderRoute: typeof ThJournalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/th/archive/$slug': {
+      id: '/th/archive/$slug'
+      path: '/th/archive/$slug'
+      fullPath: '/th/archive/$slug'
+      preLoaderRoute: typeof ThArchiveSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ja/services/$slug': {
+      id: '/ja/services/$slug'
+      path: '/ja/services/$slug'
+      fullPath: '/ja/services/$slug'
+      preLoaderRoute: typeof JaServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ja/journal/$slug': {
+      id: '/ja/journal/$slug'
+      path: '/ja/journal/$slug'
+      fullPath: '/ja/journal/$slug'
+      preLoaderRoute: typeof JaJournalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ja/archive/$slug': {
+      id: '/ja/archive/$slug'
+      path: '/ja/archive/$slug'
+      fullPath: '/ja/archive/$slug'
+      preLoaderRoute: typeof JaArchiveSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/services/$slug': {
+      id: '/en/services/$slug'
+      path: '/en/services/$slug'
+      fullPath: '/en/services/$slug'
+      preLoaderRoute: typeof EnServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/journal/$slug': {
+      id: '/en/journal/$slug'
+      path: '/en/journal/$slug'
+      fullPath: '/en/journal/$slug'
+      preLoaderRoute: typeof EnJournalSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/archive/$slug': {
+      id: '/en/archive/$slug'
+      path: '/en/archive/$slug'
+      fullPath: '/en/archive/$slug'
+      preLoaderRoute: typeof EnArchiveSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/track': {
+      id: '/api/public/track'
+      path: '/api/public/track'
+      fullPath: '/api/public/track'
+      preLoaderRoute: typeof ApiPublicTrackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/contact': {
+      id: '/api/public/contact'
+      path: '/api/public/contact'
+      fullPath: '/api/public/contact'
+      preLoaderRoute: typeof ApiPublicContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/star/image/$id': {
+      id: '/api/star/image/$id'
+      path: '/api/star/image/$id'
+      fullPath: '/api/star/image/$id'
+      preLoaderRoute: typeof ApiStarImageIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/hooks/weekly-report': {
@@ -1339,11 +1318,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicHooksWeeklyReportRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/star/image/$id': {
-      id: '/api/star/image/$id'
-      path: '/api/star/image/$id'
-      fullPath: '/api/star/image/$id'
-      preLoaderRoute: typeof ApiStarImageIdRouteImport
+    '/api/magazine/image/$id': {
+      id: '/api/magazine/image/$id'
+      path: '/api/magazine/image/$id'
+      fullPath: '/api/magazine/image/$id'
+      preLoaderRoute: typeof ApiMagazineImageIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/influencer/image/$id': {
+      id: '/api/influencer/image/$id'
+      path: '/api/influencer/image/$id'
+      fullPath: '/api/influencer/image/$id'
+      preLoaderRoute: typeof ApiInfluencerImageIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/event/image/$id': {
+      id: '/api/event/image/$id'
+      path: '/api/event/image/$id'
+      fullPath: '/api/event/image/$id'
+      preLoaderRoute: typeof ApiEventImageIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/brand-ambassador/image/$id': {
+      id: '/api/brand-ambassador/image/$id'
+      path: '/api/brand-ambassador/image/$id'
+      fullPath: '/api/brand-ambassador/image/$id'
+      preLoaderRoute: typeof ApiBrandAmbassadorImageIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
