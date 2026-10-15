@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 const TO_EMAIL = "dannjo@clamoa.com";
+const CC_EMAILS = ["jjyoon@findit.company", "gmchoi@findit.company"];
 
 const MAX_LEN = 2000;
 const clean = (v: unknown) =>
@@ -96,6 +97,7 @@ ${row("Instagram", f.instagram)}
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               to: TO_EMAIL,
+              cc: CC_EMAILS,
               subject,
               html,
               text,
