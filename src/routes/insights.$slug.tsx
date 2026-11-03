@@ -19,6 +19,8 @@ export const Route = createFileRoute("/insights/$slug")({
       meta: [
         { title },
         { name: "description", content: desc },
+        // TEMP: remove when article body is written (SEO P1)
+        { name: "robots", content: "noindex, follow" },
         { property: "og:title", content: title },
         { property: "og:description", content: desc },
         { property: "og:url", content: url },
@@ -35,9 +37,15 @@ export const Route = createFileRoute("/insights/$slug")({
             description: desc,
             mainEntityOfPage: url,
             url,
-            author: { "@type": "Organization", name: "CLAMOA", url: SITE_URL },
+            author: {
+              "@type": "Organization",
+              "@id": `${SITE_URL}/#organization`,
+              name: "CLAMOA",
+              url: SITE_URL,
+            },
             publisher: {
               "@type": "Organization",
+              "@id": `${SITE_URL}/#organization`,
               name: "CLAMOA",
               logo: {
                 "@type": "ImageObject",
