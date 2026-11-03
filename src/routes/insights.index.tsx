@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { insights } from "@/data/insights";
 import { trackSiteEvent, usePageView } from "@/lib/event-tracking";
 
-export const Route = createFileRoute("/insights")({
+export const Route = createFileRoute("/insights/")({
   head: () => ({
     meta: [
       { title: "INSIGHTS — 패션 PR · 셀럽 협찬 인사이트 | CLAMOA" },

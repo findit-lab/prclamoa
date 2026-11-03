@@ -17,7 +17,6 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EventRouteImport } from './routes/event'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as InfluencerRouteImport } from './routes/influencer'
-import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as MagazineRouteImport } from './routes/magazine'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ProcessRouteImport } from './routes/process'
@@ -28,6 +27,7 @@ import { Route as StarRouteImport } from './routes/star'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ViralRouteImport } from './routes/viral'
 import { Route as EnIndexRouteImport } from './routes/en/index'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 import { Route as JaIndexRouteImport } from './routes/ja/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -116,11 +116,6 @@ const InfluencerRoute = InfluencerRouteImport.update({
   path: '/influencer',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InsightsRoute = InsightsRouteImport.update({
-  id: '/insights',
-  path: '/insights',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const MagazineRoute = MagazineRouteImport.update({
   id: '/magazine',
   path: '/magazine',
@@ -171,10 +166,15 @@ const EnIndexRoute = EnIndexRouteImport.update({
   path: '/en/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/insights/',
+  path: '/insights/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InsightsSlugRoute = InsightsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => InsightsRoute,
+  id: '/insights/$slug',
+  path: '/insights/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const JaIndexRoute = JaIndexRouteImport.update({
   id: '/ja/',
@@ -422,7 +422,6 @@ export interface FileRoutesByFullPath {
   '/event': typeof EventRoute
   '/faq': typeof FaqRoute
   '/influencer': typeof InfluencerRoute
-  '/insights': typeof InsightsRouteWithChildren
   '/magazine': typeof MagazineRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -442,6 +441,7 @@ export interface FileRoutesByFullPath {
   '/services/ppl-content-placement': typeof ServicesPplContentPlacementRoute
   '/services/stylist-relations': typeof ServicesStylistRelationsRoute
   '/en/': typeof EnIndexRoute
+  '/insights/': typeof InsightsIndexRoute
   '/ja/': typeof JaIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/th/': typeof ThIndexRoute
@@ -490,7 +490,6 @@ export interface FileRoutesByTo {
   '/event': typeof EventRoute
   '/faq': typeof FaqRoute
   '/influencer': typeof InfluencerRoute
-  '/insights': typeof InsightsRouteWithChildren
   '/magazine': typeof MagazineRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -509,6 +508,7 @@ export interface FileRoutesByTo {
   '/services/ppl-content-placement': typeof ServicesPplContentPlacementRoute
   '/services/stylist-relations': typeof ServicesStylistRelationsRoute
   '/en': typeof EnIndexRoute
+  '/insights': typeof InsightsIndexRoute
   '/ja': typeof JaIndexRoute
   '/services': typeof ServicesIndexRoute
   '/th': typeof ThIndexRoute
@@ -558,7 +558,6 @@ export interface FileRoutesById {
   '/event': typeof EventRoute
   '/faq': typeof FaqRoute
   '/influencer': typeof InfluencerRoute
-  '/insights': typeof InsightsRouteWithChildren
   '/magazine': typeof MagazineRoute
   '/privacy': typeof PrivacyRoute
   '/process': typeof ProcessRoute
@@ -578,6 +577,7 @@ export interface FileRoutesById {
   '/services/ppl-content-placement': typeof ServicesPplContentPlacementRoute
   '/services/stylist-relations': typeof ServicesStylistRelationsRoute
   '/en/': typeof EnIndexRoute
+  '/insights/': typeof InsightsIndexRoute
   '/ja/': typeof JaIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/th/': typeof ThIndexRoute
@@ -628,7 +628,6 @@ export interface FileRouteTypes {
     | '/event'
     | '/faq'
     | '/influencer'
-    | '/insights'
     | '/magazine'
     | '/privacy'
     | '/process'
@@ -648,6 +647,7 @@ export interface FileRouteTypes {
     | '/services/ppl-content-placement'
     | '/services/stylist-relations'
     | '/en/'
+    | '/insights/'
     | '/ja/'
     | '/services/'
     | '/th/'
@@ -696,7 +696,6 @@ export interface FileRouteTypes {
     | '/event'
     | '/faq'
     | '/influencer'
-    | '/insights'
     | '/magazine'
     | '/privacy'
     | '/process'
@@ -715,6 +714,7 @@ export interface FileRouteTypes {
     | '/services/ppl-content-placement'
     | '/services/stylist-relations'
     | '/en'
+    | '/insights'
     | '/ja'
     | '/services'
     | '/th'
@@ -763,7 +763,6 @@ export interface FileRouteTypes {
     | '/event'
     | '/faq'
     | '/influencer'
-    | '/insights'
     | '/magazine'
     | '/privacy'
     | '/process'
@@ -783,6 +782,7 @@ export interface FileRouteTypes {
     | '/services/ppl-content-placement'
     | '/services/stylist-relations'
     | '/en/'
+    | '/insights/'
     | '/ja/'
     | '/services/'
     | '/th/'
@@ -832,7 +832,6 @@ export interface RootRouteChildren {
   EventRoute: typeof EventRoute
   FaqRoute: typeof FaqRoute
   InfluencerRoute: typeof InfluencerRoute
-  InsightsRoute: typeof InsightsRouteWithChildren
   MagazineRoute: typeof MagazineRoute
   PrivacyRoute: typeof PrivacyRoute
   ProcessRoute: typeof ProcessRoute
@@ -842,7 +841,9 @@ export interface RootRouteChildren {
   StarRoute: typeof StarRoute
   TermsRoute: typeof TermsRoute
   ViralRoute: typeof ViralRoute
+  InsightsSlugRoute: typeof InsightsSlugRoute
   EnIndexRoute: typeof EnIndexRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
   JaIndexRoute: typeof JaIndexRoute
   ThIndexRoute: typeof ThIndexRoute
   ViIndexRoute: typeof ViIndexRoute
@@ -940,13 +941,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InfluencerRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/insights': {
-      id: '/insights'
-      path: '/insights'
-      fullPath: '/insights'
-      preLoaderRoute: typeof InsightsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/magazine': {
       id: '/magazine'
       path: '/magazine'
@@ -1017,12 +1011,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/insights/': {
+      id: '/insights/'
+      path: '/insights'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/insights/$slug': {
       id: '/insights/$slug'
-      path: '/$slug'
+      path: '/insights/$slug'
       fullPath: '/insights/$slug'
       preLoaderRoute: typeof InsightsSlugRouteImport
-      parentRoute: typeof InsightsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/ja/': {
       id: '/ja/'
@@ -1349,18 +1350,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface InsightsRouteChildren {
-  InsightsSlugRoute: typeof InsightsSlugRoute
-}
-
-const InsightsRouteChildren: InsightsRouteChildren = {
-  InsightsSlugRoute: InsightsSlugRoute,
-}
-
-const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
-  InsightsRouteChildren,
-)
-
 interface ServicesRouteChildren {
   ServicesBrandAmbassadorRoute: typeof ServicesBrandAmbassadorRoute
   ServicesCelebritySeedingRoute: typeof ServicesCelebritySeedingRoute
@@ -1398,7 +1387,6 @@ const rootRouteChildren: RootRouteChildren = {
   EventRoute: EventRoute,
   FaqRoute: FaqRoute,
   InfluencerRoute: InfluencerRoute,
-  InsightsRoute: InsightsRouteWithChildren,
   MagazineRoute: MagazineRoute,
   PrivacyRoute: PrivacyRoute,
   ProcessRoute: ProcessRoute,
@@ -1408,7 +1396,9 @@ const rootRouteChildren: RootRouteChildren = {
   StarRoute: StarRoute,
   TermsRoute: TermsRoute,
   ViralRoute: ViralRoute,
+  InsightsSlugRoute: InsightsSlugRoute,
   EnIndexRoute: EnIndexRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
   JaIndexRoute: JaIndexRoute,
   ThIndexRoute: ThIndexRoute,
   ViIndexRoute: ViIndexRoute,
