@@ -172,9 +172,9 @@ const InsightsIndexRoute = InsightsIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const InsightsSlugRoute = InsightsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => InsightsRoute,
+  id: '/insights/$slug',
+  path: '/insights/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const JaIndexRoute = JaIndexRouteImport.update({
   id: '/ja/',
@@ -841,6 +841,7 @@ export interface RootRouteChildren {
   StarRoute: typeof StarRoute
   TermsRoute: typeof TermsRoute
   ViralRoute: typeof ViralRoute
+  InsightsSlugRoute: typeof InsightsSlugRoute
   EnIndexRoute: typeof EnIndexRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
   JaIndexRoute: typeof JaIndexRoute
@@ -1019,10 +1020,10 @@ declare module '@tanstack/react-router' {
     }
     '/insights/$slug': {
       id: '/insights/$slug'
-      path: '/$slug'
+      path: '/insights/$slug'
       fullPath: '/insights/$slug'
       preLoaderRoute: typeof InsightsSlugRouteImport
-      parentRoute: typeof InsightsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/ja/': {
       id: '/ja/'
@@ -1395,6 +1396,7 @@ const rootRouteChildren: RootRouteChildren = {
   StarRoute: StarRoute,
   TermsRoute: TermsRoute,
   ViralRoute: ViralRoute,
+  InsightsSlugRoute: InsightsSlugRoute,
   EnIndexRoute: EnIndexRoute,
   InsightsIndexRoute: InsightsIndexRoute,
   JaIndexRoute: JaIndexRoute,

@@ -8,11 +8,12 @@ export const SITE_URL = "https://clamoa.com";
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
   name: "CLAMOA",
   alternateName: "클라모아",
   url: SITE_URL,
   logo: `${SITE_URL}/__l5e/assets-v1/085b2230-7ab0-414e-abd3-c2dcbc1ed4a5/clamoa-logo.png`,
-  sameAs: ["[인스타그램 URL]"],
+  sameAs: ["https://www.instagram.com/celeb_style_moa"],
   areaServed: ["KR", "JP", "TW", "CN"],
   address: {
     "@type": "PostalAddress",
@@ -28,6 +29,7 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": `${SITE_URL}/#localbusiness`,
+  parentOrganization: { "@id": `${SITE_URL}/#organization` },
   name: "CLAMOA",
   url: SITE_URL,
   image: `${SITE_URL}/__l5e/assets-v1/085b2230-7ab0-414e-abd3-c2dcbc1ed4a5/clamoa-logo.png`,
@@ -68,6 +70,7 @@ export function serviceSchema(opts: {
     areaServed: opts.areaServed ?? ["KR"],
     provider: {
       "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
       name: "CLAMOA",
       url: SITE_URL,
     },
