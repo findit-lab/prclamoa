@@ -49,7 +49,7 @@ function ContactPage() {
               브랜드 상황을 남겨주시면 담당자가 제품 카테고리와 캠페인 목표에 맞는 PR 방향을
               제안드립니다.
             </p>
-            <div className="mt-12 space-y-2 text-body-md text-secondary">
+            <div className="mt-12 space-y-2 text-body-md text-secondary break-keep">
               <p>서울특별시 강남구 선릉로155길 23-3, 3층</p>
               <p>0507-1322-0092</p>
               <p>

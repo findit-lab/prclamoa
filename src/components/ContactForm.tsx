@@ -68,7 +68,7 @@ export function ContactForm({
           alert(t("네트워크 오류로 전송에 실패했습니다."));
         }
       }}
-      className={className}
+      className={`break-keep ${className}`}
     >
       {(
         [
