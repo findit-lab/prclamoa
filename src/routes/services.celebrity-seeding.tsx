@@ -1,6 +1,30 @@
 import { koServiceAlternates } from "@/i18n/serviceHead";
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import { faqJsonLdScripts } from "@/lib/schema";
+
+const FAQS = [
+        {
+          q: "셀럽 협찬은 어떤 브랜드에 효과적인가요?",
+          a: "런칭 직후 인지도가 필요한 브랜드, 셀럽 착용을 통해 화제성을 높이고 싶은 브랜드 그리고 글로벌 진출을 앞두고 K-셀럽 레퍼런스가 필요한 브랜드에 특히 효과적입니다.",
+        },
+        {
+          q: "협찬 비용은 어떻게 책정되나요?",
+          a: "쇼룸 입점에 따른 월 대행비로 운영되며, 셀럽 착용 건수에 따른 별도의 추가 비용은 발생하지 않습니다.",
+        },
+        {
+          q: "셀럽 착용은 보장되나요?",
+          a: "쇼룸 협찬은 스타일리스트의 픽업과 실제 착용 여부에 따라 진행되기 때문에 특정 셀럽의 착용을 보장하기는 어렵습니다.",
+        },
+        {
+          q: "협찬 후 노출 자료는 2차 활용이 가능한가요?",
+          a: "셀럽의 초상권 및 성명권과 관련된 사항은 소속사와의 별도 협의가 필요하기 때문에, 협찬을 통해 확보된 노출 자료를 광고나 2차 활용하고자 할 경우 반드시 사전에 담당자에게 말씀해 주셔야 합니다.",
+        },
+        {
+          q: "최소 계약 기간은 어느 정도인가요?",
+          a: "셀럽 쇼룸 PR의 최소 계약 기간은 6개월입니다. 브랜드 및 제품에 대한 스타일리스트 인지도를 형성하고 지속적인 피칭을 통해 실제 착용으로 연결하기 위해 일정 기간의 운영이 필요합니다.",
+        },
+      ];
 
 export const Route = createFileRoute("/services/celebrity-seeding")({
   head: () => ({
@@ -18,6 +42,7 @@ export const Route = createFileRoute("/services/celebrity-seeding")({
       },
       { property: "og:url", content: "https://clamoa.com/services/celebrity-seeding" },
     ],
+    scripts: faqJsonLdScripts(FAQS),
     links: [{ rel: "canonical", href: "https://clamoa.com/services/celebrity-seeding" }, ...koServiceAlternates("celebrity-seeding")],
   }),
   component: () => (
@@ -56,28 +81,7 @@ export const Route = createFileRoute("/services/celebrity-seeding")({
         "제품별 픽업률 및 착용률 데이터",
         "주간 협찬 및 셀럽 노출 성과 리포트",
       ]}
-      faqs={[
-        {
-          q: "셀럽 협찬은 어떤 브랜드에 효과적인가요?",
-          a: "런칭 직후 인지도가 필요한 브랜드, 셀럽 착용을 통해 화제성을 높이고 싶은 브랜드 그리고 글로벌 진출을 앞두고 K-셀럽 레퍼런스가 필요한 브랜드에 특히 효과적입니다.",
-        },
-        {
-          q: "협찬 비용은 어떻게 책정되나요?",
-          a: "쇼룸 입점에 따른 월 대행비로 운영되며, 셀럽 착용 건수에 따른 별도의 추가 비용은 발생하지 않습니다.",
-        },
-        {
-          q: "셀럽 착용은 보장되나요?",
-          a: "쇼룸 협찬은 스타일리스트의 픽업과 실제 착용 여부에 따라 진행되기 때문에 특정 셀럽의 착용을 보장하기는 어렵습니다.",
-        },
-        {
-          q: "협찬 후 노출 자료는 2차 활용이 가능한가요?",
-          a: "셀럽의 초상권 및 성명권과 관련된 사항은 소속사와의 별도 협의가 필요하기 때문에, 협찬을 통해 확보된 노출 자료를 광고나 2차 활용하고자 할 경우 반드시 사전에 담당자에게 말씀해 주셔야 합니다.",
-        },
-        {
-          q: "최소 계약 기간은 어느 정도인가요?",
-          a: "셀럽 쇼룸 PR의 최소 계약 기간은 6개월입니다. 브랜드 및 제품에 대한 스타일리스트 인지도를 형성하고 지속적인 피칭을 통해 실제 착용으로 연결하기 위해 일정 기간의 운영이 필요합니다.",
-        },
-      ]}
+      faqs={FAQS}
     />
   ),
 });

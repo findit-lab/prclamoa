@@ -11,6 +11,19 @@ export const Route = createFileRoute("/robots.txt")({
           "",
           "Sitemap: https://clamoa.com/sitemap.xml",
           "",
+          ...[
+            "GPTBot",
+            "OAI-SearchBot",
+            "ChatGPT-User",
+            "ClaudeBot",
+            "Claude-SearchBot",
+            "Claude-User",
+            "PerplexityBot",
+            "Perplexity-User",
+            "Google-Extended",
+            "CCBot",
+            "Applebot-Extended",
+          ].flatMap((agent) => [`User-agent: ${agent}`, "Allow: /", ""]),
         ].join("\n");
         return new Response(body, {
           headers: {

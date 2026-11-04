@@ -1,6 +1,22 @@
 import { koServiceAlternates } from "@/i18n/serviceHead";
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import { faqJsonLdScripts } from "@/lib/schema";
+
+const FAQS = [
+        {
+          q: "SNS / YouTube PPL과 쇼룸 협찬의 차이는?",
+          a: "SNS / YouTube PPL은 비용을 기반으로 인플루언서·셀럽의 콘텐츠 내 노출을 사전에 협의해 진행하는 방식이며, 쇼룸 협찬은 스타일리스트 픽업을 통해 연예인 착용 및 자연스러운 노출을 기대하는 방식입니다.",
+        },
+        {
+          q: "비용은 어떻게 책정되나요?",
+          a: "인플루언서·셀럽의 인지도, 채널 규모, 콘텐츠 유형, 노출 방식 등에 따라 비용이 상이하며, 진행 전 협의를 통해 최종 비용을 안내드립니다.",
+        },
+        {
+          q: "발행 후 콘텐츠를 2차 활용할 수 있나요?",
+          a: "2차 활용은 가능하며, 활용 채널·기간·범위에 따라 별도 비용이 발생합니다. 진행 전 사전 협의를 통해 사용 조건과 비용을 확정합니다.",
+        },
+      ];
 
 export const Route = createFileRoute("/services/ppl-content-placement")({
   head: () => ({
@@ -18,6 +34,7 @@ export const Route = createFileRoute("/services/ppl-content-placement")({
       },
       { property: "og:url", content: "https://clamoa.com/services/ppl-content-placement" },
     ],
+    scripts: faqJsonLdScripts(FAQS),
     links: [{ rel: "canonical", href: "https://clamoa.com/services/ppl-content-placement" }, ...koServiceAlternates("ppl-content-placement")],
   }),
   component: () => (
@@ -56,20 +73,7 @@ export const Route = createFileRoute("/services/ppl-content-placement")({
         "발행 콘텐츠 아카이브",
         "최종 진행 결과 취합 리포트",
       ]}
-      faqs={[
-        {
-          q: "SNS / YouTube PPL과 쇼룸 협찬의 차이는?",
-          a: "SNS / YouTube PPL은 비용을 기반으로 인플루언서·셀럽의 콘텐츠 내 노출을 사전에 협의해 진행하는 방식이며, 쇼룸 협찬은 스타일리스트 픽업을 통해 연예인 착용 및 자연스러운 노출을 기대하는 방식입니다.",
-        },
-        {
-          q: "비용은 어떻게 책정되나요?",
-          a: "인플루언서·셀럽의 인지도, 채널 규모, 콘텐츠 유형, 노출 방식 등에 따라 비용이 상이하며, 진행 전 협의를 통해 최종 비용을 안내드립니다.",
-        },
-        {
-          q: "발행 후 콘텐츠를 2차 활용할 수 있나요?",
-          a: "2차 활용은 가능하며, 활용 채널·기간·범위에 따라 별도 비용이 발생합니다. 진행 전 사전 협의를 통해 사용 조건과 비용을 확정합니다.",
-        },
-      ]}
+      faqs={FAQS}
     />
   ),
 });

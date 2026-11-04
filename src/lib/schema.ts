@@ -34,7 +34,6 @@ export const localBusinessSchema = {
   url: SITE_URL,
   image: `${SITE_URL}/__l5e/assets-v1/085b2230-7ab0-414e-abd3-c2dcbc1ed4a5/clamoa-logo.png`,
   telephone: "+82-507-1322-0092",
-  priceRange: "$$$",
   address: {
     "@type": "PostalAddress",
     streetAddress: "선릉로155길 23-3, 3층",
@@ -42,14 +41,6 @@ export const localBusinessSchema = {
     addressRegion: "Seoul",
     addressCountry: "KR",
   },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "10:00",
-      closes: "19:00",
-    },
-  ],
   areaServed: ["KR", "JP", "TW", "CN"],
 };
 
@@ -95,4 +86,20 @@ export function jsonLdScriptProps(schema: unknown) {
     type: "application/ld+json" as const,
     dangerouslySetInnerHTML: { __html: JSON.stringify(schema) },
   };
+}
+
+export function faqJsonLdScripts(faqs: ReadonlyArray<{ q: string; a: string }>) {
+  if (faqs.length === 0) return [];
+  return [{
+    type: "application/ld+json" as const,
+    children: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map(({ q, a }) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    }),
+  }];
 }

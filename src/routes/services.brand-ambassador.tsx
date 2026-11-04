@@ -1,6 +1,22 @@
 import { koServiceAlternates } from "@/i18n/serviceHead";
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import { faqJsonLdScripts } from "@/lib/schema";
+
+const FAQS = [
+        {
+          q: "협찬과 앰버서더는 어떻게 다른가요?",
+          a: "협찬은 단발성 노출, 앰버서더는 계약 기간 동안 독점적·장기적 협업입니다.",
+        },
+        {
+          q: "계약 기간은 보통 어떻게 잡나요?",
+          a: "6개월~1년 단위가 일반적이며, 시즌·시장 진출 일정과 맞춥니다.",
+        },
+        {
+          q: "글로벌 활용도 가능한가요?",
+          a: "사용 권한 협의 시 일본·대만·중국 등 글로벌 활용 조건을 함께 설계합니다.",
+        },
+      ];
 
 export const Route = createFileRoute("/services/brand-ambassador")({
   head: () => ({
@@ -18,6 +34,7 @@ export const Route = createFileRoute("/services/brand-ambassador")({
       },
       { property: "og:url", content: "https://clamoa.com/services/brand-ambassador" },
     ],
+    scripts: faqJsonLdScripts(FAQS),
     links: [{ rel: "canonical", href: "https://clamoa.com/services/brand-ambassador" }, ...koServiceAlternates("brand-ambassador")],
   }),
   component: () => (
@@ -52,20 +69,7 @@ export const Route = createFileRoute("/services/brand-ambassador")({
         "아티스트 SNS 게재 콘텐츠",
         "행사 참석 등 계약된 앰버서더 활동 결과물",
       ]}
-      faqs={[
-        {
-          q: "협찬과 앰버서더는 어떻게 다른가요?",
-          a: "협찬은 단발성 노출, 앰버서더는 계약 기간 동안 독점적·장기적 협업입니다.",
-        },
-        {
-          q: "계약 기간은 보통 어떻게 잡나요?",
-          a: "6개월~1년 단위가 일반적이며, 시즌·시장 진출 일정과 맞춥니다.",
-        },
-        {
-          q: "글로벌 활용도 가능한가요?",
-          a: "사용 권한 협의 시 일본·대만·중국 등 글로벌 활용 조건을 함께 설계합니다.",
-        },
-      ]}
+      faqs={FAQS}
     />
   ),
 });

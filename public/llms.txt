@@ -6,29 +6,56 @@ CLAMOA(클라모아)는 패션·라이프스타일 브랜드의 문화적 가시
 
 ## Pages
 
-- [Home](/): 브랜드, 서비스 라인업, 대표 캠페인 개요.
-- [About](/about): CLAMOA의 미션, 팀, 커버리지.
-- [Services](/services): 8개 PR 서비스 라인업 인덱스.
-- [Celebrity Seeding](/services/celebrity-seeding): K-pop·배우 셀럽 협찬 운영.
-- [Stylist Relations](/services/stylist-relations): 스타일리스트 네트워크 기반 협찬.
-- [PPL & Content Placement](/services/ppl-content-placement): 드라마·예능 PPL 운영.
-- [Influencer PR](/services/influencer-pr): 인플루언서 셀렉션·시딩·페이드 콘텐츠.
-- [Editorial & Viral PR](/services/editorial-viral-pr): 매거진·온라인 매체 에디토리얼.
-- [Offline Event PR](/services/offline-event-pr): 팝업·런칭 이벤트 기획·운영.
-- [Brand Ambassador](/services/brand-ambassador): 앰배서더 캠페인 설계·운영.
-- [Global Expansion](/services/global-expansion): 일본·대만·중국 시장 진출 PR.
-- [Case Studies](/case-studies): 브랜드별 캠페인 결과 아카이브.
-- [Star Archive](/star): 셀럽 협찬 콘텐츠 아카이브.
-- [Magazine Archive](/magazine): 매거진 노출 아카이브.
-- [Influencer Archive](/influencer): 인플루언서 캠페인 피드.
-- [Brand Ambassador Archive](/brand-ambassador): 앰배서더 캠페인 아카이브.
-- [Event Archive](/event): 오프라인 이벤트 아카이브.
-- [Process](/process): 브리프부터 리포팅까지 진행 방식.
-- [Insights](/insights): 패션 PR 인사이트 아티클.
-- [FAQ](/faq): 자주 묻는 질문.
-- [Contact](/contact): 상담 문의.
+- [Home](https://clamoa.com/): 브랜드, 서비스 라인업, 대표 캠페인 개요.
+- [About](https://clamoa.com/about): CLAMOA 소개, 서비스, 네트워크, 쇼룸 위치.
+- [Services](https://clamoa.com/services): 8개 PR 서비스 라인업 인덱스.
+- [Celebrity Seeding](https://clamoa.com/services/celebrity-seeding): K-pop·배우 셀럽 협찬 운영.
+- [Stylist Relations](https://clamoa.com/services/stylist-relations): 스타일리스트 네트워크 기반 협찬.
+- [PPL & Content Placement](https://clamoa.com/services/ppl-content-placement): 드라마·예능 PPL 운영.
+- [Influencer PR](https://clamoa.com/services/influencer-pr): 인플루언서 셀렉션·시딩·페이드 콘텐츠.
+- [Editorial & Viral PR](https://clamoa.com/services/editorial-viral-pr): 매거진·온라인 매체 에디토리얼.
+- [Offline Event PR](https://clamoa.com/services/offline-event-pr): 팝업·런칭 이벤트 기획·운영.
+- [Brand Ambassador](https://clamoa.com/services/brand-ambassador): 앰배서더 캠페인 설계·운영.
+- [Global Expansion](https://clamoa.com/services/global-expansion): 일본·대만·중국 시장 진출 PR.
+- [Case Studies](https://clamoa.com/case-studies): 패션 PR 캠페인 사례를 목표, 진행 서비스, 결과, 2차 활용 순서로 정리한 페이지.
+- [Star Archive](https://clamoa.com/star): 셀럽 협찬 콘텐츠 아카이브.
+- [Viral Archive](https://clamoa.com/viral): 바이럴 콘텐츠 아카이브.
+- [Magazine Archive](https://clamoa.com/magazine): 매거진 노출 아카이브.
+- [Influencer Archive](https://clamoa.com/influencer): 인플루언서 캠페인 피드.
+- [Brand Ambassador Archive](https://clamoa.com/brand-ambassador): 앰배서더 캠페인 아카이브.
+- [Event Archive](https://clamoa.com/event): 오프라인 이벤트 아카이브.
+- [Process](https://clamoa.com/process): 브리프부터 리포팅까지 진행 방식.
+- [Insights](https://clamoa.com/insights): 패션 PR 인사이트 아티클.
+- [FAQ](https://clamoa.com/faq): 자주 묻는 질문.
+- [Contact](https://clamoa.com/contact): 상담 문의.
+
+## Multilingual Hubs
+
+- [English Home](https://clamoa.com/en): 브랜드와 PR 서비스 소개.
+- [English Services](https://clamoa.com/en/services): 8개 PR 서비스 안내.
+- [English Journal](https://clamoa.com/en/journal): 패션 PR 저널 목록.
+- [Japanese Home](https://clamoa.com/ja): 브랜드와 PR 서비스 소개.
+- [Japanese Services](https://clamoa.com/ja/services): 8개 PR 서비스 안내.
+- [Japanese Journal](https://clamoa.com/ja/journal): 패션 PR 저널 목록.
+- [Thai Home](https://clamoa.com/th): 브랜드와 PR 서비스 소개.
+- [Thai Services](https://clamoa.com/th/services): 8개 PR 서비스 안내.
+- [Thai Journal](https://clamoa.com/th/journal): 패션 PR 저널 목록.
+- [Vietnamese Home](https://clamoa.com/vi): 브랜드와 PR 서비스 소개.
+- [Vietnamese Services](https://clamoa.com/vi/services): 8개 PR 서비스 안내.
+- [Vietnamese Journal](https://clamoa.com/vi/journal): 패션 PR 저널 목록.
+- [Chinese Home](https://clamoa.com/zh): 브랜드와 PR 서비스 소개.
+- [Chinese Services](https://clamoa.com/zh/services): 8개 PR 서비스 안내.
+- [Chinese Journal](https://clamoa.com/zh/journal): 패션 PR 저널 목록.
+
+## Contact
+
+주소: 서울특별시 강남구 선릉로155길 23-3, 3층
+전화: 0507-1322-0092
+이메일: dannjo@clamoa.com
+
+- [문의](https://clamoa.com/contact): 상담 문의.
 
 ## Optional
 
-- [Privacy](/privacy): 개인정보 처리방침.
-- [Terms](/terms): 서비스 이용약관.
+- [Privacy](https://clamoa.com/privacy): 개인정보 처리방침.
+- [Terms](https://clamoa.com/terms): 서비스 이용약관.

@@ -9,6 +9,7 @@ import {
   type ServiceContent,
   type ServiceLocale,
 } from "@/data/services";
+import { faqJsonLdScripts } from "@/lib/schema";
 
 export function servicesHubUrl(locale: ServiceLocale) {
   return `${SITE_URL}/${locale}/services`;
@@ -90,6 +91,7 @@ export function serviceDetailHead(locale: ServiceLocale, service: ServiceContent
       ),
     ],
     scripts: [
+      ...faqJsonLdScripts(service.faqs),
       {
         type: "application/ld+json",
         children: JSON.stringify({
