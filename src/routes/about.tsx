@@ -288,8 +288,9 @@ function AboutPage() {
                   스타일리스트와 셀럽이 직접 방문해 제품을 경험하고, 룩북과 실물을 동시에 확인할 수
                   있는 물리적 공간을 제공합니다.
                 </p>
-                <div className="space-y-2">
-                  <p className="text-body-md text-secondary">서울특별시 강남구 압구정로데오</p>
+                <div className="space-y-2 break-keep">
+                  <p className="text-body-md text-secondary">서울특별시 강남구 선릉로155길 23-3, 3층</p>
+                  <p className="text-body-md text-secondary">0507-1322-0092</p>
                   <p className="text-body-md text-secondary">쇼룸 방문은 사전 예약을 권장합니다.</p>
                 </div>
               </div>
