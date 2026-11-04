@@ -167,22 +167,9 @@ function InsightDetail() {
         <article className="px-5 md:px-16 pb-20 md:pb-32 reveal">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 md:col-span-8 md:col-start-1 space-y-8 border-t-2 border-deep-ink pt-12">
-              <p className="text-body-md leading-relaxed text-secondary">
-                이 글은 작성 중입니다. 본문은 곧 업데이트됩니다. 관련 서비스 페이지에서 CLAMOA의
-                운영 방식을 먼저 확인하실 수 있습니다.
-              </p>
               <div className="space-y-4">
                 <h2 className="text-headline-md uppercase">요약</h2>
                 <p className="text-body-md leading-relaxed">{post.excerpt}</p>
-              </div>
-              <div className="space-y-4">
-                <h2 className="text-headline-md uppercase">목차 (예정)</h2>
-                <ul className="space-y-2 text-body-md text-secondary list-disc pl-5">
-                  <li>배경과 문제 정의</li>
-                  <li>CLAMOA의 접근 방식</li>
-                  <li>실무 체크리스트</li>
-                  <li>관련 사례 및 결과 지표</li>
-                </ul>
               </div>
             </div>
 

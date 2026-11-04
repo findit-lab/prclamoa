@@ -115,16 +115,12 @@ function eventId(eventName: LandingEventName) {
 }
 
 function postJson(endpoint: string, payload: unknown) {
-  const body = JSON.stringify(payload);
-  if (navigator.sendBeacon) {
-    const blob = new Blob([body], { type: "application/json" });
-    if (navigator.sendBeacon(endpoint, blob)) return;
-  }
   fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
+    credentials: "omit",
     keepalive: true,
-    body,
+    body: JSON.stringify(payload),
   }).catch(() => {});
 }
 
