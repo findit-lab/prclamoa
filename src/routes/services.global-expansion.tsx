@@ -1,6 +1,26 @@
 import { koServiceAlternates } from "@/i18n/serviceHead";
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import { faqJsonLdScripts } from "@/lib/schema";
+
+const FAQS = [
+        {
+          q: "해외 유통은 어떤 방식으로 진행되나요?",
+          a: "브랜드의 홀세일 라인시트를 바탕으로 현지 바이어·유통 채널에 제안하고, 관심 채널과 조건 협의 후 발주서(PO) 기준으로 입점 및 주문을 진행합니다.",
+        },
+        {
+          q: "샤오홍수 마케팅과 왕홍 라이브커머스는 어떻게 진행되나요?",
+          a: "샤오홍수 마케팅은 연예인 착용 자료를 지속적으로 콘텐츠화해 아카이빙하거나, 중국 인플루언서 시딩을 통해 현지 콘텐츠를 확보하는 방식으로 진행합니다. 왕홍 라이브커머스는 적합한 왕홍과 매칭이 성사된 후 라인시트를 전달하고 홀세일가 및 조건을 협의한 뒤 커머스를 진행하며, 발생한 주문 건에 맞춰 제품을 출고합니다.",
+        },
+        {
+          q: "편집샵 입점은 어떤 방식인가요?",
+          a: "현지 바이어가 브랜드 라인시트를 검토한 뒤 원하는 제품을 발주하는 방식으로 진행되며, 일반적으로 홀세일가 기준의 완사입 구조로 운영됩니다.",
+        },
+        {
+          q: "해외 유통 총판도 진행하나요?",
+          a: "초기에는 테스트 형태로 소량 발주를 먼저 진행해 현지 반응을 확인하고, 판매 성과와 시장 가능성이 확인되면 이후 총판 계약까지 협의해 진행할 수 있습니다.",
+        },
+      ];
 
 const REGIONS = [
   {
@@ -36,6 +56,7 @@ export const Route = createFileRoute("/services/global-expansion")({
       },
       { property: "og:url", content: "https://clamoa.com/services/global-expansion" },
     ],
+    scripts: faqJsonLdScripts(FAQS),
     links: [{ rel: "canonical", href: "https://clamoa.com/services/global-expansion" }, ...koServiceAlternates("global-expansion")],
   }),
   component: () => (
@@ -93,24 +114,7 @@ export const Route = createFileRoute("/services/global-expansion")({
           </ul>
         </div>
       }
-      faqs={[
-        {
-          q: "해외 유통은 어떤 방식으로 진행되나요?",
-          a: "브랜드의 홀세일 라인시트를 바탕으로 현지 바이어·유통 채널에 제안하고, 관심 채널과 조건 협의 후 발주서(PO) 기준으로 입점 및 주문을 진행합니다.",
-        },
-        {
-          q: "샤오홍수 마케팅과 왕홍 라이브커머스는 어떻게 진행되나요?",
-          a: "샤오홍수 마케팅은 연예인 착용 자료를 지속적으로 콘텐츠화해 아카이빙하거나, 중국 인플루언서 시딩을 통해 현지 콘텐츠를 확보하는 방식으로 진행합니다. 왕홍 라이브커머스는 적합한 왕홍과 매칭이 성사된 후 라인시트를 전달하고 홀세일가 및 조건을 협의한 뒤 커머스를 진행하며, 발생한 주문 건에 맞춰 제품을 출고합니다.",
-        },
-        {
-          q: "편집샵 입점은 어떤 방식인가요?",
-          a: "현지 바이어가 브랜드 라인시트를 검토한 뒤 원하는 제품을 발주하는 방식으로 진행되며, 일반적으로 홀세일가 기준의 완사입 구조로 운영됩니다.",
-        },
-        {
-          q: "해외 유통 총판도 진행하나요?",
-          a: "초기에는 테스트 형태로 소량 발주를 먼저 진행해 현지 반응을 확인하고, 판매 성과와 시장 가능성이 확인되면 이후 총판 계약까지 협의해 진행할 수 있습니다.",
-        },
-      ]}
+      faqs={FAQS}
     />
   ),
 });

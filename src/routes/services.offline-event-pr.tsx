@@ -1,6 +1,22 @@
 import { koServiceAlternates } from "@/i18n/serviceHead";
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import { faqJsonLdScripts } from "@/lib/schema";
+
+const FAQS = [
+        {
+          q: "행사 규모는 어떻게 정하나요?",
+          a: "타깃 인원, 미디어 노출 목표, 예산을 기준으로 50~300명 범위에서 설계합니다.",
+        },
+        {
+          q: "셀럽 노출 자료를 2차 활용할 수 있나요?",
+          a: "2차 활용은 가능하나, 활용 채널·기간·범위에 따라 별도 협의가 필요하며 추가 비용이 발생할 수 있습니다.",
+        },
+        {
+          q: "공간이 없어도 가능한가요?",
+          a: "행사 진행을 위한 공간이 필요하며, 공간이 없는 경우 쇼룸·별도 팝업 공간 등의 매칭부터 함께 진행할 수 있습니다. 또한 백화점 팝업 등 기존 행사 공간이 확보된 경우에도 진행 가능합니다.",
+        },
+      ];
 
 export const Route = createFileRoute("/services/offline-event-pr")({
   head: () => ({
@@ -18,6 +34,7 @@ export const Route = createFileRoute("/services/offline-event-pr")({
       },
       { property: "og:url", content: "https://clamoa.com/services/offline-event-pr" },
     ],
+    scripts: faqJsonLdScripts(FAQS),
     links: [{ rel: "canonical", href: "https://clamoa.com/services/offline-event-pr" }, ...koServiceAlternates("offline-event-pr")],
   }),
   component: () => (
@@ -55,20 +72,7 @@ export const Route = createFileRoute("/services/offline-event-pr")({
         "포토월 및 현장 운영 결과 정리",
         "행사 종료 후 최종 진행 결과 리포트",
       ]}
-      faqs={[
-        {
-          q: "행사 규모는 어떻게 정하나요?",
-          a: "타깃 인원, 미디어 노출 목표, 예산을 기준으로 50~300명 범위에서 설계합니다.",
-        },
-        {
-          q: "셀럽 노출 자료를 2차 활용할 수 있나요?",
-          a: "2차 활용은 가능하나, 활용 채널·기간·범위에 따라 별도 협의가 필요하며 추가 비용이 발생할 수 있습니다.",
-        },
-        {
-          q: "공간이 없어도 가능한가요?",
-          a: "행사 진행을 위한 공간이 필요하며, 공간이 없는 경우 쇼룸·별도 팝업 공간 등의 매칭부터 함께 진행할 수 있습니다. 또한 백화점 팝업 등 기존 행사 공간이 확보된 경우에도 진행 가능합니다.",
-        },
-      ]}
+      faqs={FAQS}
     />
   ),
 });

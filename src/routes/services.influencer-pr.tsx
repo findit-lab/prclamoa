@@ -1,6 +1,22 @@
 import { koServiceAlternates } from "@/i18n/serviceHead";
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import { faqJsonLdScripts } from "@/lib/schema";
+
+const FAQS = [
+        {
+          q: "마이크로/메가 인플루언서 중 어느 쪽이 좋나요?",
+          a: "캠페인 목적에 따라 다릅니다. 인지도는 메가, 전환은 마이크로·니치 인플루언서가 효과적일 수 있습니다.",
+        },
+        {
+          q: "콘텐츠 사용 권한은 어디까지인가요?",
+          a: "기본 SNS 게시 + 브랜드 채널 재게시 권한을 협의하며, 광고 활용은 별도 옵션으로 진행합니다.",
+        },
+        {
+          q: "최소 캠페인 규모는?",
+          a: "단일 시즌 캠페인 기준 5~10명 풀로 시작하는 것을 권장합니다.",
+        },
+      ];
 
 export const Route = createFileRoute("/services/influencer-pr")({
   head: () => ({
@@ -18,6 +34,7 @@ export const Route = createFileRoute("/services/influencer-pr")({
       },
       { property: "og:url", content: "https://clamoa.com/services/influencer-pr" },
     ],
+    scripts: faqJsonLdScripts(FAQS),
     links: [{ rel: "canonical", href: "https://clamoa.com/services/influencer-pr" }, ...koServiceAlternates("influencer-pr")],
   }),
   component: () => (
@@ -52,20 +69,7 @@ export const Route = createFileRoute("/services/influencer-pr")({
         "콘텐츠 가이드라인",
         "진행 결과 취합 및 통합 리포트 제공",
       ]}
-      faqs={[
-        {
-          q: "마이크로/메가 인플루언서 중 어느 쪽이 좋나요?",
-          a: "캠페인 목적에 따라 다릅니다. 인지도는 메가, 전환은 마이크로·니치 인플루언서가 효과적일 수 있습니다.",
-        },
-        {
-          q: "콘텐츠 사용 권한은 어디까지인가요?",
-          a: "기본 SNS 게시 + 브랜드 채널 재게시 권한을 협의하며, 광고 활용은 별도 옵션으로 진행합니다.",
-        },
-        {
-          q: "최소 캠페인 규모는?",
-          a: "단일 시즌 캠페인 기준 5~10명 풀로 시작하는 것을 권장합니다.",
-        },
-      ]}
+      faqs={FAQS}
     />
   ),
 });

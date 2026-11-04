@@ -1,6 +1,26 @@
 import { koServiceAlternates } from "@/i18n/serviceHead";
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import { faqJsonLdScripts } from "@/lib/schema";
+
+const FAQS = [
+        {
+          q: "스타일리스트 릴레이션과 셀럽 협찬의 차이는?",
+          a: "셀럽 협찬은 특정 셀럽/노출을 타깃팅하는 캠페인성 PR이고, 스타일리스트 릴레이션은 스타일리스트가 상시 픽업하도록 환경을 만드는 인프라성 PR입니다.",
+        },
+        {
+          q: "쇼룸 입점 단위는 어떻게 되나요?",
+          a: "기본 시즌(분기) 단위이며, 신상품 입고 주기에 따라 인벤토리를 업데이트합니다.",
+        },
+        {
+          q: "픽업된 제품 손상은 어떻게 처리되나요?",
+          a: "픽업·반납 시점 컨디션 체크와 보험 가이드를 적용하며, 손상 시 사전 합의된 정산 기준을 따릅니다.",
+        },
+        {
+          q: "어떤 스타일리스트와 연결되나요?",
+          a: "방송·화보·MV·아티스트 활동을 담당하는 현역 스타일리스트 네트워크와 어시스턴트 풀이 포함됩니다.",
+        },
+      ];
 
 export const Route = createFileRoute("/services/stylist-relations")({
   head: () => ({
@@ -18,6 +38,7 @@ export const Route = createFileRoute("/services/stylist-relations")({
       },
       { property: "og:url", content: "https://clamoa.com/services/stylist-relations" },
     ],
+    scripts: faqJsonLdScripts(FAQS),
     links: [{ rel: "canonical", href: "https://clamoa.com/services/stylist-relations" }, ...koServiceAlternates("stylist-relations")],
   }),
   component: () => (
@@ -56,24 +77,7 @@ export const Route = createFileRoute("/services/stylist-relations")({
         "스타일리스트별 픽업/노출 리포트",
         "재고·손상 관리 리포트",
       ]}
-      faqs={[
-        {
-          q: "스타일리스트 릴레이션과 셀럽 협찬의 차이는?",
-          a: "셀럽 협찬은 특정 셀럽/노출을 타깃팅하는 캠페인성 PR이고, 스타일리스트 릴레이션은 스타일리스트가 상시 픽업하도록 환경을 만드는 인프라성 PR입니다.",
-        },
-        {
-          q: "쇼룸 입점 단위는 어떻게 되나요?",
-          a: "기본 시즌(분기) 단위이며, 신상품 입고 주기에 따라 인벤토리를 업데이트합니다.",
-        },
-        {
-          q: "픽업된 제품 손상은 어떻게 처리되나요?",
-          a: "픽업·반납 시점 컨디션 체크와 보험 가이드를 적용하며, 손상 시 사전 합의된 정산 기준을 따릅니다.",
-        },
-        {
-          q: "어떤 스타일리스트와 연결되나요?",
-          a: "방송·화보·MV·아티스트 활동을 담당하는 현역 스타일리스트 네트워크와 어시스턴트 풀이 포함됩니다.",
-        },
-      ]}
+      faqs={FAQS}
     />
   ),
 });

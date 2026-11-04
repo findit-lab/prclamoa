@@ -1,6 +1,22 @@
 import { koServiceAlternates } from "@/i18n/serviceHead";
 import { createFileRoute } from "@tanstack/react-router";
 import { ServiceDetailPage } from "@/components/ServiceDetailPage";
+import { faqJsonLdScripts } from "@/lib/schema";
+
+const FAQS = [
+        {
+          q: "광고 화보와 에디토리얼 화보의 차이는?",
+          a: "광고는 브랜드 메시지 중심, 에디토리얼은 매체의 시즌 테마 안에서 브랜드를 풀어내는 형식입니다.",
+        },
+        {
+          q: "콘텐츠 사용 권한은?",
+          a: "매체 정책에 따라 다르며, 보통 일정 기간 후 브랜드 채널 활용이 가능합니다.",
+        },
+        {
+          q: "바이럴은 어떤 식으로 설계하나요?",
+          a: "에디토리얼 컷에서 SNS 친화 컷·릴스·숏폼을 함께 제작하여 다단 확산을 설계합니다.",
+        },
+      ];
 
 export const Route = createFileRoute("/services/editorial-viral-pr")({
   head: () => ({
@@ -18,6 +34,7 @@ export const Route = createFileRoute("/services/editorial-viral-pr")({
       },
       { property: "og:url", content: "https://clamoa.com/services/editorial-viral-pr" },
     ],
+    scripts: faqJsonLdScripts(FAQS),
     links: [{ rel: "canonical", href: "https://clamoa.com/services/editorial-viral-pr" }, ...koServiceAlternates("editorial-viral-pr")],
   }),
   component: () => (
@@ -48,20 +65,7 @@ export const Route = createFileRoute("/services/editorial-viral-pr")({
         "바이럴 SNS 콘텐츠",
         "노출·확산 리포트",
       ]}
-      faqs={[
-        {
-          q: "광고 화보와 에디토리얼 화보의 차이는?",
-          a: "광고는 브랜드 메시지 중심, 에디토리얼은 매체의 시즌 테마 안에서 브랜드를 풀어내는 형식입니다.",
-        },
-        {
-          q: "콘텐츠 사용 권한은?",
-          a: "매체 정책에 따라 다르며, 보통 일정 기간 후 브랜드 채널 활용이 가능합니다.",
-        },
-        {
-          q: "바이럴은 어떤 식으로 설계하나요?",
-          a: "에디토리얼 컷에서 SNS 친화 컷·릴스·숏폼을 함께 제작하여 다단 확산을 설계합니다.",
-        },
-      ]}
+      faqs={FAQS}
     />
   ),
 });
