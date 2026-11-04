@@ -56,7 +56,7 @@ import scopeInfluencer from "@/assets/scope-influencer.jpg.asset.json";
 import scopeEvent from "@/assets/scope-event.jpg.asset.json";
 import scopeAmbassador from "@/assets/scope-ambassador.jpg.asset.json";
 import { DraggableMarquee } from "@/components/DraggableMarquee";
-import { trackLandingEvent } from "@/lib/utm-tracking";
+import { ContactForm } from "@/components/ContactForm";
 const STAR_IMAGES = [
   starAnyujin.url,
   starByunwooseok.url,
@@ -937,65 +937,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
                 {t("브랜드 상황을 남겨주시면 담당자가 제품 카테고리와 캠페인 목표에 맞는 PR 방향을 제안드립니다. 스타마케팅, PPL, 인플루언서, 언론 홍보, 통합 PR까지 — 가장 적합한 채널과 예산 구성을 함께 설계합니다.")}
               </p>
             </div>
-            <form
-              onSubmit={async (e) => {
-                e.preventDefault();
-                const form = e.currentTarget;
-                const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
-                const fd = new FormData(form);
-                const payload = Object.fromEntries(
-                  [
-                    "name",
-                    "brand",
-                    "email",
-                    "phone",
-                    "category",
-                    "timing",
-                    "service",
-                    "budget",
-                    "website",
-                    "instagram",
-                    "message",
-                  ].map((k) => [k, String(fd.get(k) ?? "").trim()]),
-                );
-                if (submitBtn) {
-                  submitBtn.disabled = true;
-                  submitBtn.textContent = "SENDING...";
-                }
-                try {
-                  const res = await fetch("/api/public/contact", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload),
-                  });
-                  const data = await res.json().catch(() => ({}) as Record<string, unknown>);
-                  if (res.ok && data.ok) {
-                    trackLandingEvent("Lead", { content_name: "clamoa_contact_form" });
-                    if (submitBtn) submitBtn.textContent = t("SENT ✓ — 24시간 내 회신드리겠습니다");
-                    form.reset();
-                  } else {
-                    if (submitBtn) {
-                      submitBtn.disabled = false;
-                      submitBtn.textContent = "SEND INQUIRY";
-                    }
-                    const msg =
-                      data.error === "invalid_email"
-                        ? t("이메일 주소를 올바르게 입력해 주세요.")
-                        : data.error === "missing_fields"
-                          ? t("이름 또는 브랜드명을 입력해 주세요.")
-                          : t("전송에 실패했습니다. 잠시 후 다시 시도해 주세요.");
-                    alert(msg);
-                  }
-                } catch {
-                  if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = "SEND INQUIRY";
-                  }
-                  alert(t("네트워크 오류로 전송에 실패했습니다."));
-                }
-              }}
-              className="col-span-12 md:col-span-6 md:col-start-7 grid grid-cols-2 gap-6"
-            >
+            <ContactForm locale={locale} />
               {(
                 [
                   ["Name", "name", "text", "col-span-2 md:col-span-1", true],
