@@ -40,7 +40,7 @@ function ContactPage() {
           <div className="col-span-12 md:col-span-5">
             <span className="text-label-caps text-secondary block mb-6">CONTACT</span>
             <h1
-              className="font-serif font-bold uppercase leading-[0.9] tracking-[-0.03em] mb-10"
+              className="font-serif font-bold uppercase leading-[0.9] tracking-[-0.03em] mb-10 break-keep"
               style={{ fontSize: "clamp(40px, 7vw, 104px)" }}
             >
               패션 PR 상담 문의
