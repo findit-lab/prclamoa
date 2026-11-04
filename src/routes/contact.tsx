@@ -40,12 +40,12 @@ function ContactPage() {
           <div className="col-span-12 md:col-span-5">
             <span className="text-label-caps text-secondary block mb-6">CONTACT</span>
             <h1
-              className="font-serif font-bold uppercase leading-[0.9] tracking-[-0.03em] mb-10 break-keep"
+              className="font-serif font-normal uppercase leading-[0.9] tracking-[-0.03em] mb-10 break-keep"
               style={{ fontSize: "clamp(40px, 7vw, 104px)" }}
             >
               패션 PR 상담 문의
             </h1>
-            <p className="text-body-lg max-w-2xl border-l-4 border-neon-signal pl-6">
+            <p className="text-body-lg max-w-2xl border-l-4 border-neon-signal pl-6 break-keep">
               브랜드 상황을 남겨주시면 담당자가 제품 카테고리와 캠페인 목표에 맞는 PR 방향을
               제안드립니다.
             </p>
