@@ -139,6 +139,7 @@ export function ContactForm({
           name="service"
           className="bg-transparent border-b border-deep-ink py-3 text-body-md focus:outline-none focus:border-neon-signal"
         >
+          <option>{t("입점제안 / Retail Placement")}</option>
           <option>{t("Celebrity Seeding (셀럽 협찬)")}</option>
           <option>Stylist Relations</option>
           <option>PPL & Content Placement</option>

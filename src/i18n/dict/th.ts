@@ -98,6 +98,7 @@ const dict: Record<string, string> = {
   "6개월 이후": "หลัง 6 เดือน",
   "미정 / 상담 후 결정": "ยังไม่กำหนด / หลังปรึกษา",
   "Service Interest / 희망 서비스": "บริการที่สนใจ",
+  "입점제안 / Retail Placement": "ข้อเสนอการเข้าวางสินค้า (Retail Placement)",
   "Celebrity Seeding (셀럽 협찬)": "Celebrity Seeding (ซีดดิ้งเซเลบ)",
   "Budget Range / 예산 범위": "งบประมาณ",
   "~ 500만원": "ต่ำกว่า 5 ล้านวอน",
