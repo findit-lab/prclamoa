@@ -98,7 +98,7 @@ const dict: Record<string, string> = {
   "6개월 이후": "Sau 6 tháng",
   "미정 / 상담 후 결정": "Chưa quyết định / sau tư vấn",
   "Service Interest / 희망 서비스": "Dịch vụ quan tâm",
-  "입점제안 / Retail Placement": "Đề xuất nhập hàng bán lẻ (Retail Placement)",
+  "입점제안 / Showroom Placement": "Đề xuất trưng bày tại showroom (Showroom Placement)",
   "Celebrity Seeding (셀럽 협찬)": "Celebrity Seeding (Tài trợ người nổi tiếng)",
   "Budget Range / 예산 범위": "Ngân sách",
   "~ 500만원": "Dưới 5 triệu KRW",

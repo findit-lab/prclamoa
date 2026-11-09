@@ -98,7 +98,7 @@ const dict: Record<string, string> = {
   "6개월 이후": "After 6 months",
   "미정 / 상담 후 결정": "Undecided / after consultation",
   "Service Interest / 희망 서비스": "Service Interest",
-  "입점제안 / Retail Placement": "Retail Placement Proposal",
+  "입점제안 / Showroom Placement": "Showroom Placement Proposal",
   "Celebrity Seeding (셀럽 협찬)": "Celebrity Seeding",
   "Budget Range / 예산 범위": "Budget Range",
   "~ 500만원": "Under KRW 5M",
