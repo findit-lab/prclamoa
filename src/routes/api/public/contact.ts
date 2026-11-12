@@ -1,7 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 const TO_EMAIL = "dannjo@clamoa.com";
-const CC_EMAILS = ["jjyoon@findit.company", "gmchoi@findit.company"];
+const CC_EMAILS = [
+  "jjyoon@findit.company",
+  "gmchoi@findit.company",
+  "bylee@findit.company",
+  "tjkim@findit.company",
+];
 
 const MAX_LEN = 2000;
 const clean = (v: unknown) =>
